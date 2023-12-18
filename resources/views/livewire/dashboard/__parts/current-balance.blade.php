@@ -1,5 +1,5 @@
 @if ($my_loan !== null)
-    
+
     <h5><b style="color: rgb(90, 80, 99)">Current Loan</b></h5>
     <div class="col-xxl-4 col-xl-12 ">
         <a title="Payback loan" href="{{ route('payment.gate', ['view' => 'payback', 'loan'=>$my_loan->id]) }}">
@@ -95,9 +95,9 @@
                     style="height:25vh; background-image: linear-gradient(to right, #662d91, rgb(139, 89, 177)); color:#fff">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6">
-                                <span class="m"><strong style="color: #ffc800">Apply for a Loan</strong></span>
-                                <div class="mt-2">
+                            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6" style="padding-top:8%">
+                                <span class=""><strong style="color: #ffc800">Apply for a Loan</strong></span>
+                                <div class="">
                                     <a href="{{ route('new-loan') }}" style="background-color:#fff;" class="btn">
                                         <strong>Get a Loan</strong> </a>
                                 </div>
@@ -112,7 +112,7 @@
                                     .balance {
                                         width: 100px;
                                         position: absolute;
-                                        top: 43px;
+                                        top: 42px;
                                     }
                                 }
 
@@ -143,7 +143,7 @@
                         style="border-radius:2%;position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(102, 45, 145, 0.772);">
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row" style="padding-top: 7%">
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div class="mt-3">
                                     <button style="background-color:#fff; color:black; z-index:1; position:absolute"
