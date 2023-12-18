@@ -88,7 +88,7 @@
               <tr>
                 <td style="padding: 40px 30px 30px 30px; text-align: center; font-size: 1.5em; font-weight: bold;">
                   <a href="https://mightyfinance.co.zm" style="text-decoration: none;">
-                    <img alt="Mighty Finance Solutions" style="width: 90px; height: 60px; border: none; text-decoration: none; color: #750303;" src="{{ asset('public/web/images/01-ft-logo.png') }}">
+                    <img alt="Mighty Finance Solutions" style="width: 90px; height: 60px; border: none; text-decoration: none; color: #750303;" src="https://mightyfinance.co.zm/public/web/images/01-ft-logo.png">
                   </a>
                 </td>
               </tr>
@@ -103,7 +103,7 @@
                     @if ($level === 'error')
                      @lang('Whoops!')
                     @else
-                     @lang('Hi!')
+                     @lang('Dear Administrator!')
                     @endif
                     @endif
                   </h1>
@@ -138,21 +138,19 @@
                 <td style="padding: 30px; text-align: center; font-size: 0.75em; background-color: #ffeada; color: #384049; border: 1em solid #fff;">
                   <p style="margin: 0 0 0.75em 0; line-height: 0;">
                     <!-- LinkedIn logo -->
-                    <a href="{{ $actionUrl }}" style="display: inline-block; text-decoration: none; margin: 0 5px;">
+                    <a href="https://www.linkedin.com/company/mighty-finance-solution/?originalSubdomain=zm" style="display: inline-block; text-decoration: none; margin: 0 5px;">
                       <!-- Replace this with the actual LinkedIn logo SVG -->
-                      <img src="data:image/svg+xml;base64, ..." width="30px" height="30px">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" width="30px" height="30px">
                     </a>
                     <!-- Facebook logo -->
-                    <a href="{{ $actionUrl }}" style="display: inline-block; text-decoration: none; margin: 0 5px;">
+                    <a href="https://web.facebook.com/mightyfinsol/?_rdc=1&_rdr" style="display: inline-block; text-decoration: none; margin: 0 5px;">
                       <!-- Replace this with the actual Facebook logo SVG -->
-                      <img src="data:image/svg+xml;base64, ..." width="30px" height="30px">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-uaK5MQMEY1_ds2IHnWNvKen6q96rbt2rgQ&usqp=CAU width="30px" height="30px">
                     </a>
                     <!-- Instagram logo -->
-                    <a href="{{ $actionUrl }}" style="display: inline-block; text-decoration: none; margin: 0 5px;">
+                    <a href="https://www.instagram.com/mightyfinancesolution/?hl=en" style="display: inline-block; text-decoration: none; margin: 0 5px;">
                       <!-- Replace this with the actual Instagram logo SVG -->
-                      <svg viewBox="-448.436 -467.48 999.99 999.997" width="30px" height="30px" alt="i">
-                        <path d="M -155.515 ..."></path>
-                      </svg>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1024px-Instagram-Icon.png" width="30px" height="30px">
                     </a>
                   </p>
 
