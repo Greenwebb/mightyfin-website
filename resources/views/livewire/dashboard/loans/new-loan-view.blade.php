@@ -303,7 +303,7 @@
                 <!-- section -->
                 <section>
                     <!-- container -->
-                    <div class="container">
+                    <div class="">
                     <!-- main content -->
                     <form  action="{{ route("apply-loan") }}" method="POST" enctype="multipart/form-data" class="main-content">
                         @csrf
@@ -364,12 +364,12 @@
                                 <!-- cards -->
                                 <div>
                                     <div class="col-md-12">
-                                        <input type="text" contentEditable='true' data-mask='K #,##0.00' id="amountInput" name="amount"/>
+                                        <input type="text" class="col-12" contentEditable='true' data-mask='K #,##0.00' id="amountInput" name="amount"/>
                                     </div>
                                 </div>
                                 {{-- <div class="row row-cols-1 row-cols-lg-2 g-4 pb-5 border-bottom">
                                     <div class="col">
-                                        <div class="card text-center h-100 py-5 shadow-sm">
+                                        <div class="card tecol-12xt-center h-100 py-5 shadow-sm">
                                         <i class="fas fa-microphone fa-beat-fade card-img-top mx-auto img-light fs-1 pb-1"></i>
                                         <div class="card-body px-0">
                                             <h5 class="card-title title-binding">Locutor</h5>
