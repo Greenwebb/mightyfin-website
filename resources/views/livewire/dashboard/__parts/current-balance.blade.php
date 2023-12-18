@@ -1,4 +1,5 @@
 @if ($my_loan !== null)
+    
     <h5><b style="color: rgb(90, 80, 99)">Current Loan</b></h5>
     <div class="col-xxl-4 col-xl-12 ">
         <a title="Payback loan" href="{{ route('payment.gate', ['view' => 'payback', 'loan'=>$my_loan->id]) }}">

@@ -86,9 +86,13 @@ class Loans extends Model
 
     public static function loan_balance($application_id){
         $loan = Application::where('id', $application_id)->first();
-        $paid = Transaction::where('application_id', $application_id)->sum('amount_settled');
-        $payback = Application::payback($loan->amount, $loan->repayment_plan);
-        return (float)$payback - (float)$paid;
+        if($loan->status == 1){
+            $paid = Transaction::where('application_id', $application_id)->sum('amount_settled');
+            $payback = Application::payback($loan->amount, $loan->repayment_plan);
+            return (float)$payback - (float)$paid;
+        }else{
+            return $loan->amount;
+        }
 
     }
 
