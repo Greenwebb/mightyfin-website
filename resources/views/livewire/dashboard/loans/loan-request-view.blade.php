@@ -142,6 +142,10 @@
                                     <strong>Get a Loan</strong>
                                 </a>
                             </div>
+                            
+                            <div class="col-12 mt-3 text-center">
+                                <p class="text-muted">Need help or have questions? <a href="{{ route('contact') }}">Contact us</a>.</p>
+                            </div>
                         </div>
                     </div>
                     
