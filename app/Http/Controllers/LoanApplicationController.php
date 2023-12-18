@@ -646,6 +646,9 @@ class LoanApplicationController extends Controller
         
                 // Send information to the admin
                 $this->send_loan_email($mail);
+
+                return view('livewire.dashboard.loans.success-page')
+                ->layout('layouts.dashboard');
             }
             
             if($request->wantsJson()){
