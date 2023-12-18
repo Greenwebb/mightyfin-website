@@ -632,9 +632,11 @@ class LoanApplicationController extends Controller
             }
 
             // Update Loan info
-            $loan = Application::where('id',  $data['application_id'])->first();
-            $loan->continue = 0;
-            $loan->save();
+            if(isset($data['final'])){
+                $loan = Application::where('id',  $data['application_id'])->first();
+                $loan->continue = 0;
+                $loan->save();
+            }
             
             if($request->wantsJson()){
                 return response()->json([

@@ -372,6 +372,7 @@
                                     <div class="range-slider_line">
                                     <div id="slider_line" class="range-slider_line-fill"></div>
                                     </div>
+                                    
                                     <input id="slider_input" name="duration" class="range-slider_input" type="range" value="2" min="1" max="12">
                                 </div>
                             </div>  
@@ -426,6 +427,7 @@
                                             <li>1. Fill up the final <b>Submission Form</b>.</li>
                                             <li>2. Upload Loan Documents (<b>Preapproval Form</b> & <b>Letter of Introduction</b> ).</li>
                                             <li>3. Complete KYC (Upload Copy of <b>National ID</b> & <b>TPIN</b> ).</li>
+                                            <input type="hidden" name="final" value="1">
                                         </ol>
     
                                     </div>
