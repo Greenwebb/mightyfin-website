@@ -27,8 +27,8 @@
 
   .range-slider {
     position: relative;
-    width: 80vmin;
-    height: 20vmin;
+    width: 35vmin;
+    height: 15vmin;
   }
 
   .range-slider_input {
@@ -595,6 +595,7 @@
                           class="form-control"
                           placeholder="0.00"
                           id="amountInput"
+                          value="100"
                           contentEditable='true' data-mask='K #,##0.00'
                         />
                       </div>
@@ -632,17 +633,17 @@
                     <span class="icon" id="disabledIcon">&#128683;</span>
                     </button> --}}
 
-                    <div>
+                    <div style="">
                         <div class="range-slider">
                             <div id="slider_thumb" class="range-slider_thumb"></div>
                             <div class="range-slider_line">
                             <div id="slider_line" class="range-slider_line-fill"></div>
                             </div>
-                            <input id="slider_input" name="duration" class="range-slider_input" type="range" value="2" min="0" max="100">
+                            <input id="slider_input" name="duration" class="range-slider_input" type="range" value="1" min="1" max="18">
                         </div>
                     </div>  
                     <div>
-                        <p id="slider_value2">2 Months</p>
+                        <p id="slider_value2">1 Month(s)</p>
                         <p id="interest_value2">Interest Rate: 21%</p>
                         <p id="principal_value2"></p>
                         <p style="padding: 2%; background-color:#662d91" class="bg-[#662d91] text-white" id="payback_value">Calculator</p>
@@ -762,7 +763,11 @@
 
       // Get the input element by its ID
       const amountInput = document.getElementById('amountInput');
+      var slider_months = 1;
+      // init calucator
+      var init_return = (parseInt(100) * 0.21) * parseInt(1) + parseInt(100);
 
+      $('#payback_value').text( 'Payback amount of: K'+init_return.toFixed(2));
       // Add an input event listener to the input element
       amountInput.addEventListener('input', function() {
           // Get the current value of the input
@@ -775,11 +780,11 @@
           principal = parseInt(numericValue);
 
           // Log the cleaned and converted value to the console
-          console.log('Borrowing: ', principal);
-          $('#payback_value').text('Calculator');
-          $('#principal_value').text('Return 21% of your loan');
+          var my_returns = (parseInt(principal) * 0.21) * parseInt(slider_months) + parseInt(principal);
+          $('#payback_value').text( 'Payback amount of: K'+my_returns.toFixed(2));
+          $('#principal_value').text( 'Borrowing: K'+principal);
           // Update a display element with the current value
-          $('#slider_value').text('');
+          $('#slider_value').text( 'Payback in '+slider_months + ' Months');
       });
 
 
@@ -788,8 +793,21 @@
 
           // Get the current value of the range input
           var sliderValue = $(this).val();
+          slider_months = sliderValue;
+          // Convert the numeric value to a float
+          // Get the current value of the input
+          var inputValue = amountInput.value;
+
+          // Remove non-numeric characters (letters, symbols, commas)
+          var numericValue = inputValue.replace(/[^0-9.]/g, '');
+
+          // Convert the numeric value to a float
+          principal = parseInt(numericValue);
 
           var my_returns = (parseInt(principal) * 0.21) * parseInt(sliderValue) + parseInt(principal);
+
+          // Convert the numeric value to a float
+          principal = parseInt(numericValue);
 
           $('#payback_value').text( 'Payback amount of: K'+my_returns.toFixed(2));
           $('#principal_value').text( 'Borrowing: K'+principal);
