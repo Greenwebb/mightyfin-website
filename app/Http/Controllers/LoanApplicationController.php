@@ -148,7 +148,7 @@ class LoanApplicationController extends Controller
                     'duration' => $form['repayment_plan'],
                     'amount' => $form['amount'],
                     'type' => 'loan-application',
-                    'msg' => 'You have new a '.$form['type'].' loan application request, please visit the site to view more details'
+                    'msg' => 'You have new a '.$form['type'].' loan application request, with an incomplete loan submission form and kyc update'
                 ];  
         
                 // Send information to the admin
@@ -282,7 +282,7 @@ class LoanApplicationController extends Controller
                 'duration' => $data['repayment_plan'],
                 'amount' => $data['amount'],
                 'type' => 'loan-application',
-                'msg' => 'You have new a '.$data['type'].' loan application request, please visit the site to view more details'
+                'msg' => 'You have new a '.$data['type'].' loan application request, with an incomplete loan submission form and kyc update'
             ];
             $process = $this->send_loan_email($mail);
             
@@ -534,7 +534,7 @@ class LoanApplicationController extends Controller
             ];
     
             // Email going to the Administrator
-            $process = $this->send_loan_email($mail);
+            // $process = $this->send_loan_email($mail);
     
             if($request->wantsJson()){
                 return response()->json([
@@ -544,13 +544,8 @@ class LoanApplicationController extends Controller
                     "data" => $application
                 ]);
             }else{
-                if($process){
-                    DB::commit();
-                    return redirect()->back();
-                }else{
-                    DB::commit();
-                    return redirect()->back();
-                }
+                DB::commit();
+                return redirect()->back();
             } 
             
             DB::commit();
@@ -636,6 +631,20 @@ class LoanApplicationController extends Controller
                 $loan = Application::where('id',  $data['application_id'])->first();
                 $loan->continue = 0;
                 $loan->save();
+
+                $mail = [
+                    'user_id' => auth()->user()->id,
+                    'name' => auth()->user()->fname.' '.auth()->user()->lname,
+                    'loan_type' => $loan->type,
+                    'phone' => '',
+                    'duration' => $loan->repayment_plan,
+                    'amount' => $loan->amount,
+                    'type' => 'loan-application',
+                    'msg' => $loan->type.' loan submission form and kyc successfully completed.'
+                ];  
+        
+                // Send information to the admin
+                $this->send_loan_email($mail);
             }
             
             if($request->wantsJson()){

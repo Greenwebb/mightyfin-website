@@ -207,6 +207,95 @@
         pointer-events: none; /* Disable pointer events */
         cursor: not-allowed; /* Set the cursor to "not-allowed" */
     }
+
+    
+#preloader2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  z-index: 999999999; }
+  #preloader2 i {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    opacity: 1;
+    -webkit-transform: translate3d(60px, 0, 0);
+    overflow: hidden;
+    text-indent: -9999px;
+    border: 1px solid white; }
+    #preloader2 i:nth-child(1) {
+      background: #613de6;
+      -webkit-animation: googleDotA 1.75s ease-in-out infinite; }
+    #preloader2 i:nth-child(2) {
+      background: #36b37e;
+      -webkit-animation: googleDotB 1.75s ease-in-out infinite; }
+    #preloader2 i:nth-child(3) {
+      background: #ffab00;
+      -webkit-animation: googleDotC 1.75s ease-in-out infinite; }
+
+@-webkit-keyframes googleDotA {
+  0% {
+    opacity: 0;
+    transform: translate3d(60px, 0, 0);
+    -webkit-transform: translate3d(60px, 0, 0); }
+  30% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); }
+  70% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); }
+  100% {
+    opacity: 0;
+    transform: translate3d(-300px, 0, 0);
+    -webkit-transform: translate3d(-300px, 0, 0); } }
+
+@-webkit-keyframes googleDotB {
+  0% {
+    opacity: 0;
+    transform: translate3d(180px, 0, 0);
+    -webkit-transform: translate3d(180px, 0, 0); }
+  35% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); }
+  77% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); }
+  100% {
+    opacity: 0;
+    transform: translate3d(-180px, 0, 0);
+    -webkit-transform: translate3d(-180px, 0, 0); } }
+
+@-webkit-keyframes googleDotC {
+  0% {
+    opacity: 0;
+    transform: translate3d(300px, 0, 0);
+    -webkit-transform: translate3d(300px, 0, 0); }
+  40% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); }
+  80% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); }
+  100% {
+    opacity: 0;
+    transform: translate3d(-60px, 0, 0);
+    -webkit-transform: translate3d(-60px, 0, 0); } }
+
     </style>
     <div class="content-body">
             <div class="">
@@ -409,6 +498,9 @@
                             <!-- success message -->
                             <div class="position-relative success-content">
                                 <span class="w-100" id="successImage" alt="success-message">
+
+                                    
+                                    <div id="preloader2"><i>.</i><i>.</i><i>.</i></div>
                                     <svg style="font-siz:14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="40" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="160" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
                                 </span>
                                 <p class="py-2 " style="color: #662d91">Submitting your loan request ...🚀</p>

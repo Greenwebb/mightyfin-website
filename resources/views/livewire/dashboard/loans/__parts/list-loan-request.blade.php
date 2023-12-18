@@ -18,7 +18,6 @@
 </style>
 <div wire:ignore class="col-xl-12 col-md-12 col-sm-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 p-2">
-
         @forelse($loan_requests as $loan)
         <div class="animate-slide-fade bg-white rounded p-2" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;">
             <div class="row flex-column flex-md-row justify-content-even">
@@ -78,9 +77,10 @@
             </div>
             
         </div>
+        
+        @empty
         @endforelse
     </div>
-    @endif
     <script>
         // Wait for the page to fully load
         document.addEventListener("DOMContentLoaded", function () {
