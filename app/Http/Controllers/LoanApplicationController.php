@@ -568,6 +568,7 @@ class LoanApplicationController extends Controller
                 $personal = [
                     'dob' => $data['dob'],
                     'nrc_no' => $data['nrc'],
+                    'id_type' => $data['nrc_id'],
                     'phone' => $data['phone'],
                     'employeeNo' => $data['employeeNo'],
                     'jobTitle' => $data['jobTitle'],
