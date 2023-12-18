@@ -36,7 +36,7 @@
                                 </svg>
                             </span>
                             <span>
-                                <h3>My Profile</h3>
+                                <h5>My Profile</h5>
                             </span>
                             </a>
                         </li>
@@ -48,7 +48,7 @@
                             </svg>
                             </span>
                             <span>
-                                <h3>Kyc Information</h3>
+                                <h5>Kyc Information</h5>
                             </span>
                             </a>
                         </li>
@@ -60,7 +60,7 @@
                             </svg>
                             </span>
                             <span>
-                                <h3>Privacy & Security</h3>
+                                <h5>Privacy & Security</h5>
                             </span>
                             </a>
                         </li>
@@ -72,7 +72,7 @@
                             </svg>
                             </span>
                             <span>
-                                <h3>Support (Report Issue)</h3>
+                                <h5>Support (Report Issue)</h5>
                             </span>
                             </a>
                         </li>
