@@ -415,6 +415,7 @@
                         <div class="step" id="step6">
                             <div style="width: 90%" class="d-flex justify-content-between mb-2">
                                 <h5>Requirements</h5>
+                                <p>Click the button below to share preapproval form, if not shared.</p>
                                 <button title="Send the preapproval form to employer, manager, or supervisor" type="button" class="btn btn-sm" style="background-color: rgb(54, 15, 94)" onclick="openSendDocModal()">Send Preapproval</button>
                             </div>
                             <br>
