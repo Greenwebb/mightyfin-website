@@ -31,7 +31,7 @@ trait EmailTrait{
     // This email notifies the administrator about a new loan request //////////////////
     public function send_loan_email($data){
         $admin = User::first();
-        $me = auth()->user()->id;
+        $me = auth()->user();
         try {
             Notification::send([$admin, $me], new BTFLoanRequest($data));
             return true;
