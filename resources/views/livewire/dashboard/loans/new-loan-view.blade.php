@@ -409,9 +409,9 @@
                             <!-- success message -->
                             <div class="position-relative success-content">
                                 <span class="w-100" id="successImage" alt="success-message">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="40" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="160" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
+                                    <svg style="font-siz:14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="40" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="160" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
                                 </span>
-                                <p class="py-2 text-primary">Submitting your loan request ...🚀</p>
+                                <p class="py-2 " style="color: #662d91">Submitting your loan request ...🚀</p>
                             </div>
                             <!-- /success message -->
                             </div>
