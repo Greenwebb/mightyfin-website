@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                @if(!empty($loan_requests->toArray()))
                 <div class="">
                     <div  style="background-color:#662d91;" class="card-header">
                         <h4 class="card-title" style=" color:#f0f0f0">
@@ -130,6 +131,21 @@
                         </div>
                     </div>
                 </div>
+
+                @else
+                    {{-- Illustrate No Loan --}}
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <div class="col-12 text-center">
+                            <img width="300" src="https://img.freepik.com/free-vector/folder-concept-illustration_114360-2946.jpg?w=740&t=st=1702894470~exp=1702895070~hmac=7a300962196cdd3ab51091ea8a907cb99b7498d43b77e8967d60a6ef7c2b1780" alt="">
+                            <div class="">
+                                <a href="{{ route('new-loan') }}" style="background-color:#fff;" class="btn btn-primary">
+                                    <strong>Get a Loan</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                @endif
             </div>
         </div>
     </div>
