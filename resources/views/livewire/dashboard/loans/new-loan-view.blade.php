@@ -427,7 +427,6 @@
                                             <li>1. Fill up the final <b>Submission Form</b>.</li>
                                             <li>2. Upload Loan Documents (<b>Preapproval Form</b> & <b>Letter of Introduction</b> ).</li>
                                             <li>3. Complete KYC (Upload Copy of <b>National ID</b> & <b>TPIN</b> ).</li>
-                                            <input type="hidden" name="final" value="1">
                                         </ol>
     
                                     </div>

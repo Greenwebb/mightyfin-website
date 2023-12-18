@@ -553,6 +553,8 @@
                                     <p>Interest rate: <b>21%</b> </p>
                                     <p>Service Charge:  <b>K3.5</b> </p>
                                     <p>Repayment Period: <b>{{ $activeLoan->repayment_plan }} Months</b> </p>
+                                    
+                                    <input type="hidden" name="final" value="1">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <p>Payback Amount: <b>K{{ App\Models\Application::payback($activeLoan->amount, $activeLoan->repayment_plan)}}</b> </p>
