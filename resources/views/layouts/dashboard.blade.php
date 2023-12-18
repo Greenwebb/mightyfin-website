@@ -9,7 +9,6 @@
     $status = App\Models\Application::currentApplication()->continue;
     $kyc = App\Models\Application::currentApplication()->complete;
     $route = request()->route()->getName();
-    
   @endphp
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <head>
@@ -187,20 +186,17 @@
 
                 <div class="profile_log dropdown">
                   <div class="user" data-toggle="dropdown">
-                    <span class="thumb"
-                      >
-                    @if (auth()->user()->profile_photo_path)
-                      @if ($route == 'profile.show' || $route == 'loan-details' || $route == 'loan-statement')
-                        <img width="100" style="border-radius:50%" src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
+                    <span style="">
+                      @if (auth()->user()->profile_photo_path)
+                        @if ($route == 'profile.show' || $route == 'loan-details' || $route == 'loan-statement')
+                          <img width="50" style="border-radius:45%;" src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
+                        @else
+                          <img width="50" style="border-radius:45%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
+                        @endif
                       @else
-                        <img width="100" style="border-radius:50%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
+                        <img width="100" style="border-radius:50%" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
                       @endif
-                    @else
-                      <img width="100" style="border-radius:50%" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""
-                    @endif
-                    />
-                  
-                  </span>
+                    </span>
                     <span class="arrow"><i class="icofont-angle-down"></i></span>
                   </div>
                   <div class="dropdown-menu dropdown-menu-right">
@@ -210,9 +206,9 @@
                           
                           @if (auth()->user()->profile_photo_path)
                             @if ($route == 'profile.show' || $route == 'loan-details' || $route == 'loan-statement')
-                            <img style="border-radius:50%" src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                            <img style="border-radius:45%" src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
                             @else
-                            <img style="border-radius:50%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                            <img style="border-radius:45%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
                             @endif
                           @else
                             <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>

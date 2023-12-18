@@ -130,9 +130,8 @@ input:focus {
                             <select
                                 name="id_type"
                                 class="form-control"
-                                {{-- wire:model.defer="state.id_type" --}}
                                 >  
-                                <option value="">-- Choose --</option>
+                                <option {{ auth()->user()->id_type == null ? 'selected' : ''}} value="">-- Choose --</option>
                                 <option {{ auth()->user()->id_type == 'NRC' ? 'selected' : ''}} value="NRC">NRC</option>
                                 <option {{ auth()->user()->id_type == 'Passport' ? 'selected' : ''}} value="Passport">Passport</option>
                                 <option {{ auth()->user()->id_type == 'Driver Liecense' ? 'selected' : ''}} value="Driver Liecense">Driver Liecense</option>
@@ -210,6 +209,10 @@ input:focus {
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Copy of NRC</label>
                                     <input required class="form-control" name="nrc_file" type="file" id="formFile">
+                                
+                                    @if ($meta->uploads->where('name', 'nrc_file')->isNotEmpty())
+                                        <p class="text-success file-list">You uploaded a National ID Copy on {{ $meta->uploads->where('name', 'tpin_file')->first()->created_at->toFormattedDateString() }}</p>
+                                    @endif
                                 </div>
     
                             </div>
@@ -242,6 +245,10 @@ input:focus {
                                 <div class="mb-3">
                                     <label for="tpin_file" class="form-label">Tpin</label>
                                     <input required class="form-control" name="tpin_file" type="file" id="tpin_file">
+                                    
+                                    @if ($meta->uploads->where('name', 'tpin_file')->isNotEmpty())
+                                        <p class="text-success file-list">You uploaded a Tpin Copy on  {{ $meta->uploads->where('name', 'tpin_file')->first()->created_at->toFormattedDateString() }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

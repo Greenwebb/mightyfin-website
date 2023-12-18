@@ -1,3 +1,4 @@
+
 <div style="width: 100%" class="w-full">
 
 
@@ -14,7 +15,11 @@
                                 <img
                                     id="previewImage"
                                     class="me-3 rounded-circle me-0 me-sm-3"
+                                    @if(auth()->user()->profile_photo_path)
                                     src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}"
+                                    @else
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmw0mqGxMV3LaBmRd2LTjBWq8PMMm2ZnoiopUzXmaMlw&s"
+                                    @endif
                                     width="55"
                                     height="55"
                                     alt=""
@@ -62,7 +67,7 @@
                         </script>
                         
                         <div class="col-xxl-12">
-                            <button type="submit" class="btn btn-secondary waves-effect">
+                            <button type="submit" class="btn btn-primary waves-effect">
                                 Save
                             </button>
                         </div>
@@ -135,7 +140,7 @@
                                 class="form-control"
                                 {{-- wire:model.defer="state.id_type" --}}
                                 >  
-                                <option value="">-- Choose --</option>
+                                <option {{ auth()->user()->id_type == null ? 'selected' : ''}} value="">-- Choose --</option>
                                 <option {{ auth()->user()->id_type == 'NRC' ? 'selected' : ''}} value="NRC">NRC</option>
                                 <option {{ auth()->user()->id_type == 'Passport' ? 'selected' : ''}} value="Passport">Passport</option>
                                 <option {{ auth()->user()->id_type == 'Driver Liecense' ? 'selected' : ''}} value="Driver Liecense">Driver Liecense</option>

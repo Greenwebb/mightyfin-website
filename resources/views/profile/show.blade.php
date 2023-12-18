@@ -1,6 +1,7 @@
 <x-dash-layout>
 <div>
   @php
+  $meta = App\Models\User::meta();
   if (isset($_GET['view'])) {
       // Retrieve the value of the 'view' parameter
       $param = $_GET['view'];
