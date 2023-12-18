@@ -36,7 +36,7 @@
                                   </svg>
                                 </span>
                                 <span>
-                                    <h3>Pay Bills</h3>
+                                    <h5>Pay Bills</h5>
                                 </span>
                                 </a>
                             </li>
@@ -48,7 +48,7 @@
                                   </svg>
                                 </span>
                                 <span>
-                                    <h3>Invest</h3>
+                                    <h5>Invest</h5>
                                 </span>
                                 </a>
                             </li>
@@ -60,7 +60,7 @@
                                     </svg>
                                 </span>
                                 <span>
-                                    <h3>Deposit</h3>
+                                    <h5>Deposit</h5>
                                 </span>
                                 </a>
                             </li>
@@ -73,7 +73,7 @@
                                     </svg>
                                 </span>
                                 <span>
-                                    <h3>Withdraw</h3>
+                                    <h5>Withdraw</h5>
                                 </span>
                                 </a>
                             </li>
