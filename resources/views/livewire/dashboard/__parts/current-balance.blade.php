@@ -96,8 +96,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6" style="padding-top:8%">
-                                <span class=""><strong style="color: #ffc800">Apply for a Loan</strong></span>
-                                <div class="">
+                                <span class="pb-2"><strong style="color: #ffc800">Apply for a Loan</strong></span>
+                                
+                                <div class="mt-2">
                                     <a href="{{ route('new-loan') }}" style="background-color:#fff;" class="btn">
                                         <strong>Get a Loan</strong> </a>
                                 </div>
