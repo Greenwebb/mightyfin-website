@@ -48,7 +48,8 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="phone">PHONE NUMBER</label>
+                                    <label for="phone">PHONE NUMBER
+                                        <small class="text-success">(eg. starting with: 975, 772, 965)</small></label>
                                     <div class="input-group">
                                         <select class="form-control" name="pcode">
                                             <option value="260">+260</option>
@@ -60,7 +61,7 @@
                                             data-mask='000 000 000'
                                             name="phone"
                                             class="form-control"
-                                            placeholder="PHONE NUMBER"
+                                            placeholder="975 --- ---"
                                         />
                                     </div>
                                     <small id="phoneError" class="text-danger"></small>
@@ -81,7 +82,7 @@
                                             class="form-control"
                                             {{-- wire:model.defer="state.id_type" --}}
                                             >  
-                                            <option value="">-- ID TYPE --</option>
+                                            <option {{ auth()->user()->id_type == null ? 'selected' : ''}} value="">-- ID TYPE --</option>
                                             <option {{ auth()->user()->id_type == 'NRC' ? 'selected' : ''}} value="NRC">NRC</option>
                                             <option {{ auth()->user()->id_type == 'Passport' ? 'selected' : ''}} value="Passport">Passport</option>
                                             <option {{ auth()->user()->id_type == 'Driver Liecense' ? 'selected' : ''}} value="Driver Liecense">Driver Liecense</option>
@@ -415,8 +416,10 @@
                         <div class="step" id="step6">
                             <div style="width: 90%" class="d-flex justify-content-between mb-2">
                                 <h5>Requirements</h5>
-                                <p>Click the button below to share preapproval form, if not shared.</p>
-                                <button title="Send the preapproval form to employer, manager, or supervisor" type="button" class="btn btn-sm" style="background-color: rgb(54, 15, 94)" onclick="openSendDocModal()">Send Preapproval</button>
+                                <span>
+                                    <p>Click the button below to share preapproval form, if not shared.</p>
+                                    <button title="Send the preapproval form to employer, manager, or supervisor" type="button" class="btn btn-sm" style="background-color: rgb(54, 15, 94)" onclick="openSendDocModal()">Send Preapproval</button>
+                                </span>
                             </div>
                             <br>
                             <div class="col-xxl-12 col-xl-12 col-lg-12">
@@ -564,17 +567,24 @@
                                 </div>
                             </div>
                             <div style="float: right;">
-                                <button type="button" class="btn btn-light text-dark" onclick="prevStep(7)">
+                                <button id="backicon" type="button" class="btn btn-light text-dark" onclick="prevStep(7)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                                     </svg>
                                     Back
                                 </button>
-                                <button type="submit" class="btn btn-primary">
-                                    Finish 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                                    </svg>
+                                <button type="submit" id="submit_click" class="btn btn-primary">
+                                    <div id="ploading" style="display:none;">
+                                        <svg width="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#ffff" stroke="#ffff" stroke-width="2" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="0.9" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin="0"></animate></circle><circle fill="#ffff" stroke="#BB14FF" stroke-width="2" opacity=".8" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="0.9" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin="0.05"></animate></circle><circle fill="#F0E7F9" stroke="#BB14FF" stroke-width="2" opacity=".6" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="0.9" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".1"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" opacity=".4" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="0.9" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".15"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" opacity=".2" r="15" cx="35" cy="100"><animate attributeName="cx" calcMode="spline" dur="0.9" values="35;165;165;35;35" keySplines="0 .1 .5 1;0 .1 .5 1;0 .1 .5 1;0 .1 .5 1" repeatCount="indefinite" begin=".2"></animate></circle></svg>
+                                        <small>Please wait...</small>
+                                    </div>
+                                    <div id="finishicon">
+                                        Finish
+                                            
+                                        <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                        </svg>
+                                    </div>
                                 </button>
                             </div>
                         </div>
@@ -656,6 +666,7 @@
           break;
       
         default:
+        
           currentStep += 1;
           showStep(currentStep);
           break;
@@ -666,6 +677,27 @@
         currentStep -= 1;
         showStep(currentStep);
     }
+
+    document.getElementById('submit_click').addEventListener('click', function() {// Disable the button
+        document.getElementById('submit_click').classList.remove('btn-primary');
+        document.getElementById('submit_click').classList.add('text-dark');
+
+        // Show loading animation and hide finish icon
+        document.getElementById('ploading').style.display = 'inline-block';
+        
+        document.getElementById('finishicon').style.display = 'none';
+        document.getElementById('backicon').style.display = 'none';
+
+        // You can add additional logic here, such as form submission or other actions.
+
+        // For demonstration purposes, let's simulate a delay (e.g., 3 seconds) before resetting the button state.
+        setTimeout(function() {
+            // Hide loading animation and show finish icon
+            document.getElementById('ploading').style.display = 'none';
+            document.getElementById('finishicon').style.display = 'inline-block';
+            document.getElementById('backicon').style.display = 'inline-block';
+        }, 10000);
+    });
 
     function _validate_step1(){
       var jobTitleInput = document.getElementById('jobTitleInput');

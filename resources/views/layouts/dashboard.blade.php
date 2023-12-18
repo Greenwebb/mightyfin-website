@@ -195,7 +195,7 @@
                           <img width="50" style="border-radius:45%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
                         @endif
                       @else
-                        <img width="100" style="border-radius:50%" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
+                        <img width="45" style="border-radius:50%" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
                       @endif
                     </span>
                     <span class="arrow"><i class="icofont-angle-down"></i></span>
