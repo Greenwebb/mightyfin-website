@@ -6,8 +6,23 @@
     <div class="container-fluid">
         <div class="col-12">
             <div class="">
-                <div class="card-header">
-                    <h4 class="card-title">Settings </h4>                
+                <div style="background-color:#662d91;" class="card-header">
+                    <h4 class="card-title" style=" color:#f0f0f0"> 
+                        <svg width="27" height="27" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#af83c3" stroke="#af83c3" stroke-width="7.68">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <g id="SVGRepo_iconCarrier">
+                            
+                            <path fill="#ffffff" d="M87 32v71h18V32H87zm160 0v345h18V32h-18zm160 0v167h18V32h-18zM50 121c-5.14 0-9 3.9-9 9v28c0 5.1 3.86 9 9 9h92c5.1 0 9-3.9 9-9v-28c0-5.1-3.9-9-9-9H50zm37 64v295h18V185H87zm283 32c-5.1 0-9 3.9-9 9v28c0 5.1 3.9 9 9 9h92c5.1 0 9-3.9 9-9v-28c0-5.1-3.9-9-9-9h-92zm37 64v199h18V281h-18zM210 395c-5.1 0-9 3.9-9 9v28c0 5.1 3.9 9 9 9h92c5.1 0 9-3.9 9-9v-28c0-5.1-3.9-9-9-9h-92zm37 64v21h18v-21h-18z"/>
+                            
+                            </g>
+                            
+                            </svg>
+                        Settings 
+                    </h4>                
                     {{-- <button/ data-toggle="modal" data-target="#newloanpackage" class="btn btn-square btn-primary">New Loan Package</button> --}}
                 </div>
                 <div class="card-body">
