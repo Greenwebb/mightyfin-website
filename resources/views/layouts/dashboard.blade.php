@@ -17,8 +17,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mighty Finance Solution | App</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/web/images/favicon.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/web/images/01-ft-logo.png') }}" />
     <!-- Custom Stylesheet -->
+    
     <link rel="stylesheet" href="{{ asset('public/mfs/css/style.css')}}" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
