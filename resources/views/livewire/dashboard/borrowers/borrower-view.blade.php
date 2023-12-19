@@ -64,7 +64,7 @@
                                     <td style="text-align:center"><a href="javascript:void(0);"><strong>K{{ App\Models\Loans::customer_total_borrowed($user->id) }}</strong></a></td>
                                     <td style="text-align:center"><a href="javascript:void(0);"><strong>K{{ App\Models\Loans::customer_total_paid($user->id) }}</strong></a></td>
                                     <td style="text-align:center"><a href="javascript:void(0);"><strong>K{{ App\Models\Loans::customer_balance($user->id) }}</strong></a></td>
-                                    <td style="text-align:center">{{ $user->created_at->diffForHumans(); }}</td>
+                                    <td style="text-align:center">{{ $user->created_at->diffForHumans() }}</td>
                                     <td style="text-align:center" class="actions-btns">
                                         <div class="d-flex">
                                             <a target="_blank" title="View Borrower Profile" href="{{ route('client-account', ['key'=>$user->id]) }}" class="btn btn-primary shadow btn-xs sharp me-1">

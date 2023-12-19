@@ -23,16 +23,20 @@ class DashboardView extends Component
     {
         
         $this->isKYCComplete();
-        if (auth()->user()->hasRole('user')) {
-            $this->all_loan_requests = Application::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->take(5)->get();
-        }else{
-            $this->all_loan_requests = Application::orderBy('created_at', 'desc')->take(5)->get();
-        }
         $this->my_loan = $this->getCurrentLoan();
         $this->wallet = $this->getWalletBalance(auth()->user());
+        if (auth()->user()->hasRole('user')) {
+            // For Borrowers
+            $this->all_loan_requests = Application::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->take(5)->get();
+            return view('livewire.dashboard.dashboard-view')
+            ->layout('layouts.dashboard');
+        }else{
+            // For Staff
+            $this->all_loan_requests = Application::orderBy('created_at', 'desc')->take(5)->get();
+            return view('livewire.dashboard.dashboard-view')
+            ->layout('layouts.admin');
+        }
         
-        return view('livewire.dashboard.dashboard-view')
-        ->layout('layouts.dashboard');
     }
 
     public function submitWithdrawRequest(){
