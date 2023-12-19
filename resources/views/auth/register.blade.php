@@ -28,7 +28,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to right, rgba(102, 45, 145, 0.619), rgba(145, 45, 115, 0.906)),
-                        url('https://www.shutterstock.com/image-photo/portrait-happy-african-market-woman-260nw-1936208938.jpg');
+                        url('https://media.istockphoto.com/id/1385118964/photo/shot-of-a-young-woman-using-a-digital-tablet-while-working-in-an-organic-store.jpg?s=612x612&w=0&k=20&c=mFc1p5N1FBnIRKSb6P106J2X98jXqV_IXH4eLFrsbO0=');
             background-size: contain;
             background-position: cover;
         }
