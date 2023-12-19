@@ -29,8 +29,9 @@
             height: 100%;
             background: linear-gradient(to right, rgba(102, 45, 145, 0.619), rgba(145, 45, 115, 0.906)),
                         url('https://media.istockphoto.com/id/1385118964/photo/shot-of-a-young-woman-using-a-digital-tablet-while-working-in-an-organic-store.jpg?s=612x612&w=0&k=20&c=mFc1p5N1FBnIRKSb6P106J2X98jXqV_IXH4eLFrsbO0=');
-            background-size: contain;
-            background-position: cover;
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position:left;
         }
 
         .authincation {
@@ -98,9 +99,32 @@
         #form-content {
             padding-top: 4%;
         }
+        #leftSide{
+            padding-top: 0%;
+        }
+            #slogan-text{
+                font-size:18px;
+            }
+            #id-text{
+                font-size:14px;
+                margin-bottom: 2%;
+            }
         @media (max-width: 767px) {
             #form-content{
-                padding-top: 2%;
+                padding-top: 0%;
+            }
+            #create-text{
+                font-size:14px;
+            }
+            #leftSide{
+                padding-top: 0%;
+                margin-bottom: 2%;
+            }
+            #slogan-text{
+                font-size:14px;
+            }
+            #id-text{
+                font-size:10px;
             }
         }
 
@@ -115,15 +139,15 @@
     <div class="authincation h-100">
         <div class="container-fluid h-100 ">
             <div class="row justify-content-center align-items-center p-4 h-70">
-                <div class="col-md-5 col-sm-12 pt-4">
+                <div class="col-md-5 col-sm-12" id="leftSide">
                     <div class="text-center">
                         <div class="logo">
                             <a href="{{ route('welcome') }}">
                                 <img width="100" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="">
                             </a>
                         </div>
-                        <p class="text-white mb-4">Looks like you're new here</p>
-                        <h4 class="text-white mb-4">Financial Inclusion for All!</h4>
+                        <p class="text-white" id="id-text">Looks like you're new here</p>
+                        <h4 class="text-white mb-4" id="slogan-text">Financial Inclusion for All!</h4>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 p-0 m-0">
@@ -132,7 +156,7 @@
                             <div id="form-card">
                                 <div class="auth-form">
                                     <div class="w-full">
-                                        <h2 style="color: #662d91" class="text-center mb-2"> <b>Create an Account</b> </h2>
+                                        <h2 id="create-text" style="color: #662d91" class="text-center mb-2"> <b>Create an Account</b> </h2>
                                         <p style="color: #662d91" class="text-center">Already have an account? <a class="text-warning" href="{{ route('login') }}">Sign in</a></p>
                                     </div>
                                     <form id="form-content" method="POST" class="text-white" action="{{ route('register') }}">
@@ -147,20 +171,20 @@
                                                 <input name="lname" :value="old('lname')" required type="text" class="form-control" placeholder="Your Last Name">
                                             </div>
                                         </div>
-                                        <div class="px-3">
-                                            <div class="form-group">
+                                        <div class="">
+                                            <div class="col-12">
                                                 <label class="text-dark mb-1"><strong>Email</strong></label>
                                                 <input name="email" :value="old('email')" required type="email" class="form-control" placeholder="yourname@email.com">
                                             </div>
-                                            <div class="form-group">
+                                            <div class="col-12">
                                                 <label class="text-dark mb-1"><strong>Password</strong></label>
                                                 <input name="password" required autocomplete="new-password" type="password" class="form-control">
                                             </div>
-                                            <div class="text-left mt-4">
+                                            <div class="text-left px-3 mt-4">
                                                 <button style="background-color:#662d91; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn btn-block text-white text-lg">Create Account</button>
                                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                                 <div  id="policy" class="form-check text-dark">
-                                                    <input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox">
+                                                    <input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox" checked>
                                                     <label class="form-check-label font-w400" for="termsCheckbox">{!! __('By creating an account, you agree to Mighty Finance Solution :terms_of_service and :privacy_policy', [
                                                         'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
                                                         'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',

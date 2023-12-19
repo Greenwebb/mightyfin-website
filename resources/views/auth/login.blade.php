@@ -74,7 +74,7 @@
                     <a href="{{ route('password.request') }}">Forgot Password?</a>
                   </div>
                   <div class="col-12 pt-3">
-                    <button type="submit" class="btn btn-primary col-12">Sign in</button>
+                    <button style="background-color:#662d91; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn col-12 text-white">Login</button>
                   </div>
                 </form>
                 <p class="mt-3 mb-0">
