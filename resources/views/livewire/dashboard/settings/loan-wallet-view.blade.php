@@ -32,6 +32,34 @@
     </div>
     <div class="container-fluid">
         <div class="row">
+            <div class="col-xxl-12 col-xl-12">
+                <div class="card home-chart" style="background-image: linear-gradient(to right, #662d91, #912d73); color:#fff">
+                  {{-- <div class="card-header">
+                    
+                    <select
+                      class="form-select"
+                      name="report-type"
+                      id="report-select"
+                    >
+                      <option value="1">Bitcoin</option>
+                      <option value="2">Litecoin</option>
+                    </select>
+                  </div> --}}
+                  <div class="card-body">
+                    <h4 class="card-title home-chart text-white">Your Balance</h4>
+                    <div class="home-chart-height">
+                      <div class="row">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                          <div class="my-2">
+                            <h1 class="text-white" style="font-weight: 900;">0.00 ZMW</h1>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="chartx"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
                 <div class="wallet-widget card">
                     <h5>Estimated Balance</h5>
