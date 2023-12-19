@@ -23,7 +23,7 @@
                             >
                             <div class="chart-price-value">
                                 <span>Loan</span>
-                                <h5>{{ $loan->type }}</h5>
+                                <h5>{{ $loan->type }} Loan</h5>
                             </div>
                             </div>
                             <div
@@ -84,41 +84,71 @@
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Information</h4>
+                    <h4 class="card-title">User Information</h4>
                     {{-- <a href="settings-profile.html" class="btn btn-primary">Edit</a> --}}
                     </div>
                     <div class="card-body">
                     <form class="row">
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                        <div class="user-info">
-                            <span>USER ID</span>
-                            <h4>{{ $loan->user->id }}</h4>
-                        </div>
-                        </div>
-                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                        <div class="user-info">
-                            <span>EMAIL ADDRESS</span>
-                            <h4>{{ $loan->user->email ?? 'Not set'}}</h4>
-                        </div>
+                            <div class="user-info">
+                                <span>USER ID</span>
+                                <h4>{{ $loan->user->id }}</h4>
+                            </div>
                         </div>
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                        <div class="user-info">
-                            <span>RESIDENCIAL ADDRESS</span>
-                            <h4>{{ $loan->user->address ?? 'Not set'}}</h4>
-                        </div>
+                            <div class="user-info">
+                                <span>FULL NAMES</span>
+                                <h4>
+                                    {{-- {{ route('client-account', ['key'=>$user->id]) }} --}}
+                                    <a href="#">
+                                        {{ $loan->user->fname.' '.$loan->user->lname }}
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                                              </svg>
+                                        </span>
+                                    </a>
+                                
+                                </h4>
+                            </div>
                         </div>
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                        <div class="user-info">
-                            <span>JOINED SINCE</span>
-                            <h4>{{ $loan->user->created_at->toFormattedDateString()}}</h4>
-                        </div>
+                            <div class="user-info">
+                                <span>EMAIL ADDRESS</span>
+                                <h4>{{ $loan->user->email ?? 'Not set'}}</h4>
+                            </div>
                         </div>
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                            <div class="user-info">
+                                <span>RESIDENCIAL ADDRESS</span>
+                                <h4>{{ $loan->user->address ?? 'Not set'}}</h4>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                            <div class="user-info">
+                                <span>PHONE NUMBER</span>
+                                <h4> <a href="tel:{{ $loan->user->phone }}" style="color: rgb(55, 44, 58)">+260 {{ $loan->user->phone ?? 'Not set'}}</a> </h4>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                            <div class="user-info">
+                                <span>RESIDENCIAL ADDRESS</span>
+                                <h4>{{ $loan->user->address ?? 'Not set'}}</h4>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                            <div class="user-info">
+                                <span>JOINED SINCE</span>
+                                <h4>{{ $loan->user->created_at->toFormattedDateString()}}</h4>
+                            </div>
+                        </div>
+                        {{-- <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                         <div class="user-info">
                             <span>TYPE</span>
-                            <h4>{{ $loan->type }}</h4>
+                            <h4>{{ $loan->type }} Loan</h4>
                         </div>
-                        </div>
+                        </div> --}}
                     </form>
                     </div>
                 </div>
