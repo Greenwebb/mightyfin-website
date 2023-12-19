@@ -10,7 +10,7 @@ session_start();
 
     <!-- Favicons
     ================================================== -->
-    <link rel="shortcut icon" href="{{ asset('public/web/images/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('public/images/m.jpg') }}">
     <title>Home - Mighty Finance Solution</title>
 
     <link rel="canonical" href="index.php" />

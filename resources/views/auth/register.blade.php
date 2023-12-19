@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Sign Up - Mighty Finance Solution</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/web/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/images/m.jpg') }}">
     <link href="{{ asset('public/theme/css/style.css') }}" rel="stylesheet">
     <script src="https://jsuites.net/v4/jsuites.js"></script>
     <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
@@ -27,10 +27,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(102, 45, 145, 0.89), rgba(145, 45, 115, 0.8)),
-                        url('https://www.shutterstock.com/image-photo/african-market-woman-using-her-600nw-2202682591.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(to right, rgba(102, 45, 145, 0.619), rgba(145, 45, 115, 0.906)),
+                        url('https://www.shutterstock.com/image-photo/portrait-happy-african-market-woman-260nw-1936208938.jpg');
+            background-size: contain;
+            background-position: cover;
         }
 
         .authincation {
