@@ -15,6 +15,7 @@
         body {
             margin: 0;
             overflow: hidden;
+            font-family: 'Montserrat', sans-serif
         }
 
         a{
@@ -27,7 +28,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to right, rgba(102, 45, 145, 0.89), rgba(145, 45, 115, 0.8)),
-                        url('https://www.shutterstock.com/image-photo/market-woman-making-phone-call-260nw-1898142157.jpg');
+                        url('https://www.shutterstock.com/image-photo/african-market-woman-using-her-600nw-2202682591.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -38,10 +39,11 @@
 
         .authincation-content {
             margin-top: 0%;
-            background-color: #662d91d3; /* Adjust the transparency level as needed */
-            border-radius: 0px;
+            background-color: #ffffff; /* Adjust the transparency level as needed */
+            border-radius: 5px;
             overflow: hidden;
-            margin-right: -16%;
+            margin-bottom: 0%;
+            margin-right: 0%;
         }
 
         .auth-form {
@@ -68,15 +70,42 @@
             padding: 15px;
             width: 100%;
             background-color: #dc3545; /* Choose a background color that suits your design */
-            color: #fff; /* Text color */
+            color: #c77878; /* Text color */
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 99999; /* Ensure it appears above other elements */
             display: block; /* Hide it by default */
         }
 
+        #policy {
+                margin-top: 4%;
+                font-size: 12px;
+        }
+        @media (max-width: 767px) {
+            #policy {
+                margin-top: 0%;
+                font-size: 9px;
+            }
+        }
+        #form-card {
+            padding: 4%;
+        }
+        @media (max-width: 767px) {
+            #form-card {
+                padding: 0%;
+            }
+        }
+        #form-content {
+            padding-top: 4%;
+        }
+        @media (max-width: 767px) {
+            #form-content{
+                padding-top: 2%;
+            }
+        }
 
-
+        
+        
     </style>
 </head>
 
@@ -84,64 +113,62 @@
     <x-jet-validation-errors class="mb-4 text-xs float-alert-bar" style="color:rgb(255, 255, 255)" />
     <div id="background-container"></div>
     <div class="authincation h-100">
-        <div class="container h-100">
-            <div class="row justify-content-end h-100 align-items-end">
-                <div class="col-md-6">
+        <div class="container-fluid h-100 ">
+            <div class="row justify-content-center align-items-center p-4 h-70">
+                <div class="col-md-5 col-sm-12 pt-4">
+                    <div class="text-center">
+                        <div class="logo">
+                            <a href="{{ route('welcome') }}">
+                                <img width="100" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="">
+                            </a>
+                        </div>
+                        <p class="text-white mb-4">Looks like you're new here</p>
+                        <h4 class="text-white mb-4">Financial Inclusion for All!</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 p-0 m-0">
                     <div class="authincation-content">
                         <div class="row no-gutters">
-                            <div class="col-xl-12">
+                            <div id="form-card">
                                 <div class="auth-form">
-                                    <div class="logo justify-content-center justify-center items-center text-center">
-                                        <a href="{{ route('welcome') }}">
-                                            <img width="50" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="">
-                                        </a>
+                                    <div class="w-full">
+                                        <h2 style="color: #662d91" class="text-center mb-2"> <b>Create an Account</b> </h2>
+                                        <p style="color: #662d91" class="text-center">Already have an account? <a class="text-warning" href="{{ route('login') }}">Sign in</a></p>
                                     </div>
-                                    <h4 class="text-center text-white mb-4">Create your account</h4>
-                                    
-                               
-
-                                    <form method="POST" class="text-white" action="{{ route('register') }}">
+                                    <form id="form-content" method="POST" class="text-white" action="{{ route('register') }}">
                                         @csrf
-                                        <div class="form-row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="mb-1"><strong>First Name</strong></label>
-                                                    <input name="fname" :value="old('fname')" required type="text" class="form-control" placeholder="Your First Name">
-                                                </div>
+                                        <div style="display: flex; gap:0px; width:100%">
+                                            <div class="col-6">
+                                                <label class="text-dark mb-1"><strong>First Name</strong></label>
+                                                <input name="fname" :value="old('fname')" required type="text" class="form-control" placeholder="Your First Name">
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="mb-1"><strong>Last Name</strong></label>
-                                                    <input name="lname" :value="old('lname')" required type="text" class="form-control" placeholder="Your Last Name">
-                                                </div>
+                                            <div class="col-6">
+                                                <label class="text-dark mb-1"><strong>Last Name</strong></label>
+                                                <input name="lname" :value="old('lname')" required type="text" class="form-control" placeholder="Your Last Name">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="mb-1"><strong>Email</strong></label>
-                                            <input name="email" :value="old('email')" required type="email" class="form-control" placeholder="yourname@email.com">
+                                        <div class="px-3">
+                                            <div class="form-group">
+                                                <label class="text-dark mb-1"><strong>Email</strong></label>
+                                                <input name="email" :value="old('email')" required type="email" class="form-control" placeholder="yourname@email.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-dark mb-1"><strong>Password</strong></label>
+                                                <input name="password" required autocomplete="new-password" type="password" class="form-control">
+                                            </div>
+                                            <div class="text-left mt-4">
+                                                <button style="background-color:#662d91; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn btn-block text-white text-lg">Create Account</button>
+                                                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                                <div  id="policy" class="form-check text-dark">
+                                                    <input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox">
+                                                    <label class="form-check-label font-w400" for="termsCheckbox">{!! __('By creating an account, you agree to Mighty Finance Solution :terms_of_service and :privacy_policy', [
+                                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                                    ]) !!}</label>
+                                                </div>
+                                                @endif
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="mb-1"><strong>Password</strong></label>
-                                            <input name="password" required autocomplete="new-password" type="password" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mb-1"><strong>Confirm Password</strong></label>
-                                            <input name="password_confirmation" required autocomplete="new-password" type="password" class="form-control">
-                                        </div>
-
-                                        <div class="text-center mt-4">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
-                                        </div>
-										@if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-										<div class="form-check">
-											<input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox">
-											<label class="form-check-label font-w400" for="termsCheckbox">{!! __('I agree to the :terms_of_service and :privacy_policy', [
-												'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-												'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-											]) !!}</label>
-										</div>
-                                        <p>Already have an account? <a class="text-warning" href="{{ route('login') }}">Sign in</a></p>
-										@endif
                                     </form>
                                 </div>
                             </div>
@@ -150,6 +177,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
     <!--**********************************
