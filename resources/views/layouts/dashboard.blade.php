@@ -95,9 +95,90 @@
             display: none;
           }
         }
+
+        /* Styles for the modal */
+        /* Styles for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #483050af;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 19999;
+            padding: 8%;
+            padding-left: 20%;
+            margin-top: 10%;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.5);
+            width: 100%; /* Adjust the width as needed */
+        }
+
+        /* Media query for mobile devices with a maximum width of 767px */
+        @media (max-width: 768px) {
+            .modal {
+                padding: 2%;
+                top: 45%; /* Adjust as needed for centering */
+                width: 100%; /* Adjust the width as needed */
+            }
+            .modal-content{
+              width: 100%;
+            }
+        }
+        .modal-content{
+          width: 60%;
+        }
+
+
+        /* Style for the file input */
+        #imageInput {
+          display: none; /* Hide the actual file input */
+        }
+
+        .file-input-container {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .file-input-label {
+          display: block;
+          padding: 10px;
+          background-color: #3498db;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        /* Stylish border for the preview container */
+        #preview-container {
+          max-width: 300px;
+          margin-top: 20px;
+          border: 2px dashed #3498db;
+          padding: 10px;
+          text-align: center;
+        }
+
+        #preview-image {
+          max-width: 100%;
+        }
+
+        /* Style for the placeholder text in the preview container */
+        #preview-container::before {
+          content: 'No image selected';
+          display: block;
+          color: #777;
+          font-style: italic;
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+
     </style>
     
     <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.js"></script> --}}
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" /> --}}
   </head>
 
   <body class="dashboard">
@@ -190,9 +271,9 @@
                     <span style="">
                       @if (auth()->user()->profile_photo_path)
                         @if ($route == 'profile.show' || $route == 'loan-details' || $route == 'loan-statement')
-                          <img width="50" style="border-radius:45%;" src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
+                          <img width="50" height="50" style="border-radius:50%;" src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
                         @else
-                          <img width="50" style="border-radius:45%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
+                          <img width="50" height="50" style="border-radius:50%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt="">
                         @endif
                       @else
                         <img width="45" style="border-radius:50%" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
@@ -207,9 +288,9 @@
                           
                           @if (auth()->user()->profile_photo_path)
                             @if ($route == 'profile.show' || $route == 'loan-details' || $route == 'loan-statement')
-                            <img style="border-radius:45%" src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                            <img  width="40" height="40" style="border-radius:50%;"src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
                             @else
-                            <img style="border-radius:45%" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                            <img  width="40" height="40" style="border-radius:50%;" src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
                             @endif
                           @else
                             <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
@@ -374,6 +455,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
   <script>
+    
     AOS.init();
     let status = '{{ $status }}';
     let router = '{{ $route }}';

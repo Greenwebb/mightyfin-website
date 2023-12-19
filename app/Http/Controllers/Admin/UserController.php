@@ -189,6 +189,7 @@ class UserController extends Controller
 
     public function updatePic(Request $request)
     {
+        
         try {
             $request->validate([
                 'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
