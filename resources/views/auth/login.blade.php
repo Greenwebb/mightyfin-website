@@ -35,7 +35,7 @@
               </a>
               <h4 class="card-title text-white mt-5">Sign in</h4>
             </div>
-            <div class="auth-form card " style="box-shadow: rgba(255, 255, 255, 0.219) 0px 5px 15px 0px;">
+            <div class="auth-form card" style="box-shadow: rgba(255, 255, 255, 0.219) 0px 5px 15px 0px; border-radius:2%">
               
               <x-jet-validation-errors class="alert text-center alert-danger text-danger text-xs" />
               <div class="">

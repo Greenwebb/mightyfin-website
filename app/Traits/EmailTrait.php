@@ -33,7 +33,7 @@ trait EmailTrait{
         $admin = User::first();
         $me = auth()->user();
         try {
-            Notification::send([$admin, $me], new BTFLoanRequest($data));
+            Notification::send($admin, new BTFLoanRequest($data));
             return true;
         } catch (\Throwable $th) {
             return false;
