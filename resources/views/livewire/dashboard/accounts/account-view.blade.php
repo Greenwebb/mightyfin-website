@@ -95,7 +95,7 @@
                             </div>
                             <!--end::Summary-->
                             <!--begin::Details toggle-->
-                            <div class="d-flex flex-stack fs-4 py-3">
+                            {{-- <div class="d-flex flex-stack fs-4 py-3">
                                 <div class="fw-bold rotate collapsible" data-bs-toggle="collapse" href="#kt_customer_view_details" role="button" aria-expanded="false" aria-controls="kt_customer_view_details">Details
                                 <span class="ms-2 rotate-180">
                                     <i class="ki-duotone ki-down fs-3"></i>
@@ -103,7 +103,7 @@
                                 <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit customer details">
                                     <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_update_customer">Edit</a>
                                 </span>
-                            </div>
+                            </div> --}}
                             <!--end::Details toggle-->
                             <div class="separator separator-dashed my-3"></div>
                             <!--begin::Details content-->
@@ -114,30 +114,34 @@
                                     <!--begin::Badge-->
                                     <!--begin::Details item-->
                                     <div class="fw-bold mt-5">Account ID</div>
-                                    <div class="text-gray-600">ID-{{</div>
+                                    <div class="text-gray-600">ID-{{ $data->id }}</div>
                                     <!--begin::Details item-->
                                     <!--begin::Details item-->
-                                    <div class="fw-bold mt-5">Billing Email</div>
+                                    <div class="fw-bold mt-5">Email</div>
                                     <div class="text-gray-600">
-                                        <a href="#" class="text-gray-600 text-hover-primary">info@keenthemes.com</a>
+                                        <a href="#" class="text-gray-600 text-hover-primary">{{ $data->email }}</a>
                                     </div>
                                     <!--begin::Details item-->
                                     <!--begin::Details item-->
-                                    <div class="fw-bold mt-5">Billing Address</div>
-                                    <div class="text-gray-600">101 Collin Street,
-                                    <br />Melbourne 3000 VIC
-                                    <br />Australia</div>
+                                    <div class="fw-bold mt-5">Address</div>
+                                    <div class="text-gray-600">
+                                        {{ $data->address ?? 'No Address' }}
+                                    </div>
                                     <!--begin::Details item-->
                                     <!--begin::Details item-->
                                     <div class="fw-bold mt-5">Language</div>
                                     <div class="text-gray-600">English</div>
                                     <!--begin::Details item-->
                                     <!--begin::Details item-->
-                                    <div class="fw-bold mt-5">Upcoming Invoice</div>
+                                    <div class="fw-bold mt-5">Upcoming Repayment</div>
                                     <div class="text-gray-600">54238-8693</div>
                                     <!--begin::Details item-->
                                     <!--begin::Details item-->
-                                    <div class="fw-bold mt-5">Tax ID</div>
+                                    <div class="fw-bold mt-5">National ID</div>
+                                    <div class="text-gray-600">{{ $data->id_type ?? 'Not Set' }}</div>
+                                    <div class="text-gray-600">{{ $data->nrc_no ?? $data->nrc ?? 'Not Set' }}</div>
+
+                                    <div class="fw-bold mt-5">National ID</div>
                                     <div class="text-gray-600">TX-8674</div>
                                     <!--begin::Details item-->
                                 </div>

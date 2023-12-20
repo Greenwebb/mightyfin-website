@@ -198,8 +198,7 @@ input:focus {
                             />
                         </div>
                     </div>
-                    <button type="button" class="btn text-white float-end next mt-4 rounded-3 bg-color-info" onclick="nextStep(1)">Next</button>
-                    
+                    <button type="button" class="btn text-white float-end next mt-4 rounded-3 bg-color-info" onclick="navigateStep('next')">Next</button>
                 </div>
             
                 <div class="step justify-content-center" id="step2">
@@ -218,27 +217,6 @@ input:focus {
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col-xl-6">
-                        <div class="form-group">
-                            <div class="input-box">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Business Profile</label>
-                                    <input class="form-control" name="business_file" type="file" id="formFile">
-                                </div>
-    
-                            </div>
-                        </div>
-                    </div> --}}
-                    {{-- <div class="col-xl-6">
-                        <div class="form-group">
-                            <div class="input-box">
-                                <div class="mb-3">
-                                    <label for="payslip_file" class="form-label">Payslip</label>
-                                    <input class="form-control" name="payslip_file" type="file" id="payslip_file">
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="col-xl-6">
                         <div class="form-group">
                             <div class="input-box">
@@ -253,7 +231,8 @@ input:focus {
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-dark text-white float-start back rounded-3" type="button" onclick="prevStep(3)">Previous</button>
+
+                    <button class="btn btn-dark text-white float-start back rounded-3" type="button" onclick="navigateStep('prev')">Previous</button>
                     <button class="btn text-white float-end submit-button rounded-3 bg-color-info" type="submit">Submit</button>
                 </div>
             </form>
@@ -262,37 +241,26 @@ input:focus {
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
 <script>
-  let currentStep = 1;
-  const form = document.getElementById('wizardForm');
-
-  function showStep(step) {
-    const steps = document.querySelectorAll('.step');
-    steps.forEach(s => s.classList.remove('active'));
-    document.getElementById(`step${step}`).classList.add('active');
-  }
-
-  function nextStep(step) {
-    if (step === currentStep && currentStep < 3) {
-      currentStep++;
-      showStep(currentStep);
+    let wcurrentStep = 1;
+  
+    // Show initial step
+    showStep(wcurrentStep);
+  
+    function showStep(step) {
+      const steps = document.querySelectorAll('.step');
+      steps.forEach(s => s.style.display = 'none');
+      document.getElementById(`step${step}`).style.display = 'block';
     }
-  }
-
-  function prevStep(step) {
-    if (step === currentStep && currentStep > 1) {
-      currentStep--;
-      showStep(currentStep);
+  
+    function navigateStep(direction) {
+      if (direction === 'next' && wcurrentStep < 2) {
+        wcurrentStep++;
+      } else if (direction === 'prev' && wcurrentStep > 1) {
+        wcurrentStep--;
+      }
+      showStep(wcurrentStep);
     }
-  }
-
-//   form.addEventListener('submit', function (e) {
-//     e.preventDefault();
-//     // Handle form submission here
-//     alert('Form submitted successfully!');
-//   });
-
-  // Show initial step
-  showStep(currentStep);
-</script>
+  </script>
+  

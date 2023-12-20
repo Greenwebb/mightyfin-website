@@ -524,7 +524,7 @@
                         </a>
                       </li> --}}
                       <li>
-                          <a class="tour-kyc-1" href="{{ route('profile.show') }}">
+                          <a class="tour-kyc-1" href="{{ route('profile.show', ['view'=>'kyc']) }}">
                             <span class="not-verified"
                               ><i class="icofont-close-line"></i
                             ></span>
