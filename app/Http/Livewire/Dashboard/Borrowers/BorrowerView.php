@@ -38,11 +38,19 @@ class BorrowerView extends Component
         $roles = Role::orderBy('id','DESC')->paginate(5);
         $users = User::role('user')->orderBy('created_at', 'desc')->paginate(7);
 
-        return view('livewire.dashboard.borrowers.borrower-view',[
-            'users' => $users,
-            'roles' => $roles
-        ])
-        ->layout('layouts.dashboard');
+        if (auth()->user()->hasRole('user')) {
+            return view('livewire.dashboard.borrowers.borrower-view',[
+                'users' => $users,
+                'roles' => $roles
+            ])
+            ->layout('layouts.dashboard');
+        }else{
+            return view('livewire.dashboard.borrowers.borrower-view',[
+                'users' => $users,
+                'roles' => $roles
+            ])
+            ->layout('layouts.admin');
+        }
     }
 
     public function borrowerExcelExport(){

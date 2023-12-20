@@ -65,7 +65,9 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-dark">Default</li>
+                    <li class="breadcrumb-item text-dark">
+                        {{ preg_replace('/[^A-Za-z0-9. -]/', '',  Auth::user()->roles->pluck('name')) ?? 'Staff' }}
+                    </li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->

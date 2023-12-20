@@ -1,410 +1,3863 @@
-<div class="content-body">
-    <div class="container-fluid">
-        {{-- @dd($data == null) --}}
-        @if($data != null)
-        <div class="row">
-            <div class="col-xl-12 col-xxl-12 col-lg-12">
-                <div class="profile card card-body px-3 pt-3 pb-0">
-                    <div class="profile-head">
-                        {{-- <div class="photo-content">
-                            <div class="cover-photo rounded"></div>
-                        </div> --}}
-                        <div class="profile-info">
-                            <div class="profile-photo">
-                                @if($data->profile_photo_path == null)
-                                    @if($data->fname != null && $data->lname != null)
-                                        <span class="text-white">{{ $data->fname[0].' '.$data->lname[0] }}</span>
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Layout-->
+            <div class="d-flex flex-column flex-xl-row">
+                <!--begin::Sidebar-->
+                <div class="flex-column flex-lg-row-auto w-100 w-xl-350px mb-10">
+                    <!--begin::Card-->
+                    <div class="card mb-5 mb-xl-8">
+                        <!--begin::Card body-->
+                        <div class="card-body pt-15">
+                            <!--begin::Summary-->
+                            <div class="d-flex flex-center flex-column mb-5">
+                                <!--begin::Avatar-->
+                                <div class="symbol symbol-100px symbol-circle mb-7">
+                                    @if($data->profile_photo_path == null)
+                                        @if($data->fname != null && $data->lname != null)
+                                            <span class="text-white">{{ $data->fname[0].' '.$data->lname[0] }}</span>
+                                        @else
+                                            <span>{{ $data->name[0] }}</span>
+                                        @endif
                                     @else
-                                        <span>{{ $data->name[0] }}</span>
+                                        <img class="rounded-circle bg-primary" src="{{ 'public/'.Storage::url($data->profile_photo_path) }}" />
                                     @endif
-                                @else
-                                    <img height="90" width="100" class="rounded-circle bg-primary" src="{{ 'public/'.Storage::url($data->profile_photo_path) }}" />
-                                @endif
-                            </div>
-                            <div class="profile-details">
-                                <div class="profile-name px-3 pt-2">
-                                    <h4 style="text-transform: camelcase;" class="text-primary mb-0">{{ $data->fname.' '.$data->lname }}</h4>
+                                </div>
+                                <!--end::Avatar-->
+                                <!--begin::Name-->
+                                <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">
+                                    {{ $data->fname.' '.$data->lname }}
+                                </a>
+                                <!--end::Name-->
+                                <!--begin::Position-->
+                                <div class="fs-5 fw-semibold text-muted mb-6">
                                     @foreach ($data->roles as $role)
-                                        @if($role->name == 'user')
-                                        <p>Borrower</p>
-                                        @else
-                                        <p>{{ $role->name }}</p>
-                                        @endif
-                                    @endforeach
-                                    <h4 class="text-muted mb-0">Gender</h4>
-                                    <p>{{ $data->gender ?? 'Not Set' }}</p>
-                                    <h4 class="text-muted mb-0">Phone#</h4>
-                                    <p>{{ $data->phone ?? 'Not Set'  }}</p>
-                                    <h4 class="text-muted mb-0">Phone2#</h4>
-                                    <p>{{ $data->phone2 ?? 'Not Set'  }}</p>
-                                </div>
-
-                                <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0">Email</h4>
-                                    <p>{{ $data->email }}</p>
-                                    <h4 class="text-muted mb-0"> NRC# </h4>
-                                    <p>{{ $data->nrc_no ?? 'Not Set' }}</p>
-                                    <h4 class="text-muted mb-0"> Occupation</h4>
-                                    <p>{{ $data->occupation ?? 'Not Set' }}</p>
-                                </div>
-
-                                <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0">Basic Pay</h4>
-                                    <p>K {{ $data->basic_pay }}</p>
-                                    <h4 class="text-muted mb-0">Net Pay</h4>
-                                    <p>K {{ $data->net_pay }}</p>
-                                    <h4 class="text-muted mb-0"> Address </h4>
-                                    <p>{{ $data->address ?? 'No Address' }}</p>
-                                    <h4 class="text-muted mb-0"> Joined</h4>
-                                    <p>{{ $data->created_at->diffForHumans() ?? 'Not Set' }}</p>
-                                </div>
-                                @if($data->hasRole('user') && $data->loans->first() != null )
-                                {{-- <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0">Payslip</h4>
-                                    <a href="{{ 'public/'.Storage::url($data->loans->first()->payslip_file) }}" download="{{ $data->loans->first()->payslip_file }}">
-                                        <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
-                                        <br>
-                                        Payslip File
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-                                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0">Tpin Certificate</h4>
-                                    <a href="{{ 'public/'.Storage::url($data->loans->first()->tpin_file) }}" download="{{ $data->loans->first()->tpin_file }}">
-                                        <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
-                                        <br>
-                                        TPIN File
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-                                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0">NRC Copy</h4>
-                                    <a href="{{ 'public/'.Storage::url($data->loans->first()->nrc_file) }}" download="{{ $data->loans->first()->nrc_file }}">
-                                        <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
-                                        <br>
-                                        NRC Copy 
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-                                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                                        </svg>
-                                    </a>
-                                </div> --}}
-                                @endif
-
-                                @if($data->blacklist != null)
-                                <div class="ms-auto">
-                                    <div class="alert alert-light solid fade show">
-                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                                        <b>BLACK LISTED!</b>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
-                                        </button>
-                                    </div>
-                                </div>
-                                @endif
-
-                                <div class="dropdown ms-auto">
-                                    <div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown">
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8.47908 4.58333C8.47908 3.19 9.60659 2.0625 10.9999 2.0625C12.3933 2.0625 13.5208 3.19 13.5208 4.58333C13.5208 5.97667 12.3933 7.10417 10.9999 7.10417C9.60658 7.10417 8.47908 5.97667 8.47908 4.58333ZM12.1458 4.58333C12.1458 3.95083 11.6324 3.4375 10.9999 3.4375C10.3674 3.4375 9.85408 3.95083 9.85408 4.58333C9.85408 5.21583 10.3674 5.72917 10.9999 5.72917C11.6324 5.72917 12.1458 5.21583 12.1458 4.58333Z" fill="#252289"/>
-                                            <path d="M8.47908 17.4163C8.47908 16.023 9.60659 14.8955 10.9999 14.8955C12.3933 14.8955 13.5208 16.023 13.5208 17.4163C13.5208 18.8097 12.3933 19.9372 10.9999 19.9372C9.60658 19.9372 8.47908 18.8097 8.47908 17.4163ZM12.1458 17.4163C12.1458 16.7838 11.6324 16.2705 10.9999 16.2705C10.3674 16.2705 9.85408 16.7838 9.85408 17.4163C9.85408 18.0488 10.3674 18.5622 10.9999 18.5622C11.6324 18.5622 12.1458 18.0488 12.1458 17.4163Z" fill="#252289"/>
-                                            <path d="M8.47908 11.0003C8.47908 9.60699 9.60659 8.47949 10.9999 8.47949C12.3933 8.47949 13.5208 9.60699 13.5208 11.0003C13.5208 12.3937 12.3933 13.5212 10.9999 13.5212C9.60658 13.5212 8.47908 12.3937 8.47908 11.0003ZM12.1458 11.0003C12.1458 10.3678 11.6324 9.85449 10.9999 9.85449C10.3674 9.85449 9.85408 10.3678 9.85408 11.0003C9.85408 11.6328 10.3674 12.1462 10.9999 12.1462C11.6324 12.1462 12.1458 11.6328 12.1458 11.0003Z" fill="#252289"/>
-                                        </svg>
-                                    </div>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        {{-- <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-user-circle text-primary me-2"></i> View profile</a></li> --}}
-                                        {{-- <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-users text-primary me-2"></i> Add to btn-close friends</a></li>
-                                        <li class="dropdown-item"><a href="javascript:void(0)"><i class="fa fa-plus text-primary me-2"></i> Add to group</a></li> --}}
-                                        @if($data->blacklist != null)
-                                        <li class="dropdown-item">
-                                            <button wire:click="unblockUser"><i class="fa fa-ban text-danger me-2"></i> Unblock</button>
-                                        </li>
-                                        @else 
-                                        <li class="dropdown-item">
-                                            <button wire:click="blockUser"><i class="fa fa-ban text-primary me-2"></i> Add to Blacklist</button>
-                                        </li>
-                                        @endif
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <!-- Row -->
-                <div class="row">
-                    <!--column-->
-                    @if($data->hasRole('user'))
-                    <div class="col-xl-12">
-                        <div class="card your_balance">
-                            <div class="card-header border-0">
-                                <div>
-                                    <h2 class="heading mb-1">Owing Balance</h2>
-                                    @if($data->loans->first() != null && $data->loans->first()->status == 1)
-                                    <span>Loaned out on {{ $data->loans->first()->created_at->toFormattedDateString()  }}</span>
+                                    @if($role->name == 'user')
+                                    <p>Borrower</p>
+                                    @else
+                                    <p>{{ $role->name }}</p>
                                     @endif
+                                @endforeach
+                                </div>
+                                <!--end::Position-->
+                                <!--begin::Info-->
+                                <div class="d-flex flex-wrap flex-center">
+                                    <!--begin::Stats-->
+                                    <div class="border border-gray-300 border-dashed rounded py-3 px-3 mb-3">
+                                        <div class="fs-4 fw-bold text-gray-700">
+                                            <span class="w-75px">6,900</span>
+                                            <i class="ki-duotone ki-arrow-up fs-3 text-success">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                        </div>
+                                        <div class="fw-semibold text-muted">Total Borrowed</div>
+                                    </div>
+                                    <!--end::Stats-->
+                                    <!--begin::Stats-->
+                                    <div class="border border-gray-300 border-dashed rounded py-3 px-3 mx-4 mb-3">
+                                        <div class="fs-4 fw-bold text-gray-700">
+                                            <span class="w-50px">130</span>
+                                            <i class="ki-duotone ki-arrow-down fs-3 text-danger">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                        </div>
+                                        <div class="fw-semibold text-muted">Pending Borrowed</div>
+                                    </div>
+                                    <!--end::Stats-->
+                                    <!--begin::Stats-->
+                                    <div class="border border-gray-300 border-dashed rounded py-3 px-3 mb-3">
+                                        <div class="fs-4 fw-bold text-gray-700">
+                                            <span class="w-50px">500</span>
+                                            <i class="ki-duotone ki-arrow-up fs-3 text-success">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                        </div>
+                                        <small class="fw-semibold text-xs text-muted">Pending Repayment</small>
+                                    </div>
+                                    <div class="border border-gray-300 border-dashed rounded py-3 px-3 mb-3">
+                                        <div class="fs-4 fw-bold text-gray-700">
+                                            <span class="w-50px">500</span>
+                                            <i class="ki-duotone ki-arrow-up fs-3 text-success">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                        </div>
+                                        <div class="fw-semibold text-muted">Pending Repayment</div>
+                                    </div>
+                                    <!--end::Stats-->
+                                </div>
+                                <!--end::Info-->
+                            </div>
+                            <!--end::Summary-->
+                            <!--begin::Details toggle-->
+                            <div class="d-flex flex-stack fs-4 py-3">
+                                <div class="fw-bold rotate collapsible" data-bs-toggle="collapse" href="#kt_customer_view_details" role="button" aria-expanded="false" aria-controls="kt_customer_view_details">Details
+                                <span class="ms-2 rotate-180">
+                                    <i class="ki-duotone ki-down fs-3"></i>
+                                </span></div>
+                                <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit customer details">
+                                    <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_update_customer">Edit</a>
+                                </span>
+                            </div>
+                            <!--end::Details toggle-->
+                            <div class="separator separator-dashed my-3"></div>
+                            <!--begin::Details content-->
+                            <div id="kt_customer_view_details" class="collapse show">
+                                <div class="py-5 fs-6">
+                                    <!--begin::Badge-->
+                                    <div class="badge badge-light-info d-inline">Premium user</div>
+                                    <!--begin::Badge-->
+                                    <!--begin::Details item-->
+                                    <div class="fw-bold mt-5">Account ID</div>
+                                    <div class="text-gray-600">ID-{{</div>
+                                    <!--begin::Details item-->
+                                    <!--begin::Details item-->
+                                    <div class="fw-bold mt-5">Billing Email</div>
+                                    <div class="text-gray-600">
+                                        <a href="#" class="text-gray-600 text-hover-primary">info@keenthemes.com</a>
+                                    </div>
+                                    <!--begin::Details item-->
+                                    <!--begin::Details item-->
+                                    <div class="fw-bold mt-5">Billing Address</div>
+                                    <div class="text-gray-600">101 Collin Street,
+                                    <br />Melbourne 3000 VIC
+                                    <br />Australia</div>
+                                    <!--begin::Details item-->
+                                    <!--begin::Details item-->
+                                    <div class="fw-bold mt-5">Language</div>
+                                    <div class="text-gray-600">English</div>
+                                    <!--begin::Details item-->
+                                    <!--begin::Details item-->
+                                    <div class="fw-bold mt-5">Upcoming Invoice</div>
+                                    <div class="text-gray-600">54238-8693</div>
+                                    <!--begin::Details item-->
+                                    <!--begin::Details item-->
+                                    <div class="fw-bold mt-5">Tax ID</div>
+                                    <div class="text-gray-600">TX-8674</div>
+                                    <!--begin::Details item-->
                                 </div>
                             </div>
-                            <div class="card-body pt-0 custome-tooltip pb-xl-3 pb-0">
-                                <div class="row gx-0">
-                                    <div class="col-xl-4 col-sm-4">
-                                        @if($data->loans->first() != null)
-                                            @if($data->loans->first()->status == 1)
-                                            <div class="mothly-income">
-                                                <span>{{ $data->loans->first()->type }} Loan</span>
-                                                <h4>K {{ $data->loans->first()->amount }} <span class="ms-1"></span></h4>
-                                            </div>
-                                            <div class="balance_data">
-                                                <div class="balance-icon outcome">
-                                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M8.16667 25.6667H19.8333C20.9384 25.6667 21.9982 25.2277 22.7796 24.4463C23.561 23.6649 24 22.6051 24 21.5V16.5C24 15.3949 23.561 14.3351 22.7796 13.5537C21.9982 12.7723 20.9384 12.3333 19.8333 12.3333H8.16667C7.0616 12.3333 6.00179 12.7723 5.22039 13.5537C4.43899 14.3351 4 15.3949 4 16.5V21.5C4 22.6051 4.43899 23.6649 5.22039 24.4463C6.00179 25.2277 7.0616 25.6667 8.16667 25.6667ZM5.66667 16.5C5.66667 15.837 5.93006 15.2011 6.3989 14.7322C6.86774 14.2634 7.50363 14 8.16667 14H19.8333C20.4964 14 21.1323 14.2634 21.6011 14.7322C22.0699 15.2011 22.3333 15.837 22.3333 16.5V21.5C22.3333 22.163 22.0699 22.7989 21.6011 23.2678C21.1323 23.7366 20.4964 24 19.8333 24H8.16667C7.50363 24 6.86774 23.7366 6.3989 23.2678C5.93006 22.7989 5.66667 22.163 5.66667 21.5V16.5Z" fill="#FCFCFC"/>
-                                                        <path d="M14.0002 22.3333C14.6595 22.3333 15.3039 22.1378 15.8521 21.7716C16.4002 21.4053 16.8275 20.8847 17.0798 20.2756C17.3321 19.6665 17.3981 18.9963 17.2695 18.3497C17.1409 17.7031 16.8234 17.1091 16.3572 16.643C15.891 16.1768 15.2971 15.8593 14.6505 15.7307C14.0039 15.6021 13.3337 15.6681 12.7246 15.9204C12.1155 16.1727 11.5949 16.5999 11.2286 17.1481C10.8623 17.6963 10.6669 18.3407 10.6669 19C10.6669 19.884 11.018 20.7319 11.6432 21.357C12.2683 21.9821 13.1161 22.3333 14.0002 22.3333ZM14.0002 17.3333C14.3298 17.3333 14.6521 17.4311 14.9261 17.6142C15.2002 17.7973 15.4138 18.0576 15.54 18.3622C15.6661 18.6667 15.6991 19.0018 15.6348 19.3251C15.5705 19.6484 15.4118 19.9454 15.1787 20.1785C14.9456 20.4116 14.6486 20.5703 14.3253 20.6346C14.002 20.6989 13.6669 20.6659 13.3624 20.5398C13.0578 20.4136 12.7975 20.2 12.6144 19.9259C12.4313 19.6519 12.3335 19.3296 12.3335 19C12.3335 18.558 12.5091 18.134 12.8217 17.8215C13.1342 17.5089 13.5582 17.3333 14.0002 17.3333ZM14.0002 2.33333C13.7792 2.33333 13.5672 2.42113 13.4109 2.57741C13.2546 2.73369 13.1669 2.94565 13.1669 3.16666V7.825L11.0502 5.70833C10.8908 5.57181 10.6857 5.50047 10.476 5.50857C10.2662 5.51667 10.0673 5.60361 9.91888 5.75203C9.77047 5.90044 9.68353 6.09939 9.67543 6.30912C9.66733 6.51885 9.73866 6.72391 9.87519 6.88333L13.4085 10.425C13.4853 10.5 13.5759 10.5594 13.6752 10.6C13.778 10.6435 13.8885 10.666 14.0002 10.666C14.1118 10.666 14.2224 10.6435 14.3252 10.6C14.4245 10.5594 14.5151 10.5 14.5919 10.425L18.1669 6.88333C18.3034 6.72391 18.3747 6.51885 18.3666 6.30912C18.3585 6.09939 18.2716 5.90044 18.1232 5.75203C17.9747 5.60361 17.7758 5.51667 17.5661 5.50857C17.3563 5.50047 17.1513 5.57181 16.9919 5.70833L14.8335 7.825V3.16666C14.8335 2.94565 14.7457 2.73369 14.5894 2.57741C14.4332 2.42113 14.2212 2.33333 14.0002 2.33333V2.33333Z" fill="#FCFCFC"/>
-                                                    </svg>
-                                                </div>
-                                                <div class="balance_info">
-                                                    <span class="text-danger">Current Loan Owing Balance</span>
-                                                    <h4>K {{ App\Models\Loans::loan_balance($data->loans->first()->id) }}</h4>
-                                                </div>
-                                            </div>
-                                            @endif
-
-                                        @else
-                                            <div class="balance_info">
-                                                <span class="text-danger">No Active Loan</span>
-                                            </div>
-                                        @endif
-                                        
-                                        <div class="balance_info">
-                                            <span class="text-danger">Total Outstanding Balance</span>
-                                            <h4>K {{ App\Models\Loans::customer_balance($data->id) }}</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-8 col-sm-8">
-                                        <div id="barChart"></div>
-                                    </div>
-                                </div>
+                            <!--end::Details content-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                    <!--end::Card-->
+                    <!--begin::Connected Accounts-->
+                    <div class="card mb-5 mb-xl-8">
+                        <!--begin::Card header-->
+                        <div class="card-header border-0">
+                            <div class="card-title">
+                                <h3 class="fw-bold m-0">Connected Accounts</h3>
                             </div>
                         </div>
-                    </div>
-                    <!--/column-->
-                    <!--column-->
-                    <div class="col-xl-12">
-                            <div class="card lastest_trans h-auto">
-                            <div class="card-header dz-border flex-wrap pb-3">
-                                <div>
-                                    <h2 class="heading">Loan History</h2>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-2">
+                            <!--begin::Notice-->
+                            <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
+                                <!--begin::Icon-->
+                                <i class="ki-duotone ki-design-1 fs-2tx text-primary me-4"></i>
+                                <!--end::Icon-->
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-stack flex-grow-1">
+                                    <!--begin::Content-->
+                                    <div class="fw-semibold">
+                                        <div class="fs-6 text-gray-700">By connecting an account, you hereby agree to our
+                                        <a href="#" class="me-1">privacy policy</a>and
+                                        <a href="#">terms of use</a>.</div>
+                                    </div>
+                                    <!--end::Content-->
                                 </div>
-                                <div class="d-flex align-items-center">
-                                    <select class="image-select default-select dashboard-select me-2 bg-white" aria-label="Default">
-                                        <option selected>This Month</option>
-                                        <option value="1">This Year</option>
-                                        <option value="2">Last 6 Years</option>
-                                    </select>
-                                    {{-- <div class="dropdown custom-dropdown">
-                                        <div class="btn sharp btn-primary tp-btn " data-bs-toggle="dropdown">
-                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M8.47908 4.58333C8.47908 3.19 9.60659 2.0625 10.9999 2.0625C12.3933 2.0625 13.5208 3.19 13.5208 4.58333C13.5208 5.97667 12.3933 7.10417 10.9999 7.10417C9.60658 7.10417 8.47908 5.97667 8.47908 4.58333ZM12.1458 4.58333C12.1458 3.95083 11.6324 3.4375 10.9999 3.4375C10.3674 3.4375 9.85408 3.95083 9.85408 4.58333C9.85408 5.21583 10.3674 5.72917 10.9999 5.72917C11.6324 5.72917 12.1458 5.21583 12.1458 4.58333Z" fill="#252289"/>
-                                                <path d="M8.47908 17.4163C8.47908 16.023 9.60659 14.8955 10.9999 14.8955C12.3933 14.8955 13.5208 16.023 13.5208 17.4163C13.5208 18.8097 12.3933 19.9372 10.9999 19.9372C9.60658 19.9372 8.47908 18.8097 8.47908 17.4163ZM12.1458 17.4163C12.1458 16.7838 11.6324 16.2705 10.9999 16.2705C10.3674 16.2705 9.85408 16.7838 9.85408 17.4163C9.85408 18.0488 10.3674 18.5622 10.9999 18.5622C11.6324 18.5622 12.1458 18.0488 12.1458 17.4163Z" fill="#252289"/>
-                                                <path d="M8.47908 11.0003C8.47908 9.60699 9.60659 8.47949 10.9999 8.47949C12.3933 8.47949 13.5208 9.60699 13.5208 11.0003C13.5208 12.3937 12.3933 13.5212 10.9999 13.5212C9.60658 13.5212 8.47908 12.3937 8.47908 11.0003ZM12.1458 11.0003C12.1458 10.3678 11.6324 9.85449 10.9999 9.85449C10.3674 9.85449 9.85408 10.3678 9.85408 11.0003C9.85408 11.6328 10.3674 12.1462 10.9999 12.1462C11.6324 12.1462 12.1458 11.6328 12.1458 11.0003Z" fill="#252289"/>
-                                            </svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="javascript:void(0);">Option 1</a>
-                                            <a class="dropdown-item" href="javascript:void(0);">Option 2</a>
-                                            <a class="dropdown-item" href="javascript:void(0);">Option 3</a>
-                                        </div>
-                                    </div> --}}
-                                </div>
+                                <!--end::Wrapper-->
                             </div>
-                            <div class="card-body p-0">
-                                <!--list-->
-                                <div class="table-responsive">
-                                    <table class="table shadow-hover trans-table border-no dz-border tbl-btn short-one mb-0 ">
-                                        <tbody>
-                                            @forelse($data->loans as $loan)
-                                            <tr class="trans-td-list">
+                            <!--end::Notice-->
+                            <!--begin::Items-->
+                            <div class="py-2">
+                                <!--begin::Item-->
+                                <div class="d-flex flex-stack">
+                                    <div class="d-flex">
+                                        <img src="assets/media/svg/brand-logos/google-icon.svg" class="w-30px me-6" alt="" />
+                                        <div class="d-flex flex-column">
+                                            <a href="#" class="fs-5 text-dark text-hover-primary fw-bold">Google</a>
+                                            <div class="fs-6 fw-semibold text-muted">Plan properly your workflow</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <!--begin::Switch-->
+                                        <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
+                                            <!--begin::Input-->
+                                            <input class="form-check-input" name="google" type="checkbox" value="1" id="kt_modal_connected_accounts_google" checked="checked" />
+                                            <!--end::Input-->
+                                            <!--begin::Label-->
+                                            <span class="form-check-label fw-semibold text-muted" for="kt_modal_connected_accounts_google"></span>
+                                            <!--end::Label-->
+                                        </label>
+                                        <!--end::Switch-->
+                                    </div>
+                                </div>
+                                <!--end::Item-->
+                                <div class="separator separator-dashed my-5"></div>
+                                <!--begin::Item-->
+                                <div class="d-flex flex-stack">
+                                    <div class="d-flex">
+                                        <img src="assets/media/svg/brand-logos/github.svg" class="w-30px me-6" alt="" />
+                                        <div class="d-flex flex-column">
+                                            <a href="#" class="fs-5 text-dark text-hover-primary fw-bold">Github</a>
+                                            <div class="fs-6 fw-semibold text-muted">Keep eye on on your Repositories</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <!--begin::Switch-->
+                                        <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
+                                            <!--begin::Input-->
+                                            <input class="form-check-input" name="github" type="checkbox" value="1" id="kt_modal_connected_accounts_github" checked="checked" />
+                                            <!--end::Input-->
+                                            <!--begin::Label-->
+                                            <span class="form-check-label fw-semibold text-muted" for="kt_modal_connected_accounts_github"></span>
+                                            <!--end::Label-->
+                                        </label>
+                                        <!--end::Switch-->
+                                    </div>
+                                </div>
+                                <!--end::Item-->
+                                <div class="separator separator-dashed my-5"></div>
+                                <!--begin::Item-->
+                                <div class="d-flex flex-stack">
+                                    <div class="d-flex">
+                                        <img src="assets/media/svg/brand-logos/slack-icon.svg" class="w-30px me-6" alt="" />
+                                        <div class="d-flex flex-column">
+                                            <a href="#" class="fs-5 text-dark text-hover-primary fw-bold">Slack</a>
+                                            <div class="fs-6 fw-semibold text-muted">Integrate Projects Discussions</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <!--begin::Switch-->
+                                        <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
+                                            <!--begin::Input-->
+                                            <input class="form-check-input" name="slack" type="checkbox" value="1" id="kt_modal_connected_accounts_slack" />
+                                            <!--end::Input-->
+                                            <!--begin::Label-->
+                                            <span class="form-check-label fw-semibold text-muted" for="kt_modal_connected_accounts_slack"></span>
+                                            <!--end::Label-->
+                                        </label>
+                                        <!--end::Switch-->
+                                    </div>
+                                </div>
+                                <!--end::Item-->
+                            </div>
+                            <!--end::Items-->
+                        </div>
+                        <!--end::Card body-->
+                        <!--begin::Card footer-->
+                        <div class="card-footer border-0 d-flex justify-content-center pt-0">
+                            <button class="btn btn-sm btn-light-primary">Save Changes</button>
+                        </div>
+                        <!--end::Card footer-->
+                    </div>
+                    <!--end::Connected Accounts-->
+                </div>
+                <!--end::Sidebar-->
+                <!--begin::Content-->
+                <div class="flex-lg-row-fluid ms-lg-15">
+                    <!--begin:::Tabs-->
+                    <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-8">
+                        <!--begin:::Tab item-->
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_customer_view_overview_tab">Overview</a>
+                        </li>
+                        <!--end:::Tab item-->
+                        <!--begin:::Tab item-->
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_customer_view_overview_events_and_logs_tab">Events & Logs</a>
+                        </li>
+                        <!--end:::Tab item-->
+                        <!--begin:::Tab item-->
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_customer_view_overview_statements">Statements</a>
+                        </li>
+                        <!--end:::Tab item-->
+                        <!--begin:::Tab item-->
+                        <li class="nav-item ms-auto">
+                            <!--begin::Action menu-->
+                            <a href="#" class="btn btn-primary ps-7" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">Actions
+                            <i class="ki-duotone ki-down fs-2 me-0"></i></a>
+                            <!--begin::Menu-->
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold py-4 w-250px fs-6" data-kt-menu="true">
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Payments</div>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link px-5">Create invoice</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link flex-stack px-5">Create payments
+                                    <span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">
+                                        <i class="ki-duotone ki-information fs-7">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>
+                                    </span></a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
+                                    <a href="#" class="menu-link px-5">
+                                        <span class="menu-title">Subscription</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <!--begin::Menu sub-->
+                                    <div class="menu-sub menu-sub-dropdown w-175px py-4">
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-5">Apps</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-5">Billing</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-5">Statements</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                        <!--begin::Menu separator-->
+                                        <div class="separator my-2"></div>
+                                        <!--end::Menu separator-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <div class="menu-content px-3">
+                                                <label class="form-check form-switch form-check-custom form-check-solid">
+                                                    <input class="form-check-input w-30px h-20px" type="checkbox" value="" name="notifications" checked="checked" id="kt_user_menu_notifications" />
+                                                    <span class="form-check-label text-muted fs-6" for="kt_user_menu_notifications">Notifications</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!--end::Menu item-->
+                                    </div>
+                                    <!--end::Menu sub-->
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu separator-->
+                                <div class="separator my-3"></div>
+                                <!--end::Menu separator-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Account</div>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link px-5">Reports</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5 my-1">
+                                    <a href="#" class="menu-link px-5">Account Settings</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link text-danger px-5">Delete customer</a>
+                                </div>
+                                <!--end::Menu item-->
+                            </div>
+                            <!--end::Menu-->
+                            <!--end::Menu-->
+                        </li>
+                        <!--end:::Tab item-->
+                    </ul>
+                    <!--end:::Tabs-->
+                    <!--begin:::Tab content-->
+                    <div class="tab-content" id="myTabContent">
+                        <!--begin:::Tab pane-->
+                        <div class="tab-pane fade show active" id="kt_customer_view_overview_tab" role="tabpanel">
+                            <!--begin::Card-->
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2>Payment Records</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <!--begin::Filter-->
+                                        <button type="button" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_payment">
+                                        <i class="ki-duotone ki-plus-square fs-3">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>Add payment</button>
+                                        <!--end::Filter-->
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0 pb-5">
+                                    <!--begin::Table-->
+                                    <table class="table align-middle table-row-dashed gy-5" id="kt_table_customers_payment">
+                                        <thead class="border-bottom border-gray-200 fs-7 fw-bold">
+                                            <tr class="text-start text-muted text-uppercase gs-0">
+                                                <th class="min-w-100px">Invoice No.</th>
+                                                <th>Status</th>
+                                                <th>Amount</th>
+                                                <th class="min-w-100px">Date</th>
+                                                <th class="text-end min-w-100px pe-4">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fs-6 fw-semibold text-gray-600">
+                                            <tr>
                                                 <td>
-                                                    <div class="trans-list">
-                                                        <div class="user-info">
-                                                            <h6 class="font-500 mb-0 ms-3">{{ $loan->type }} Loan</h6>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">9673-1893</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-success">Successful</span>
+                                                </td>
+                                                <td>$1,200.00</td>
+                                                <td>14 Dec 2020, 8:43 pm</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
                                                         </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    <span class="fs-15 font-w500">K {{ $loan->amount }}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="font-w400">{{ $loan->created_at->toFormattedDateString() }}</span>
-                                                </td>
-                                                <td>
-                                                    @if($loan->status == 0)
-                                                    <span class="badge badge-sm light badge-danger">
-                                                        <i class="fa fa-circle text-danger me-1"></i>
-                                                        Pending
-                                                    </span>
-                                                    @elseif($loan->status == 1)
-                                                    <span class="badge badge-sm light badge-success">
-                                                        <i class="fa fa-circle text-success me-1"></i>
-                                                        Accepted
-                                                    </span>
-                                                    @elseif($loan->status == 2)
-                                                    <span class="badge badge-sm light badge-warning">
-                                                        <i class="fa fa-circle text-warning me-1"></i>
-                                                        Under Review
-                                                    </span>
-                                                    @else
-                                                    <span class="badge badge-sm light badge-default">
-                                                        <i class="fa fa-circle text-warning me-1"></i>
-                                                        Rejected
-                                                    </span>
-                                                    @endif
+                                                    <!--end::Menu-->
                                                 </td>
                                             </tr>
-                                            @empty
-                                            @endforelse
-                                            
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">2655-1234</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-success">Successful</span>
+                                                </td>
+                                                <td>$79.00</td>
+                                                <td>01 Dec 2020, 10:12 am</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">6732-1806</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-success">Successful</span>
+                                                </td>
+                                                <td>$5,500.00</td>
+                                                <td>12 Nov 2020, 2:01 pm</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">4269-7965</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-warning">Pending</span>
+                                                </td>
+                                                <td>$880.00</td>
+                                                <td>21 Oct 2020, 5:54 pm</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">2188-4533</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-success">Successful</span>
+                                                </td>
+                                                <td>$7,650.00</td>
+                                                <td>19 Oct 2020, 7:32 am</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">3602-3127</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-success">Successful</span>
+                                                </td>
+                                                <td>$375.00</td>
+                                                <td>23 Sep 2020, 12:38 am</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">2810-7956</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-success">Successful</span>
+                                                </td>
+                                                <td>$129.00</td>
+                                                <td>11 Sep 2020, 3:18 pm</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">1476-1160</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-danger">Rejected</span>
+                                                </td>
+                                                <td>$450.00</td>
+                                                <td>03 Sep 2020, 1:08 am</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">6427-8124</a>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-light-warning">Pending</span>
+                                                </td>
+                                                <td>$8,700.00</td>
+                                                <td>01 Sep 2020, 4:58 pm</td>
+                                                <td class="pe-0 text-end">
+                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                                    <!--begin::Menu-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu-->
+                                                </td>
+                                            </tr>
                                         </tbody>
-                                    </table>	
+                                        <!--end::Table body-->
+                                    </table>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                            <!--begin::Card-->
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2 class="fw-bold mb-0">Payment Methods</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <a href="#" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                        <i class="ki-duotone ki-plus-square fs-3">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>Add new method</a>
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div id="kt_customer_view_payment_method" class="card-body pt-0">
+                                    <!--begin::Option-->
+                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                        <!--begin::Header-->
+                                        <div class="py-3 d-flex flex-stack flex-wrap">
+                                            <!--begin::Toggle-->
+                                            <div class="d-flex align-items-center collapsible rotate" data-bs-toggle="collapse" href="#kt_customer_view_payment_method_1" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_1">
+                                                <!--begin::Arrow-->
+                                                <div class="me-3 rotate-90">
+                                                    <i class="ki-duotone ki-right fs-3"></i>
+                                                </div>
+                                                <!--end::Arrow-->
+                                                <!--begin::Logo-->
+                                                <img src="assets/media/svg/card-logos/mastercard.svg" class="w-40px me-3" alt="" />
+                                                <!--end::Logo-->
+                                                <!--begin::Summary-->
+                                                <div class="me-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-gray-800 fw-bold">Mastercard</div>
+                                                        <div class="badge badge-light-primary ms-5">Primary</div>
+                                                    </div>
+                                                    <div class="text-muted">Expires Dec 2024</div>
+                                                </div>
+                                                <!--end::Summary-->
+                                            </div>
+                                            <!--end::Toggle-->
+                                            <!--begin::Toolbar-->
+                                            <div class="d-flex my-3 ms-9">
+                                                <!--begin::Edit-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                                    <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+                                                        <i class="ki-duotone ki-pencil fs-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Edit-->
+                                                <!--begin::Delete-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+                                                    <i class="ki-duotone ki-trash fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--end::Delete-->
+                                                <!--begin::More-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                    <i class="ki-duotone ki-setting-3 fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--begin::Menu-->
+                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3" data-kt-menu="true">
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_primary">Set as Primary</a>
+                                                    </div>
+                                                    <!--end::Menu item-->
+                                                </div>
+                                                <!--end::Menu-->
+                                                <!--end::More-->
+                                            </div>
+                                            <!--end::Toolbar-->
+                                        </div>
+                                        <!--end::Header-->
+                                        <!--begin::Body-->
+                                        <div id="kt_customer_view_payment_method_1" class="collapse show fs-6 ps-10" data-bs-parent="#kt_customer_view_payment_method">
+                                            <!--begin::Details-->
+                                            <div class="d-flex flex-wrap py-5">
+                                                <!--begin::Col-->
+                                                <div class="flex-equal me-5">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Name</td>
+                                                            <td class="text-gray-800">Emma Smith</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Number</td>
+                                                            <td class="text-gray-800">**** 9637</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Expires</td>
+                                                            <td class="text-gray-800">12/2024</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Type</td>
+                                                            <td class="text-gray-800">Mastercard credit card</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Issuer</td>
+                                                            <td class="text-gray-800">VICBANK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">ID</td>
+                                                            <td class="text-gray-800">id_4325df90sdf8</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="flex-equal">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Billing address</td>
+                                                            <td class="text-gray-800">AU</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Phone</td>
+                                                            <td class="text-gray-800">No phone provided</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Email</td>
+                                                            <td class="text-gray-800">
+                                                                <a href="#" class="text-gray-900 text-hover-primary">smith@kpmg.com</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Origin</td>
+                                                            <td class="text-gray-800">Australia
+                                                            <div class="symbol symbol-20px symbol-circle ms-2">
+                                                                <img src="assets/media/flags/australia.svg" />
+                                                            </div></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">CVC check</td>
+                                                            <td class="text-gray-800">Passed
+                                                            <i class="ki-duotone ki-check-circle fs-2 text-success">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                            </div>
+                                            <!--end::Details-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Option-->
+                                    <div class="separator separator-dashed"></div>
+                                    <!--begin::Option-->
+                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                        <!--begin::Header-->
+                                        <div class="py-3 d-flex flex-stack flex-wrap">
+                                            <!--begin::Toggle-->
+                                            <div class="d-flex align-items-center collapsible collapsed rotate" data-bs-toggle="collapse" href="#kt_customer_view_payment_method_2" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_2">
+                                                <!--begin::Arrow-->
+                                                <div class="me-3 rotate-90">
+                                                    <i class="ki-duotone ki-right fs-3"></i>
+                                                </div>
+                                                <!--end::Arrow-->
+                                                <!--begin::Logo-->
+                                                <img src="assets/media/svg/card-logos/visa.svg" class="w-40px me-3" alt="" />
+                                                <!--end::Logo-->
+                                                <!--begin::Summary-->
+                                                <div class="me-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-gray-800 fw-bold">Visa</div>
+                                                    </div>
+                                                    <div class="text-muted">Expires Feb 2022</div>
+                                                </div>
+                                                <!--end::Summary-->
+                                            </div>
+                                            <!--end::Toggle-->
+                                            <!--begin::Toolbar-->
+                                            <div class="d-flex my-3 ms-9">
+                                                <!--begin::Edit-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                                    <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+                                                        <i class="ki-duotone ki-pencil fs-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Edit-->
+                                                <!--begin::Delete-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+                                                    <i class="ki-duotone ki-trash fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--end::Delete-->
+                                                <!--begin::More-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                    <i class="ki-duotone ki-setting-3 fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--begin::Menu-->
+                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3" data-kt-menu="true">
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_primary">Set as Primary</a>
+                                                    </div>
+                                                    <!--end::Menu item-->
+                                                </div>
+                                                <!--end::Menu-->
+                                                <!--end::More-->
+                                            </div>
+                                            <!--end::Toolbar-->
+                                        </div>
+                                        <!--end::Header-->
+                                        <!--begin::Body-->
+                                        <div id="kt_customer_view_payment_method_2" class="collapse fs-6 ps-10" data-bs-parent="#kt_customer_view_payment_method">
+                                            <!--begin::Details-->
+                                            <div class="d-flex flex-wrap py-5">
+                                                <!--begin::Col-->
+                                                <div class="flex-equal me-5">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Name</td>
+                                                            <td class="text-gray-800">Melody Macy</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Number</td>
+                                                            <td class="text-gray-800">**** 6477</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Expires</td>
+                                                            <td class="text-gray-800">02/2022</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Type</td>
+                                                            <td class="text-gray-800">Visa credit card</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Issuer</td>
+                                                            <td class="text-gray-800">ENBANK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">ID</td>
+                                                            <td class="text-gray-800">id_w2r84jdy723</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="flex-equal">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Billing address</td>
+                                                            <td class="text-gray-800">UK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Phone</td>
+                                                            <td class="text-gray-800">No phone provided</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Email</td>
+                                                            <td class="text-gray-800">
+                                                                <a href="#" class="text-gray-900 text-hover-primary">melody@altbox.com</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Origin</td>
+                                                            <td class="text-gray-800">United Kingdom
+                                                            <div class="symbol symbol-20px symbol-circle ms-2">
+                                                                <img src="assets/media/flags/united-kingdom.svg" />
+                                                            </div></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">CVC check</td>
+                                                            <td class="text-gray-800">Passed
+                                                            <i class="ki-duotone ki-check fs-2 text-success"></i></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                            </div>
+                                            <!--end::Details-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Option-->
+                                    <div class="separator separator-dashed"></div>
+                                    <!--begin::Option-->
+                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                        <!--begin::Header-->
+                                        <div class="py-3 d-flex flex-stack flex-wrap">
+                                            <!--begin::Toggle-->
+                                            <div class="d-flex align-items-center collapsible collapsed rotate" data-bs-toggle="collapse" href="#kt_customer_view_payment_method_3" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_3">
+                                                <!--begin::Arrow-->
+                                                <div class="me-3 rotate-90">
+                                                    <i class="ki-duotone ki-right fs-3"></i>
+                                                </div>
+                                                <!--end::Arrow-->
+                                                <!--begin::Logo-->
+                                                <img src="assets/media/svg/card-logos/american-express.svg" class="w-40px me-3" alt="" />
+                                                <!--end::Logo-->
+                                                <!--begin::Summary-->
+                                                <div class="me-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-gray-800 fw-bold">American Express</div>
+                                                        <div class="badge badge-light-danger ms-5">Expired</div>
+                                                    </div>
+                                                    <div class="text-muted">Expires Aug 2021</div>
+                                                </div>
+                                                <!--end::Summary-->
+                                            </div>
+                                            <!--end::Toggle-->
+                                            <!--begin::Toolbar-->
+                                            <div class="d-flex my-3 ms-9">
+                                                <!--begin::Edit-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                                    <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+                                                        <i class="ki-duotone ki-pencil fs-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Edit-->
+                                                <!--begin::Delete-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+                                                    <i class="ki-duotone ki-trash fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--end::Delete-->
+                                                <!--begin::More-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                    <i class="ki-duotone ki-setting-3 fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--begin::Menu-->
+                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3" data-kt-menu="true">
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_primary">Set as Primary</a>
+                                                    </div>
+                                                    <!--end::Menu item-->
+                                                </div>
+                                                <!--end::Menu-->
+                                                <!--end::More-->
+                                            </div>
+                                            <!--end::Toolbar-->
+                                        </div>
+                                        <!--end::Header-->
+                                        <!--begin::Body-->
+                                        <div id="kt_customer_view_payment_method_3" class="collapse fs-6 ps-10" data-bs-parent="#kt_customer_view_payment_method">
+                                            <!--begin::Details-->
+                                            <div class="d-flex flex-wrap py-5">
+                                                <!--begin::Col-->
+                                                <div class="flex-equal me-5">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Name</td>
+                                                            <td class="text-gray-800">Max Smith</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Number</td>
+                                                            <td class="text-gray-800">**** 3608</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Expires</td>
+                                                            <td class="text-gray-800">08/2021</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Type</td>
+                                                            <td class="text-gray-800">American express credit card</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Issuer</td>
+                                                            <td class="text-gray-800">USABANK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">ID</td>
+                                                            <td class="text-gray-800">id_89457jcje63</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="flex-equal">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Billing address</td>
+                                                            <td class="text-gray-800">US</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Phone</td>
+                                                            <td class="text-gray-800">No phone provided</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Email</td>
+                                                            <td class="text-gray-800">
+                                                                <a href="#" class="text-gray-900 text-hover-primary">max@kt.com</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Origin</td>
+                                                            <td class="text-gray-800">United States of America
+                                                            <div class="symbol symbol-20px symbol-circle ms-2">
+                                                                <img src="assets/media/flags/united-states.svg" />
+                                                            </div></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">CVC check</td>
+                                                            <td class="text-gray-800">Failed
+                                                            <i class="ki-duotone ki-cross fs-2 text-danger">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                            </div>
+                                            <!--end::Details-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Option-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                            <!--begin::Card-->
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2 class="fw-bold">Credit Balance</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <a href="#" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_adjust_balance">
+                                        <i class="ki-duotone ki-pencil fs-3">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>Adjust Balance</a>
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <div class="fw-bold fs-2">$32,487.57
+                                    <span class="text-muted fs-4 fw-semibold">USD</span>
+                                    <div class="fs-7 fw-normal text-muted">Balance will increase the amount due on the customer's next invoice.</div></div>
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                            <!--begin::Card-->
+                            <div class="card pt-2 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2>Invoices</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Toolbar-->
+                                    <div class="card-toolbar m-0">
+                                        <!--begin::Tab nav-->
+                                        <ul class="nav nav-stretch fs-5 fw-semibold nav-line-tabs nav-line-tabs-2x border-transparent" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a id="kt_referrals_year_tab" class="nav-link text-active-primary active" data-bs-toggle="tab" role="tab" href="#kt_customer_details_invoices_1">This Year</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a id="kt_referrals_2019_tab" class="nav-link text-active-primary ms-3" data-bs-toggle="tab" role="tab" href="#kt_customer_details_invoices_2">2020</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a id="kt_referrals_2018_tab" class="nav-link text-active-primary ms-3" data-bs-toggle="tab" role="tab" href="#kt_customer_details_invoices_3">2019</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a id="kt_referrals_2017_tab" class="nav-link text-active-primary ms-3" data-bs-toggle="tab" role="tab" href="#kt_customer_details_invoices_4">2018</a>
+                                            </li>
+                                        </ul>
+                                        <!--end::Tab nav-->
+                                    </div>
+                                    <!--end::Toolbar-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Tab Content-->
+                                    <div id="kt_referred_users_tab_content" class="tab-content">
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_details_invoices_1" class="py-0 tab-pane fade show active" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_details_invoices_table_1" class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
+                                                <thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+                                                    <tr class="text-start text-muted gs-0">
+                                                        <th class="min-w-100px">Order ID</th>
+                                                        <th class="min-w-100px">Amount</th>
+                                                        <th class="min-w-100px">Status</th>
+                                                        <th class="min-w-125px">Date</th>
+                                                        <th class="min-w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fs-6 fw-semibold text-gray-600">
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Oct 24, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Oct 08, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Sep 15, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td>
+                                                            <span class="badge badge-light-info">In progress</span>
+                                                        </td>
+                                                        <td>May 30, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Apr 22, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Feb 09, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-info">In progress</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Jan 04, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_details_invoices_2" class="py-0 tab-pane fade" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_details_invoices_table_2" class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
+                                                <thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+                                                    <tr class="text-start text-muted gs-0">
+                                                        <th class="min-w-100px">Order ID</th>
+                                                        <th class="min-w-100px">Amount</th>
+                                                        <th class="min-w-100px">Status</th>
+                                                        <th class="min-w-125px">Date</th>
+                                                        <th class="min-w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fs-6 fw-semibold text-gray-600">
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>May 30, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-info">In progress</span>
+                                                        </td>
+                                                        <td>Apr 22, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Feb 09, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Jan 04, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td>
+                                                            <span class="badge badge-light-info">In progress</span>
+                                                        </td>
+                                                        <td>Oct 24, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Oct 08, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Sep 15, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_details_invoices_3" class="py-0 tab-pane fade" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_details_invoices_table_3" class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
+                                                <thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+                                                    <tr class="text-start text-muted gs-0">
+                                                        <th class="min-w-100px">Order ID</th>
+                                                        <th class="min-w-100px">Amount</th>
+                                                        <th class="min-w-100px">Status</th>
+                                                        <th class="min-w-125px">Date</th>
+                                                        <th class="min-w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fs-6 fw-semibold text-gray-600">
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Feb 09, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Jan 04, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Sep 15, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-info">In progress</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Oct 24, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Oct 08, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td>
+                                                            <span class="badge badge-light-info">In progress</span>
+                                                        </td>
+                                                        <td>May 30, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Apr 22, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_details_invoices_4" class="py-0 tab-pane fade" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_details_invoices_table_4" class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
+                                                <thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
+                                                    <tr class="text-start text-muted gs-0">
+                                                        <th class="min-w-100px">Order ID</th>
+                                                        <th class="min-w-100px">Amount</th>
+                                                        <th class="min-w-100px">Status</th>
+                                                        <th class="min-w-125px">Date</th>
+                                                        <th class="min-w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fs-6 fw-semibold text-gray-600">
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Oct 24, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td>
+                                                            <span class="badge badge-light-info">In progress</span>
+                                                        </td>
+                                                        <td>Oct 24, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Feb 09, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-warning">Pending</span>
+                                                        </td>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Approved</span>
+                                                        </td>
+                                                        <td>Jan 04, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Oct 08, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td>
+                                                            <span class="badge badge-light-danger">Rejected</span>
+                                                        </td>
+                                                        <td>Oct 08, 2020</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                    </div>
+                                    <!--end::Tab Content-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                        <!--end:::Tab pane-->
+                        <!--begin:::Tab pane-->
+                        <div class="tab-pane fade" id="kt_customer_view_overview_events_and_logs_tab" role="tabpanel">
+                            <!--begin::Card-->
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2>Logs</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <!--begin::Button-->
+                                        <button type="button" class="btn btn-sm btn-light-primary">
+                                        <i class="ki-duotone ki-cloud-download fs-3">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>Download Report</button>
+                                        <!--end::Button-->
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body py-0">
+                                    <!--begin::Table wrapper-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table align-middle table-row-dashed fw-semibold text-gray-600 fs-6 gy-5" id="kt_table_customers_logs">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-success">200 OK</div>
+                                                    </td>
+                                                    <td>POST /v1/invoices/in_9381_6519/payment</td>
+                                                    <td class="pe-0 text-end min-w-200px">15 Apr 2023, 6:05 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-success">200 OK</div>
+                                                    </td>
+                                                    <td>POST /v1/invoices/in_5959_3541/payment</td>
+                                                    <td class="pe-0 text-end min-w-200px">25 Jul 2023, 2:40 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-warning">404 WRN</div>
+                                                    </td>
+                                                    <td>POST /v1/customer/c_64b784ba36261/not_found</td>
+                                                    <td class="pe-0 text-end min-w-200px">10 Mar 2023, 2:40 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-success">200 OK</div>
+                                                    </td>
+                                                    <td>POST /v1/invoices/in_9381_6519/payment</td>
+                                                    <td class="pe-0 text-end min-w-200px">19 Aug 2023, 10:10 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-success">200 OK</div>
+                                                    </td>
+                                                    <td>POST /v1/invoices/in_6751_5507/payment</td>
+                                                    <td class="pe-0 text-end min-w-200px">10 Nov 2023, 5:20 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-danger">500 ERR</div>
+                                                    </td>
+                                                    <td>POST /v1/invoice/in_7903_5155/invalid</td>
+                                                    <td class="pe-0 text-end min-w-200px">20 Dec 2023, 8:43 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-success">200 OK</div>
+                                                    </td>
+                                                    <td>POST /v1/invoices/in_9381_6519/payment</td>
+                                                    <td class="pe-0 text-end min-w-200px">19 Aug 2023, 10:10 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-danger">500 ERR</div>
+                                                    </td>
+                                                    <td>POST /v1/invoice/in_5250_9522/invalid</td>
+                                                    <td class="pe-0 text-end min-w-200px">24 Jun 2023, 11:05 am</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-warning">404 WRN</div>
+                                                    </td>
+                                                    <td>POST /v1/customer/c_64b784ba3625f/not_found</td>
+                                                    <td class="pe-0 text-end min-w-200px">10 Mar 2023, 5:20 pm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        <div class="badge badge-light-success">200 OK</div>
+                                                    </td>
+                                                    <td>POST /v1/invoices/in_6751_5507/payment</td>
+                                                    <td class="pe-0 text-end min-w-200px">10 Mar 2023, 5:20 pm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table wrapper-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                            <!--begin::Card-->
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2>Events</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <!--begin::Button-->
+                                        <button type="button" class="btn btn-sm btn-light-primary">
+                                        <i class="ki-duotone ki-cloud-download fs-3">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>Download Report</button>
+                                        <!--end::Button-->
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body py-0">
+                                    <!--begin::Table-->
+                                    <table class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-5" id="kt_table_customers_events">
+                                        <tbody>
+                                            <tr>
+                                                <td class="min-w-400px">Invoice
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#WER-45670</a>is
+                                                <span class="badge badge-light-info">In Progress</span></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">10 Nov 2023, 10:30 am</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">
+                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Melody Macy</a>has made payment to
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#XRS-45670</a></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">05 May 2023, 10:30 am</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">Invoice
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#LOP-45640</a>has been
+                                                <span class="badge badge-light-danger">Declined</span></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">15 Apr 2023, 6:43 am</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">
+                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Max Smith</a>has made payment to
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#SDK-45670</a></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">19 Aug 2023, 10:30 am</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">Invoice
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#KIO-45656</a>status has changed from
+                                                <span class="badge badge-light-succees me-1">In Transit</span>to
+                                                <span class="badge badge-light-success">Approved</span></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">10 Nov 2023, 5:30 pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">
+                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Brian Cox</a>has made payment to
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#OLP-45690</a></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">19 Aug 2023, 9:23 pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">Invoice
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#LOP-45640</a>has been
+                                                <span class="badge badge-light-danger">Declined</span></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">24 Jun 2023, 10:10 pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">
+                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Max Smith</a>has made payment to
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#SDK-45670</a></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">25 Jul 2023, 2:40 pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">Invoice
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#KIO-45656</a>status has changed from
+                                                <span class="badge badge-light-succees me-1">In Transit</span>to
+                                                <span class="badge badge-light-success">Approved</span></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">25 Jul 2023, 8:43 pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="min-w-400px">
+                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Melody Macy</a>has made payment to
+                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#XRS-45670</a></td>
+                                                <td class="pe-0 text-gray-600 text-end min-w-200px">25 Oct 2023, 10:30 am</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                        <!--end:::Tab pane-->
+                        <!--begin:::Tab pane-->
+                        <div class="tab-pane fade" id="kt_customer_view_overview_statements" role="tabpanel">
+                            <!--begin::Earnings-->
+                            <div class="card mb-6 mb-xl-9">
+                                <!--begin::Header-->
+                                <div class="card-header border-0">
+                                    <div class="card-title">
+                                        <h2>Earnings</h2>
+                                    </div>
+                                </div>
+                                <!--end::Header-->
+                                <!--begin::Body-->
+                                <div class="card-body py-0">
+                                    <div class="fs-5 fw-semibold text-gray-500 mb-4">Last 30 day earnings calculated. Apart from arranging the order of topics.</div>
+                                    <!--begin::Left Section-->
+                                    <div class="d-flex flex-wrap flex-stack mb-5">
+                                        <!--begin::Row-->
+                                        <div class="d-flex flex-wrap">
+                                            <!--begin::Col-->
+                                            <div class="border border-dashed border-gray-300 w-150px rounded my-3 p-4 me-6">
+                                                <span class="fs-1 fw-bold text-gray-800 lh-1">
+                                                    <span data-kt-countup="true" data-kt-countup-value="6,840" data-kt-countup-prefix="$">0</span>
+                                                    <i class="ki-duotone ki-arrow-up fs-1 text-success">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </span>
+                                                <span class="fs-6 fw-semibold text-muted d-block lh-1 pt-2">Net Earnings</span>
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="border border-dashed border-gray-300 w-125px rounded my-3 p-4 me-6">
+                                                <span class="fs-1 fw-bold text-gray-800 lh-1">
+                                                <span class="" data-kt-countup="true" data-kt-countup-value="16">0</span>%
+                                                <i class="ki-duotone ki-arrow-down fs-1 text-danger">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i></span>
+                                                <span class="fs-6 fw-semibold text-muted d-block lh-1 pt-2">Change</span>
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="border border-dashed border-gray-300 w-150px rounded my-3 p-4 me-6">
+                                                <span class="fs-1 fw-bold text-gray-800 lh-1">
+                                                    <span data-kt-countup="true" data-kt-countup-value="1,240" data-kt-countup-prefix="$">0</span>
+                                                    <span class="text-primary">--</span>
+                                                </span>
+                                                <span class="fs-6 fw-semibold text-muted d-block lh-1 pt-2">Fees</span>
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Row-->
+                                        <a href="#" class="btn btn-sm btn-light-primary flex-shrink-0">Withdraw Earnings</a>
+                                    </div>
+                                    <!--end::Left Section-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::Earnings-->
+                            <!--begin::Statements-->
+                            <div class="card mb-6 mb-xl-9">
+                                <!--begin::Header-->
+                                <div class="card-header">
+                                    <!--begin::Title-->
+                                    <div class="card-title">
+                                        <h2>Statement</h2>
+                                    </div>
+                                    <!--end::Title-->
+                                    <!--begin::Toolbar-->
+                                    <div class="card-toolbar">
+                                        <!--begin::Tab nav-->
+                                        <ul class="nav nav-stretch fs-5 fw-semibold nav-line-tabs nav-line-tabs-2x border-transparent" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link text-active-primary active" data-bs-toggle="tab" role="tab" href="#kt_customer_view_statement_1">This Year</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link text-active-primary ms-3" data-bs-toggle="tab" role="tab" href="#kt_customer_view_statement_2">2020</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link text-active-primary ms-3" data-bs-toggle="tab" role="tab" href="#kt_customer_view_statement_3">2019</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link text-active-primary ms-3" data-bs-toggle="tab" role="tab" href="#kt_customer_view_statement_4">2018</a>
+                                            </li>
+                                        </ul>
+                                        <!--end::Tab nav-->
+                                    </div>
+                                    <!--end::Toolbar-->
+                                </div>
+                                <!--end::Header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pb-5">
+                                    <!--begin::Tab Content-->
+                                    <div id="kt_customer_view_statement_tab_content" class="tab-content">
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_view_statement_1" class="py-0 tab-pane fade show active" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_view_statement_table_1" class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-4">
+                                                <thead class="border-bottom border-gray-200">
+                                                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                                                        <th class="w-125px">Date</th>
+                                                        <th class="w-100px">Order ID</th>
+                                                        <th class="w-300px">Details</th>
+                                                        <th class="w-100px">Amount</th>
+                                                        <th class="w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Nov 01, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sep 15, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>May 30, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 22, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td>Parcel Shipping / Delivery Service App</td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 09, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sep 15, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>May 30, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 22, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td>Parcel Shipping / Delivery Service App</td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 09, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2021</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_view_statement_2" class="py-0 tab-pane fade" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_view_statement_table_2" class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-4">
+                                                <thead class="border-bottom border-gray-200">
+                                                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                                                        <th class="w-125px">Date</th>
+                                                        <th class="w-100px">Order ID</th>
+                                                        <th class="w-300px">Details</th>
+                                                        <th class="w-100px">Amount</th>
+                                                        <th class="w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>May 30, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 22, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td>Parcel Shipping / Delivery Service App</td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 09, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sep 15, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>May 30, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 22, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td>Parcel Shipping / Delivery Service App</td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 09, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sep 15, 2020</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_view_statement_3" class="py-0 tab-pane fade" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_view_statement_table_3" class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-4">
+                                                <thead class="border-bottom border-gray-200">
+                                                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                                                        <th class="w-125px">Date</th>
+                                                        <th class="w-100px">Order ID</th>
+                                                        <th class="w-300px">Details</th>
+                                                        <th class="w-100px">Amount</th>
+                                                        <th class="w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Feb 09, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sep 15, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>May 30, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 22, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td>Parcel Shipping / Delivery Service App</td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 09, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sep 15, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>May 30, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 22, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td>Parcel Shipping / Delivery Service App</td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                                        <div id="kt_customer_view_statement_4" class="py-0 tab-pane fade" role="tabpanel">
+                                            <!--begin::Table-->
+                                            <table id="kt_customer_view_statement_table_4" class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-4">
+                                                <thead class="border-bottom border-gray-200">
+                                                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                                                        <th class="w-125px">Date</th>
+                                                        <th class="w-100px">Order ID</th>
+                                                        <th class="w-300px">Details</th>
+                                                        <th class="w-100px">Amount</th>
+                                                        <th class="w-100px text-end pe-7">Invoice</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Nov 01, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 09, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2018</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 09, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
+                                                        </td>
+                                                        <td>Visual Design Illustration</td>
+                                                        <td class="text-success">$31.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
+                                                        </td>
+                                                        <td>Abstract Vusial Pack</td>
+                                                        <td class="text-success">$52.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 04, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-0.80</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sep 15, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
+                                                        <td class="text-success">$5.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nov 01, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                        </td>
+                                                        <td>Darknight transparency 36 Icons Pack</td>
+                                                        <td class="text-success">$38.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-2.60</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 08, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
+                                                        </td>
+                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
+                                                        <td class="text-success">$76.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>May 30, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
+                                                        </td>
+                                                        <td>Seller Fee</td>
+                                                        <td class="text-danger">$-1.30</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 22, 2019</td>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
+                                                        </td>
+                                                        <td>Parcel Shipping / Delivery Service App</td>
+                                                        <td class="text-success">$204.00</td>
+                                                        <td class="text-end">
+                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Tab panel-->
+                                    </div>
+                                    <!--end::Tab Content-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Statements-->
+                        </div>
+                        <!--end:::Tab pane-->
+                    </div>
+                    <!--end:::Tab content-->
+                </div>
+                <!--end::Content-->
+            </div>
+            <!--end::Layout-->
+            <!--begin::Modals-->
+            <!--begin::Modal - Add Payment-->
+            <div class="modal fade" id="kt_modal_add_payment" tabindex="-1" aria-hidden="true">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog mw-650px">
+                    <!--begin::Modal content-->
+                    <div class="modal-content">
+                        <!--begin::Modal header-->
+                        <div class="modal-header">
+                            <!--begin::Modal title-->
+                            <h2 class="fw-bold">Add a Payment Record</h2>
+                            <!--end::Modal title-->
+                            <!--begin::Close-->
+                            <div id="kt_modal_add_payment_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+                                <i class="ki-duotone ki-cross fs-1">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </div>
+                            <!--end::Close-->
+                        </div>
+                        <!--end::Modal header-->
+                        <!--begin::Modal body-->
+                        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                            <!--begin::Form-->
+                            <form id="kt_modal_add_payment_form" class="form" action="#">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mb-2">
+                                        <span class="required">Invoice Number</span>
+                                        <span class="ms-2" data-bs-toggle="tooltip" title="The invoice number must be unique.">
+                                            <i class="ki-duotone ki-information fs-7">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                            </i>
+                                        </span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="invoice" value="" />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-semibold form-label mb-2">Status</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <select class="form-select form-select-solid fw-bold" name="status" data-control="select2" data-placeholder="Select an option" data-hide-search="true">
+                                        <option></option>
+                                        <option value="0">Approved</option>
+                                        <option value="1">Pending</option>
+                                        <option value="2">Rejected</option>
+                                        <option value="3">In progress</option>
+                                        <option value="4">Completed</option>
+                                    </select>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-semibold form-label mb-2">Invoice Amount</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control form-control-solid" name="amount" value="" />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-15">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mb-2">
+                                        <span class="required">Additional Information</span>
+                                        <span class="ms-2" data-bs-toggle="tooltip" title="Information such as description of invoice or product purchased.">
+                                            <i class="ki-duotone ki-information fs-7">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                            </i>
+                                        </span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <textarea class="form-control form-control-solid rounded-3" name="additional_info"></textarea>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Actions-->
+                                <div class="text-center">
+                                    <button type="reset" id="kt_modal_add_payment_cancel" class="btn btn-light me-3">Discard</button>
+                                    <button type="submit" id="kt_modal_add_payment_submit" class="btn btn-primary">
+                                        <span class="indicator-label">Submit</span>
+                                        <span class="indicator-progress">Please wait...
+                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                    </button>
+                                </div>
+                                <!--end::Actions-->
+                            </form>
+                            <!--end::Form-->
+                        </div>
+                        <!--end::Modal body-->
+                    </div>
+                    <!--end::Modal content-->
+                </div>
+                <!--end::Modal dialog-->
+            </div>
+            <!--end::Modal - New Card-->
+            <!--begin::Modal - Adjust Balance-->
+            <div class="modal fade" id="kt_modal_adjust_balance" tabindex="-1" aria-hidden="true">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog modal-dialog-centered mw-650px">
+                    <!--begin::Modal content-->
+                    <div class="modal-content">
+                        <!--begin::Modal header-->
+                        <div class="modal-header">
+                            <!--begin::Modal title-->
+                            <h2 class="fw-bold">Adjust Balance</h2>
+                            <!--end::Modal title-->
+                            <!--begin::Close-->
+                            <div id="kt_modal_adjust_balance_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+                                <i class="ki-duotone ki-cross fs-1">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </div>
+                            <!--end::Close-->
+                        </div>
+                        <!--end::Modal header-->
+                        <!--begin::Modal body-->
+                        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                            <!--begin::Balance preview-->
+                            <div class="d-flex text-center mb-9">
+                                <div class="w-50 border border-dashed border-gray-300 rounded mx-2 p-4">
+                                    <div class="fs-6 fw-semibold mb-2 text-muted">Current Balance</div>
+                                    <div class="fs-2 fw-bold" kt-modal-adjust-balance="current_balance">US$ 32,487.57</div>
+                                </div>
+                                <div class="w-50 border border-dashed border-gray-300 rounded mx-2 p-4">
+                                    <div class="fs-6 fw-semibold mb-2 text-muted">New Balance
+                                    <span class="ms-2" data-bs-toggle="tooltip" title="Enter an amount to preview the new balance.">
+                                        <i class="ki-duotone ki-information fs-7">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>
+                                    </span></div>
+                                    <div class="fs-2 fw-bold" kt-modal-adjust-balance="new_balance">--</div>
                                 </div>
                             </div>
-                            {{-- <div class="table-pagenation pt-3 mt-0">
-                                <p>Showing 1-5 from 100 data</p>
-                                <nav>
-                                    <ul class="pagination pagination-gutter pagination-primary no-bg me-2">
-                                        <li class="page-item page-indicator">
-                                            <a class="page-link" href="javascript:void(0)">
-                                                <i class="fa-solid fa-angle-left"></i></a>
-                                        </li>
-                                        <li class="page-item "><a class="page-link" href="javascript:void(0)">1</a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                        <li class="page-item page-indicator">
-                                            <a class="page-link" href="javascript:void(0)">
-                                                <i class="fa-solid fa-angle-right"></i></a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div> --}}
+                            <!--end::Balance preview-->
+                            <!--begin::Form-->
+                            <form id="kt_modal_adjust_balance_form" class="form" action="#">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-semibold form-label mb-2">Adjustment type</label>
+                                    <!--end::Label-->
+                                    <!--begin::Dropdown-->
+                                    <select class="form-select form-select-solid fw-bold" name="adjustment" aria-label="Select an option" data-control="select2" data-dropdown-parent="#kt_modal_adjust_balance" data-placeholder="Select an option" data-hide-search="true">
+                                        <option></option>
+                                        <option value="1">Credit</option>
+                                        <option value="2">Debit</option>
+                                    </select>
+                                    <!--end::Dropdown-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-semibold form-label mb-2">Amount</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input id="kt_modal_inputmask" type="text" class="form-control form-control-solid" name="amount" value="" />
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-7">
+                                    <!--begin::Label-->
+                                    <label class="fs-6 fw-semibold form-label mb-2">Add adjustment note</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <textarea class="form-control form-control-solid rounded-3 mb-5"></textarea>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Disclaimer-->
+                                <div class="fs-7 text-muted mb-15">Please be aware that all manual balance changes will be audited by the financial team every fortnight. Please maintain your invoices and receipts until then. Thank you.</div>
+                                <!--end::Disclaimer-->
+                                <!--begin::Actions-->
+                                <div class="text-center">
+                                    <button type="reset" id="kt_modal_adjust_balance_cancel" class="btn btn-light me-3">Discard</button>
+                                    <button type="submit" id="kt_modal_adjust_balance_submit" class="btn btn-primary">
+                                        <span class="indicator-label">Submit</span>
+                                        <span class="indicator-progress">Please wait...
+                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                    </button>
+                                </div>
+                                <!--end::Actions-->
+                            </form>
+                            <!--end::Form-->
                         </div>
+                        <!--end::Modal body-->
                     </div>
-                    @endif    
-                    <!--/column-->
+                    <!--end::Modal content-->
                 </div>
-                <!-- /Row -->
+                <!--end::Modal dialog-->
             </div>
-            
-
-
-            <div class="col-xl-6">
-                <div class="row">
-                    <!--column-->
-                    
-                    @if($data->hasRole('user'))
-                    <div class="col-md-6 col-xl-6 col-xxl-12">
-                        <div class="row">
-                             <!--column-->
-                            <div class="col-xl-12">
-                                 <div class="card prim-card">
-                                     <div class="card-body py-3">
-                                         <h4 class="number">Wallet Balance</h4>
-                                         <div class="d-flex align-items-center justify-content-between">
-                                            <div class="prim-info">
-                                                <span>Current</span>
-                                                @if($data->wallet->first() == null)
-                                                <h4>K 0.00</h4>
-                                                @else
-                                                <h4>K {{ $data->wallet->first()->deposit ?? 0 }}</h4>
-                                                @endif
-                                            </div>
-                                            <div class="prim-info">
-                                                <span>Withdrawn</span>
-                                                @if($data->wallet->first() == null)
-                                                <h4>K 0.00</h4>
-                                                @else
-                                                <h4>K {{ $data->wallet->first()->withdraw ?? 0 }}</h4>
-                                                @endif
-                                            </div>
-                                            <div class="prim-info">
-                                            </div>
-                                             <div class="master-card">
-                                                 <svg width="55" height="35" viewBox="0 0 55 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                     <circle opacity="0.5" cx="17.5" cy="17.5" r="17.5" fill="#FCFCFC"/>
-                                                     <circle opacity="0.5" cx="37.5" cy="17.5" r="17.5" fill="#FCFCFC"/>
-                                                 </svg>	
-                                                 <span class="text-white d-block mt-1">Wallet</span>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
+            <!--end::Modal - New Card-->
+            <!--begin::Modal - New Address-->
+            <div class="modal fade" id="kt_modal_update_customer" tabindex="-1" aria-hidden="true">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog modal-dialog-centered mw-650px">
+                    <!--begin::Modal content-->
+                    <div class="modal-content">
+                        <!--begin::Form-->
+                        <form class="form" action="#" id="kt_modal_update_customer_form">
+                            <!--begin::Modal header-->
+                            <div class="modal-header" id="kt_modal_update_customer_header">
+                                <!--begin::Modal title-->
+                                <h2 class="fw-bold">Update Customer</h2>
+                                <!--end::Modal title-->
+                                <!--begin::Close-->
+                                <div id="kt_modal_update_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+                                    <i class="ki-duotone ki-cross fs-1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </div>
+                                <!--end::Close-->
                             </div>
-                         <!--/column-->
-                          <!--column-->
-                            <div class="col-xl-12">
-                                 <div class="card recent-activity">
-                                     <div class="card-header pb-0 border-0 pt-3">
-                                         <h2 class="heading mb-0">Recent Payments</h2>
-                                     </div>
-                                     <div class="card-body p-0 pb-3">
-                                         {{-- <div class="recent-info">
-                                             <div class="recent-content">
-                                                 <span class="recent_icon">
-                                                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                         <path d="M14.0038 25.4285C11.7434 25.4285 9.53382 24.7582 7.6544 23.5024C5.77498 22.2466 4.31015 20.4617 3.44515 18.3734C2.58015 16.2851 2.35382 13.9872 2.7948 11.7703C3.23577 9.55337 4.32424 7.51699 5.92255 5.91868C7.52087 4.32036 9.55724 3.2319 11.7742 2.79092C13.9911 2.34995 16.289 2.57627 18.3773 3.44127C20.4656 4.30627 22.2505 5.7711 23.5063 7.65052C24.7621 9.52994 25.4323 11.7395 25.4323 13.9999C25.429 17.0299 24.2239 19.9349 22.0813 22.0774C19.9388 24.22 17.0338 25.4251 14.0038 25.4285ZM14.0038 4.85704C12.1955 4.85704 10.4278 5.39326 8.92427 6.39789C7.42074 7.40252 6.24887 8.83044 5.55687 10.5011C4.86487 12.1717 4.68381 14.01 5.03659 15.7836C5.38937 17.5571 6.26014 19.1862 7.5388 20.4649C8.81745 21.7435 10.4465 22.6143 12.2201 22.9671C13.9936 23.3199 15.832 23.1388 17.5026 22.4468C19.1732 21.7548 20.6011 20.5829 21.6058 19.0794C22.6104 17.5759 23.1466 15.8082 23.1466 13.9999C23.1439 11.5759 22.1798 9.25196 20.4657 7.53793C18.7517 5.8239 16.4278 4.85976 14.0038 4.85704Z" fill="#FCFCFC"/>
-                                                         <path d="M15.1466 18.5714H11.7181C11.4149 18.5714 11.1243 18.451 10.9099 18.2367C10.6956 18.0224 10.5752 17.7317 10.5752 17.4286C10.5752 17.1255 10.6956 16.8348 10.9099 16.6204C11.1243 16.4061 11.4149 16.2857 11.7181 16.2857H15.1466V15.1428H12.8609C12.2547 15.1428 11.6733 14.902 11.2447 14.4734C10.816 14.0447 10.5752 13.4633 10.5752 12.8571V11.7143C10.5752 11.1081 10.816 10.5267 11.2447 10.098C11.6733 9.66937 12.2547 9.42856 12.8609 9.42856H16.2895C16.5926 9.42856 16.8833 9.54897 17.0976 9.76329C17.3119 9.97762 17.4323 10.2683 17.4323 10.5714C17.4323 10.8745 17.3119 11.1652 17.0976 11.3795C16.8833 11.5939 16.5926 11.7143 16.2895 11.7143H12.8609V12.8571H15.1466C15.7528 12.8571 16.3342 13.0979 16.7629 13.5266C17.1915 13.9553 17.4323 14.5366 17.4323 15.1428V16.2857C17.4323 16.8919 17.1915 17.4733 16.7629 17.9019C16.3342 18.3306 15.7528 18.5714 15.1466 18.5714Z" fill="#FCFCFC"/>
-                                                         <path d="M14.0032 11.7142C13.7001 11.7142 13.4094 11.5937 13.1951 11.3794C12.9808 11.1651 12.8604 10.8744 12.8604 10.5713V9.42844C12.8604 9.12534 12.9808 8.83465 13.1951 8.62032C13.4094 8.40599 13.7001 8.28558 14.0032 8.28558C14.3063 8.28558 14.597 8.40599 14.8113 8.62032C15.0257 8.83465 15.1461 9.12534 15.1461 9.42844V10.5713C15.1461 10.8744 15.0257 11.1651 14.8113 11.3794C14.597 11.5937 14.3063 11.7142 14.0032 11.7142ZM14.0032 19.7142C13.7001 19.7142 13.4094 19.5937 13.1951 19.3794C12.9808 19.1651 12.8604 18.8744 12.8604 18.5713V17.4284C12.8604 17.1253 12.9808 16.8346 13.1951 16.6203C13.4094 16.406 13.7001 16.2856 14.0032 16.2856C14.3063 16.2856 14.597 16.406 14.8113 16.6203C15.0257 16.8346 15.1461 17.1253 15.1461 17.4284V18.5713C15.1461 18.8744 15.0257 19.1651 14.8113 19.3794C14.597 19.5937 14.3063 19.7142 14.0032 19.7142Z" fill="#FCFCFC"/>
-                                                     </svg>
-                                                 </span>
-                                                 <div class="user-name">
-                                                     <h6>Payment </h6>
-                                                     <span>2 March 2023, 13:45 PM</span>
-                                                 </div>
-                                             </div>
-                                             <div class="count">
-                                                 <span>K2000</span>
-                                             </div>
-                                         </div>
-                                         <div class="recent-info">
-                                             <div class="recent-content">
-                                                 <span class="recent_icon">
-                                                     <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                         <path d="M20.0038 0.857117H4.00377C3.09445 0.857117 2.22238 1.21834 1.5794 1.86132C0.936419 2.5043 0.575195 3.37637 0.575195 4.28569V15.7143C0.575195 16.6236 0.936419 17.4956 1.5794 18.1386C2.22238 18.7816 3.09445 19.1428 4.00377 19.1428H20.0038C20.9131 19.1428 21.7852 18.7816 22.4281 18.1386C23.0711 17.4956 23.4323 16.6236 23.4323 15.7143V4.28569C23.4323 3.37637 23.0711 2.5043 22.4281 1.86132C21.7852 1.21834 20.9131 0.857117 20.0038 0.857117ZM2.86091 4.28569C2.86091 3.98258 2.98132 3.69189 3.19565 3.47757C3.40997 3.26324 3.70066 3.14283 4.00377 3.14283H20.0038C20.3069 3.14283 20.5976 3.26324 20.8119 3.47757C21.0262 3.69189 21.1466 3.98258 21.1466 4.28569V5.42854H2.86091V4.28569ZM21.1466 15.7143C21.1466 16.0174 21.0262 16.3081 20.8119 16.5224C20.5976 16.7367 20.3069 16.8571 20.0038 16.8571H4.00377C3.70066 16.8571 3.40997 16.7367 3.19565 16.5224C2.98132 16.3081 2.86091 16.0174 2.86091 15.7143V7.71426H21.1466V15.7143Z" fill="#FCFCFC"/>
-                                                         <path d="M5.14676 11.1429H7.43248C7.73558 11.1429 8.02627 11.0225 8.2406 10.8081C8.45493 10.5938 8.57533 10.3031 8.57533 10C8.57533 9.6969 8.45493 9.40621 8.2406 9.19188C8.02627 8.97756 7.73558 8.85715 7.43248 8.85715H5.14676C4.84366 8.85715 4.55297 8.97756 4.33864 9.19188C4.12431 9.40621 4.00391 9.6969 4.00391 10C4.00391 10.3031 4.12431 10.5938 4.33864 10.8081C4.55297 11.0225 4.84366 11.1429 5.14676 11.1429Z" fill="#FCFCFC"/>
-                                                     </svg>
-                                                 </span>
-                                                 <div class="user-name">
-                                                     <h6>Subcription</h6>
-                                                     <span>2 March 2023, 13:45 PM</span>
-                                                 </div>
-                                             </div>
-                                             <div class="count">
-                                                 <span>-$120</span>
-                                             </div>
-                                         </div> --}}
-                                         
-                                     </div>
-                                 </div>
+                            <!--end::Modal header-->
+                            <!--begin::Modal body-->
+                            <div class="modal-body py-10 px-lg-17">
+                                <!--begin::Scroll-->
+                                <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_update_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_update_customer_header" data-kt-scroll-wrappers="#kt_modal_update_customer_scroll" data-kt-scroll-offset="300px">
+                                    <!--begin::Notice-->
+                                    <!--begin::Notice-->
+                                    <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
+                                        <!--begin::Icon-->
+                                        <i class="ki-duotone ki-information fs-2tx text-primary me-4">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>
+                                        <!--end::Icon-->
+                                        <!--begin::Wrapper-->
+                                        <div class="d-flex flex-stack flex-grow-1">
+                                            <!--begin::Content-->
+                                            <div class="fw-semibold">
+                                                <div class="fs-6 text-gray-700">Updating customer details will receive a privacy audit. For more info, please read our
+                                                <a href="#">Privacy Policy</a></div>
+                                            </div>
+                                            <!--end::Content-->
+                                        </div>
+                                        <!--end::Wrapper-->
+                                    </div>
+                                    <!--end::Notice-->
+                                    <!--end::Notice-->
+                                    <!--begin::User toggle-->
+                                    <div class="fw-bold fs-3 rotate collapsible mb-7" data-bs-toggle="collapse" href="#kt_modal_update_customer_user_info" role="button" aria-expanded="false" aria-controls="kt_modal_update_customer_user_info">User Information
+                                    <span class="ms-2 rotate-180">
+                                        <i class="ki-duotone ki-down fs-3"></i>
+                                    </span></div>
+                                    <!--end::User toggle-->
+                                    <!--begin::User form-->
+                                    <div id="kt_modal_update_customer_user_info" class="collapse show">
+                                        <!--begin::Input group-->
+                                        <div class="mb-7">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">
+                                                <span>Update Avatar</span>
+                                                <span class="ms-1" data-bs-toggle="tooltip" title="Allowed file types: png, jpg, jpeg.">
+                                                    <i class="ki-duotone ki-information fs-7">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                    </i>
+                                                </span>
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Image input wrapper-->
+                                            <div class="mt-1">
+                                                <!--begin::Image input-->
+                                                <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
+                                                    <!--begin::Preview existing avatar-->
+                                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div>
+                                                    <!--end::Preview existing avatar-->
+                                                    <!--begin::Edit-->
+                                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                                        <i class="ki-duotone ki-pencil fs-7">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <!--begin::Inputs-->
+                                                        <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                                        <input type="hidden" name="avatar_remove" />
+                                                        <!--end::Inputs-->
+                                                    </label>
+                                                    <!--end::Edit-->
+                                                    <!--begin::Cancel-->
+                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                                        <i class="ki-duotone ki-cross fs-2">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                    <!--end::Cancel-->
+                                                    <!--begin::Remove-->
+                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                                        <i class="ki-duotone ki-cross fs-2">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                    <!--end::Remove-->
+                                                </div>
+                                                <!--end::Image input-->
+                                            </div>
+                                            <!--end::Image input wrapper-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="fv-row mb-7">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">Name</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Sean Bean" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="fv-row mb-7">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">
+                                                <span>Email</span>
+                                                <span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+                                                    <i class="ki-duotone ki-information fs-7">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                    </i>
+                                                </span>
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input type="email" class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="fv-row mb-15">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">Description</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" placeholder="" name="description" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                    </div>
+                                    <!--end::User form-->
+                                    <!--begin::Billing toggle-->
+                                    <div class="fw-bold fs-3 rotate collapsible collapsed mb-7" data-bs-toggle="collapse" href="#kt_modal_update_customer_billing_info" role="button" aria-expanded="false" aria-controls="kt_modal_update_customer_billing_info">Shipping Information
+                                    <span class="ms-2 rotate-180">
+                                        <i class="ki-duotone ki-down fs-3"></i>
+                                    </span></div>
+                                    <!--end::Billing toggle-->
+                                    <!--begin::Billing form-->
+                                    <div id="kt_modal_update_customer_billing_info" class="collapse">
+                                        <!--begin::Input group-->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">Address Line 1</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input class="form-control form-control-solid" placeholder="" name="address1" value="101, Collins Street" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">Address Line 2</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input class="form-control form-control-solid" placeholder="" name="address2" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">Town</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input class="form-control form-control-solid" placeholder="" name="city" value="Melbourne" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="row g-9 mb-7">
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold mb-2">State / Province</label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <input class="form-control form-control-solid" placeholder="" name="state" value="Victoria" />
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold mb-2">Post Code</label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <input class="form-control form-control-solid" placeholder="" name="postcode" value="3000" />
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="fs-6 fw-semibold mb-2">
+                                                <span>Country</span>
+                                                <span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
+                                                    <i class="ki-duotone ki-information fs-7">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                    </i>
+                                                </span>
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <select name="country" aria-label="Select a Country" data-control="select2" data-placeholder="Select a Country..." data-dropdown-parent="#kt_modal_update_customer" class="form-select form-select-solid fw-bold">
+                                                <option value="">Select a Country...</option>
+                                                <option value="AF">Afghanistan</option>
+                                                <option value="AX">Aland Islands</option>
+                                                <option value="AL">Albania</option>
+                                                <option value="DZ">Algeria</option>
+                                                <option value="AS">American Samoa</option>
+                                                <option value="AD">Andorra</option>
+                                                <option value="AO">Angola</option>
+                                                <option value="AI">Anguilla</option>
+                                                <option value="AG">Antigua and Barbuda</option>
+                                                <option value="AR">Argentina</option>
+                                                <option value="AM">Armenia</option>
+                                                <option value="AW">Aruba</option>
+                                                <option value="AU">Australia</option>
+                                                <option value="AT">Austria</option>
+                                                <option value="AZ">Azerbaijan</option>
+                                                <option value="BS">Bahamas</option>
+                                                <option value="BH">Bahrain</option>
+                                                <option value="BD">Bangladesh</option>
+                                                <option value="BB">Barbados</option>
+                                                <option value="BY">Belarus</option>
+                                                <option value="BE">Belgium</option>
+                                                <option value="BZ">Belize</option>
+                                                <option value="BJ">Benin</option>
+                                                <option value="BM">Bermuda</option>
+                                                <option value="BT">Bhutan</option>
+                                                <option value="BO">Bolivia, Plurinational State of</option>
+                                                <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                                <option value="BA">Bosnia and Herzegovina</option>
+                                                <option value="BW">Botswana</option>
+                                                <option value="BR">Brazil</option>
+                                                <option value="IO">British Indian Ocean Territory</option>
+                                                <option value="BN">Brunei Darussalam</option>
+                                                <option value="BG">Bulgaria</option>
+                                                <option value="BF">Burkina Faso</option>
+                                                <option value="BI">Burundi</option>
+                                                <option value="KH">Cambodia</option>
+                                                <option value="CM">Cameroon</option>
+                                                <option value="CA">Canada</option>
+                                                <option value="CV">Cape Verde</option>
+                                                <option value="KY">Cayman Islands</option>
+                                                <option value="CF">Central African Republic</option>
+                                                <option value="TD">Chad</option>
+                                                <option value="CL">Chile</option>
+                                                <option value="CN">China</option>
+                                                <option value="CX">Christmas Island</option>
+                                                <option value="CC">Cocos (Keeling) Islands</option>
+                                                <option value="CO">Colombia</option>
+                                                <option value="KM">Comoros</option>
+                                                <option value="CK">Cook Islands</option>
+                                                <option value="CR">Costa Rica</option>
+                                                <option value="CI">Côte d'Ivoire</option>
+                                                <option value="HR">Croatia</option>
+                                                <option value="CU">Cuba</option>
+                                                <option value="CW">Curaçao</option>
+                                                <option value="CZ">Czech Republic</option>
+                                                <option value="DK">Denmark</option>
+                                                <option value="DJ">Djibouti</option>
+                                                <option value="DM">Dominica</option>
+                                                <option value="DO">Dominican Republic</option>
+                                                <option value="EC">Ecuador</option>
+                                                <option value="EG">Egypt</option>
+                                                <option value="SV">El Salvador</option>
+                                                <option value="GQ">Equatorial Guinea</option>
+                                                <option value="ER">Eritrea</option>
+                                                <option value="EE">Estonia</option>
+                                                <option value="ET">Ethiopia</option>
+                                                <option value="FK">Falkland Islands (Malvinas)</option>
+                                                <option value="FJ">Fiji</option>
+                                                <option value="FI">Finland</option>
+                                                <option value="FR">France</option>
+                                                <option value="PF">French Polynesia</option>
+                                                <option value="GA">Gabon</option>
+                                                <option value="GM">Gambia</option>
+                                                <option value="GE">Georgia</option>
+                                                <option value="DE">Germany</option>
+                                                <option value="GH">Ghana</option>
+                                                <option value="GI">Gibraltar</option>
+                                                <option value="GR">Greece</option>
+                                                <option value="GL">Greenland</option>
+                                                <option value="GD">Grenada</option>
+                                                <option value="GU">Guam</option>
+                                                <option value="GT">Guatemala</option>
+                                                <option value="GG">Guernsey</option>
+                                                <option value="GN">Guinea</option>
+                                                <option value="GW">Guinea-Bissau</option>
+                                                <option value="HT">Haiti</option>
+                                                <option value="VA">Holy See (Vatican City State)</option>
+                                                <option value="HN">Honduras</option>
+                                                <option value="HK">Hong Kong</option>
+                                                <option value="HU">Hungary</option>
+                                                <option value="IS">Iceland</option>
+                                                <option value="IN">India</option>
+                                                <option value="ID">Indonesia</option>
+                                                <option value="IR">Iran, Islamic Republic of</option>
+                                                <option value="IQ">Iraq</option>
+                                                <option value="IE">Ireland</option>
+                                                <option value="IM">Isle of Man</option>
+                                                <option value="IL">Israel</option>
+                                                <option value="IT">Italy</option>
+                                                <option value="JM">Jamaica</option>
+                                                <option value="JP">Japan</option>
+                                                <option value="JE">Jersey</option>
+                                                <option value="JO">Jordan</option>
+                                                <option value="KZ">Kazakhstan</option>
+                                                <option value="KE">Kenya</option>
+                                                <option value="KI">Kiribati</option>
+                                                <option value="KP">Korea, Democratic People's Republic of</option>
+                                                <option value="KW">Kuwait</option>
+                                                <option value="KG">Kyrgyzstan</option>
+                                                <option value="LA">Lao People's Democratic Republic</option>
+                                                <option value="LV">Latvia</option>
+                                                <option value="LB">Lebanon</option>
+                                                <option value="LS">Lesotho</option>
+                                                <option value="LR">Liberia</option>
+                                                <option value="LY">Libya</option>
+                                                <option value="LI">Liechtenstein</option>
+                                                <option value="LT">Lithuania</option>
+                                                <option value="LU">Luxembourg</option>
+                                                <option value="MO">Macao</option>
+                                                <option value="MG">Madagascar</option>
+                                                <option value="MW">Malawi</option>
+                                                <option value="MY">Malaysia</option>
+                                                <option value="MV">Maldives</option>
+                                                <option value="ML">Mali</option>
+                                                <option value="MT">Malta</option>
+                                                <option value="MH">Marshall Islands</option>
+                                                <option value="MQ">Martinique</option>
+                                                <option value="MR">Mauritania</option>
+                                                <option value="MU">Mauritius</option>
+                                                <option value="MX">Mexico</option>
+                                                <option value="FM">Micronesia, Federated States of</option>
+                                                <option value="MD">Moldova, Republic of</option>
+                                                <option value="MC">Monaco</option>
+                                                <option value="MN">Mongolia</option>
+                                                <option value="ME">Montenegro</option>
+                                                <option value="MS">Montserrat</option>
+                                                <option value="MA">Morocco</option>
+                                                <option value="MZ">Mozambique</option>
+                                                <option value="MM">Myanmar</option>
+                                                <option value="NA">Namibia</option>
+                                                <option value="NR">Nauru</option>
+                                                <option value="NP">Nepal</option>
+                                                <option value="NL">Netherlands</option>
+                                                <option value="NZ">New Zealand</option>
+                                                <option value="NI">Nicaragua</option>
+                                                <option value="NE">Niger</option>
+                                                <option value="NG">Nigeria</option>
+                                                <option value="NU">Niue</option>
+                                                <option value="NF">Norfolk Island</option>
+                                                <option value="MP">Northern Mariana Islands</option>
+                                                <option value="NO">Norway</option>
+                                                <option value="OM">Oman</option>
+                                                <option value="PK">Pakistan</option>
+                                                <option value="PW">Palau</option>
+                                                <option value="PS">Palestinian Territory, Occupied</option>
+                                                <option value="PA">Panama</option>
+                                                <option value="PG">Papua New Guinea</option>
+                                                <option value="PY">Paraguay</option>
+                                                <option value="PE">Peru</option>
+                                                <option value="PH">Philippines</option>
+                                                <option value="PL">Poland</option>
+                                                <option value="PT">Portugal</option>
+                                                <option value="PR">Puerto Rico</option>
+                                                <option value="QA">Qatar</option>
+                                                <option value="RO">Romania</option>
+                                                <option value="RU">Russian Federation</option>
+                                                <option value="RW">Rwanda</option>
+                                                <option value="BL">Saint Barthélemy</option>
+                                                <option value="KN">Saint Kitts and Nevis</option>
+                                                <option value="LC">Saint Lucia</option>
+                                                <option value="MF">Saint Martin (French part)</option>
+                                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                                <option value="WS">Samoa</option>
+                                                <option value="SM">San Marino</option>
+                                                <option value="ST">Sao Tome and Principe</option>
+                                                <option value="SA">Saudi Arabia</option>
+                                                <option value="SN">Senegal</option>
+                                                <option value="RS">Serbia</option>
+                                                <option value="SC">Seychelles</option>
+                                                <option value="SL">Sierra Leone</option>
+                                                <option value="SG">Singapore</option>
+                                                <option value="SX">Sint Maarten (Dutch part)</option>
+                                                <option value="SK">Slovakia</option>
+                                                <option value="SI">Slovenia</option>
+                                                <option value="SB">Solomon Islands</option>
+                                                <option value="SO">Somalia</option>
+                                                <option value="ZA">South Africa</option>
+                                                <option value="KR">South Korea</option>
+                                                <option value="SS">South Sudan</option>
+                                                <option value="ES">Spain</option>
+                                                <option value="LK">Sri Lanka</option>
+                                                <option value="SD">Sudan</option>
+                                                <option value="SR">Suriname</option>
+                                                <option value="SZ">Swaziland</option>
+                                                <option value="SE">Sweden</option>
+                                                <option value="CH">Switzerland</option>
+                                                <option value="SY">Syrian Arab Republic</option>
+                                                <option value="TW">Taiwan, Province of China</option>
+                                                <option value="TJ">Tajikistan</option>
+                                                <option value="TZ">Tanzania, United Republic of</option>
+                                                <option value="TH">Thailand</option>
+                                                <option value="TG">Togo</option>
+                                                <option value="TK">Tokelau</option>
+                                                <option value="TO">Tonga</option>
+                                                <option value="TT">Trinidad and Tobago</option>
+                                                <option value="TN">Tunisia</option>
+                                                <option value="TR">Turkey</option>
+                                                <option value="TM">Turkmenistan</option>
+                                                <option value="TC">Turks and Caicos Islands</option>
+                                                <option value="TV">Tuvalu</option>
+                                                <option value="UG">Uganda</option>
+                                                <option value="UA">Ukraine</option>
+                                                <option value="AE">United Arab Emirates</option>
+                                                <option value="GB">United Kingdom</option>
+                                                <option value="US">United States</option>
+                                                <option value="UY">Uruguay</option>
+                                                <option value="UZ">Uzbekistan</option>
+                                                <option value="VU">Vanuatu</option>
+                                                <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                                <option value="VN">Vietnam</option>
+                                                <option value="VI">Virgin Islands</option>
+                                                <option value="YE">Yemen</option>
+                                                <option value="ZM">Zambia</option>
+                                                <option value="ZW">Zimbabwe</option>
+                                            </select>
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="fv-row mb-7">
+                                            <!--begin::Wrapper-->
+                                            <div class="d-flex flex-stack">
+                                                <!--begin::Label-->
+                                                <div class="me-5">
+                                                    <!--begin::Label-->
+                                                    <label class="fs-6 fw-semibold">Use as a billing adderess?</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Input-->
+                                                    <div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+                                                    <!--end::Input-->
+                                                </div>
+                                                <!--end::Label-->
+                                                <!--begin::Switch-->
+                                                <label class="form-check form-switch form-check-custom form-check-solid">
+                                                    <!--begin::Input-->
+                                                    <input class="form-check-input" name="billing" type="checkbox" value="1" id="kt_modal_update_customer_billing" checked="checked" />
+                                                    <!--end::Input-->
+                                                    <!--begin::Label-->
+                                                    <span class="form-check-label fw-semibold text-muted" for="kt_modal_update_customer_billing">Yes</span>
+                                                    <!--end::Label-->
+                                                </label>
+                                                <!--end::Switch-->
+                                            </div>
+                                            <!--begin::Wrapper-->
+                                        </div>
+                                        <!--end::Input group-->
+                                    </div>
+                                    <!--end::Billing form-->
+                                </div>
+                                <!--end::Scroll-->
                             </div>
-                         <!--/column-->
+                            <!--end::Modal body-->
+                            <!--begin::Modal footer-->
+                            <div class="modal-footer flex-center">
+                                <!--begin::Button-->
+                                <button type="reset" id="kt_modal_update_customer_cancel" class="btn btn-light me-3">Discard</button>
+                                <!--end::Button-->
+                                <!--begin::Button-->
+                                <button type="submit" id="kt_modal_update_customer_submit" class="btn btn-primary">
+                                    <span class="indicator-label">Submit</span>
+                                    <span class="indicator-progress">Please wait...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                </button>
+                                <!--end::Button-->
+                            </div>
+                            <!--end::Modal footer-->
+                        </form>
+                        <!--end::Form-->
+                    </div>
+                </div>
+            </div>
+            <!--end::Modal - New Address-->
+            <!--begin::Modal - New Card-->
+            <div class="modal fade" id="kt_modal_new_card" tabindex="-1" aria-hidden="true">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog modal-dialog-centered mw-650px">
+                    <!--begin::Modal content-->
+                    <div class="modal-content">
+                        <!--begin::Modal header-->
+                        <div class="modal-header">
+                            <!--begin::Modal title-->
+                            <h2>Add New Card</h2>
+                            <!--end::Modal title-->
+                            <!--begin::Close-->
+                            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                <i class="ki-duotone ki-cross fs-1">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </div>
+                            <!--end::Close-->
                         </div>
+                        <!--end::Modal header-->
+                        <!--begin::Modal body-->
+                        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                            <!--begin::Form-->
+                            <form id="kt_modal_new_card_form" class="form" action="#">
+                                <!--begin::Input group-->
+                                <div class="d-flex flex-column mb-7 fv-row">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                        <span class="required">Name On Card</span>
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Specify a card holder's name">
+                                            <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                            </i>
+                                        </span>
+                                    </label>
+                                    <!--end::Label-->
+                                    <input type="text" class="form-control form-control-solid" placeholder="" name="card_name" value="Max Doe" />
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="d-flex flex-column mb-7 fv-row">
+                                    <!--begin::Label-->
+                                    <label class="required fs-6 fw-semibold form-label mb-2">Card Number</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input wrapper-->
+                                    <div class="position-relative">
+                                        <!--begin::Input-->
+                                        <input type="text" class="form-control form-control-solid" placeholder="Enter card number" name="card_number" value="4111 1111 1111 1111" />
+                                        <!--end::Input-->
+                                        <!--begin::Card logos-->
+                                        <div class="position-absolute translate-middle-y top-50 end-0 me-5">
+                                            <img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
+                                            <img src="assets/media/svg/card-logos/mastercard.svg" alt="" class="h-25px" />
+                                            <img src="assets/media/svg/card-logos/american-express.svg" alt="" class="h-25px" />
+                                        </div>
+                                        <!--end::Card logos-->
+                                    </div>
+                                    <!--end::Input wrapper-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="row mb-10">
+                                    <!--begin::Col-->
+                                    <div class="col-md-8 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="required fs-6 fw-semibold form-label mb-2">Expiration Date</label>
+                                        <!--end::Label-->
+                                        <!--begin::Row-->
+                                        <div class="row fv-row">
+                                            <!--begin::Col-->
+                                            <div class="col-6">
+                                                <select name="card_expiry_month" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Month">
+                                                    <option></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                </select>
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-6">
+                                                <select name="card_expiry_year" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Year">
+                                                    <option></option>
+                                                    <option value="2023">2023</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2026">2026</option>
+                                                    <option value="2027">2027</option>
+                                                    <option value="2028">2028</option>
+                                                    <option value="2029">2029</option>
+                                                    <option value="2030">2030</option>
+                                                    <option value="2031">2031</option>
+                                                    <option value="2032">2032</option>
+                                                    <option value="2033">2033</option>
+                                                </select>
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Row-->
+                                    </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-md-4 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                            <span class="required">CVV</span>
+                                            <span class="ms-1" data-bs-toggle="tooltip" title="Enter a card CVV code">
+                                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                </i>
+                                            </span>
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Input wrapper-->
+                                        <div class="position-relative">
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" minlength="3" maxlength="4" placeholder="CVV" name="card_cvv" />
+                                            <!--end::Input-->
+                                            <!--begin::CVV icon-->
+                                            <div class="position-absolute translate-middle-y top-50 end-0 me-3">
+                                                <i class="ki-duotone ki-credit-cart fs-2hx">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                            </div>
+                                            <!--end::CVV icon-->
+                                        </div>
+                                        <!--end::Input wrapper-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="d-flex flex-stack">
+                                    <!--begin::Label-->
+                                    <div class="me-5">
+                                        <label class="fs-6 fw-semibold form-label">Save Card for further billing?</label>
+                                        <div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+                                    </div>
+                                    <!--end::Label-->
+                                    <!--begin::Switch-->
+                                    <label class="form-check form-switch form-check-custom form-check-solid">
+                                        <input class="form-check-input" type="checkbox" value="1" checked="checked" />
+                                        <span class="form-check-label fw-semibold text-muted">Save Card</span>
+                                    </label>
+                                    <!--end::Switch-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Actions-->
+                                <div class="text-center pt-15">
+                                    <button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
+                                    <button type="submit" id="kt_modal_new_card_submit" class="btn btn-primary">
+                                        <span class="indicator-label">Submit</span>
+                                        <span class="indicator-progress">Please wait...
+                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                    </button>
+                                </div>
+                                <!--end::Actions-->
+                            </form>
+                            <!--end::Form-->
+                        </div>
+                        <!--end::Modal body-->
                     </div>
-                    @endif
-                 <!--/column-->
+                    <!--end::Modal content-->
                 </div>
+                <!--end::Modal dialog-->
             </div>
+            <!--end::Modal - New Card-->
+            <!--end::Modals-->
         </div>
-        @else 
-        <div class="col-xl-12">
-            <div class="items-center center justify-center">
-                <h1>No Results Found.</h1>
-            </div>
-        </div>
-        @endif
+        <!--end::Container-->
     </div>
+    <!--end::Post-->
 </div>

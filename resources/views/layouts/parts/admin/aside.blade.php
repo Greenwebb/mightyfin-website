@@ -33,7 +33,7 @@
                         <!--end::Username-->
                         <!--begin::Description-->
                         <span class="text-warning fw-semibold d-block fs-8 mb-1">
-                            {{ preg_replace('/[^A-Za-z0-9. -]/', '',  Auth::user()->roles->pluck('name')) ?? 'Guest' }}
+                            {{ preg_replace('/[^A-Za-z0-9. -]/', '',  Auth::user()->roles->pluck('name')) ?? 'Staff' }}
                         </span>
                         <!--end::Description-->
                         <!--begin::Label-->
@@ -2329,7 +2329,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="#">
+                                    <a class="menu-link" href="###">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -2369,7 +2369,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="https://preview.keenthemes.com/metronic8/demo8/layout-builder.html">
+                    <a class="menu-link" href="###">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-abstract-13 fs-2">
                                 <span class="path1"></span>
@@ -2384,7 +2384,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs" target="_blank">
+                    <a class="menu-link" href="###" target="_blank">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-abstract-26 fs-2">
                                 <span class="path1"></span>
