@@ -47,7 +47,7 @@
                                     <!--begin::Stats-->
                                     <div class="border border-gray-300 border-dashed rounded py-3 px-3 mb-3">
                                         <div class="fs-4 fw-bold text-gray-700">
-                                            <span class="w-75px">6,900</span>
+                                            <span class="w-75px">K {{ App\Models\Loans::customer_total_borrowed($data->id) }}</span>
                                             <i class="ki-duotone ki-arrow-up fs-3 text-success">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -59,7 +59,7 @@
                                     <!--begin::Stats-->
                                     <div class="border border-gray-300 border-dashed rounded py-3 px-3 mx-4 mb-3">
                                         <div class="fs-4 fw-bold text-gray-700">
-                                            <span class="w-50px">130</span>
+                                            <span class="w-50px">K {{ App\Models\Loans::customer_total_pending_borrowed($data->id) }}</span>
                                             <i class="ki-duotone ki-arrow-down fs-3 text-danger">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -71,7 +71,7 @@
                                     <!--begin::Stats-->
                                     <div class="border border-gray-300 border-dashed rounded py-3 px-3 mb-3">
                                         <div class="fs-4 fw-bold text-gray-700">
-                                            <span class="w-50px">500</span>
+                                            <span class="w-50px">K {{ App\Models\Loans::loan_balance($data->loans->first()->id) }}</span>
                                             <i class="ki-duotone ki-arrow-up fs-3 text-success">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -81,13 +81,13 @@
                                     </div>
                                     <div class="border border-gray-300 border-dashed rounded py-3 px-3 mb-3">
                                         <div class="fs-4 fw-bold text-gray-700">
-                                            <span class="w-50px">500</span>
+                                            <span class="w-50px">K {{ App\Models\Loans::customer_total_paid($data->id) }}</span>
                                             <i class="ki-duotone ki-arrow-up fs-3 text-success">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                             </i>
                                         </div>
-                                        <div class="fw-semibold text-muted">Pending Repayment</div>
+                                        <div class="fw-semibold text-muted">Settled Repayment</div>
                                     </div>
                                     <!--end::Stats-->
                                 </div>
@@ -134,15 +134,15 @@
                                     <!--begin::Details item-->
                                     <!--begin::Details item-->
                                     <div class="fw-bold mt-5">Upcoming Repayment</div>
-                                    <div class="text-gray-600">54238-8693</div>
+                                    <div class="text-gray-600">K 0</div>
                                     <!--begin::Details item-->
                                     <!--begin::Details item-->
                                     <div class="fw-bold mt-5">National ID</div>
                                     <div class="text-gray-600">{{ $data->id_type ?? 'Not Set' }}</div>
                                     <div class="text-gray-600">{{ $data->nrc_no ?? $data->nrc ?? 'Not Set' }}</div>
 
-                                    <div class="fw-bold mt-5">National ID</div>
-                                    <div class="text-gray-600">TX-8674</div>
+                                    <div class="fw-bold mt-5">Registered On</div>
+                                    <div class="text-gray-600">{{ $data->created_at->diffForHumans() ?? 'Not Set' }}</div>
                                     <!--begin::Details item-->
                                 </div>
                             </div>
@@ -183,7 +183,7 @@
                             <!--begin::Items-->
                             <div class="py-2">
                                 <!--begin::Item-->
-                                <div class="d-flex flex-stack">
+                                {{-- <div class="d-flex flex-stack">
                                     <div class="d-flex">
                                         <img src="assets/media/svg/brand-logos/google-icon.svg" class="w-30px me-6" alt="" />
                                         <div class="d-flex flex-column">
@@ -251,16 +251,17 @@
                                         </label>
                                         <!--end::Switch-->
                                     </div>
-                                </div>
+                                </div> --}}
+                                <small>No Apps Connected</small>
                                 <!--end::Item-->
                             </div>
                             <!--end::Items-->
                         </div>
                         <!--end::Card body-->
                         <!--begin::Card footer-->
-                        <div class="card-footer border-0 d-flex justify-content-center pt-0">
+                        {{-- <div class="card-footer border-0 d-flex justify-content-center pt-0">
                             <button class="btn btn-sm btn-light-primary">Save Changes</button>
-                        </div>
+                        </div> --}}
                         <!--end::Card footer-->
                     </div>
                     <!--end::Connected Accounts-->
@@ -394,11 +395,11 @@
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2>Payment Records</h2>
+                                        <h2>Repayment Records</h2>
                                     </div>
                                     <!--end::Card title-->
                                     <!--begin::Card toolbar-->
-                                    <div class="card-toolbar">
+                                    {{-- <div class="card-toolbar">
                                         <!--begin::Filter-->
                                         <button type="button" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_payment">
                                         <i class="ki-duotone ki-plus-square fs-3">
@@ -407,7 +408,7 @@
                                             <span class="path3"></span>
                                         </i>Add payment</button>
                                         <!--end::Filter-->
-                                    </div>
+                                    </div> --}}
                                     <!--end::Card toolbar-->
                                 </div>
                                 <!--end::Card header-->
@@ -417,7 +418,7 @@
                                     <table class="table align-middle table-row-dashed gy-5" id="kt_table_customers_payment">
                                         <thead class="border-bottom border-gray-200 fs-7 fw-bold">
                                             <tr class="text-start text-muted text-uppercase gs-0">
-                                                <th class="min-w-100px">Invoice No.</th>
+                                                <th class="min-w-100px">Loan.</th>
                                                 <th>Status</th>
                                                 <th>Amount</th>
                                                 <th class="min-w-100px">Date</th>
@@ -425,6 +426,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="fs-6 fw-semibold text-gray-600">
+                                            @forelse (App\Models\Transaction::hasTransaction($data->id) as $item)
                                             <tr>
                                                 <td>
                                                     <a href="#" class="text-gray-600 text-hover-primary mb-1">9673-1893</a>
@@ -453,230 +455,9 @@
                                                     <!--end::Menu-->
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">2655-1234</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-success">Successful</span>
-                                                </td>
-                                                <td>$79.00</td>
-                                                <td>01 Dec 2020, 10:12 am</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">6732-1806</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-success">Successful</span>
-                                                </td>
-                                                <td>$5,500.00</td>
-                                                <td>12 Nov 2020, 2:01 pm</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">4269-7965</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-warning">Pending</span>
-                                                </td>
-                                                <td>$880.00</td>
-                                                <td>21 Oct 2020, 5:54 pm</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">2188-4533</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-success">Successful</span>
-                                                </td>
-                                                <td>$7,650.00</td>
-                                                <td>19 Oct 2020, 7:32 am</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">3602-3127</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-success">Successful</span>
-                                                </td>
-                                                <td>$375.00</td>
-                                                <td>23 Sep 2020, 12:38 am</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">2810-7956</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-success">Successful</span>
-                                                </td>
-                                                <td>$129.00</td>
-                                                <td>11 Sep 2020, 3:18 pm</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">1476-1160</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-danger">Rejected</span>
-                                                </td>
-                                                <td>$450.00</td>
-                                                <td>03 Sep 2020, 1:08 am</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">6427-8124</a>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-light-warning">Pending</span>
-                                                </td>
-                                                <td>$8,700.00</td>
-                                                <td>01 Sep 2020, 4:58 pm</td>
-                                                <td class="pe-0 text-end">
-                                                    <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
+                                            @empty
+                                                
+                                            @endforelse
                                         </tbody>
                                         <!--end::Table body-->
                                     </table>
@@ -691,7 +472,7 @@
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2 class="fw-bold mb-0">Payment Methods</h2>
+                                        <h2 class="fw-bold mb-0">Bank Details</h2>
                                     </div>
                                     <!--end::Card title-->
                                     <!--begin::Card toolbar-->
@@ -720,16 +501,16 @@
                                                 </div>
                                                 <!--end::Arrow-->
                                                 <!--begin::Logo-->
-                                                <img src="assets/media/svg/card-logos/mastercard.svg" class="w-40px me-3" alt="" />
+                                                <img src="{{ asset('public/mfs/admin/assets/media/svg/card-logos/mastercard.svg')}}" class="w-40px me-3" alt="" />
                                                 <!--end::Logo-->
                                                 <!--begin::Summary-->
-                                                <div class="me-3">
+                                                {{-- <div class="me-3">
                                                     <div class="d-flex align-items-center">
                                                         <div class="text-gray-800 fw-bold">Mastercard</div>
                                                         <div class="badge badge-light-primary ms-5">Primary</div>
                                                     </div>
                                                     <div class="text-muted">Expires Dec 2024</div>
-                                                </div>
+                                                </div> --}}
                                                 <!--end::Summary-->
                                             </div>
                                             <!--end::Toggle-->
@@ -789,13 +570,18 @@
                                                     <table class="table table-flush fw-semibold gy-1">
                                                         <tr>
                                                             <td class="text-muted min-w-125px w-125px">Name</td>
-                                                            <td class="text-gray-800">Emma Smith</td>
+                                                            <td class="text-gray-800">{{ $data->bank->first()->accountNames }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="text-muted min-w-125px w-125px">Number</td>
-                                                            <td class="text-gray-800">**** 9637</td>
+                                                            <td class="text-gray-800">{{ $data->bank->first()->accountNumber }}</td>
                                                         </tr>
                                                         <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Branch Name</td>
+                                                            <td class="text-gray-800">{{ $data->bank->first()->branchName }}</td>
+                                                        </tr>
+                                                        
+                                                        {{-- <tr>
                                                             <td class="text-muted min-w-125px w-125px">Expires</td>
                                                             <td class="text-gray-800">12/2024</td>
                                                         </tr>
@@ -810,12 +596,12 @@
                                                         <tr>
                                                             <td class="text-muted min-w-125px w-125px">ID</td>
                                                             <td class="text-gray-800">id_4325df90sdf8</td>
-                                                        </tr>
+                                                        </tr> --}}
                                                     </table>
                                                 </div>
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
-                                                <div class="flex-equal">
+                                                {{-- <div class="flex-equal">
                                                     <table class="table table-flush fw-semibold gy-1">
                                                         <tr>
                                                             <td class="text-muted min-w-125px w-125px">Billing address</td>
@@ -847,7 +633,7 @@
                                                             </i></td>
                                                         </tr>
                                                     </table>
-                                                </div>
+                                                </div> --}}
                                                 <!--end::Col-->
                                             </div>
                                             <!--end::Details-->
@@ -857,7 +643,7 @@
                                     <!--end::Option-->
                                     <div class="separator separator-dashed"></div>
                                     <!--begin::Option-->
-                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                    {{-- <div class="py-0" data-kt-customer-payment-method="row">
                                         <!--begin::Header-->
                                         <div class="py-3 d-flex flex-stack flex-wrap">
                                             <!--begin::Toggle-->
@@ -997,11 +783,11 @@
                                             <!--end::Details-->
                                         </div>
                                         <!--end::Body-->
-                                    </div>
+                                    </div> --}}
                                     <!--end::Option-->
                                     <div class="separator separator-dashed"></div>
                                     <!--begin::Option-->
-                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                    {{-- <div class="py-0" data-kt-customer-payment-method="row">
                                         <!--begin::Header-->
                                         <div class="py-3 d-flex flex-stack flex-wrap">
                                             <!--begin::Toggle-->
@@ -1145,14 +931,14 @@
                                             <!--end::Details-->
                                         </div>
                                         <!--end::Body-->
-                                    </div>
+                                    </div> --}}
                                     <!--end::Option-->
                                 </div>
                                 <!--end::Card body-->
                             </div>
                             <!--end::Card-->
                             <!--begin::Card-->
-                            <div class="card pt-4 mb-6 mb-xl-9">
+                            {{-- <div class="card pt-4 mb-6 mb-xl-9">
                                 <!--begin::Card header-->
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
@@ -1178,7 +964,7 @@
                                     <div class="fs-7 fw-normal text-muted">Balance will increase the amount due on the customer's next invoice.</div></div>
                                 </div>
                                 <!--end::Card body-->
-                            </div>
+                            </div> --}}
                             <!--end::Card-->
                             <!--begin::Card-->
                             <div class="card pt-2 mb-6 mb-xl-9">

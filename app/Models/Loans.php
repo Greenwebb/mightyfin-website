@@ -34,14 +34,18 @@ class Loans extends Model
         return Application::with('loan')
         ->where('status', 1)
         ->where('complete', 1)
+        ->where('continue', 0)
         ->where('user_id', $user_id)->sum('amount');
 
     }
 
+    
+    // Completed kyc and final submission form and given funds
     public static function customer_total_borrowed($user_id){
         $loans = Application::with('loan')
         ->where('status', 1)
         ->where('complete', 1)
+        ->where('continue', 0)
         ->where('user_id', $user_id)->get();
 
         $total = 0;
@@ -49,6 +53,15 @@ class Loans extends Model
             $total += Loans::where('application_id', $loan->id)->first()->principal;
         }
         
+        return $total;
+    }
+
+    // Completed kyc and final submission form
+    public static function customer_total_pending_borrowed($user_id){
+        $total = Application::where('status', 0)
+        ->where('complete', 1)
+        ->where('continue', 0)
+        ->where('user_id', $user_id)->sum('amount');
         return $total;
     }
 
@@ -66,6 +79,7 @@ class Loans extends Model
         return $amount_paid;
     }
 
+    // customer repayment balance
     public static function customer_balance($user_id){
         
         $loans = Application::with('loan')
@@ -91,7 +105,7 @@ class Loans extends Model
             $payback = Application::payback($loan->amount, $loan->repayment_plan);
             return (float)$payback - (float)$paid;
         }else{
-            return $loan->amount;
+            return Application::payback($loan->amount, $loan->repayment_plan);
         }
 
     }
