@@ -278,7 +278,7 @@
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_customer_view_overview_events_and_logs_tab">Events & Logs</a>
+                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_customer_view_overview_events_and_logs_tab">References</a>
                         </li>
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
@@ -300,11 +300,11 @@
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-5">
-                                    <a href="#" class="menu-link px-5">Create invoice</a>
+                                    <a href="#" class="menu-link px-5">Send Message</a>
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
-                                <div class="menu-item px-5">
+                                {{-- <div class="menu-item px-5">
                                     <a href="#" class="menu-link flex-stack px-5">Create payments
                                     <span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">
                                         <i class="ki-duotone ki-information fs-7">
@@ -313,10 +313,10 @@
                                             <span class="path3"></span>
                                         </i>
                                     </span></a>
-                                </div>
+                                </div> --}}
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
-                                <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
+                                {{-- <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
                                     <a href="#" class="menu-link px-5">
                                         <span class="menu-title">Subscription</span>
                                         <span class="menu-arrow"></span>
@@ -353,7 +353,7 @@
                                         <!--end::Menu item-->
                                     </div>
                                     <!--end::Menu sub-->
-                                </div>
+                                </div> --}}
                                 <!--end::Menu item-->
                                 <!--begin::Menu separator-->
                                 <div class="separator my-3"></div>
@@ -369,13 +369,13 @@
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
-                                <div class="menu-item px-5 my-1">
+                                {{-- <div class="menu-item px-5 my-1">
                                     <a href="#" class="menu-link px-5">Account Settings</a>
-                                </div>
+                                </div> --}}
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-5">
-                                    <a href="#" class="menu-link text-danger px-5">Delete customer</a>
+                                    <a href="#" class="menu-link text-danger px-5">Block customer</a>
                                 </div>
                                 <!--end::Menu item-->
                             </div>
@@ -476,14 +476,14 @@
                                     </div>
                                     <!--end::Card title-->
                                     <!--begin::Card toolbar-->
-                                    <div class="card-toolbar">
+                                    {{-- <div class="card-toolbar">
                                         <a href="#" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
                                         <i class="ki-duotone ki-plus-square fs-3">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                             <span class="path3"></span>
                                         </i>Add new method</a>
-                                    </div>
+                                    </div> --}}
                                     <!--end::Card toolbar-->
                                 </div>
                                 <!--end::Card header-->
@@ -972,11 +972,11 @@
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2>Invoices</h2>
+                                        <h2>Documentation</h2>
                                     </div>
                                     <!--end::Card title-->
                                     <!--begin::Toolbar-->
-                                    <div class="card-toolbar m-0">
+                                    {{-- <div class="card-toolbar m-0">
                                         <!--begin::Tab nav-->
                                         <ul class="nav nav-stretch fs-5 fw-semibold nav-line-tabs nav-line-tabs-2x border-transparent" role="tablist">
                                             <li class="nav-item" role="presentation">
@@ -993,7 +993,7 @@
                                             </li>
                                         </ul>
                                         <!--end::Tab nav-->
-                                    </div>
+                                    </div> --}}
                                     <!--end::Toolbar-->
                                 </div>
                                 <!--end::Card header-->
@@ -1006,16 +1006,16 @@
                                             <!--begin::Table-->
                                             <table id="kt_customer_details_invoices_table_1" class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
                                                 <thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
-                                                    <tr class="text-start text-muted gs-0">
+                                                    {{-- <tr class="text-start text-muted gs-0">
                                                         <th class="min-w-100px">Order ID</th>
                                                         <th class="min-w-100px">Amount</th>
                                                         <th class="min-w-100px">Status</th>
                                                         <th class="min-w-125px">Date</th>
                                                         <th class="min-w-100px text-end pe-7">Invoice</th>
-                                                    </tr>
+                                                    </tr> --}}
                                                 </thead>
                                                 <tbody class="fs-6 fw-semibold text-gray-600">
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td>
                                                             <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
                                                         </td>
@@ -1027,111 +1027,8 @@
                                                         <td class="text-end">
                                                             <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
-                                                        </td>
-                                                        <td class="text-danger">$-2.60</td>
-                                                        <td>
-                                                            <span class="badge badge-light-danger">Rejected</span>
-                                                        </td>
-                                                        <td>Oct 24, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
-                                                        </td>
-                                                        <td class="text-success">$76.00</td>
-                                                        <td>
-                                                            <span class="badge badge-light-success">Approved</span>
-                                                        </td>
-                                                        <td>Oct 08, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
-                                                        </td>
-                                                        <td class="text-success">$5.00</td>
-                                                        <td>
-                                                            <span class="badge badge-light-success">Approved</span>
-                                                        </td>
-                                                        <td>Sep 15, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
-                                                        </td>
-                                                        <td class="text-danger">$-1.30</td>
-                                                        <td>
-                                                            <span class="badge badge-light-info">In progress</span>
-                                                        </td>
-                                                        <td>May 30, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
-                                                        </td>
-                                                        <td class="text-success">$204.00</td>
-                                                        <td>
-                                                            <span class="badge badge-light-warning">Pending</span>
-                                                        </td>
-                                                        <td>Apr 22, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
-                                                        </td>
-                                                        <td class="text-success">$31.00</td>
-                                                        <td>
-                                                            <span class="badge badge-light-warning">Pending</span>
-                                                        </td>
-                                                        <td>Feb 09, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
-                                                        </td>
-                                                        <td class="text-success">$52.00</td>
-                                                        <td>
-                                                            <span class="badge badge-light-info">In progress</span>
-                                                        </td>
-                                                        <td>Nov 01, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
-                                                        </td>
-                                                        <td class="text-danger">$-0.80</td>
-                                                        <td>
-                                                            <span class="badge badge-light-warning">Pending</span>
-                                                        </td>
-                                                        <td>Jan 04, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
+                                                    </tr> --}}
+                                                    <small>No Uploads</small>
                                                 </tbody>
                                             </table>
                                             <!--end::Table-->
