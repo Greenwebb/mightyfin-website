@@ -414,10 +414,10 @@
     
                         <!-- Bank Details -->
                         <div class="step" id="step6">
-                            <div style="width: 90%" class="d-flex justify-content-between mb-2">
+                            <div style="width: 90%" class="d-block justify-content-start mb-2">
                                 <h5>Requirements</h5>
                                 <span class="justify-content-end items-right float-right text-left">
-                                    <p>Click the button below to share preapproval form, if not shared. should change to Click the button below to share preapproval form, if missing</p>
+                                    <p>Click the button below to share preapproval form, if missing</p>
                                     <button title="Send the preapproval form to employer, manager, or supervisor" type="button" class="btn btn-sm" style="background-color: rgb(54, 15, 94)" onclick="openSendDocModal()">Send Preapproval</button>
                                 </span>
                             </div>
