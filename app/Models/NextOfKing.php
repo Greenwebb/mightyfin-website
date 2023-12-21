@@ -24,4 +24,8 @@ class NextOfKing extends Model
     public function user(){
         $this->belongsTo(User::class);
     }
+    public static function customer_nok($user_id){
+        return NextOfKing::where('user_id', $user_id)->orderBy('created_at', 'desc')->limit(1)->get();
+    }
+    
 }

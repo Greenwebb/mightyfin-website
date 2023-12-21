@@ -424,7 +424,7 @@
                             <br>
                             <div class="col-xxl-12 col-xl-12 col-lg-12">
                                 <div class="text-success" id="sendDocResponseText">Pre-approval forms share successfully</div>
-                                <div class="text-danger" id="sendDocResponseText2">Cound not send, Please try again</div>
+                                <div class="text-danger" id="sendDocResponseText2">Could not send, Please try again</div>
                             </div>
                             {{-- <small>Please upload a Copy of your <b>NRC(Front & Back)</b>, <b>latest Payslip</b>, <b>3 months Bank statement</b> and <b>passport size photo</b></small> --}}
                             <div class="row col-md-12 col-lg-12" style="">

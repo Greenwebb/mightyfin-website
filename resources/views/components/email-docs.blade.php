@@ -40,7 +40,7 @@
 
             <!-- Modal Footer -->
             <div class="modal-footer">
-                <button type="button" id="cancelShareDoc" onclick="closeSendDocModal()" class="btn btn-sm btn-light text-primary">Its okay, I already signed</button>
+                <button type="button" id="cancelShareDoc" onclick="closeSendDocModal()" class="btn btn-sm btn-light text-dark">I already signed</button>
                 <button type="button" class="btn btn-primary btn-sm" id="shareButton" onclick="shareDocuments()">
                     <span id="shareButtonText">Share now</span>
                     <div class="spinner-border spinner-border-sm d-none" role="status" id="shareButtonSpinner">

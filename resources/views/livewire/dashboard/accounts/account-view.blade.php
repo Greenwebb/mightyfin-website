@@ -283,7 +283,7 @@
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_customer_view_overview_statements">Statements</a>
+                            <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_customer_view_overview_statements">Recent Loans</a>
                         </li>
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
@@ -395,7 +395,7 @@
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2>Repayment Records</h2>
+                                        <h3>Repayment Records</h3>
                                     </div>
                                     <!--end::Card title-->
                                     <!--begin::Card toolbar-->
@@ -472,7 +472,7 @@
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2 class="fw-bold mb-0">Bank Details</h2>
+                                        <h3 class="fw-bold mb-0">Bank Details</h3>
                                     </div>
                                     <!--end::Card title-->
                                     <!--begin::Card toolbar-->
@@ -1004,33 +1004,73 @@
                                         <!--begin::Tab panel-->
                                         <div id="kt_customer_details_invoices_1" class="py-0 tab-pane fade show active" role="tabpanel">
                                             <!--begin::Table-->
-                                            <table id="kt_customer_details_invoices_table_1" class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
-                                                <thead class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
-                                                    {{-- <tr class="text-start text-muted gs-0">
-                                                        <th class="min-w-100px">Order ID</th>
-                                                        <th class="min-w-100px">Amount</th>
-                                                        <th class="min-w-100px">Status</th>
-                                                        <th class="min-w-125px">Date</th>
-                                                        <th class="min-w-100px text-end pe-7">Invoice</th>
-                                                    </tr> --}}
-                                                </thead>
-                                                <tbody class="fs-6 fw-semibold text-gray-600">
-                                                    {{-- <tr>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
-                                                        </td>
-                                                        <td class="text-success">$38.00</td>
-                                                        <td>
-                                                            <span class="badge badge-light-danger">Rejected</span>
-                                                        </td>
-                                                        <td>Nov 01, 2020</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr> --}}
-                                                    <small>No Uploads</small>
-                                                </tbody>
-                                            </table>
+                                            <h6>Kyc Uploads</h6>
+                                            <div class="row">
+                                                @if ($data->uploads->where('name', 'nrc_file')->isNotEmpty())
+                                                <div class="col-6">
+                                                    <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'nrc_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                        <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                                    </a>
+                                                    <p class="file-list">NRC uploaded on {{ $data->uploads->where('name', 'nrc_file')->first()->created_at->toFormattedDateString() }}</p>
+                                                </div>
+                                                @endif
+                                                @if ($data->uploads->where('name', 'tpin_file')->isNotEmpty())
+                                                <div class="col-6">
+                                                        <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'tpin_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                                        </a>
+                                                        <p class="file-list">Tpin uploaded on {{ $data->uploads->where('name', 'tpin_file')->first()->created_at->toFormattedDateString() }}</p>
+                                                </div>
+                                                @endif
+                                            </div>
+                                            <br>
+                                            <h6>Preapproval Forms</h6>
+                                            <div class="row">
+                                                @if ($data->uploads->where('name', 'preapproval')->isNotEmpty())
+                                                <div class="col-6">
+                                                        <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'preapproval')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                                        </a>
+                                                        <p class="file-list">Preapproval uploaded on {{ $data->uploads->where('name', 'preapproval')->first()->created_at->toFormattedDateString() }}</p>
+                                                </div>
+                                                @endif
+                                                @if ($data->uploads->where('name', 'letterofintro')->isNotEmpty())
+                                                <div class="col-6">
+                                                        <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'letterofintro')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                                        </a>
+                                                        <p class="file-list">Letter of Introduction uploaded on {{ $data->uploads->where('name', 'letterofintro')->first()->created_at->toFormattedDateString() }}</p>
+                                                </div>
+                                                @endif
+                                            </div>
+                                            <br>
+                                            <h6>Other Forms</h6>
+                                            <div class="row">
+                                                @if ($data->uploads->where('name', 'passport')->isNotEmpty())
+                                                <div class="col-6">
+                                                        <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'passport')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                                        </a>
+                                                        <p class="file-list">Passport Size photo uploaded on {{ $data->uploads->where('name', 'passport')->first()->created_at->toFormattedDateString() }}</p>
+                                                </div>
+                                                @endif
+                                                @if ($data->uploads->where('name', 'bankstatement')->isNotEmpty())
+                                                <div class="col-6">
+                                                        <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'bankstatement')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                                        </a>
+                                                        <p class="file-list">Bank Statement uploaded on {{ $data->uploads->where('name', 'bankstatement')->first()->created_at->toFormattedDateString() }}</p>
+                                                </div>
+                                                @endif
+                                                @if ($data->uploads->where('name', 'payslip_file')->isNotEmpty())
+                                                <div class="col-6">
+                                                        <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'payslip_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                                        </a>
+                                                        <p class="file-list">Bank Statement uploaded on {{ $data->uploads->where('name', 'payslip_file')->first()->created_at->toFormattedDateString() }}</p>
+                                                </div>
+                                                @endif
+                                            </div>
                                             <!--end::Table-->
                                         </div>
                                         <!--end::Tab panel-->
@@ -1458,20 +1498,8 @@
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2>Human Resources</h2>
+                                        <h3>Human Resource Details</h3>
                                     </div>
-                                    <!--end::Card title-->
-                                    <!--begin::Card toolbar-->
-                                    {{-- <div class="card-toolbar">
-                                        <!--begin::Button-->
-                                        <button type="button" class="btn btn-sm btn-light-primary">
-                                        <i class="ki-duotone ki-cloud-download fs-3">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>Download Report</button>
-                                        <!--end::Button-->
-                                    </div> --}}
-                                    <!--end::Card toolbar-->
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
@@ -1481,13 +1509,89 @@
                                         <!--begin::Table-->
                                         <table class="table align-middle table-row-dashed fw-semibold text-gray-600 fs-6 gy-5" id="kt_table_customers_logs">
                                             <tbody>
+                                                @forelse (App\Models\References::customer_hrs($data->id) as $refs)
                                                 <tr>
                                                     <td class="min-w-70px">
-                                                        Mary Jane
+                                                        {{ $refs->hrFname.' '.$refs->hrLname }}
                                                     </td>
-                                                    <td>00009393 </td>
-                                                    <td class="pe-0 text-end min-w-200px">15 Apr 2023, 6:05 pm</td>
+                                                    <td>{{ '+'.$refs->hrContactNumber }} </td>
+                                                    {{-- <td class="pe-0 text-end min-w-200px">{{ }}</td> --}}
                                                 </tr>
+                                                @empty
+                                                    
+                                                @endforelse
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table wrapper-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h3>Supervisors Details</h3>
+                                    </div>
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body py-0">
+                                    <!--begin::Table wrapper-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table align-middle table-row-dashed fw-semibold text-gray-600 fs-6 gy-5" id="kt_table_customers_logs">
+                                            <tbody>
+                                                @forelse (App\Models\References::customer_supervisors($data->id) as $refs)
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        {{ $refs->supervisorFirstName.' '.$refs->supervisorLastName }}
+                                                    </td>
+                                                    <td>{{ '+'.$refs->supervisorContactNumber }} </td>
+                                                    {{-- <td class="pe-0 text-end min-w-200px">{{ }}</td> --}}
+                                                </tr>
+                                                @empty
+                                                    
+                                                @endforelse
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table wrapper-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h3>Next of Kin Details</h3>
+                                    </div>
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body py-0">
+                                    <!--begin::Table wrapper-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table align-middle table-row-dashed fw-semibold text-gray-600 fs-6 gy-5" id="kt_table_customers_logs">
+                                            <tbody>
+                                                @forelse (App\Models\NextOfKing::customer_nok($data->id) as $refs)
+                                                <tr>
+                                                    <td class="min-w-70px">
+                                                        {{ $refs->fname.' '.$refs->lname }}
+                                                    </td>
+                                                    <td>{{ '+'.$refs->phone }} </td>
+                                                    <td>{{ $refs->email }} </td>
+                                                    <td>{{ $refs->relation }} </td>
+                                                    {{-- <td class="pe-0 text-end min-w-200px">{{ }}</td> --}}
+                                                </tr>
+                                                @empty
+                                                    
+                                                @endforelse
                                                 
                                             </tbody>
                                         </table>
@@ -1497,108 +1601,12 @@
                                 <!--end::Card body-->
                             </div>
                             <!--end::Card-->
-                            <!--begin::Card-->
-                            <div class="card pt-4 mb-6 mb-xl-9">
-                                <!--begin::Card header-->
-                                <div class="card-header border-0">
-                                    <!--begin::Card title-->
-                                    <div class="card-title">
-                                        <h2>Events</h2>
-                                    </div>
-                                    <!--end::Card title-->
-                                    <!--begin::Card toolbar-->
-                                    <div class="card-toolbar">
-                                        <!--begin::Button-->
-                                        <button type="button" class="btn btn-sm btn-light-primary">
-                                        <i class="ki-duotone ki-cloud-download fs-3">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>Download Report</button>
-                                        <!--end::Button-->
-                                    </div>
-                                    <!--end::Card toolbar-->
-                                </div>
-                                <!--end::Card header-->
-                                <!--begin::Card body-->
-                                <div class="card-body py-0">
-                                    <!--begin::Table-->
-                                    <table class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-5" id="kt_table_customers_events">
-                                        <tbody>
-                                            <tr>
-                                                <td class="min-w-400px">Invoice
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#WER-45670</a>is
-                                                <span class="badge badge-light-info">In Progress</span></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">10 Nov 2023, 10:30 am</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">
-                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Melody Macy</a>has made payment to
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#XRS-45670</a></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">05 May 2023, 10:30 am</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">Invoice
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#LOP-45640</a>has been
-                                                <span class="badge badge-light-danger">Declined</span></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">15 Apr 2023, 6:43 am</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">
-                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Max Smith</a>has made payment to
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#SDK-45670</a></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">19 Aug 2023, 10:30 am</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">Invoice
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#KIO-45656</a>status has changed from
-                                                <span class="badge badge-light-succees me-1">In Transit</span>to
-                                                <span class="badge badge-light-success">Approved</span></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">10 Nov 2023, 5:30 pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">
-                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Brian Cox</a>has made payment to
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#OLP-45690</a></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">19 Aug 2023, 9:23 pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">Invoice
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#LOP-45640</a>has been
-                                                <span class="badge badge-light-danger">Declined</span></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">24 Jun 2023, 10:10 pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">
-                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Max Smith</a>has made payment to
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#SDK-45670</a></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">25 Jul 2023, 2:40 pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">Invoice
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary me-1">#KIO-45656</a>status has changed from
-                                                <span class="badge badge-light-succees me-1">In Transit</span>to
-                                                <span class="badge badge-light-success">Approved</span></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">25 Jul 2023, 8:43 pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="min-w-400px">
-                                                <a href="#" class="text-gray-600 text-hover-primary me-1">Melody Macy</a>has made payment to
-                                                <a href="#" class="fw-bold text-gray-900 text-hover-primary">#XRS-45670</a></td>
-                                                <td class="pe-0 text-gray-600 text-end min-w-200px">25 Oct 2023, 10:30 am</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!--end::Table-->
-                                </div>
-                                <!--end::Card body-->
-                            </div>
-                            <!--end::Card-->
                         </div>
                         <!--end:::Tab pane-->
                         <!--begin:::Tab pane-->
                         <div class="tab-pane fade" id="kt_customer_view_overview_statements" role="tabpanel">
                             <!--begin::Earnings-->
-                            <div class="card mb-6 mb-xl-9">
+                            {{-- <div class="card mb-6 mb-xl-9">
                                 <!--begin::Header-->
                                 <div class="card-header border-0">
                                     <div class="card-title">
@@ -1652,7 +1660,7 @@
                                     <!--end::Left Section-->
                                 </div>
                                 <!--end::Body-->
-                            </div>
+                            </div> --}}
                             <!--end::Earnings-->
                             <!--begin::Statements-->
                             <div class="card mb-6 mb-xl-9">
@@ -1660,11 +1668,11 @@
                                 <div class="card-header">
                                     <!--begin::Title-->
                                     <div class="card-title">
-                                        <h2>Statement</h2>
+                                        <h3>{{ $data->fname."'s" }} Loans</h3>
                                     </div>
                                     <!--end::Title-->
                                     <!--begin::Toolbar-->
-                                    <div class="card-toolbar">
+                                    {{-- <div class="card-toolbar">
                                         <!--begin::Tab nav-->
                                         <ul class="nav nav-stretch fs-5 fw-semibold nav-line-tabs nav-line-tabs-2x border-transparent" role="tablist">
                                             <li class="nav-item" role="presentation">
@@ -1681,7 +1689,7 @@
                                             </li>
                                         </ul>
                                         <!--end::Tab nav-->
-                                    </div>
+                                    </div> --}}
                                     <!--end::Toolbar-->
                                 </div>
                                 <!--end::Header-->
@@ -1696,211 +1704,32 @@
                                                 <thead class="border-bottom border-gray-200">
                                                     <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
                                                         <th class="w-125px">Date</th>
-                                                        <th class="w-100px">Order ID</th>
-                                                        <th class="w-300px">Details</th>
-                                                        <th class="w-100px">Amount</th>
-                                                        <th class="w-100px text-end pe-7">Invoice</th>
+                                                        <th class="w-100px">Name</th>
+                                                        <th class="w-300px">Principal(K)</th>
+                                                        <th class="w-100px">Payback(K)</th>
+                                                        <th class="w-100px text-end pe-7">Statement</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    
+                                                    @forelse($data->loans as $loan)
                                                     <tr>
-                                                        <td>Nov 01, 2021</td>
+                                                        <td>{{ $loan->created_at->toFormattedDateString() }}</td>
                                                         <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
+                                                            <a href="#" class="text-gray-600 text-hover-primary">{{ $loan->type }} Loan</a>
                                                         </td>
-                                                        <td>Darknight transparency 36 Icons Pack</td>
-                                                        <td class="text-success">$38.00</td>
+                                                        <td> <b>{{ $loan->amount }}</b> </td>
+                                                        <td class="text-danger text-xs">
+                                                            {{ 
+                                                                number_format(App\Models\Application::payback($loan->amount, $loan->repayment_plan), 2, '.', ',')
+                                                            }}
+                                                        </td>
                                                         <td class="text-end">
                                                             <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Oct 24, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
-                                                        </td>
-                                                        <td>Seller Fee</td>
-                                                        <td class="text-danger">$-2.60</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Oct 08, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
-                                                        </td>
-                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
-                                                        <td class="text-success">$76.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Sep 15, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
-                                                        </td>
-                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
-                                                        <td class="text-success">$5.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>May 30, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
-                                                        </td>
-                                                        <td>Seller Fee</td>
-                                                        <td class="text-danger">$-1.30</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Apr 22, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
-                                                        </td>
-                                                        <td>Parcel Shipping / Delivery Service App</td>
-                                                        <td class="text-success">$204.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Feb 09, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
-                                                        </td>
-                                                        <td>Visual Design Illustration</td>
-                                                        <td class="text-success">$31.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Nov 01, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
-                                                        </td>
-                                                        <td>Abstract Vusial Pack</td>
-                                                        <td class="text-success">$52.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Jan 04, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
-                                                        </td>
-                                                        <td>Seller Fee</td>
-                                                        <td class="text-danger">$-0.80</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Nov 01, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">102445788</a>
-                                                        </td>
-                                                        <td>Darknight transparency 36 Icons Pack</td>
-                                                        <td class="text-success">$38.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Oct 24, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">423445721</a>
-                                                        </td>
-                                                        <td>Seller Fee</td>
-                                                        <td class="text-danger">$-2.60</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Oct 08, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
-                                                        </td>
-                                                        <td>Cartoon Mobile Emoji Phone Pack</td>
-                                                        <td class="text-success">$76.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Sep 15, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">312445984</a>
-                                                        </td>
-                                                        <td>Iphone 12 Pro Mockup Mega Bundle</td>
-                                                        <td class="text-success">$5.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>May 30, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">523445943</a>
-                                                        </td>
-                                                        <td>Seller Fee</td>
-                                                        <td class="text-danger">$-1.30</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Apr 22, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">231445943</a>
-                                                        </td>
-                                                        <td>Parcel Shipping / Delivery Service App</td>
-                                                        <td class="text-success">$204.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Feb 09, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">426445943</a>
-                                                        </td>
-                                                        <td>Visual Design Illustration</td>
-                                                        <td class="text-success">$31.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Nov 01, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">984445943</a>
-                                                        </td>
-                                                        <td>Abstract Vusial Pack</td>
-                                                        <td class="text-success">$52.00</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Jan 04, 2021</td>
-                                                        <td>
-                                                            <a href="#" class="text-gray-600 text-hover-primary">324442313</a>
-                                                        </td>
-                                                        <td>Seller Fee</td>
-                                                        <td class="text-danger">$-0.80</td>
-                                                        <td class="text-end">
-                                                            <button class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                        </td>
-                                                    </tr>
+                                                    @empty
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                             <!--end::Table-->

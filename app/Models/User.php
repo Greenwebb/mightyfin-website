@@ -150,8 +150,8 @@ class User extends Authenticatable
     }
 
     public function loans(){
-        return $this->hasMany(Application::class);
-    }
+        return $this->hasMany(Application::class)->orderBy('created_at', 'desc');
+    }    
 
     public function active_loans(){
         return $this->hasOne(Application::class)->where('status', 1)->where('complete', 1);
