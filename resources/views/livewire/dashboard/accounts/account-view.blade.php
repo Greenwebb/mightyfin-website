@@ -1458,11 +1458,11 @@
                                 <div class="card-header border-0">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2>Logs</h2>
+                                        <h2>Human Resources</h2>
                                     </div>
                                     <!--end::Card title-->
                                     <!--begin::Card toolbar-->
-                                    <div class="card-toolbar">
+                                    {{-- <div class="card-toolbar">
                                         <!--begin::Button-->
                                         <button type="button" class="btn btn-sm btn-light-primary">
                                         <i class="ki-duotone ki-cloud-download fs-3">
@@ -1470,7 +1470,7 @@
                                             <span class="path2"></span>
                                         </i>Download Report</button>
                                         <!--end::Button-->
-                                    </div>
+                                    </div> --}}
                                     <!--end::Card toolbar-->
                                 </div>
                                 <!--end::Card header-->
@@ -1483,74 +1483,12 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="min-w-70px">
-                                                        <div class="badge badge-light-success">200 OK</div>
+                                                        Mary Jane
                                                     </td>
-                                                    <td>POST /v1/invoices/in_9381_6519/payment</td>
+                                                    <td>00009393 </td>
                                                     <td class="pe-0 text-end min-w-200px">15 Apr 2023, 6:05 pm</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-success">200 OK</div>
-                                                    </td>
-                                                    <td>POST /v1/invoices/in_5959_3541/payment</td>
-                                                    <td class="pe-0 text-end min-w-200px">25 Jul 2023, 2:40 pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-warning">404 WRN</div>
-                                                    </td>
-                                                    <td>POST /v1/customer/c_64b784ba36261/not_found</td>
-                                                    <td class="pe-0 text-end min-w-200px">10 Mar 2023, 2:40 pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-success">200 OK</div>
-                                                    </td>
-                                                    <td>POST /v1/invoices/in_9381_6519/payment</td>
-                                                    <td class="pe-0 text-end min-w-200px">19 Aug 2023, 10:10 pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-success">200 OK</div>
-                                                    </td>
-                                                    <td>POST /v1/invoices/in_6751_5507/payment</td>
-                                                    <td class="pe-0 text-end min-w-200px">10 Nov 2023, 5:20 pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-danger">500 ERR</div>
-                                                    </td>
-                                                    <td>POST /v1/invoice/in_7903_5155/invalid</td>
-                                                    <td class="pe-0 text-end min-w-200px">20 Dec 2023, 8:43 pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-success">200 OK</div>
-                                                    </td>
-                                                    <td>POST /v1/invoices/in_9381_6519/payment</td>
-                                                    <td class="pe-0 text-end min-w-200px">19 Aug 2023, 10:10 pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-danger">500 ERR</div>
-                                                    </td>
-                                                    <td>POST /v1/invoice/in_5250_9522/invalid</td>
-                                                    <td class="pe-0 text-end min-w-200px">24 Jun 2023, 11:05 am</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-warning">404 WRN</div>
-                                                    </td>
-                                                    <td>POST /v1/customer/c_64b784ba3625f/not_found</td>
-                                                    <td class="pe-0 text-end min-w-200px">10 Mar 2023, 5:20 pm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="min-w-70px">
-                                                        <div class="badge badge-light-success">200 OK</div>
-                                                    </td>
-                                                    <td>POST /v1/invoices/in_6751_5507/payment</td>
-                                                    <td class="pe-0 text-end min-w-200px">10 Mar 2023, 5:20 pm</td>
-                                                </tr>
+                                                
                                             </tbody>
                                         </table>
                                     </div>

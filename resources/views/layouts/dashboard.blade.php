@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mighty Finance Solution | App</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/images/m.jpg') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/web/images/01-ft-logo.png') }}" />
     <!-- Custom Stylesheet -->
     
     <link rel="stylesheet" href="{{ asset('public/mfs/css/style.css')}}" />
@@ -98,7 +98,7 @@
 
         /* Styles for the modal */
         /* Styles for the modal */
-        .modal {
+        /* .modal {
             display: none;
             position: fixed;
             top: 30%;
@@ -113,15 +113,15 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.5);
-            width: 100%; /* Adjust the width as needed */
-        }
+            width: 100%;
+        } */
 
         /* Media query for mobile devices with a maximum width of 767px */
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             .modal {
                 padding: 2%;
-                top: 45%; /* Adjust as needed for centering */
-                width: 100%; /* Adjust the width as needed */
+                top: 45%; 
+                width: 100%; 
             }
             .modal-content{
               width: 100%;
@@ -129,7 +129,7 @@
         }
         .modal-content{
           width: 60%;
-        }
+        } */
 
 
         /* Style for the file input */
