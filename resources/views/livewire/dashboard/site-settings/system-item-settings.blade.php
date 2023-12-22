@@ -44,3 +44,22 @@
         </div>
     </div>
 </div>
+<script>
+    // Initial setup
+    document.addEventListener('DOMContentLoaded', function () {
+        // Set "Spooling" as the default selected option
+        document.querySelector('input[name="process_type"][value="1"]').checked = true;
+        // Display the corresponding settings
+        toggleSettings('spooling');
+    });
+
+    function toggleSettings(option) {
+        const settings = document.querySelectorAll('.settings');
+        settings.forEach((setting) => {
+            setting.style.display = 'none';
+        });
+
+        const selectedSetting = document.getElementById(option);
+        selectedSetting.style.display = 'block';
+    }
+</script>
