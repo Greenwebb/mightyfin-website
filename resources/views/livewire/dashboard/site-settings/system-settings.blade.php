@@ -24,10 +24,9 @@
                             <div class="fs-4 fw-bold text-dark">User Settings</div>
                             <div class="d-flex flex-wrap mb-6 p-4">
                                 <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User KYC</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'user','settings' => 'user-kyc']) }}" class="fs-6 text-info fw-bold">User KYC settings</a></li> <!-- Change text color to blue -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'user','settings' => 'user-req']) }}" class="fs-6 text-info fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'user','settings' => 'user-roles']) }}" class="fs-6 text-info fw-bold">User Roles & Permissions</a></li> <!-- Add more settings -->
                                 </ul>
                             </div>
                         </div>
@@ -39,10 +38,37 @@
                             <div class="fs-4 fw-bold text-dark">Loan Settings</div>
                             <div class="d-flex flex-wrap mb-6 p-4">
                                 <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User KYC</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Loan Rates</a></li> <!-- Change text color to blue -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-approval']) }}" class="fs-6 text-info fw-bold">Loan Approval Hierachy</a></li> <!-- Change text color to blue -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment']) }}" class="fs-6 text-info fw-bold">Loan Repayments</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-types']) }}" class="fs-6 text-info fw-bold">Loan Types</a></li> <!-- Add more settings -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card border-hover-primary">
+                        <div class="card-body p-9">
+                            <div class="fs-4 fw-bold text-dark">Staff Settings</div>
+                            <div class="d-flex flex-wrap mb-6 p-4">
+                                <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'staff','settings' => 'departments']) }}" class="fs-6 text-info fw-bold">Departments</a></li> <!-- Change text color to blue -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'staff','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'staff','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card border-hover-primary">
+                        <div class="card-body p-9">
+                            <div class="fs-4 fw-bold text-dark">Badges & Rewards Settings</div>
+                            <div class="d-flex flex-wrap mb-6 p-4">
+                                <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'rewards-badges','settings' => 'badges']) }}" class="fs-6 text-info fw-bold">Badges</a></li> <!-- Change text color to blue -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'rewards-badges','settings' => 'rewards']) }}" class="fs-6 text-info fw-bold">Rewards</a></li> <!-- Change text color to blue -->
                                 </ul>
                             </div>
                         </div>
@@ -54,10 +80,8 @@
                             <div class="fs-4 fw-bold text-dark">Authentication Settings</div>
                             <div class="d-flex flex-wrap mb-6 p-4">
                                 <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User KYC</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
                                 </ul>
                             </div>
                         </div>
@@ -66,43 +90,11 @@
                 <div class="col-md-6 col-xl-4">
                     <div class="card border-hover-primary">
                         <div class="card-body p-9">
-                            <div class="fs-4 fw-bold text-dark">Authentication Settings</div>
+                            <div class="fs-4 fw-bold text-dark">Notification Settings</div>
                             <div class="d-flex flex-wrap mb-6 p-4">
-                                <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User KYC</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <div class="card border-hover-primary">
-                        <div class="card-body p-9">
-                            <div class="fs-4 fw-bold text-dark">Authentication Settings</div>
-                            <div class="d-flex flex-wrap mb-6 p-4">
-                                <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User KYC</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <div class="card border-hover-primary">
-                        <div class="card-body p-9">
-                            <div class="fs-4 fw-bold text-dark">Authentication Settings</div>
-                            <div class="d-flex flex-wrap mb-6 p-4">
-                                <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User KYC</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
-                                    <li><a href="#" class="fs-6 text-primary fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Additional Setting 1</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Additional Setting 2</a></li> <!-- Add more settings -->
                                 </ul>
                             </div>
                         </div>

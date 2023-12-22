@@ -44,6 +44,7 @@ use App\Http\Livewire\Dashboard\Settings\UserView;
 use App\Http\Livewire\Dashboard\Settings\CareerSettings;
 use App\Http\Livewire\Dashboard\Settings\ContactSettings;
 use App\Http\Livewire\Dashboard\Settings\UserUpdateView;
+use App\Http\Livewire\Dashboard\SiteSettings\SystemItemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\SystemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\TestPage;
 use App\Http\Livewire\FaqPage;
@@ -154,6 +155,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     // ----- System Settings
     Route::get('system-settings', SystemSettings::class)->name('sys-settings');
+    Route::get('system-property-settings', SystemItemSettings::class)->name('item-settings');
     Route::get('test-page', TestPage::class)->name('test-page');
 
     // ------ KYC Profile
