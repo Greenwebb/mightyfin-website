@@ -10,8 +10,7 @@ class SystemItemSettings extends Component
     public function render()
     {
         $this->settings = $_GET['settings'];
-        dd($this->settings);
         return view('livewire.dashboard.site-settings.system-item-settings')
-        ->layout('layouts.dashboard');
+        ->layout('layouts.admin');
     }
 }
