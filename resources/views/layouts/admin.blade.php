@@ -33,6 +33,20 @@
     <script>
     // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }
     </script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    {{-- Custom --}}
+    <style>
+        .sm-btn{
+            margin-top: 2%;
+            width: 20%;
+            height: 20%;
+            font-size: 10px;
+        }
+    </style>
 </head>
 <!--end::Head-->
 <!--begin::Body-->

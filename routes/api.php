@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\LoanRequestController;
+use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\UserAuthenticationController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\LoanApplicationController;
@@ -45,3 +46,9 @@ Route::get('get-total-payback-amount/{duration}/{principal}', [LoanRequestContro
 Route::get('get-my-wallet/{id}', [LoanRequestController::class, 'getWallets']);
 Route::get('get-my-withdrawal-requests/{id}', [LoanRequestController::class, 'getWithdrawalRequests']);
 Route::post('make-withdrawal-request', [LoanRequestController::class, 'makeWithdrawalRequest']);
+
+// ------ Administration
+// Admin Settings
+Route::get('/get-approvers-users', [SettingController::class, '__get_approvers']);
+Route::post('/set-auto-approvers', [SettingController::class, '__set_approvers']);
+

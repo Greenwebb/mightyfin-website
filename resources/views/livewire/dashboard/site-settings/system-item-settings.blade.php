@@ -48,7 +48,7 @@
     // Initial setup
     document.addEventListener('DOMContentLoaded', function () {
         // Set "Spooling" as the default selected option
-        document.querySelector('input[name="process_type"][value="1"]').checked = true;
+        document.querySelector('input[name="process_type"][value="spooling"]').checked = true;
         // Display the corresponding settings
         toggleSettings('spooling');
     });
