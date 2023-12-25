@@ -13,7 +13,7 @@ use Spatie\Permission\Models\Role;
 class UserRolesView extends Component
 {
     use AuthorizesRequests, WithPagination;
-    public $user_roles, $permissions, $name, $role_name, $role_id, $rolePermissions;
+    public $user_roles, $name, $role_name, $role_id, $rolePermissions;
     public $permission = [];
     public $show, $style;
     public $createModal = false;
@@ -23,13 +23,16 @@ class UserRolesView extends Component
     {
         $this->authorize('view system settings');
         $this->user_roles = Role::pluck('name')->toArray();
-        $this->permissions = Permission::get();
+        $permissions = Permission::whereNotNull('group')->get()->groupBy('group');
+
+        // dd($this->permissions);
         $roles = Role::orderBy('id','DESC')->paginate(5);
         
         return view('livewire.dashboard.settings.user-roles-view', [
-            'roles' => $roles
+            'roles' => $roles,
+            'permissions' => $permissions
         ])
-        ->layout('layouts.dashboard');
+        ->layout('layouts.admin');
     }
 
     public function store(){

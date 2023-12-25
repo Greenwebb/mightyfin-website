@@ -26,7 +26,7 @@
                                 <ul class="list-unstyled"> <!-- Add class to remove list bullets -->
                                     <li><a href="{{ route('item-settings', ['confg' => 'user','settings' => 'user-kyc']) }}" class="fs-6 text-info fw-bold">User KYC settings</a></li> <!-- Change text color to blue -->
                                     <li><a href="{{ route('item-settings', ['confg' => 'user','settings' => 'user-req']) }}" class="fs-6 text-info fw-bold">User Requirements</a></li> <!-- Change text color to blue -->
-                                    <li><a href="{{ route('item-settings', ['confg' => 'user','settings' => 'user-roles']) }}" class="fs-6 text-info fw-bold">User Roles & Permissions</a></li> <!-- Add more settings -->
+                                    <li><a href="{{ route('roles', ['confg' => 'user','settings' => 'user-roles']) }}" class="fs-6 text-info fw-bold">User Roles & Permissions</a></li> <!-- Add more settings -->
                                 </ul>
                             </div>
                         </div>
