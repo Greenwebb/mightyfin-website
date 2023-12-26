@@ -59,7 +59,7 @@ class LoanRequestView extends Component
             if (auth()->user()->hasRole('user')) {
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
-                ])->layout('layouts.admin');
+                ])->layout('layouts.dashboard');
             }else{
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests

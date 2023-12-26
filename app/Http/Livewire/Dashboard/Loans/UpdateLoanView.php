@@ -21,7 +21,13 @@ class UpdateLoanView extends Component
     public function render()
     {
         $this->loan_type = $this->loan->type;
-        return view('livewire.dashboard.loans.update-loan-view')
-        ->layout('layouts.dashboard');
+            
+        if (auth()->user()->hasRole('user')) {
+            return view('livewire.dashboard.loans.update-loan-view')
+            ->layout('layouts.dashboard');
+        }else{
+            return view('livewire.dashboard.loans.update-loan-view')
+            ->layout('layouts.admin');
+        }
     }
 }

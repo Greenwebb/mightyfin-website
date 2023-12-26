@@ -25,8 +25,14 @@ class LoanStatementView extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.borrowers.loan-statement-view')
-        ->layout('layouts.dashboard');
+        
+        if (auth()->user()->hasRole('user')) {
+            return view('livewire.dashboard.borrowers.loan-statement-view')
+            ->layout('layouts.dashboard');
+        }else{
+            return view('livewire.dashboard.borrowers.loan-statement-view')
+            ->layout('layouts.admin');
+        }
     }
 
     public function exportLoanStatement(){

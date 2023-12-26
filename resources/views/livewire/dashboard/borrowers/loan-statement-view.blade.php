@@ -1,4 +1,4 @@
-<div class="content-body">
+<div class="content-body mt-2">
   <div class="container-fluid">
     <button onclick="printStatement()" class="btn btn-square btn-warning">Print PDF</button>
     <button wire:click='exportLoanStatement()' class="btn btn-square btn-success">Export to Excel</button>
