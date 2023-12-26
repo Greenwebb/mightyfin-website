@@ -28,6 +28,7 @@ class BTFAccount extends Mailable
      */
     public function build()
     {
-        return $this->view('email.new-account-email');
+        return $this->view('email.new-account-email')
+        ->subject('Your MightFin Account');
     }
 }

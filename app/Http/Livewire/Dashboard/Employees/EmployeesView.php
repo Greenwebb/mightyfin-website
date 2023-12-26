@@ -34,22 +34,16 @@ class EmployeesView extends Component
         $this->authorize('view employees');
         $this->user_role = Role::pluck('name')->toArray();
         $this->permissions = Permission::get();
-        $roles = Role::orderBy('id','DESC')->paginate(5);
+        $roles = Role::orderBy('id','desc')->paginate(5);
         
        
-        try {
-            if (Role::where('name', 'employee')->exists()) {
-                $users = User::role('employee')->latest()->paginate(7);
-            } else {
-                $users = [];
-            }
-        } catch (\Throwable $th) {
-            $users = [];
-        }
+        $users = User::orderBy('id','desc')->get();
+        
+        // For Staff only
         return view('livewire.dashboard.employees.employees-view', [
             'users' => $users,
             'roles' => $roles
-        ])->layout('layouts.dashboard');
+        ])->layout('layouts.admin');
     }
 
     public function employeesExcelExport(){

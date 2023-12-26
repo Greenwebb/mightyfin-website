@@ -2143,14 +2143,14 @@
                     <!--begin:Menu sub-->
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+                        <div  class="menu-item menu-accordion mb-1">
                             <!--begin:Menu link-->
-                            <span class="menu-link">
+                            <a class="menu-link" href="{{ route('employees') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">All Staff</span>
-                            </span>
+                            </a>
                             <!--end:Menu link-->
                             <!--begin:Menu sub-->
                             

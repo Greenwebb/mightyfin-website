@@ -98,10 +98,10 @@ class LoanRequestView extends Component
         $this->view = $view;
     }
 
-    public function openAcceptModal($id){
-        $this->loan_request = Application::find($id);
-        $this->render();
-    }
+    // public function openAcceptModal($id){
+    //     $this->loan_request = Application::find($id);
+    //     $this->render();
+    // }
     public function accept($id){
         
         DB::beginTransaction();
