@@ -64,7 +64,7 @@
                             <div class="row py-2">
                                 {{-- Admin Only --}}
                                 @can('accept and reject loan requests')
-                                <div wire:ignore class="col-xl-3 center">
+                                {{-- <div wire:ignore class="col-xl-3 center">
                                     <select multiple wire:model.lazy="status" class="default-select form-control wide mt-3" aria-placeholder="Settlement Type" placeholder="Status">
                                         <option value="">Any</option>
                                         <option value="0">Pending</option>
@@ -82,7 +82,7 @@
                                         <option value="Agri Business">Agri Business Loan</option>
                                         <option value="Women in Business (Femiprise) Soft">Women in Business Loan</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 @endcan
                                 <div class="col-xl-6 center">
                                     {{-- <button wire:click="changeView('grid')" class="mt-3 btn {{ $view === 'grid' ? 'btn-primary':'btn-light' }} btn-square" title="View Grid">

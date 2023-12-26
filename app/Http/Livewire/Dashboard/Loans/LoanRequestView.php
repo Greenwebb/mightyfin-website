@@ -26,6 +26,8 @@ class LoanRequestView extends Component
     public function render()
     {
         try {
+            
+
             // Retrieve users with the 'user' role, excluding their applications
             $this->users = User::role('user')->without('applications')->get();
     
@@ -53,9 +55,16 @@ class LoanRequestView extends Component
             }
     
             // Render the view with the loan requests data and use the 'dashboard' layout
-            return view('livewire.dashboard.loans.loan-request-view',[
-                'requests'=>$requests
-            ])->layout('layouts.dashboard');
+      
+            if (auth()->user()->hasRole('user')) {
+                return view('livewire.dashboard.loans.loan-request-view',[
+                    'requests'=>$requests
+                ])->layout('layouts.admin');
+            }else{
+                return view('livewire.dashboard.loans.loan-request-view',[
+                    'requests'=>$requests
+                ])->layout('layouts.admin');
+            }
         } catch (\Throwable $th) {
             // If an exception occurs, set $loan_requests to an empty array
             $this->loan_requests = [];

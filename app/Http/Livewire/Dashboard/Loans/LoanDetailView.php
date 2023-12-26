@@ -29,8 +29,14 @@ class LoanDetailView extends Component
     {
         $this->loan = $this->get_loan_details($this->loan_id);
         // dd($this->loan->user->uploads[0]->path);
-        return view('livewire.dashboard.loans.loan-detail-view')
-        ->layout('layouts.dashboard');
+              
+        if (auth()->user()->hasRole('user')) {
+            return view('livewire.dashboard.loans.loan-detail-view')
+            ->layout('layouts.admin');
+        }else{
+            return view('livewire.dashboard.loans.loan-detail-view')
+            ->layout('layouts.admin');
+        }
     } 
 
     public function confirm($id, $msg){

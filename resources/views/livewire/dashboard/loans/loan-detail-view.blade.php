@@ -100,7 +100,7 @@
                                 <span>FULL NAMES</span>
                                 <h4>
                                     {{-- {{ route('client-account', ['key'=>$user->id]) }} --}}
-                                    <a href="#">
+                                    <a href="{{ route('client-account', ['key'=>$loan->user->id]) }}">
                                         {{ $loan->user->fname.' '.$loan->user->lname }}
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
