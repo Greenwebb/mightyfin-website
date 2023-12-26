@@ -1,10 +1,12 @@
 <div class="content-body">
     <div class="container-fluid">
         <div class="row">
+            <br>
             <div class="col-12">
                 @if(!empty($loan_requests->toArray()))
                 <div class="">
-                    <div  style="background-color:#662d91;" class="card-header">
+                    <div style="background-color:#662d91;@role('user') @else margin-top:2%; padding:2%; @endrole " class="card-header">
+                        
                         <h4 class="card-title" style=" color:#f0f0f0">
                             <svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 32 32" xml:space="preserve" fill="#af83c3" stroke="#af83c3" stroke-width="0.48">
 
@@ -111,7 +113,11 @@
                             
                             <div id="loans_table_print_view">
                                 @if($view === 'list')
+                                @role('user') 
                                     @include('livewire.dashboard.loans.__parts.list-loan-request')
+                                @else
+                                    @include('livewire.dashboard.loans.__parts.default-loan-request-table')
+                                @endrole
                                 @endif
                                 @if($view === 'table')
                                     @include('livewire.dashboard.loans.__parts.default-loan-request-table')
