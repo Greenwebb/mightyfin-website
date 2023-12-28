@@ -56,7 +56,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url("https://fonts.googleapis.com/css?family=montserrat:400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap");
 @import url("../icons/simple-line-icons/css/simple-line-icons.css");
@@ -291,7 +291,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 122, 121, 149;
   --bs-body-bg-rgb: 243, 248, 254;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", montserrat, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: Poppins, sans-serif;
@@ -17799,13 +17799,13 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   font-family: 'Open Sans', sans-serif; }
 
 [data-typography="poppins"] {
-  font-family: 'poppins', sans-serif; }
+  font-family: 'montserrat',sans-serif; }
 
 [data-typography="Nunito"] {
   font-family: 'Nunito Sans', sans-serif; }
 
-[data-typography="roboto"] {
-  font-family: 'Roboto', sans-serif; }
+[data-typography="montserrat"] {
+  font-family: 'montserrat', sans-serif; }
 
 [data-typography="helvetica"] {
   font-family: 'HelveticaNeue'; }
@@ -22026,7 +22026,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   background: #fff;
   padding: 0.3125rem;
   border-radius: 0.3125rem;
-  font-family: 'Roboto' !important;
+  font-family: 'montserrat' !important;
   color: var(--primary);
   border: 0.0625rem solid var(--rgba-primary-3); }
 

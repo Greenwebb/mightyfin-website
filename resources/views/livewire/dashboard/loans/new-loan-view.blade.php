@@ -9,7 +9,7 @@
     width: 30px;
     height: 30px;
     margin: 9px auto;
-    box-shadow: 1px 1px 3px #662d91;
+    box-shadow: 1px 1px 3px #792db8;
     transition:all;
     }
     .main-content .wizard-form .progressbar-list::after{
@@ -26,7 +26,7 @@
     transition: all 0.8s;
     }
     .main-content .wizard-form .progressbar-list.active::after{
-        background-color: #662d91;
+        background-color: #792db8;
     }
     .main-content .wizard-form .progressbar-list:first-child::after{
         content: none;
@@ -38,12 +38,12 @@
         font-weight: 600;
         color: #fff;
         padding: 6px;
-        background-color: #662d91;
-        border: 1px solid #662d91;
+        background-color: #792db8;
+        border: 1px solid #792db8;
         box-shadow: 0 0 0 7.5px rgb(176 60 70 / 11%);
     }
     .progressbar-list{
-        color:#662d91;
+        color:#792db8;
     }
     .active{
         color:#000;
@@ -57,18 +57,18 @@
         cursor: pointer;
     }
     .active-card{
-        color:#662d91;
+        color:#792db8;
         font-weight: bold;
-        border: 3px solid #662d91;
+        border: 3px solid #792db8;
     }
     .form-check-input:focus {
         box-shadow: none;
     }
     .bg-color-info{
-        background-color:#662d91 !important;
+        background-color:#792db8 !important;
     }
     .border-color{
-        border-color: #662d91;
+        border-color: #792db8;
     }
     .btn{
         padding:16px 30px;
@@ -93,7 +93,7 @@
     input {
         
         padding: 10px;
-        border: 2px solid #662d91; /* Border color */
+        border: 2px solid #792db8; /* Border color */
         border-radius: 5px; /* Rounded corners */
         font-size: 24px; /* Increased font size */
         font-family: 'Arial', sans-serif;
@@ -106,19 +106,19 @@
     
     /* Hover effect */
     input:hover {
-        border-color: #662d91; /* Border color on hover */
+        border-color: #792db8; /* Border color on hover */
     }
     
     /* Focus effect */
     input:focus {
         outline: none;
-        border-color: #662d91; /* Border color when focused */
+        border-color: #792db8; /* Border color when focused */
         box-shadow: 0 0 10px rgba(185, 60, 231, 0.8); /* Box shadow when focused */
     }
     
     
     /* ranger */
-    @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Creepster&family=montserrat:wght@700&display=swap");
     
     /* .container {
         height: 100vh;
@@ -168,7 +168,7 @@
     .range-slider_thumb {
         width: 14vmin;
         height: 14vmin;
-        border: 0.6vmin solid #662d91;
+        border: 0.6vmin solid #792db8;
         border-radius: 50%;
         position: absolute;
         left: 0;
@@ -180,7 +180,7 @@
         align-items: center;
         font-weight: 700;
         font-size: 4vmin;
-        color: #662d91;
+        color: #792db8;
         z-index: 2;
     }
     
@@ -199,7 +199,7 @@
         position: absolute;
         height: 0.5vmin;
         width: 0;
-        background-color: #662d91;
+        background-color: #792db8;
     }
     
     .disabled-card {
@@ -479,7 +479,7 @@
                                         </div>
                                     </div>
                                     {{-- <p id="principal_value"></p> --}}
-                                    <p style="padding: 2%; background-color:#662d91" class="bg-[#662d91] text-white" id="payback_value">Calculator</p>
+                                    <p style="padding: 2%; background-color:#792db8" class="bg-[#792db8] text-white" id="payback_value">Calculator</p>
                                 </div>
                             </div>
                             <!-- /cards -->
@@ -503,7 +503,7 @@
                                     <div id="preloader2"><i>.</i><i>.</i><i>.</i></div>
                                     <svg style="font-siz:14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="40" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#BB14FF" stroke="#BB14FF" stroke-width="2" r="15" cx="160" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
                                 </span>
-                                <p class="py-2 " style="color: #662d91">Submitting your loan request ...🚀</p>
+                                <p class="py-2 " style="color: #792db8">Submitting your loan request ...🚀</p>
                             </div>
                             <!-- /success message -->
                             </div>

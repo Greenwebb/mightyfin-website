@@ -83,7 +83,7 @@ General css class
 body {
     overflow-x: hidden;
     font-size: 15px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'montserrat',sans-serif;
     line-height: 1.4;
     color: #778191;
     background-color: #f4f6f8;
@@ -98,7 +98,7 @@ h4,
 h5,
 h6 {
     margin: 0px 0px 10px 0px;
-    color: #662d91;
+    color: #792db8;
     font-weight: 500;
 }
 
@@ -149,7 +149,7 @@ a {
 a:focus,
 a:hover {
     text-decoration: none;
-    color: #662d91;
+    color: #792db8;
 }
 
 blockquote {
@@ -177,13 +177,13 @@ p:last-child {
 }
 
 ::selection {
-    background: #662d91;
+    background: #792db8;
     color: #333;
 }
 
 ::-moz-selection {
     /* Code for Firefox */
-    background: #662d91;
+    background: #792db8;
     color: #333;
 }
 
@@ -192,7 +192,7 @@ p:last-child {
 }
 
 .highlight {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .italic {}
@@ -210,7 +210,7 @@ p:last-child {
 }
 
 .lead {
-    color: #662d91;
+    color: #792db8;
     line-height: 36px;
     font-size: 24px;
 }
@@ -228,7 +228,7 @@ p:last-child {
 }
 
 .title {
-    color: #662d91;
+    color: #792db8;
 }
 
 .wp-caption {}
@@ -263,23 +263,23 @@ p:last-child {
 }
 
 .text-light-blue {
-    color: #cce4ff;
+    color: #fdf7e6;
 }
 
 .border-primary {
-    border-color: #662d91!important;
+    border-color: #792db8!important;
 }
 
 .text-primary {
-    color: #662d91!important;
+    color: #792db8!important;
 }
 
 .border-default {
-    border-color: #cda349 !important;
+    border-color: #fec00f !important;
 }
 
 .border-top-default {
-    border-top: 3px solid #cda349;
+    border-top: 3px solid #fec00f;
 }
 
 
@@ -605,7 +605,7 @@ Background & Block color
 }
 
 .bg-default {
-    background-color: #662d91;
+    background-color: #792db8;
     color: #87c0ff;
 }
 
@@ -626,7 +626,7 @@ Background & Block color
 .big-title {
     font-size: 36px;
     font-weight: 600;
-    color: #662d91;
+    color: #792db8;
 }
 
 .capital-title {
@@ -674,7 +674,7 @@ Background & Block color
 }
 
 .bg-pink {
-    background-color: #cda349 !important;
+    background-color: #fec00f !important;
 }
 
 .bg-dark {
@@ -686,11 +686,11 @@ Background & Block color
 }
 
 .bg-light-blue {
-    background-color: #662d91;
+    background-color: #792db8;
 }
 
 .text-pink {
-    color: #cda349;
+    color: #fec00f;
 }
 
 
@@ -752,7 +752,7 @@ Background & Block color
 }
 
 h1.text-primary small {
-    color: #662d91;
+    color: #792db8;
 }
 
 
@@ -775,9 +775,9 @@ Buttons
 }
 
 .btn-default {
-    background-color: #cda349;
+    background-color: #fec00f;
     color: #fff;
-    border-color: #cda349;
+    border-color: #fec00f;
 }
 
 .btn-default:hover {
@@ -794,7 +794,7 @@ Buttons
 }
 
 .btn-primary {
-    background-color: #662d91;
+    background-color: #792db8;
     color: #fff;
 }
 
@@ -812,7 +812,7 @@ Buttons
 }
 
 .btn-secondary:hover {
-    background-color: #cda349;
+    background-color: #fec00f;
     color: #fff;
 }
 
@@ -847,18 +847,18 @@ Buttons
 }
 
 .btn-link {
-    color: #662d91;
+    color: #792db8;
     font-weight: 500;
     padding-bottom: 4px;
-    border-bottom: 2px solid #662d91;
+    border-bottom: 2px solid #792db8;
     display: inline-block;
 }
 
 .btn-link:hover {
-    color: #cda349;
+    color: #fec00f;
     font-weight: 500;
     padding-bottom: 4px;
-    border-bottom: 2px solid #cda349;
+    border-bottom: 2px solid #fec00f;
     text-decoration: none;
 }
 
@@ -868,9 +868,9 @@ Buttons
 .btn-link.focus,
 .btn-link:focus {
     text-decoration: none;
-    border-color: #cda349;
+    border-color: #fec00f;
     box-shadow: none;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .btn-link-white {
@@ -892,13 +892,13 @@ Buttons
 .btn-link-white:hover {}
 
 .btn-default-link {
-    color: #cda349;
+    color: #fec00f;
     font-weight: 500;
     text-decoration: none;
 }
 
 .btn-default-link:hover {
-    color: #662d91;
+    color: #792db8;
 }
 
 
@@ -910,7 +910,7 @@ label {}
 
 .control-label {
     text-transform: uppercase;
-    color: #662d91;
+    color: #792db8;
     font-size: 13px;
     font-weight: 600;
 }
@@ -1040,7 +1040,7 @@ Bullet
 }
 
 .list-pdf-file li a:hover {
-    color: #cda349;
+    color: #fec00f;
 }
 
 
@@ -1072,11 +1072,11 @@ icon
 }
 
 .icon-default {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .icon-primary {
-    color: #662d91;
+    color: #792db8;
 }
 
 .icon-secondary {
@@ -1091,7 +1091,7 @@ icon
 /*-------- updated v 1.0.2 -------*/
 
 .fa-default {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .fa-success {
@@ -1106,7 +1106,7 @@ top bar
 .top-bar {
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #662d91;
+    background-color: #792db8;
     font-size: 12px;
     color: #f1f1f1;
     font-weight: 500;
@@ -1162,13 +1162,13 @@ top bar
 .logo {}
 
 .navigation-wide {
-    background-color: #662d91
+    background-color: #792db8
 }
 
 .navigation-wide #navigation {
     margin-top: 0px;
     float: left;
-    background-color: #662d91;
+    background-color: #792db8;
 }
 
 #navigation,
@@ -1242,7 +1242,7 @@ top bar
 }
 
 #navigation>ul>li:hover>a {
-    color: #cda349;
+    color: #fec00f;
 }
 
 #navigation>ul>li.has-sub>a {
@@ -1327,7 +1327,7 @@ top bar
 
 #navigation ul ul li:hover>a,
 #navigation ul ul li a:hover {
-    color: #cda349;
+    color: #fec00f;
     background-color: #f4f6f8;
 }
 
@@ -1421,7 +1421,7 @@ top bar
 
 #navigation.small-screen ul ul li:hover>a,
 #navigation.small-screen ul ul li.active>a {
-    color: #cda349;
+    color: #fec00f;
 }
 
 #navigation.small-screen ul ul,
@@ -1444,7 +1444,7 @@ top bar
 #navigation.small-screen #menu-button {
     display: block;
     padding: 16px 0px;
-    color: #cda349;
+    color: #fec00f;
     cursor: pointer;
     font-size: 12px;
     text-transform: uppercase;
@@ -1459,8 +1459,8 @@ top bar
     display: block;
     height: 8px;
     width: 20px;
-    border-top: 2px solid #cda349;
-    border-bottom: 2px solid #cda349;
+    border-top: 2px solid #fec00f;
+    border-bottom: 2px solid #fec00f;
     content: '';
 }
 
@@ -1471,7 +1471,7 @@ top bar
     display: block;
     height: 2px;
     width: 20px;
-    background: #cda349;
+    background: #fec00f;
     content: '';
 }
 
@@ -1512,7 +1512,7 @@ top bar
 }
 
 #navigation.small-screen .submenu-button.submenu-opened {
-    background: #662d91;
+    background: #792db8;
 }
 
 #navigation.small-screen ul ul .submenu-button {
@@ -1575,7 +1575,7 @@ top bar
 #sub-nav.small-screen #menu-button {
     display: block;
     padding: 16px;
-    color: #cda349;
+    color: #fec00f;
     cursor: pointer;
     font-size: 12px;
     text-transform: uppercase;
@@ -1590,8 +1590,8 @@ top bar
     display: block;
     height: 8px;
     width: 20px;
-    border-top: 2px solid #cda349;
-    border-bottom: 2px solid #cda349;
+    border-top: 2px solid #fec00f;
+    border-bottom: 2px solid #fec00f;
     content: '';
 }
 
@@ -1602,7 +1602,7 @@ top bar
     display: block;
     height: 2px;
     width: 20px;
-    background: #cda349;
+    background: #fec00f;
     content: '';
 }
 
@@ -1698,7 +1698,7 @@ top bar
 #slider .owl-prev:hover {
     background-color: #fff !important;
     border: 2px solid #fff;
-    color: #662d91;
+    color: #792db8;
 }
 
 #slider .owl-pagination {
@@ -1772,7 +1772,7 @@ index-1
 }
 
 .testimonial-name-1 {
-    color: #662d91;
+    color: #792db8;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 500;
@@ -1812,7 +1812,7 @@ index-1
 }
 
 .top-nav-collapse {
-    background-color: #662d91;
+    background-color: #792db8;
 }
 
 .lender-logo-section {
@@ -1859,7 +1859,7 @@ index-1
 }
 
 .service-rate-block .product-rate {
-    color: #cda349;
+    color: #fec00f;
     margin-bottom: 6px;
     font-size: 18px;
 }
@@ -1879,7 +1879,7 @@ index-1
 }
 
 .customer-text {
-    color: #662d91;
+    color: #792db8;
     font-size: 21px;
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
@@ -1892,11 +1892,11 @@ index-1
 .customer-name {
     font-size: 14px;
     font-weight: 600;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .customer-quote-circle {
-    background-color: #cda349;
+    background-color: #fec00f;
     border-radius: 100%;
     padding: 10px;
     position: absolute;
@@ -1917,7 +1917,7 @@ index-1
 
 .how-it-no {
     font-size: 76px;
-    color: #662d91;
+    color: #792db8;
 }
 
 
@@ -2046,8 +2046,8 @@ index-1
 
 .lead-hero-caption {
     color: #fff;
-    padding-top: 50px;
-    margin-bottom: 20px;
+    padding-top: 50%;
+    margin-bottom: 1%;
 }
 
 .rating-list {
@@ -2057,13 +2057,13 @@ index-1
 }
 
 .lead-hero-title {
-    font-size: 48px;
+    font-size: 60px;
     color: #fff;
     line-height: 58px;
 }
 
 .lead-calculator {
-    background: #662d91;
+    background: #792db8;
     color: #fff;
     border-radius: 6px;
 }
@@ -2093,9 +2093,9 @@ index-1
     background-color: transparent;
     width: 60px;
     height: 60px;
-    border: 2px solid #cda349;
+    border: 2px solid #fec00f;
     border-radius: 100px;
-    color: #cda349;
+    color: #fec00f;
     text-align: center;
     padding: 10px;
     margin: 0px auto 30px auto;
@@ -2108,7 +2108,7 @@ index-1
 }
 
 .highlight-outline.outline:hover {
-    border-color: #662d91;
+    border-color: #792db8;
     -webkit-box-shadow: 1px 1px 9px 2px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 1px 1px 9px 2px rgba(0, 0, 0, 0.2);
     box-shadow: 1px 1px 9px 2px rgba(0, 0, 0, 0.2);
@@ -2145,7 +2145,7 @@ index-1
 .lead-testimonial .testimonial-text {
     font-size: 18px;
     font-style: italic;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'montserrat',sans-serif;
     line-height: 28px;
 }
 
@@ -2169,7 +2169,7 @@ index-1
 .loan-content {}
 
 .lead-calculator .slider .ui-widget-content .ui-state-default {
-    background-color: #cda349 !important;
+    background-color: #fec00f !important;
     border-radius: 100%;
 }
 
@@ -2194,7 +2194,7 @@ index-1
 .header-regular {}
 
 .header-regular.header {
-    background-color: #662d91;
+    background-color: #792db8;
     color: #fff;
     padding-bottom: 13px;
     padding-top: 13px;
@@ -2251,7 +2251,7 @@ index-1
 
 .hero-tab-block .st-tabs .nav-tabs .nav-item.show .nav-link,
 .hero-tab-block .nav-tabs .nav-link.active {
-    color: #cda349;
+    color: #fec00f;
     background-color: white;
     border-color: #ffffff #ffffff #ffffff #ffffff;
 }
@@ -2307,7 +2307,7 @@ index-1
     user-select: none;
     white-space: nowrap;
     width: auto;
-    color: #662d91;
+    color: #792db8;
 }
 
 .nice-select:hover {
@@ -2317,12 +2317,12 @@ index-1
 .nice-select:active,
 .nice-select.open,
 .nice-select:focus {
-    border-color: #662d91;
+    border-color: #792db8;
 }
 
 .nice-select:after {
-    border-bottom: 2px solid #662d91;
-    border-right: 2px solid #662d91;
+    border-bottom: 2px solid #792db8;
+    border-right: 2px solid #792db8;
     content: '';
     display: block;
     height: 7px;
@@ -2443,7 +2443,7 @@ index-1
     text-align: left;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
-    color: #662d91;
+    color: #792db8;
 }
 
 .nice-select .option:hover,
@@ -2476,8 +2476,8 @@ index-1
 
 .process-section .circle {
     background-color: #fff;
-    border: 3px solid #cda349;
-    color: #cda349;
+    border: 3px solid #fec00f;
+    color: #fec00f;
     margin: -32px auto 18px auto;
     position: relative;
 }
@@ -2615,7 +2615,7 @@ index-1
 
 .loan-rate-table .table>thead>tr>th {
     text-align: center;
-    color: #662d91;
+    color: #792db8;
     font-size: 18px;
     border-top: transparent;
     border-bottom: transparent;
@@ -2861,8 +2861,8 @@ compare Student loan table 6-2018
 .card-benefit-tabs .st-tabs .nav-tabs .nav-item.show .nav-link,
 .card-benefit-tabs .st-tabs .nav-tabs .nav-link.active {
     color: #ffffff;
-    background-color: #662d91;
-    border-color: #662d91;
+    background-color: #792db8;
+    border-color: #792db8;
 }
 
 .card-rate-info .list-group-item {
@@ -2898,7 +2898,7 @@ compare Student loan table 6-2018
     font-size: 16px;
     color: #414855;
     font-weight: 600;
-    padding-top: 9px;
+    padding-top: 14px;
 }
 
 .header-standard .search-btn {
@@ -2908,7 +2908,7 @@ compare Student loan table 6-2018
     padding: 10px 0px 0px 0px;
     margin-top: 0px;
     color: #ffffff;
-    background-color: #662d91;
+    background-color: #792db8;
     display: inline-block;
 }
 
@@ -2963,7 +2963,7 @@ compare Student loan table 6-2018
     font-style: initial;
     text-transform: capitalize;
     font-weight: 500;
-    color: #662d91;
+    color: #792db8;
 }
 
 .post-caption-block {
@@ -3011,7 +3011,7 @@ compare Student loan table 6-2018
 
 .bank-account-tabs.st-tabs .nav-tabs .nav-item.show .nav-link,
 .bank-account-tabs.st-tabs .nav-tabs .nav-link.active {
-    color: #cda349;
+    color: #fec00f;
     background-color: #eff1f3;
     border-color: #eff1f3;
 }
@@ -3045,8 +3045,8 @@ compare Student loan table 6-2018
 
 #service .owl-next:hover,
 #service .owl-prev:hover {
-    background-color: #cda349 !important;
-    border: 2px solid #cda349;
+    background-color: #fec00f !important;
+    border: 2px solid #fec00f;
     color: #fff;
 }
 
@@ -3061,7 +3061,7 @@ compare Student loan table 6-2018
 }
 
 .service-block:hover i {
-    color: #cda349;
+    color: #fec00f;
 }
 
 #service .owl-controls,
@@ -3101,9 +3101,9 @@ compare Student loan table 6-2018
     background-color: #e3f0fe;
     width: 60px;
     height: 60px;
-    border: 1px solid #662d91;
+    border: 1px solid #792db8;
     border-radius: 100px;
-    color: #662d91;
+    color: #792db8;
     margin: -70px auto 40px auto;
     padding: 10px;
     text-align: center;
@@ -3137,7 +3137,7 @@ compare Student loan table 6-2018
 }
 
 .circle-default {
-    background-color: #cda349;
+    background-color: #fec00f;
     color: #fff;
 }
 
@@ -3169,7 +3169,7 @@ compare Student loan table 6-2018
 }
 
 .testimonial-title {
-    color: #cda349;
+    color: #fec00f;
     margin-bottom: 0px;
 }
 
@@ -3183,7 +3183,7 @@ compare Student loan table 6-2018
 }
 
 .testimonial-name-inverse {
-    color: #662d91;
+    color: #792db8;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
@@ -3234,7 +3234,7 @@ compare Student loan table 6-2018
 }
 
 .widget-footer ul li a:hover {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .tiny-footer {
@@ -3278,7 +3278,7 @@ compare Student loan table 6-2018
 }
 
 .widget-social ul li a:hover {
-    color: #cda349;
+    color: #fec00f;
     text-decoration: underline;
 }
 
@@ -3319,7 +3319,7 @@ compare Student loan table 6-2018
 .rate-number {
     margin-bottom: 0px;
     line-height: 1;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .btn-action {
@@ -3350,18 +3350,18 @@ compare Student loan table 6-2018
 
 .sub-nav>.nav li a:hover {
     background-color: #fff;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .sub-nav>.nav li a:focus {
     background-color: #fff;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .sub-nav>.nav li.active a {
     color: red;
     background-color: #fff;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .page-breadcrumb {}
@@ -3371,7 +3371,7 @@ compare Student loan table 6-2018
     padding: 0px;
     font-size: 12px;
     text-transform: uppercase;
-    color: #662d91;
+    color: #792db8;
     font-weight: 700;
 }
 
@@ -3383,17 +3383,17 @@ compare Student loan table 6-2018
 }
 
 .page-breadcrumb .breadcrumb a span {
-    color: #662d91;
+    color: #792db8;
     font-weight: 700;
 }
 
 .page-breadcrumb .breadcrumb a span:hover {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .page-breadcrumb .breadcrumb>li+li:before {
     padding: 0 5px;
-    color: #662d91;
+    color: #792db8;
     content: "/\00a0";
 }
 
@@ -3503,11 +3503,11 @@ compare Student loan table 6-2018
 
 .prev-link:hover,
 .next-link:hover {
-    color: #cda349
+    color: #fec00f
 }
 
 .meta-date {
-    color: #cda349;
+    color: #fec00f;
     font-weight: 600;
 }
 
@@ -3576,7 +3576,7 @@ compare Student loan table 6-2018
 
 .widget-category li a:hover,
 .widget-archives li a:hover {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .widget-tags {}
@@ -3596,9 +3596,9 @@ compare Student loan table 6-2018
 }
 
 .widget-tags a:hover {
-    background-color: #cda349;
+    background-color: #fec00f;
     color: #fff;
-    border-color: #cda349;
+    border-color: #fec00f;
 }
 
 
@@ -3767,7 +3767,7 @@ compare Student loan table 6-2018
 .name {
     font-size: 14px;
     text-transform: uppercase;
-    color: #cda349;
+    color: #fec00f;
     font-weight: 600;
     padding-left: 30px;
 }
@@ -3804,8 +3804,8 @@ compare Student loan table 6-2018
 .st-pagination .pagination>li>span:hover {
     z-index: 2;
     color: #fff;
-    background-color: #cda349;
-    border-color: #cda349;
+    background-color: #fec00f;
+    border-color: #fec00f;
     border-radius: 4px;
 }
 
@@ -3829,15 +3829,15 @@ compare Student loan table 6-2018
     z-index: 3;
     color: #fff;
     cursor: default;
-    background-color: #cda349;
-    border-color: #cda349;
+    background-color: #fec00f;
+    border-color: #fec00f;
     border-radius: 4px;
 }
 
 .st-accordion {}
 
 .st-accordion .sign {
-    color: #662d91;
+    color: #792db8;
     padding: 0 2px;
     position: absolute;
     left: 0px;
@@ -3856,7 +3856,7 @@ compare Student loan table 6-2018
     font-size: 18px;
     color: inherit;
     position: relative;
-    color: #662d91;
+    color: #792db8;
 }
 
 .sign {
@@ -3868,7 +3868,7 @@ compare Student loan table 6-2018
 }
 
 .st-accordion .panel-heading.active .sign {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .st-accordion .panel {
@@ -4013,15 +4013,15 @@ compare Student loan table 6-2018
 
 .portfolioFilter a:hover {
     color: #fff;
-    background-color: #cda349;
-    border: 1px solid #cda349;
+    background-color: #fec00f;
+    border: 1px solid #fec00f;
 }
 
 .portfolioFilter a.current {
     color: #fff;
     text-decoration: none;
-    background-color: #cda349;
-    border: 1px solid #cda349;
+    background-color: #fec00f;
+    border: 1px solid #fec00f;
 }
 
 
@@ -4232,7 +4232,7 @@ Team
 
 .designation {
     font-size: 12px;
-    color: #cda349;
+    color: #fec00f;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -4254,7 +4254,7 @@ About us
 
 .text-big {
     font-size: 20px;
-    color: #cda349;
+    color: #fec00f;
     font-weight: 600;
     margin-bottom: 0px;
 }
@@ -4298,7 +4298,7 @@ Contact us
 .gallery-block {}
 
 .slide-ranger .ui-widget-header {
-    background-color: #cda349;
+    background-color: #fec00f;
 }
 
 .slide-ranger .ui-state-default,
@@ -4307,12 +4307,12 @@ Contact us
 }
 
 .slide-ranger .ui-widget.ui-widget-content {
-    border: 1px solid #cda349;
+    border: 1px solid #fec00f;
 }
 
 .slide-ranger .ui-slider .ui-slider-handle {
     border-radius: 100%;
-    border: 3px solid #cda349;
+    border: 3px solid #fec00f;
 }
 
 
@@ -4334,7 +4334,7 @@ Product Single Sidebar
 .product-tabs .nav>li.active a {
     border-right: 1px solid #f4f6f8;
     background: #eff3f8;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .product-tabs .nav>li>a {
@@ -4352,7 +4352,7 @@ Product Single Sidebar
     border-right: 1px solid transparent;
     border-left: 1px solid #dee7f2;
     border-top: 1px solid #dee7f2;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .product-tabs .nav>li>a i {
@@ -4400,7 +4400,7 @@ EMI Calculator
 .table-bordered>thead>tr>td,
 .table-bordered>thead>tr>th {
     border: 1px solid #dee4ee;
-    color: #662d91;
+    color: #792db8;
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
@@ -4596,7 +4596,7 @@ Loan Eligibility Page
 .eligibility-amount {
     font-size: 52px;
     font-weight: 600;
-    color: #662d91;
+    color: #792db8;
 }
 
 .eligibility-text {
@@ -4632,7 +4632,7 @@ Shortcodes
 .st-tabs .nav-tabs>li>a:hover {
     background-color: #fff;
     border-bottom: 1px solid #dee7f2;
-    color: #cda349;
+    color: #fec00f;
     border-color: transparent;
 }
 
@@ -4660,7 +4660,7 @@ Shortcodes
 .st-tabs .nav-tabs.nav-justified>.active>a:hover {
     border: 1px solid #dee7f2;
     border-bottom: transparent;
-    color: #cda349;
+    color: #fec00f;
 }
 
 .column-block {
@@ -4719,7 +4719,7 @@ Error-page
 
 .msg {
     font-size: 24px;
-    color: #cda349;
+    color: #fec00f;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -4860,7 +4860,7 @@ Landing Page Template
     border-radius: 100%;
     padding: 18px 19px;
     margin-bottom: 30px;
-    color: #662d91;
+    color: #792db8;
     display: block;
     line-height: 1.2;
     text-align: center;
@@ -4881,7 +4881,7 @@ Landing Page Template
 
 .feature-left .feature-icon {
     float: left;
-    color: #662d91;
+    color: #792db8;
     font-size: 28px;
     line-height: 1;
 }
@@ -4915,7 +4915,7 @@ Landing Page Template
     border-radius: 100px;
     padding: 24px;
     text-align: center;
-    color: #662d91;
+    color: #792db8;
 }
 
 .feature-icon-style .feature-title {
@@ -4932,7 +4932,7 @@ Landing Page Template
     height: 60px;
     border-radius: 100px;
     padding: 14px;
-    color: #662d91;
+    color: #792db8;
     font-size: 26px;
     text-align: center;
 }
@@ -4949,7 +4949,7 @@ Landing Page Template
 
 .feature-bg .feature-icon {
     background-color: #bacadd;
-    color: #662d91;
+    color: #792db8;
     width: 120px;
     height: 120px;
     border-radius: 120px;
@@ -4965,7 +4965,7 @@ Landing Page Template
     background: #e3edf9;
     padding-top: 16px;
     padding-bottom: 16px;
-    color: #662d91;
+    color: #792db8;
 }
 
 
@@ -5004,7 +5004,7 @@ Landing Page Template
 }
 
 .single-blog .meta-author a:hover {
-    color: #662d91;
+    color: #792db8;
 }
 
 .widget.footer-widget {
@@ -5018,7 +5018,7 @@ Landing Page Template
 
 .post-block .meta-comments a:hover {
     text-decoration: none;
-    color: #662d91;
+    color: #792db8;
 }
 
 .widget_categories ul,
@@ -5063,15 +5063,15 @@ Landing Page Template
 
 .widget_categories li a:hover,
 .widget_archive li a:hover {
-    color: #cda349;
+    color: #fec00f;
 }
 
 .st-pagination .pagination>li:first-child>span {
     z-index: 3;
     color: #fff;
     cursor: default;
-    background-color: #cda349;
-    border-color: #cda349;
+    background-color: #fec00f;
+    border-color: #fec00f;
     border-radius: 4px;
 }
 
@@ -5090,9 +5090,9 @@ Landing Page Template
 }
 
 .widget_tag_cloud a:hover {
-    background-color: #cda349;
+    background-color: #fec00f;
     color: #fff;
-    border-color: #cda349;
+    border-color: #fec00f;
 }
 
 .widget_tag_cloud ul {
@@ -5104,12 +5104,12 @@ Landing Page Template
 }
 
 .post-related-content a {
-    color: #662d91;
+    color: #792db8;
 }
 
 .post-related-content a:hover {
     text-decoration: none;
-    color: #662d91;
+    color: #792db8;
 }
 
 .nav-links span:hover {
@@ -5118,22 +5118,22 @@ Landing Page Template
 
 .nav-links h4:hover {
     text-decoration: none;
-    color: #662d91;
+    color: #792db8;
 }
 
 .comment-reply-link {
-    color: #662d91;
+    color: #792db8;
     font-weight: 500;
     padding-bottom: 4px;
-    border-bottom: 2px solid #662d91;
+    border-bottom: 2px solid #792db8;
     display: inline-block;
 }
 
 .comment-reply-link:hover {
-    color: #cda349;
+    color: #fec00f;
     font-weight: 500;
     padding-bottom: 4px;
-    border-bottom: 2px solid #cda349;
+    border-bottom: 2px solid #fec00f;
     text-decoration: none;
 }
 
@@ -5147,7 +5147,7 @@ Landing Page Template
 }
 
 .color-grey a:hover {
-    color: #662d91;
+    color: #792db8;
 }
 
 
@@ -5197,7 +5197,7 @@ div.vc_tta.vc_general .vc_tta-panel-title {
 }
 
 div.vc_tta-color-white.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-title>a {
-    color: #662d91;
+    color: #792db8;
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 18px;
@@ -5207,7 +5207,7 @@ div.vc_tta-color-white.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-title>a 
 }
 
 div.vc_tta-color-white.vc_tta-style-classic .vc_tta-panel.vc_active .vc_tta-panel-title>a {
-    color: #662d91;
+    color: #792db8;
     border: none;
 }
 
@@ -5221,11 +5221,11 @@ div.vc_tta-shape-rounded:not(.vc_tta-o-no-fill) .vc_tta-panel.vc_active .vc_tta-
 }
 
 div.vc_tta.vc_tta-accordion .vc_tta-panel.vc_active .vc_tta-controls-icon-position-left .vc_tta-controls-icon:before {
-    border-color: #cda349;
+    border-color: #fec00f;
 }
 
 div.vc_tta-color-white.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-title>a:hover {
-    color: #662d91;
+    color: #792db8;
 }
 
 
@@ -5245,14 +5245,14 @@ div.vc_tta-color-white.vc_tta-style-classic .vc_tta-tab>a {
 
 div.vc_tta-color-white.vc_tta-style-classic .vc_tta-tab>a:hover {
     background: #fff;
-    color: #cda349;
+    color: #fec00f;
 }
 
 div.vc_tta-color-white.vc_tta-style-classic .vc_tta-tab.vc_active>a {
     background: #fff;
     border: 1px solid #dee7f2;
     border-bottom: transparent;
-    color: #cda349;
+    color: #fec00f;
 }
 
 div.vc_tta-color-white.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels .vc_tta-panel-body {
@@ -5270,7 +5270,7 @@ div.vc_tta-color-white.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels .vc_tta-p
 }
 
 div.vc_tta-tabs.vc_tta-color-white.vc_tta-style-classic .vc_tta-panel.vc_active .vc_tta-panel-title>a {
-    color: #cda349;
+    color: #fec00f;
     border: 1px solid #dee7f2;
     background-color: #fff;
 }
@@ -5296,15 +5296,15 @@ div.wpcf7 .ajax-loader {
 }
 
 .team-content h3:hover {
-    color: #cda349;
+    color: #fec00f;
 }
 
 #navigation li.current-menu-parent>a {
-    color: #cda349;
+    color: #fec00f;
 }
 
 #navigation li.current-menu-item>a {
-    color: #cda349;
+    color: #fec00f;
 }
 
 
@@ -5351,8 +5351,8 @@ div.wpcf7 .ajax-loader {
 
 .procwss-v2 .circle {
     background-color: #fff;
-    border: 3px solid #cda349;
-    color: #cda349;
+    border: 3px solid #fec00f;
+    color: #fec00f;
     margin: -32px auto 18px auto;
     position: relative;
 }
@@ -5455,7 +5455,7 @@ div.wpcf7 .ajax-loader {
 }
 
 .bullet-check-circle li:before {
-    color: #662d91;
+    color: #792db8;
 }
 
 .bank-account-tabs .table>thead>tr>th {
@@ -5597,15 +5597,15 @@ div.wpcf7 .ajax-loader {
 }
 
 .btn-outline-primary {
-    color: #662d91;
+    color: #792db8;
     background-color: transparent;
-    border: 1px solid #662d91;
+    border: 1px solid #792db8;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #662d91;
-    border: 1px solid #662d91;
+    background-color: #792db8;
+    border: 1px solid #792db8;
 }
 
 .bg-shape {
@@ -5739,15 +5739,15 @@ div.wpcf7 .ajax-loader {
 }
 
 .btn-outline-default {
-    border: 1px solid #cda349;
-    color: #cda349;
+    border: 1px solid #fec00f;
+    color: #fec00f;
     background-color: #fff;
 }
 
 .btn-outline-default:hover {
-    border: 1px solid #cda349;
+    border: 1px solid #fec00f;
     color: #fff;
-    background-color: #cda349;
+    background-color: #fec00f;
 }
 
 .forex-nav .vc_tta-tabs-container {
@@ -5773,14 +5773,14 @@ div.wpcf7 .ajax-loader {
 
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-classic.forex-nav .vc_tta-tab>a {
     background-color: transparent;
-    color: #cda349;
+    color: #fec00f;
     border-radius: 0;
     border: none;
     border-bottom: 2px solid #dee7f2;
 }
 
 .wpb-js-composer .vc_tta-tabs:not([class*=vc_tta-gap]):not(.vc_tta-o-no-fill).vc_tta-tabs-position-top.forex-nav .vc_tta-tab.vc_active>a {
-    color: #cda349;
+    color: #fec00f;
     background-color: transparent;
     border-bottom: 2px solid;
 }
@@ -5788,14 +5788,14 @@ div.wpcf7 .ajax-loader {
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-classic.forex-nav .vc_tta-tab>a:focus,
 .wpb-js-composer .vc_tta-color-grey.vc_tta-style-classic.forex-nav .vc_tta-tab>a:hover {
     background-color: transparent;
-    color: #662d91;
+    color: #792db8;
 }
 
 .forex-nav .table>thead>tr>th {
     padding: 12px 12px 12px;
     line-height: 1.42857143;
     vertical-align: top;
-    background-color: #662d91;
+    background-color: #792db8;
     border: none;
     color: #fff;
     font-weight: 600;
@@ -5873,7 +5873,7 @@ div.forex-nav.vc_tta-shape-rounded:not(.vc_tta-o-no-fill) .vc_tta-panel.vc_activ
 
 .wpb-js-composer .vc_tta-tabs:not([class*=vc_tta-gap]):not(.vc_tta-o-no-fill).vc_tta-tabs-position-top.creditcard_tab .vc_tta-tab.vc_active>a {
     color: #fff;
-    background-color: #cda349;
+    background-color: #fec00f;
 }
 
 .wpb-js-composer .vc_tta-color-mulled-wine.vc_tta-style-classic.creditcard_tab .vc_tta-tab>a:focus,
@@ -5883,7 +5883,7 @@ div.forex-nav.vc_tta-shape-rounded:not(.vc_tta-o-no-fill) .vc_tta-panel.vc_activ
 }
 
 .bg-icon-newsletter {
-    background-color: #cda349;
+    background-color: #fec00f;
 }
 
 .collapse.in {
@@ -5905,9 +5905,9 @@ div.forex-nav.vc_tta-shape-rounded:not(.vc_tta-o-no-fill) .vc_tta-panel.vc_activ
 }
 
 .btn-outline-primary {
-    color: #662d91;
+    color: #792db8;
     background-color: transparent;
-    border: 1px solid #662d91;
+    border: 1px solid #792db8;
 }
 
 .custom-checkbox span.wpcf7-list-item {
@@ -6134,12 +6134,12 @@ div.forex-nav.vc_tta-shape-rounded:not(.vc_tta-o-no-fill) .vc_tta-panel.vc_activ
     /*--------------- index - 4 ()-------------*/
     .header-transparent {
         position: relative;
-        background-color: #662d91;
+        background-color: #792db8;
     }
     .header-transparent #navigation.small-screen #menu-button {
         display: block;
         padding: 16px 0px;
-        color: #cda349;
+        color: #fec00f;
         cursor: pointer;
         font-size: 12px;
         text-transform: uppercase;
@@ -6743,7 +6743,7 @@ body.royal_preloader {
     bottom: 0;
     opacity: .2;
     left: 50%;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'montserrat',sans-serif;
     font-weight: 700;
     height: 80px;
     line-height: 80px;
@@ -6770,7 +6770,7 @@ body.royal_preloader {
 #royal_preloader.royal_preloader_scale_text .royal_preloader_loader {
     color: #FFFFFF;
     position: absolute;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'montserrat',sans-serif;
     font-weight: 700;
     top: 0;
     bottom: 0;
@@ -6848,7 +6848,7 @@ body.royal_preloader {
     left: 0;
     right: 0;
     color: rgba(21, 21, 21, 0.6);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'montserrat',sans-serif;
     font-weight: 400;
     letter-spacing: 2px;
     padding-top: 10px;

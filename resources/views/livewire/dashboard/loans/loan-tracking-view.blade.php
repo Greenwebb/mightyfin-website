@@ -85,7 +85,7 @@
   min-width:920px;
 } */
 .history-tl-container{
-font-family: "Roboto",sans-serif;
+font-family: "montserrat",sans-serif;
   width:50%;
   margin:auto;
   display:block;

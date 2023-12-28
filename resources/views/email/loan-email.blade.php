@@ -98,8 +98,8 @@
   </style>
 </head>
 
-<body style="margin:0;padding:6%;word-spacing:normal;background-color:#662d91">
-  <div role="article" aria-roledescription="email" lang="en" style="text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color: #662d91;">
+<body style="margin:0;padding:6%;word-spacing:normal;background-color:#792db8">
+  <div role="article" aria-roledescription="email" lang="en" style="text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color: #792db8;">
     <table role="presentation" style="width:100%;border:none;border-spacing:0;">
       <tr>
         <td align="center" style="padding:0;">
@@ -108,10 +108,10 @@
           <tr>
           <td>
           <![endif]-->
-          <table role="presentation" style="padding:6%;width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:'Basier Circle', 'Roboto', 'Helvetica', 'Arial', sans-serif;font-size:1em;line-height:1.37em;color:#384049;">
+          <table role="presentation" style="padding:6%;width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:'Basier Circle', 'montserrat', 'Helvetica', 'Arial', sans-serif;font-size:1em;line-height:1.37em;color:#384049;">
             <!--  Logo headder -->
             <tr>
-              <td style="padding:30px 20px 20px 20px;text-align:center;font-size:1.5em;font-weight:bold; background-color: linear-gradient(to right, #662d91, #912d73);">
+              <td style="padding:30px 20px 20px 20px;text-align:center;font-size:1.5em;font-weight:bold; background-color: linear-gradient(to right, #792db8, #912d73);">
                 <a href="https://mightyfinance.co.zm" style=" text-decoration:none;">
                   <img style="width:90px; height:60px" alt="Mighty Finance Solutions" src="https://mightyfinance.co.zm/public/web/images/01-ft-logo.png">
                 </a>

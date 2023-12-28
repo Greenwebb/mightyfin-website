@@ -100,7 +100,7 @@ function checker() {
             if (slider_amount.value >= 10000) {
                 if (time_duration.value > 0) {
                     apply_btn.disabled = false;
-                    //apply_btn.style.backgroundColor = "#cda349"
+                    //apply_btn.style.backgroundColor = "#fec00f"
                     apply_btn.innerHTML = "APPLY NOW";
                 } else {
                     apply_btn.disabled = true;
@@ -115,7 +115,7 @@ function checker() {
             if (slider_amount.value >= 10000) {
                 if (time_duration.value > 0) {
                     apply_btn.disabled = false;
-                    //apply_btn.style.backgroundColor = "#cda349"
+                    //apply_btn.style.backgroundColor = "#fec00f"
                     apply_btn.innerHTML = "APPLY NOW";
                 } else {
                     apply_btn.disabled = true;

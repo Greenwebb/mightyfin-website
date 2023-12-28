@@ -63,7 +63,7 @@
                                     <div class="slider">
                                         <h4 class="text-white">Loan Amount</h4>
                                         <div style="margin-bottom: -60px;" id="pricipal-slide"><input value="1" oninput="this.nextElementSibling.value = this.value" onclick="checker()" step="50" type="range" min="10000" max="2000000" style="width:100%; height: 5px;" id="slidatious" title="Slide for amount">
-                                            <input id="update_side" oninput="checker()" step="50" value="10000" min="10000" max="2000000" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #662d91; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
+                                            <input id="update_side" oninput="checker()" step="50" value="10000" min="10000" max="2000000" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
                                             <output></output>
                                         </div>
                                         <div>
@@ -119,7 +119,7 @@
                                     <h5 class="text-white">Duration</h5>
                                     <h4 id="time_frame" class="text-white"></h4>
                                     <div style="margin-bottom: -60px;" id="pricipal-slide"><input onclick="checker()" oninput="this.nextElementSibling.value = this.value" type="range" value="0" min="1" max="30" style="width:100%; height: 5px;" id="slidate" title="Slide for amount">
-                                        <input required onclick="checker()" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #662d91;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number"><output></output>
+                                        <input required onclick="checker()" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number"><output></output>
                                     </div>
                                 </div>
                                 <br>
@@ -168,7 +168,7 @@
                                     <div class="slider">
                                         <h4 class="text-white">AGE</h4>
                                         <div style="margin-bottom: -60px;" id="age-slide"><input value="1" oninput="this.nextElementSibling.value = this.value" type="range" min="20" max="90" style="width:100%; height: 5px;" id="slider_age" title="Slide for amount">
-                                            <input id="update_age" min="20" max="90" value="20" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #662d91; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
+                                            <input id="update_age" min="20" max="90" value="20" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
                                             <output></output>
                                         </div>
                                         <div>
@@ -186,17 +186,17 @@
                                                     <radio>
                                                         <h4 class="text-white"></h4>
                                                         <label class="input-group">First Name
-                                                            <input required style="outline: none; border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;background-color: #662d91;display: block;color: #fff;width: 100%;height: 1.5rem" type="text" id="fname" name="name" placeholder="first name">
+                                                            <input required style="outline: none; border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;background-color: #792db8;display: block;color: #fff;width: 100%;height: 1.5rem" type="text" id="fname" name="name" placeholder="first name">
                                                         </label>
                                                     </radio>
                                                     <h4 class="text-white"></h4>
                                                     <label class="input-group">Last Name
-                                                        <input required style="outline: none; border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;background-color: #662d91;display: block;color: #fff;width: 100%;height: 1.5rem" type="text" id="lname" name="lname" placeholder="last name">
+                                                        <input required style="outline: none; border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;background-color: #792db8;display: block;color: #fff;width: 100%;height: 1.5rem" type="text" id="lname" name="lname" placeholder="last name">
                                                     </label>
                                                     </radio>
                                                     <h4 class="text-white"></h4>
                                                     <label class="input-group">Mobile Number
-                                                        <input required style="outline: none; border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;background-color: #662d91;display: block;color: #fff;width: 100%;height: 1.5rem" type="tel" minlength="10" maxlength="10" id="phone" name="phone" placeholder="+260">
+                                                        <input required style="outline: none; border-top-style: hidden;border-right-style: hidden;border-left-style: hidden;background-color: #792db8;display: block;color: #fff;width: 100%;height: 1.5rem" type="tel" minlength="10" maxlength="10" id="phone" name="phone" placeholder="+260">
                                                     </label>
                                                     </radio>
                                                 </div>
@@ -248,7 +248,7 @@
 </section>
 
 
-<section style="background-image: linear-gradient(to right, #662d91, #912d73);" class="wpb_row vc_row-fluid vc_custom_1530004785850 vc_row-has-fill">
+<section style="background-image: linear-gradient(to right, #792db8, #912d73);" class="wpb_row vc_row-fluid vc_custom_1530004785850 vc_row-has-fill">
     <div class="container">
         <div class="row">
             <div class="overlay-section wpb_column vc_column_container vc_col-sm-12">
@@ -328,7 +328,7 @@
                                         <div class="mb30">
                                             <div class="mb20"><i class="fa fa-shield fa-2x text-white"></i></div>
                                             <h3 class="text-white">Safe &amp; Secure</h3>
-                                            <p><span style="color: #cce4ff;">Your information and transactions are safe and secure with us. Your privacy matters is our priority.</span></p>
+                                            <p><span style="color: #fdf7e6;">Your information and transactions are safe and secure with us. Your privacy matters is our priority.</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -339,7 +339,7 @@
                                         <div class="mb30">
                                             <div class="mb20"><i class="fa fa-mobile fa-2x text-white"></i></div>
                                             <h3 class="text-white">No hidden costs</h3>
-                                            <p><span style="color: #cce4ff;">We are transparent in our pricing and fees. We always show you the figures upfront.</span></p>
+                                            <p><span style="color: #fdf7e6;">We are transparent in our pricing and fees. We always show you the figures upfront.</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -350,7 +350,7 @@
                                         <div class="mb30">
                                             <div class="mb20"><i class="fa fa-plane fa-2x text-white"></i></div>
                                             <h3 class="text-white">Transform, grow and expand your business with us today!</h3>
-                                            <p><span style="color: #cce4ff;">easy to access from anywhere in the world</span></p>
+                                            <p><span style="color: #fdf7e6;">easy to access from anywhere in the world</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -361,7 +361,7 @@
                                         <div class="mb30">
                                             <div class="mb20"><i class="fa fa-trophy fa-2x text-white"></i></div>
                                             <h3 class="text-white">Save time for your business.</h3>
-                                            <p><span style="color: #cce4ff;">Reduce manual processing of payments. Join our online family and do grow at the speed of change.</span></p>
+                                            <p><span style="color: #fdf7e6;">Reduce manual processing of payments. Join our online family and do grow at the speed of change.</span></p>
                                         </div>
                                     </div>
                                 </div>

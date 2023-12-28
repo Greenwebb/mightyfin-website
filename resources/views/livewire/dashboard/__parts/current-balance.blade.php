@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-xxl-6 col-xl-6 col-lg-6">
                 <div class="card"
-                    style="height:25vh; background-image: linear-gradient(to right, #662d91, rgb(139, 89, 177)); color:#fff">
+                    style="height:25vh; background-image: linear-gradient(to right, #792db8, rgb(139, 89, 177)); color:#fff">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6" style="padding-top:8%">

@@ -44,7 +44,7 @@
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-7">
                     <div class="form-input-content text-center error-page">
-                        <h1 style="color: #662d91" class="error-text fw-bold"> 
+                        <h1 style="color: #792db8" class="error-text fw-bold"> 
                             @yield('code')
                         </h1>
                         <h4><i class="fa fa-exclamation-triangle text-warning"></i> 
@@ -55,7 +55,7 @@
 						<br>
 						<br>
                         <div>
-                            <a class="btn" style="background-color: #662d91" href="{{route('welcome')}}">Back to Home</a>
+                            <a class="btn" style="background-color: #792db8" href="{{route('welcome')}}">Back to Home</a>
                         </div>
                     </div>
                 </div>

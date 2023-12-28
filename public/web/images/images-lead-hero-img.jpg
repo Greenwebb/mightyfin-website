@@ -48,7 +48,7 @@ img.emoji {
 </style>
 	<link rel='stylesheet' id='wp-block-library-css'  href='http://mightyfinance.co.zm/css/dist/block-library/style.min.css?ver=5.4.4' type='text/css' media='all' />
 <link rel='stylesheet' id='contact-form-7-css'  href='http://demo.oceanthemes.net/borrow/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2' type='text/css' media='all' />
-<link rel='stylesheet' id='borrow-fonts-css'  href='https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500%2C600%2C700%7CMerriweather%3A300%2C300i%2C400%2C400i%2C700%2C700i&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='borrow-fonts-css'  href='https://fonts.googleapis.com/css?family=montserrat%3A300%2C400%2C500%2C600%2C700%7CMerriweather%3A300%2C300i%2C400%2C400i%2C700%2C700i&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
 <link rel='stylesheet' id='borrow-bootstrap-update-css'  href='http://demo.oceanthemes.net/borrow/wp-content/themes/borrow/css/bootstrap/bootstrap.min.css?ver=5.4.4' type='text/css' media='all' />
 <link rel='stylesheet' id='borrow-font-awesome-css'  href='http://demo.oceanthemes.net/borrow/wp-content/themes/borrow/css/font-awesome.min.css?ver=5.4.4' type='text/css' media='all' />
 <link rel='stylesheet' id='borrow-fontello-css'  href='http://demo.oceanthemes.net/borrow/wp-content/themes/borrow/css/fontello/fontello.css?ver=5.4.4' type='text/css' media='all' />
@@ -76,17 +76,17 @@ img.emoji {
 		****************************************************************************************************/
 		::selection {
 		  color: #fff;
-		  background: #cda349;
+		  background: #fec00f;
 		}
 		::-moz-selection {
 		  color: #fff;
-		  background: #cda349;
+		  background: #fec00f;
 		}
 		/* default color: #00cb8b */
 
 					/* Preload Colors */
 			.royal_preloader, html {background-color: #ffffff;}			
-			#royal_preloader.royal_preloader_progress .royal_preloader_meter {background-color:#cda349;}
+			#royal_preloader.royal_preloader_progress .royal_preloader_meter {background-color:#fec00f;}
 			#royal_preloader.royal_preloader_progress .royal_preloader_percentage {color:#111111;}
 		
 		a,	
@@ -100,7 +100,7 @@ img.emoji {
 		.st-tabs .nav-tabs.nav-justified>.active>a, .st-tabs .nav-tabs.nav-justified>.active>a:focus, 
 		.st-tabs .nav-tabs.nav-justified>.active>a:hover, .procwss-v2 .circle, .btn-default-link, .pink-circle.circle,
 		#navigation.small-screen #menu-button, #sub-nav.small-screen #menu-button, .text-pink
-		{color:#cda349;}
+		{color:#fec00f;}
 
 		a.expand:hover {color: #fff;}
 		.btn-default, .cd-top, #service .owl-next:hover, #service .owl-prev:hover, #to-the-top,
@@ -109,7 +109,7 @@ img.emoji {
 		.st-pagination .pagination>li>span:hover, .slider > .dragger, #navigation.small-screen #menu-button:before,
  		#sub-nav.small-screen #menu-button:before, .customer-quote-circle
 
-		{background-color:#cda349;}
+		{background-color:#fec00f;}
 
 		#service .owl-next:hover, #service .owl-prev:hover, 
 		div.vc_tta.vc_tta-accordion .vc_tta-panel.vc_active .vc_tta-controls-icon-position-left .vc_tta-controls-icon:before,
@@ -118,19 +118,19 @@ img.emoji {
 		.st-pagination .pagination>li>span:focus, .st-pagination .pagination>li>span:hover, .slider > .dragger,
 		#navigation.small-screen #menu-button:after, #sub-nav.small-screen #menu-button:after, .procwss-v2 .circle,
 		.pink-circle.circle
-		{border-color:#cda349;}
+		{border-color:#fec00f;}
 
 		.mfp-arrow-right:after, .mfp-arrow-right .mfp-a 
-		{border-left-color:#cda349;}
+		{border-left-color:#fec00f;}
 			
 		.border-top-default 
-		{border-top-color:#cda349;}
+		{border-top-color:#fec00f;}
 
 		.btn-link:hover 
-		{border-bottom-color:#cda349;}
+		{border-bottom-color:#fec00f;}
 
 		.slider > .dragger{
-		background-image: -webkit-linear-gradient(top, #cda349, #cda349);
+		background-image: -webkit-linear-gradient(top, #fec00f, #fec00f);
 		}
 		.btn-default:hover {
 			background-color:#ff389c;
@@ -138,7 +138,7 @@ img.emoji {
 		.btn-default:hover {
 			border-color:#ff389c;
 		}
-		/* main color 2: #662d91 */
+		/* main color 2: #792db8 */
 		a:focus, a:hover, 
 		.btn-link, .circle, .icon-primary,.testimonial-name-1, .big-title,
 		.post-block .meta-comments a:hover, .post-related-content a:hover,
@@ -146,20 +146,20 @@ img.emoji {
 		div.vc_tta-color-white.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-title>a:hover,
 		.page-breadcrumb .breadcrumb a span, .page-breadcrumb .breadcrumb, .meta-author a:hover
 
-		{color:#662d91;}
+		{color:#792db8;}
 
 		.bg-custom, .top-bar, .btn-primary
 
-		{background-color:#662d91;}
+		{background-color:#792db8;}
 
 		.circle 
-			{border-color:#662d91;}
+			{border-color:#792db8;}
 
 		.btn-primary, .btn-link
-		{border-bottom-color:#662d91;}
+		{border-bottom-color:#792db8;}
 
 		.mail-text
-		{border-right-color:#662d91;}
+		{border-right-color:#792db8;}
 
 		.btn-primary:hover {
 			background-color:#2573cb;
@@ -171,7 +171,7 @@ img.emoji {
 
 		div.top-bar
 
-		{background-color:#662d91;}
+		{background-color:#792db8;}
 
 
 		/* color text top header */
@@ -206,7 +206,7 @@ img.emoji {
 
 		/** Customize css code **/
 		.is-sticky .header.header-tabbed {
-    background-color: #662d91;
+    background-color: #792db8;
 }
 .hide-over {
     overflow: hidden;

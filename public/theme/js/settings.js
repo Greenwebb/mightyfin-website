@@ -5,7 +5,7 @@ var html = $('html');
 
 
 function dezSettings({typography, version, layout, navheaderBg, headerBg, sidebarStyle, sidebarBg, sidebarPosition, headerPosition, containerLayout, direction, primary}) {
-    this.typography = typography || "roboto";
+    this.typography = typography || "montserrat";
     this.version = version || "light";
     this.layout = layout || "vertical";
     this.navheaderBg = navheaderBg || "color_1";
@@ -54,11 +54,11 @@ dezSettings.prototype.manageVersion = function() {
 
 dezSettings.prototype.manageTypography = function() {
     switch(this.version) {
-        case "poppins": 
-            body.attr("data-typography", "poppins");
+        case "montserrat": 
+            body.attr("data-typography", "montserrat");
             break;
-        case "roboto": 
-            body.attr("data-typography", "roboto");
+        case "montserrat": 
+            body.attr("data-typography", "montserrat");
             break;
         case "opensans": 
             body.attr("data-typography", "opensans");
@@ -67,7 +67,7 @@ dezSettings.prototype.manageTypography = function() {
             body.attr("data-typography", "helvetica");
             break;
         default: 
-            body.attr("data-typography", "roboto");
+            body.attr("data-typography", "montserrat");
     }
 }
 

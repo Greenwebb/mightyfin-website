@@ -390,7 +390,7 @@ a {text-decoration: none;}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;background-image:linear-gradient(to right, #662d91, #912d73)" bgcolor="#912d73" align="left">
+                                        <td style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;background-image:linear-gradient(to right, #792db8, #912d73)" bgcolor="#912d73" align="left">
                                             <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                 <tr>
                                                     <td class="es-m-p0r" valign="top" align="center" style="padding:0;Margin:0;width:560px">
@@ -427,7 +427,7 @@ a {text-decoration: none;}
                                     </tr>
                                     <tr>
                                         <td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-bottom:10px">
-                                            <h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:46px;font-style:normal;font-weight:bold;color:#662d91">THANK YOU! {NOTICE}<br></h1>
+                                            <h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:46px;font-style:normal;font-weight:bold;color:#792db8">THANK YOU! {NOTICE}<br></h1>
                                         </td>
                                     </tr>
                                     <tr>
@@ -442,7 +442,7 @@ a {text-decoration: none;}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><span class="es-button-border" style="border-style:solid;border-color:#2CB543;background:#662d91;border-width:0px;display:inline-block;border-radius:0px;width:auto"><a href="http://mightyfinance.co.zm" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:20px;border-style:solid;border-color:#662d91;border-width:10px 30px 10px 30px;display:inline-block;background:#662d91;border-radius:0px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center;border-left-width:30px;border-right-width:30px">Visit Website</a></span></td>
+                                        <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><span class="es-button-border" style="border-style:solid;border-color:#2CB543;background:#792db8;border-width:0px;display:inline-block;border-radius:0px;width:auto"><a href="http://mightyfinance.co.zm" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:20px;border-style:solid;border-color:#792db8;border-width:10px 30px 10px 30px;display:inline-block;background:#792db8;border-radius:0px;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center;border-left-width:30px;border-right-width:30px">Visit Website</a></span></td>
                                     </tr>
                                     <tr>
                                         <td class="es-m-p0r es-m-p0l" align="center" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px">

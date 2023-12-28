@@ -4,7 +4,7 @@
                 <div class="wpb_column vc_column_container vc_col-sm-9">
                     <div class="vc_column-inner vc_custom_1530094405068">
                         <div class="wpb_wrapper ">
-                            <h1 class="" style="color: #662d91;"> Company overview</h1>
+                            <h1 class="" style="color: #792db8;"> Company overview</h1>
                             <div class="wpb_text_column wpb_content_element vc_custom_1531214159015">
                                 <div class="wpb_wrapper">
                                     <p class="lead">Mighty Finance is more than a company. It’s a belief in the power of small businesses, making a difference, building a better solution and striving for excellence. We work hard to empower businesses with the funds they need to grow, and we have a great time doing it! </p>

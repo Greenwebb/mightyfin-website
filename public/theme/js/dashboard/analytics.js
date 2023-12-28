@@ -58,7 +58,7 @@
 				style: {
 					colors: '#3e4954',
 					fontSize: '13px',
-					fontFamily: 'Poppins',
+					fontFamily: 'montserrat',
 					fontWeight: 100,
 					cssClass: 'apexcharts-xaxis-label',
 				},
@@ -72,7 +72,7 @@
 			   style: {
 				  colors: '#3e4954',
 				  fontSize: '13px',
-				   fontFamily: 'Poppins',
+				   fontFamily: 'montserrat',
 				  fontWeight: 100,
 				  cssClass: 'apexcharts-xaxis-label',
 			  },

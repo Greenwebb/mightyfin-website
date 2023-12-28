@@ -30,7 +30,7 @@
     div,
     h1,
     p {
-      font-family: 'Basier Circle', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-family: 'Basier Circle', 'montserrat', 'Helvetica', 'Arial', sans-serif;
     }
 
     @media screen and (max-width: 530px) {
@@ -106,7 +106,7 @@
           <tr>
           <td>
           <![endif]-->
-          <table role="presentation" style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:'Basier Circle', 'Roboto', 'Helvetica', 'Arial', sans-serif;font-size:1em;line-height:1.37em;color:#384049;">
+          <table role="presentation" style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:'Basier Circle', 'montserrat', 'Helvetica', 'Arial', sans-serif;font-size:1em;line-height:1.37em;color:#384049;">
             <!--  Logo headder -->
             <tr>
               <td style="padding:30px 20px 20px 20px;text-align:center;font-size:1.5em;font-weight:bold; background: #171718;">

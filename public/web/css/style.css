@@ -61,7 +61,7 @@ General css class
 
 body {
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "montserrat", sans-serif;
   line-height: 1.5;
   color: #778191;
   background-color: #f4f6f8;
@@ -238,7 +238,7 @@ p:last-child {
 }
 
 .text-light-blue {
-  color: #cce4ff;
+  color: #fdf7e6;
 }
 
 .border-primary {
@@ -1556,7 +1556,7 @@ index-1
 }
 
 .lead-hero-title {
-  font-size: 48px;
+  font-size: 66px;
   color: #fff;
   line-height: 58px;
 }
@@ -1642,7 +1642,7 @@ index-1
 .lead-testimonial .testimonial-text {
   font-size: 18px;
   font-style: italic;
-  font-family: "Poppins", sans-serif;
+  font-family: "montserrat", sans-serif;
   line-height: 28px;
 }
 

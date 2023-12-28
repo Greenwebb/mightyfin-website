@@ -9,7 +9,7 @@
   height: 2rem;
   padding: 0.5rem;
   border-radius: 4px;
-  background-color: #662d91;
+  background-color: #792db8;
   color: #fff;
   outline: none;
   transition: background-color 0.3s ease, border 0.3s ease;
@@ -57,7 +57,7 @@
 }
 
 .input-group input:focus {
-    border-color: #662d91; /* Adjust the focus border color */
+    border-color: #792db8; /* Adjust the focus border color */
 }
 
 
@@ -109,7 +109,7 @@
                 <div class="slider">
                     <h4 class="text-white">Loan Amount</h4>
                     <div style="margin-bottom: -60px;" id="pricipal-slide"><input value="1" oninput="this.nextElementSibling.value = this.value" onclick="checker()" step="50" type="range" min="10000" max="2000000" style="width:100%; height: 5px;" id="slidatious" title="Slide for amount">
-                        <input name="amount" id="update_side" oninput="checker()" step="50" value="10000" min="10000" max="2000000" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #662d91; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
+                        <input name="amount" id="update_side" oninput="checker()" step="50" value="10000" min="10000" max="2000000" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
                         <output></output>
                     </div>
                     <div>
@@ -166,11 +166,11 @@
                 <h4 id="time_frame" class="text-white"></h4>
                 <div style="margin-bottom: -60px;" id="pricipal-slide">
                     {{-- <input type="range" value="0" min="1" max="1" style="width:100%; height: 5px; " id="slidate" title="Slide for amount">
-                    <input name="repayment_plan" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #662d91;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number">
+                    <input name="repayment_plan" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number">
                     <output></output> --}}
 
                     <input onclick="checker()" oninput="this.nextElementSibling.value = this.value" type="range" value="0" min="1" max="30" style="width:100%; height: 5px;" id="slidate" title="Slide for amount">
-                    <input required onclick="checker()" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #662d91;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number">
+                    <input required onclick="checker()" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number">
                     <output></output>
                 </div>
             </div>
@@ -220,7 +220,7 @@
                 <div class="slider">
                     <h4 class="text-white">AGE</h4>
                     <div style="margin-bottom: -60px;" id="age-slide"><input value="1" oninput="this.nextElementSibling.value = this.value" type="range" min="20" max="90" style="width:100%; height: 5px;" id="slider_age" title="Slide for amount">
-                        <input id="update_age" min="20" max="90" value="20" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #662d91; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
+                        <input id="update_age" min="20" max="90" value="20" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;margin: 15px 0;width: 100%;" class="output" type="number">
                         <output></output>
                     </div>
                     <div>

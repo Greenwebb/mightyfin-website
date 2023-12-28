@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div style="background-image: linear-gradient(to right, #662d91, #912d73);" class="bg-light-blue">
+    <div style="background-image: linear-gradient(to right, #792db8, #912d73);" class="bg-light-blue">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

@@ -20,7 +20,7 @@
 			new Chart(barChart_1, {
 				type: 'bar',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -64,7 +64,7 @@
 			new Chart(barChart_2, {
 				type: 'bar',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -115,7 +115,7 @@
 			barChart_3.height = 100;
 
 			let barChartData = {
-				defaultFontFamily: 'Poppins',
+				defaultFontFamily: 'montserrat',
 				labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
 				datasets: [{
 					label: 'Red',
@@ -220,7 +220,7 @@
 			new Chart(lineChart_1, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Febr", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -297,7 +297,7 @@
 			new Chart(lineChart_2, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -367,7 +367,7 @@
 			new Chart(lineChart_3, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -437,7 +437,7 @@
 			new Chart(lineChart_3Kk, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -492,7 +492,7 @@
 			new Chart(areaChart_1, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -541,7 +541,7 @@
 			new Chart(areaChart_2, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -586,7 +586,7 @@
 			new Chart(areaChart_3, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -645,7 +645,7 @@
 			new Chart(radar_chart, {
 				type: 'radar',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: [["Eating", "Dinner"], ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"],
 					datasets: [
 						{
@@ -685,7 +685,7 @@
 			new Chart(pie_chart, {
 				type: 'pie',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					datasets: [{
 						data: [45, 25, 20, 10],
 						borderWidth: 0, 
@@ -727,7 +727,7 @@
 				type: 'doughnut',
 				data: {
 					weight: 5,	
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					datasets: [{
 						data: [45, 25, 20],
 						borderWidth: 3, 

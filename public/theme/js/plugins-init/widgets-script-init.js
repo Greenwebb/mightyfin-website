@@ -193,7 +193,7 @@
 			new Chart(chart_widget_1, {
 				type: 'bar',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{
@@ -256,7 +256,7 @@
 			new Chart(chart_widget_2, {
 				type: 'bar',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 					datasets: [
 						{
@@ -314,7 +314,7 @@
 		// chart_widget_3.height = 100;
 
 		let barChartData = {
-			defaultFontFamily: 'Poppins',
+			defaultFontFamily: 'montserrat',
 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 			datasets: [{
 				label: 'Expense',
@@ -412,7 +412,7 @@
 		// chart_widget_4.height = 100;
 
 		let barChartData2 = {
-			defaultFontFamily: 'Poppins',
+			defaultFontFamily: 'montserrat',
 			labels: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'forteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'],
 			datasets: [{
 				label: 'Expense',
@@ -606,7 +606,7 @@
 			new Chart(chart_widget_7, {
 				type: 'bar',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 					datasets: [
 						{
@@ -951,7 +951,7 @@
 		new Chart(chart_widget_14, {
 			type: 'line',
 			data: {
-				defaultFontFamily: 'Poppins',
+				defaultFontFamily: 'montserrat',
 				labels: ["Jan", "Febr", "Mar", "Apr", "May", "Jun", "Jul"],
 				datasets: [
 					{
@@ -1011,7 +1011,7 @@
 		new Chart(chart_widget_15, {
 			type: 'line',
 			data: {
-				defaultFontFamily: 'Poppins',
+				defaultFontFamily: 'montserrat',
 				labels: ["Jan", "Febr", "Mar", "Apr", "May", "Jun", "Jul"],
 				datasets: [
 					{
@@ -1073,7 +1073,7 @@
 			new Chart(chart_widget_16, {
 				type: 'line',
 				data: {
-					defaultFontFamily: 'Poppins',
+					defaultFontFamily: 'montserrat',
 					labels: ["Jan", "Febr", "Mar", "Apr", "May", "Jun", "Jul"],
 					datasets: [
 						{

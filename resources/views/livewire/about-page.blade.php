@@ -212,7 +212,7 @@ Innovate. Respond. Deliver</p>
         <div class="row">
             <div class="wpb_column vc_column_container vc_col-sm-12">
                 <div class="vc_column-inner ">
-                    <div class="wpb_wrapper " style="background-color: #662d91 ">
+                    <div class="wpb_wrapper " style="background-color: #792db8 ">
                         <div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1482129743351">
                             <div class="wpb_column vc_column_container vc_col-sm-12">
                                 <div class="vc_column-inner">

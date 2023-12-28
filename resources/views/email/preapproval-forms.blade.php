@@ -3,7 +3,7 @@
 /* This code is for responsive design */
 /* It didn't work in Gmail app on Android, but work fine on iOS */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic&subset=latin,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=montserrat:400,700,400italic,700italic&subset=latin,cyrillic);
 
 @media only screen and (min-width: 0) {
     .wrapper {
@@ -139,12 +139,12 @@
         color: #616161;
     }
     .btn {
-        background-color:#662d91;
+        background-color:#792db8;
         border:1px solid #9f21f3;
         border-radius:2px;
         color:#ffffff;
         display:inline-block;
-        font-family:Roboto, Helvetica, sans-serif;
+        font-family:montserrat, Helvetica, sans-serif;
         font-size:14px;
         font-weight:400;
         line-height:36px;
@@ -174,7 +174,7 @@
         width: 300px;
         padding: 8px 0;
         color: #616161;
-        font-family: Roboto, Helvetica, sans-serif;
+        font-family: montserrat, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 12px;
         line-height: 14px;
@@ -229,7 +229,7 @@
         margin-top: 0;
         margin-bottom: 16px;
         color: #212121;
-        font-family: Roboto, Helvetica, sans-serif;
+        font-family: montserrat, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 20px;
         line-height: 28px;
@@ -239,7 +239,7 @@
         margin-top: 0;
         margin-bottom: 16px;
         color: #212121;
-        font-family: Roboto, Helvetica, sans-serif;
+        font-family: montserrat, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
@@ -269,7 +269,7 @@
         margin-top: 0;
         margin-bottom: 8px;
         color: #616161;
-        font-family: Roboto, Helvetica, sans-serif;
+        font-family: montserrat, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 12px;
         line-height: 18px;

@@ -33,7 +33,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xxl-12 col-xl-12">
-                <div class="card home-chart" style="background-image: linear-gradient(to right, #662d91, #912d73); color:#fff">
+                <div class="card home-chart" style="background-image: linear-gradient(to right, #792db8, #912d73); color:#fff">
                   {{-- <div class="card-header">
                     
                     <select

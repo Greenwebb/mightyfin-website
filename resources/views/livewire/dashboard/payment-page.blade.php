@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="col-12">
                 <div class="">
-                    <div style="background-color:#662d91;" class="card-header">
+                    <div style="background-color:#792db8;" class="card-header">
                         <h4 class="card-title" style=" color:#f0f0f0">
                             <svg width="35" height="35" viewBox="0 0 512.00 512.00" xmlns="http://www.w3.org/2000/svg" fill="#c892d3" stroke="#c892d3" stroke-width="8.192">
 

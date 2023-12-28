@@ -3,7 +3,7 @@
  .loay {
   height: 100%;
   width: 100%;
-  background-color: #662d91ad;
+  background-color: #792db8ad;
   z-index: 700;
   position:fixed;
 }
@@ -40,7 +40,7 @@
 #loader-container #circles {
   height: 100px;
   width: 100px;
-  border-bottom: 3px solid #cda349;
+  border-bottom: 3px solid #fec00f;
   border-radius: 50%;
   -webkit-animation: spin 2s linear infinite;
           animation: spin 2s linear infinite;
@@ -115,7 +115,7 @@
   <div id="loader-container">
   <div id="loader">
     <div style="
-    background-color: #662d91ad;
+    background-color: #792db8ad;
 " id="circles"></div>
   </div>
   <div id="loader-circle"></div>

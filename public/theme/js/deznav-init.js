@@ -5,7 +5,7 @@
 	{direction = 'ltr'; }
 
 	var dezSettingsOptions = {
-		typography: "poppins",
+		typography: "montserrat",
 		version: "light",
 		layout: "Vertical",
 		headerBg: "color_1",

@@ -25,18 +25,18 @@
     cursor: pointer;
 }
 .active-card{
-    color:#662d91;
+    color:#792db8;
     font-weight: bold;
-    border: 3px solid #662d91;
+    border: 3px solid #792db8;
 }
 .form-check-input:focus {
     box-shadow: none;
 }
 .bg-color-info{
-    background-color:#662d91 !important;
+    background-color:#792db8 !important;
 }
 .border-color{
-    border-color: #662d91;
+    border-color: #792db8;
 }
 .btn{
     padding:16px 30px;
@@ -61,7 +61,7 @@
 input {
     
     padding: 10px;
-    border: 2px solid #662d91; /* Border color */
+    border: 2px solid #792db8; /* Border color */
     border-radius: 5px; /* Rounded corners */
     font-size: 24px; /* Increased font size */
     font-family: 'Arial', sans-serif;
@@ -74,13 +74,13 @@ input[name='amount'] {
 
 /* Hover effect */
 input:hover {
-    border-color: #662d91; /* Border color on hover */
+    border-color: #792db8; /* Border color on hover */
 }
 
 /* Focus effect */
 input:focus {
     outline: none;
-    border-color: #662d91; /* Border color when focused */
+    border-color: #792db8; /* Border color when focused */
     box-shadow: 0 0 10px rgba(185, 60, 231, 0.8); /* Box shadow when focused */
 }
 

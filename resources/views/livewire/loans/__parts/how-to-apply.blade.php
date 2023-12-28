@@ -1,6 +1,6 @@
 <div class="wpb_column vc_column_container vc_col-sm-12">
     <div class="vc_column-inner ">
-        <div class="wpb_wrapper " style="background-image: linear-gradient(to right, #662d91, #912d73);">
+        <div class="wpb_wrapper " style="background-image: linear-gradient(to right, #792db8, #912d73);">
             <div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1482201034370">
                 <div class="text-center wpb_column vc_column_container vc_col-sm-12">
                     <div class="vc_column-inner">

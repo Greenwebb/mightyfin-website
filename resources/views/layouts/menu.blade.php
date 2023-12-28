@@ -20,17 +20,7 @@
     }
 </style>
 
-<div style="position: absolute;" class="collapse searchbar" id="searchbar">
-    <div class="search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="input-group"> <input type="text" name="s" class="search-query form-control" placeholder="Search for..." value=""> <span class="input-group-btn"> <button class="btn btn-default" type="submit">Go!</button> </span> </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="header-standard header">
     <div class="top-header">
         <div class="container">
@@ -65,9 +55,7 @@
                             </a>
                         </span> 
                         @endauth
-                        <span class="search-nav"> <a class="search-btn" role="button" data-toggle="collapse" href="#searchbar" aria-expanded="false">
-                            <i class="fa fa-search"></i>
-                        </a>
+                       
                     </span> 
                 </div>
                     
@@ -75,7 +63,7 @@
             </div>
         </div>
     </div>
-    <div style="background-image: linear-gradient(to right, #662d91, #912d73);" class="bg-light-blue">
+    <div style="background-image: linear-gradient(to right, #792db8, #912d73);" class="bg-light-blue">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -83,18 +71,15 @@
                         <ul id="menu-primary" class="menu">
                             <li id="menu-item-845" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-845"><a id="home" href="{{ route('welcome') }}">Home</a> </li>
                             <li id="menu-item-625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-625"><a id="about" href="{{ route('about.us') }}">About Us</a> </li>
-                            <li id="menu-item-630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-630"><a id="products" href="{{ route('services') }}">Business Funding</a>
+                            <li id="menu-item-630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-630"><a id="products" href="{{ route('services') }}">Products</a>
                                 <ul class="sub-menu">
-                                    <li id="menu-item-816" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-816"><a id="personal" href="{{ route('bridging') }}">Bridging Finance</a></li>
-                                    <li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-818"><a id="sme" href="{{ route('credit') }}">Credit Facility</a></li>
-                                    <li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-818"><a id="business" href="{{ route('equipment') }}">Equipment Financing</a></li>
-                                    <li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-818"><a id="business" href="{{ route('inventory') }}">Inventory Finance</a></li>
-                                    <li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-818"><a id="business" href="{{ route('offer') }}">Offer Trade credit</a></li>
-                                    <li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-818"><a id="business" href="{{ route('refinancing') }}">Refinancing</a></li>
+                                    <li id="menu-item-816" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-816"><a id="personal" href="{{ route('bridging') }}">Business Funding</a></li>
+                                    <li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-818"><a id="sme" href="{{ route('credit') }}">Payday Loans</a></li>
+                                    <li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-loan menu-item-818"><a id="business" href="{{ route('equipment') }}">Women Financing</a></li>
+                                    
                                 </ul>
                             </li>
                             <li id="menu-item-636" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-636"><a id="faq" href="{{ route('faq') }}">Faq</a></li>
-                            <li id="menu-item-636" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-636"><a id="team" href="{{ route('about.team') }}">Our Team</a></li>
                             <li id="menu-item-1418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1418"><a id="contact" href="{{ route('contact') }}">Contact US</a> </li>
                         </ul>
                     </div>

@@ -21,7 +21,7 @@
     </style>
 </head>
 
-<body class="@@dashboard" style="margin: 0; overflow: hidden;">
+<body class="@@dashboard" style="margin: 0; overflow: hidden; overflow-y: auto;">
  <div id="preloader"><i>.</i><i>.</i><i>.</i></div>
  <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(102, 45, 145, 0.947), rgba(145, 45, 115, 0.893)), url('https://cdn03.allafrica.com/download/pic/main/main/csiid/00611742:63e77387f56223a1509fb944791b01eb:arc614x376:w735:us1.jpg'); background-size: cover; background-position: center;"></div>
   <div id="main-wrapper" >
@@ -31,14 +31,21 @@
           <div class="col-xl-5 col-md-6">
             <div class="mini-logo text-center my-4">
               <a href="{{ route('welcome') }}">
-                  <img width="120" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="" />
+                  <img width="170" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="" />
               </a>
-              <h4 class="card-title text-white mt-5">Sign in</h4>
+                        <h4 class="text-white" style="margin-top:2rem" id="slogan-text">Financial Inclusion for All!</h4>
+                        <p class="text-white mb-4" id="id-text">Welcome Back!</p>
             </div>
+              
             <div class="auth-form card" style="box-shadow: rgba(255, 255, 255, 0.219) 0px 5px 15px 0px; border-radius:2%">
+              <div class="w-full">
+                <h2 id="create-text" style="color: #792db8" class="text-center mb-2"> <b>Create an Account</b> </h2>
+                <p style="color: #792db8" class="text-center">Already have an account? <a class="text-warning" href="{{ route('login') }}">Sign in</a></p>
+            </div>
               
               <x-jet-validation-errors class="alert text-center alert-danger text-danger text-xs" />
               <div class="">
+                
                 <form
                   name="myform"
                   class=" row g-3" method="POST" action="{{ route('login') }}">
@@ -74,7 +81,7 @@
                     <a href="{{ route('password.request') }}">Forgot Password?</a>
                   </div>
                   <div class="col-12 pt-3">
-                    <button style="background-color:#662d91; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn col-12 text-white">Login</button>
+                    <button style="background-color:#792db8; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn col-12 text-white">Login</button>
                   </div>
                 </form>
                 <p class="mt-3 mb-0">

@@ -187,12 +187,12 @@ session_start();
 
         ::selection {
             color: #fff;
-            background: #cda349;
+            background: #fec00f;
         }
 
         ::-moz-selection {
             color: #fff;
-            background: #cda349;
+            background: #fec00f;
         }
 
         /* default color: #00cb8b */
@@ -204,7 +204,7 @@ session_start();
         }
 
         #royal_preloader.royal_preloader_progress .royal_preloader_meter {
-            background-color: #cda349;
+            background-color: #fec00f;
         }
 
         #royal_preloader.royal_preloader_progress .royal_preloader_percentage {
@@ -246,7 +246,7 @@ session_start();
         #navigation.small-screen #menu-button,
         #sub-nav.small-screen #menu-button,
         .text-pink {
-            color: #cda349;
+            color: #fec00f;
         }
 
         a.expand:hover {
@@ -267,7 +267,7 @@ session_start();
         .st-pagination .pagination>li>span:hover,
         .slider>.dragger,
         .customer-quote-circle {
-            background-color: #cda349;
+            background: linear-gradient(50deg, #fec00f, #fabe15);
         }
 
         #navigation.small-screen #menu-button:after,
@@ -298,24 +298,24 @@ session_start();
         #sub-nav.small-screen #menu-button:after,
         .procwss-v2 .circle,
         .pink-circle.circle {
-            border-color: #cda349;
+            border-color: #fec00f;
         }
 
         .mfp-arrow-right:after,
         .mfp-arrow-right .mfp-a {
-            border-left-color: #cda349;
+            border-left-color: #fec00f;
         }
 
         .border-top-default {
-            border-top-color: #cda349;
+            border-top-color: #fec00f;
         }
 
         .btn-link:hover {
-            border-bottom-color: #cda349;
+            border-bottom-color: #fec00f;
         }
 
         .slider>.dragger {
-            background-image: -webkit-linear-gradient(top, #cda349, #cda349);
+            background-image: -webkit-linear-gradient(top, #fec00f, #fec00f);
         }
 
         .btn-default:hover {
@@ -326,7 +326,7 @@ session_start();
             border-color: #ff389c;
         }
 
-        /* main color 2: #662d91 */
+        /* main color 2: #792db8 */
 
         a:focus,
         a:hover,
@@ -343,26 +343,26 @@ session_start();
         .page-breadcrumb .breadcrumb a span,
         .page-breadcrumb .breadcrumb,
         .meta-author a:hover {
-            color: #662d91;
+            color: #792db8;
         }
 
         .bg-custom,
         .top-bar,
         .btn-primary {
-            background-color: #662d91;
+            background-color: #792db8;
         }
 
         .circle {
-            border-color: #662d91;
+            border-color: #792db8;
         }
 
         .btn-primary,
         .btn-link {
-            border-bottom-color: #662d91;
+            border-bottom-color: #792db8;
         }
 
         .mail-text {
-            border-right-color: #662d91;
+            border-right-color: #792db8;
         }
 
         .btn-primary:hover {
@@ -376,7 +376,7 @@ session_start();
         /* background color top header */
 
         div.top-bar {
-            background-color: #662d91;
+            background-color: #792db8;
         }
 
         /* color text top header */
@@ -415,7 +415,7 @@ session_start();
         /** Customize css code **/
 
         .is-sticky .header.header-tabbed {
-            background-color: #662d91;
+            background-color: #792db8;
         }
 
         .hide-over {
@@ -425,7 +425,7 @@ session_start();
     <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
     <style type="text/css" data-type="vc_shortcodes-custom-css">
         .vc_custom_1530004785850 {
-            background-color: #662d91 !important;
+            background-color: #792db8 !important;
         }
 
         .vc_custom_1530087763104 {
@@ -445,9 +445,9 @@ session_start();
         }
 
         .vc_custom_1531470251213 {
-            padding-top: 120px !important;
-            padding-bottom: 120px !important;
-            background-image: url(public/web/images/07-slider-6.jpg) !important;
+            padding-top: 70px !important;
+            padding-bottom: 0px !important;
+            background-image: linear-gradient(to right, #792db8, #912d73) !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
             background-size: cover !important;
@@ -936,7 +936,7 @@ session_start();
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            background: #662d91;
+            background: #792db8;
             cursor: pointer;
             outline: none;
             z-index: 10;
@@ -983,7 +983,7 @@ session_start();
             width: 18px;
             height: 18px;
 
-            border: 1px solid #dfc26a;
+            border: 1px solid #fabe15;
             border-radius: 100%;
             margin-right: 16px;
 
@@ -1049,7 +1049,7 @@ session_start();
         }
 
         .btn-secondary {
-            background-color: #cda349;
+            background-color: #fec00f;
             color: #fff;
         }
     </style>
@@ -1160,7 +1160,7 @@ session_start();
         /* ]]> */
     </script>
     <script>
-        document.getElementById('home').style.color = "#cda349";
+        document.getElementById('home').style.color = "#fec00f";
     </script>
     <script type='text/javascript' src='{{ asset("public/web/js/subscription-validate.js") }}'></script>
     <script type='text/javascript' src='{{ asset("public/web/js/js-wp-embed.min.js") }}'></script>

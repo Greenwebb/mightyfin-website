@@ -15,6 +15,7 @@
         body {
             margin: 0;
             overflow: hidden;
+            overflow-y: auto;
             font-family: 'Montserrat', sans-serif
         }
 
@@ -143,11 +144,11 @@
                     <div class="text-center">
                         <div class="logo">
                             <a href="{{ route('welcome') }}">
-                                <img width="100" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="">
+                                <img width="170" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="">
                             </a>
                         </div>
-                        <p class="text-white" id="id-text">Looks like you're new here</p>
-                        <h4 class="text-white mb-4" id="slogan-text">Financial Inclusion for All!</h4>
+                        <h4 class="text-white" style="margin-top:2rem" id="slogan-text">Financial Inclusion for All!</h4>
+                        <p class="text-white mb-4" id="id-text">Welcome Back!</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 p-0 m-0">
@@ -156,8 +157,8 @@
                             <div id="form-card">
                                 <div class="auth-form">
                                     <div class="w-full">
-                                        <h2 id="create-text" style="color: #662d91" class="text-center mb-2"> <b>Create an Account</b> </h2>
-                                        <p style="color: #662d91" class="text-center">Already have an account? <a class="text-warning" href="{{ route('login') }}">Sign in</a></p>
+                                        <h2 id="create-text" style="color: #792db8" class="text-center mb-2"> <b>Create an Account</b> </h2>
+                                        <p style="color: #792db8" class="text-center">Already have an account? <a class="text-warning" href="{{ route('login') }}">Sign in</a></p>
                                     </div>
                                     <form id="form-content" method="POST" class="text-white" action="{{ route('register') }}">
                                         @csrf
@@ -181,7 +182,7 @@
                                                 <input name="password" required autocomplete="new-password" type="password" class="form-control">
                                             </div>
                                             <div class="text-left px-3 mt-4">
-                                                <button style="background-color:#662d91; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn btn-block text-white text-lg">Create Account</button>
+                                                <button style="background-color:#792db8; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn btn-block text-white text-lg">Create Account</button>
                                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                                 <div  id="policy" class="form-check text-dark">
                                                     <input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox" checked>

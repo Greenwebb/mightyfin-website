@@ -30,7 +30,7 @@
     div,
     h1,
     p {
-      font-family: 'Basier Circle', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-family: 'Basier Circle', 'montserrat', 'Helvetica', 'Arial', sans-serif;
       font-size:12px;
     }
 
@@ -67,8 +67,8 @@
   </style>
 </head>
 
-<body style="margin: 0; padding: 0; word-spacing: normal; background-color: #662d91">
-  <div role="article" aria-roledescription="email" lang="en" style="text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background-color: linear-gradient(to right, #662d91, #912d73);">
+<body style="margin: 0; padding: 0; word-spacing: normal; background-color: #792db8">
+  <div role="article" aria-roledescription="email" lang="en" style="text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background-color: linear-gradient(to right, #792db8, #912d73);">
     
 
       <!-- Outer Table -->
@@ -82,7 +82,7 @@
             <![endif]-->
 
             <!-- Inner Table -->
-            <table role="presentation" style="width: 94%; max-width: 600px; border: none; border-spacing: 0; text-align: left; font-family: 'Basier Circle', 'Roboto', 'Helvetica', 'Arial', sans-serif; font-size: 1em; line-height: 1.37em; color: #384049;">
+            <table role="presentation" style="width: 94%; max-width: 600px; border: none; border-spacing: 0; text-align: left; font-family: 'Basier Circle', 'montserrat', 'Helvetica', 'Arial', sans-serif; font-size: 1em; line-height: 1.37em; color: #384049;">
 
               <!-- Logo Header -->
               <tr>
