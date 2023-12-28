@@ -8,8 +8,17 @@ use App\Models\User;
 
 trait SettingTrait{
 
+    public function current_configs($name){
+        // dd($name);
+        return $this->current_conf = SystemSetting::with('auto_approvers')->where('name', $name)->first();
+    }
     public function active_loan_approvers(){
-        return User::role('user')->orderBy('fname', 'asc')->get();
+        return User::whereDoesntHave('roles', function ($query) {
+            $query->where('name', 'user');
+        })
+        ->orderBy('fname', 'asc')
+        ->get();
+        
     }
 
     public function update_auto_loan_approvers(array $data){

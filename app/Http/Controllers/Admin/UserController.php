@@ -44,7 +44,7 @@ class UserController extends Controller
             }
             
             $u = $user->create(array_merge($request->all(), [
-                'password' => bcrypt('20230101bridge.@2you'),
+                'password' => bcrypt('mighty.@2023@'),
                 'active' => 1,
                 'profile_photo_path' => $url ?? ''
             ]));
@@ -56,10 +56,10 @@ class UserController extends Controller
                 $mail = [
                     'name' => $u->fname.' '.$u->lname,
                     'to' => $u->email,
-                    'from' => 'admin@bridgetrustfinance.co.zm',
+                    'from' => 'admin@mightyfinance.co.zm',
                     'phone' => $u->phone,
-                    'subject' => 'Your Brigetrust Finance Account',
-                    'message' => 'Hello '.$u->fname.' '.$u->lname.' Your Bridgetrust Finance account is now ready, Click on login to goto your dashboard. Your password is 20230101bridge.@2you  -  feel free to change your password.',
+                    'subject' => 'Your Might Finance Account',
+                    'message' => 'Hello '.$u->fname.' '.$u->lname.' Your Might Finance account is now ready, Click on login to goto your dashboard. Your password is mighty.@2023@  -  feel free to change your password.',
                 ];
             }
             

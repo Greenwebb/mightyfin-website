@@ -16,4 +16,8 @@ class LoanApprover extends Model
         'priority',
         'status'
     ];
+
+    public function settings(){
+        return $this->belongsTo(SystemSetting::class);
+    }
 }

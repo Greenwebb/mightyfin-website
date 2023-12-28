@@ -1,8 +1,6 @@
 <div x-data="{ on:true }" class="content-body">
-   <style>
-    
-
-    </style> 
+    <style>
+    </style>
     <div class="container-fluid">
         <div class="col-12">
             <div class="">

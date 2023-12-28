@@ -13,7 +13,7 @@
         <div class="card-body border-top p-9">
             <div class="row mb-6">
                 <label class="col-lg-4 col-form-label required fw-bold fs-6">Loan Assigning</label>
-                <input type="hidden" name="setting" value="loan-assigning">
+                <input type="hidden" name="setting" value="{{$settings}}">
                 <div class="col-lg-8 fv-row">
                     <div class="d-flex align-items-center mt-3">
                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
@@ -56,11 +56,18 @@
             <div id="auto" class="settings mb-0">
                 <label class="col-lg-4 col-form-label fw-bold fs-6">Auto Settings</label>
                 <div class="col-lg-12 mb-4 mb-lg-0">
+                    <button type="button" class="btn btn-primary btn-xs" onclick="addSelectField()">+ Add Approver</button>
+                    <div class="dynamic-field-wrapper flex" style="display: flex;width: 50%;">
+                        <select name="approver[]" class="form-select m-2 aos-init" data-aos="fade-right">
+                            <option value="3">Bremah Nyeleti</option>
+                        </select>
+                        <button type="button" class="btn btn-danger sm-btn">Delete</button>
+                    </div>
                     <div id="dynamicFieldsContainer" style="width: 50%; display:block">
                         {{-- Newly added select fields will be inserted here --}}
                     </div>
-                    <button type="button" class="btn btn-primary btn-xs" onclick="addSelectField()">+ Add Approver</button>
                 </div>
+                
             </div>
         </div>
     

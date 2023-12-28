@@ -21,4 +21,8 @@ class SystemSetting extends Model
         'user_id',
         'team_id'
     ];
+
+    public function auto_approvers(){
+        return $this->hasMany(LoanApprover::class, 'setting_id');
+    }
 }

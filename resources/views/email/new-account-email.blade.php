@@ -10,20 +10,6 @@
   <style type="text/CSS"></style>
   <style @import url('https://dopplerhealth.com/fonts/BasierCircle/basiercircle-regular-webfont.woff2');></style>
   <title></title>
-  <!--[if mso]>
-  <style>
-    table {border-collapse:collapse;border-spacing:0;border:none;margin:0;}
-    div, td {padding:0;}
-    div {margin:0 !important;}
-	</style>
-  <noscript>
-    <xml>
-      <o:OfficeDocumentSettings>
-        <o:PixelsPerInch>96</o:PixelsPerInch>
-      </o:OfficeDocumentSettings>
-    </xml>
-  </noscript>
-  <![endif]-->
   <style>
        table,
     td,
@@ -111,7 +97,8 @@
             <tr>
               <td style="padding:30px 20px 20px 20px;text-align:center;font-size:1.5em;font-weight:bold; background: #ffffff;">
                 <a href="https://mightyfinance.co.zm" style=" text-decoration:none;">
-                  <img style="width:120px; height:90px" alt="Mighty Finance Solutions" src="{{ asset('public/web/images/01-ft-logo.png') }}">
+                  Might Finance Solution
+                  <!-- <img style="width:120px; height:90px" alt="Mighty Finance Solutions" src="https://mightyfinance.co.zm/web/images/01-ft-logo.png'"> -->
                 </a>
               </td>
             </tr>
@@ -125,13 +112,13 @@
                 <p style="text-align: left;">
                     {{  $data['message']  }}
                 </p>
-                <a target="_blank" href="https://mightyfinance.co.zm/login" class="-btn -bg -txt">Sign In</a>
+                <a target="_blank" href="https://mightyfinance.co.zm/login" style="padding: 12px;text-align:center;font-size: 0.75em;background-color:#500d6c;color:#384049;color:white;border: 1em solid #fff;" >Sign In</a>
                 <br>
                 <p>Best Regards</p>
               </td>
             </tr>
             <tr>
-              <td style="padding:30px;text-align:center;font-size: 0.75em;background-color:#ffeada;color:#384049;border: 1em solid #fff;">
+              <td style="padding:30px;text-align:center;font-size: 0.75em;background-color:#500d6c;color:#384049;color:white;border: 1em solid #fff;">
                 <p style="margin:0 0 0.75em 0;line-height: 0;">
                   <!--      LinkedIn logo            -->
                   <a href="{{App\Models\ContactSetting::linkedin()}}" style="display:inline-block;text-decoration:none;margin: 0 5px;">
@@ -151,7 +138,7 @@
                 <p style="margin:0;font-size:.75rem;line-height:1.5em;text-align: center;">
                   {{App\Models\ContactSetting::name()}}, {{App\Models\ContactSetting::address()}}, {{App\Models\ContactSetting::place()}}.
                   <br>
-                  <a class="unsub" href="https://mightyfinance.co.zm" style="color:#384049;text-decoration:underline;">Unsubscribe</a>
+                  <a class="unsub" href="https://mightyfinance.co.zm" style="color:#bcc9d8;text-decoration:underline;">Unsubscribe</a>
                 </p>
               </td>
             </tr>
