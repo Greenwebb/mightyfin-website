@@ -35,7 +35,7 @@
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <button data-toggle="modal" data-target="#editUserRoleModal" class="dropdown-item" wire:click="edit({{ $role->id }})">Edit</button>
-                                                            <a class="dropdown-item" href="#">Delete</a>
+                                                            <a class="dropdown-item"  wire:click="destroy({{ $role->id }})">Delete</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -253,14 +253,16 @@
                     <h5 class="modal-title">Edit {{ $role_name }} Role</h5>
                     <button wire:click="closeModal()" type="button" class="btn-close" data-dismiss="modal"></button>
                 </div>
-                <form method="POST" wire:submit.prevent="updateUser({{ $role_id }})">
+                <form method="POST" action="{{ route('update-role') }}">
+                    @csrf
+                    <input type="hidden" name="role_id" value="{{$role_id}}">
                     <div class="modal-body">
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="basic-form">
                                     @csrf
                                     <div class="mb-3">
-                                        <input class="form-control" wire:model.defer="name" value="{{ $role_name }}" type="text" placeholder="">
+                                        <input class="form-control" name="name" value="{{ $role_name }}" type="text" placeholder="">
                                     </div>
                                     <div class="mb-2">
                                         @forelse($permissions as $key => $perm)
@@ -268,7 +270,7 @@
                                             <div class="form-check">
                                                 <input type="checkbox"
                                                 class="form-check-input permission" 
-                                                {{-- wire:model.defer="permission.{{ $key }}" --}}
+                                                name="permission[]"
                                                 @if(!empty($rolePermissions))
                                                 value="{{ $perm->name }}" 
                                                 {{ 

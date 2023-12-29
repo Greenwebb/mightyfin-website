@@ -47,6 +47,7 @@
             font-size: 10px;
         }
     </style>
+    @livewireStyles
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -2966,6 +2967,9 @@
     <!--end::Modal - Users Search-->
     <!--end::Modals-->
     <!--begin::Javascript-->
+    {{-- @stack('modals') --}}
+
+    @livewireScripts
     <script>
     var hostUrl = "assets/";
     </script>

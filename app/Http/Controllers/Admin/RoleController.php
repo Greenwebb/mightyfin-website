@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+// use Illuminate\Http\JsonResponse;
 
 class RoleController extends Controller
 {
@@ -79,16 +80,27 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-        ]);
-
-        $role->update($request->all());
-        $role->permissions()->sync($request->permissions);
-
-        return redirect()->route('admin.roles.edit', $role)->with('info', 'The role has been successfully updated.');
+        try {
+            $data = $request->all();
+            $role = Role::find($data['role_id']);
+    
+            // dd($data['role_id']);
+            $request->validate([
+                'name' => 'required',
+            ]);
+    
+            $role->update(['name' => $data['name']]);
+            $role->syncPermissions($data['permission']);
+    
+            // Assuming the update was successful
+            return response()->json(['message' => 'Role updated successfully'], 200);
+        } catch (\Exception $e) {
+            // dd($e);
+            // Handle any exceptions or errors
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**

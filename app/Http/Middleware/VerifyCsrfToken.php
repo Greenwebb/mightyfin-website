@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'share-docs',
-        'continue-loan'
+        'continue-loan',
+        'update-role'
     ];
 }

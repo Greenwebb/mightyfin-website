@@ -1023,14 +1023,11 @@
                         <span class="menu-title">Loans</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    <!--end:Menu link-->
-                    <!--begin:Menu sub-->
+                    
                     <div class="menu-sub menu-sub-accordion">
-                        <!--begin:Menu item-->
                         
                         @can('accept and reject loan requests')
                         <div class="menu-item">
-                            <!--begin:Menu link-->
                             <a class="menu-link" href="{{ route('proxy-loan-create') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
@@ -1038,50 +1035,34 @@
                                 
                                 <span class="menu-title">Create Loan</span>
                             </a>
-                            <!--end:Menu link-->
                         </div>
                         @endcan
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
+                        
                         <div class="menu-item">
-                            <!--begin:Menu link-->
                             <a class="menu-link" href="{{ route('view-loan-requests') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Pending Loans</span>
                             </a>
-                            <!--end:Menu link-->
                         </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
                         <div class="menu-item">
-                            <!--begin:Menu link-->
                             <a class="menu-link" href="account/security.html">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">All Loans</span>
                             </a>
-                            <!--end:Menu link-->
                         </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
                         <div class="menu-item">
-                            <!--begin:Menu link-->
                             <a class="menu-link" href="account/activity.html">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Closed Loans</span>
                             </a>
-                            <!--end:Menu link-->
                         </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
-                        
                     </div>
-                    <!--end:Menu sub-->
                 </div>
                 @endcan
                 <!--end:Menu item-->
