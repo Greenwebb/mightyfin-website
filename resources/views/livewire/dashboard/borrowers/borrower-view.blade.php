@@ -169,7 +169,7 @@
                                     @else
                                         <img class="rounded-circle" width="35" src="{{ 'public/'.Storage::url($user->profile_photo_path) }}" />
                                     @endif --}}
-                                    <a href="../apps/customers/view.html" class="text-gray-800 text-hover-primary mb-1">{{ $user->fname.' '.$user->lname }}</a>
+                                    <a href="" class="text-gray-800 text-hover-primary mb-1">{{ $user->fname.' '.$user->lname }}</a>
                                 </td>
                                 <td>
                                     <a href="#" class="text-gray-600 text-hover-primary mb-1">{{ $user->email }}</a>

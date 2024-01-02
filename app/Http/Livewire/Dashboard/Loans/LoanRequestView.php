@@ -23,7 +23,7 @@ class LoanRequestView extends Component
     public $status = [];
     public $view = 'list';
     public $users, $due_date;
-
+    public $assignModal = false;
     public function render()
     {
         try {

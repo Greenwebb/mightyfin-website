@@ -66,7 +66,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-dark">
-                        {{ preg_replace('/[^A-Za-z0-9. -]/', '',  Auth::user()->roles->pluck('name')) ?? 'Staff' }}
+                        {{ ucfirst(preg_replace('/[^A-Za-z0-9. -]/', '', optional(Auth::user()->roles)->pluck('name')->implode(' ')) ?? 'Staff') }}
                     </li>
                     <!--end::Item-->
                 </ul>
