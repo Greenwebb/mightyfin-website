@@ -1090,7 +1090,6 @@
                     </div>
                 </div>
                 
-                @can('view employees')
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -1112,12 +1111,43 @@
                                 <span class="menu-title">All Staff</span>
                             </a>
                         </div>
+
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+                            <span class="menu-link">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Directors</span>
+                            </span>
+                        </div>
+                        
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                            <span class="menu-link">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Loan Officers</span>
+                            </span>
+                        </div>
+                        <!--end:Menu item-->
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Agents</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
                     </div>
+                    <!--end:Menu sub-->
                 </div>
-                @endcan
                 
-                @can('view accounting')
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-abstract-28 fs-2">
@@ -1128,9 +1158,9 @@
                         <span class="menu-title">Accounting</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    
-                    <div class="menu-sub menu-sub-accordion">
-                        @can('view transactions')
+                    <!--end:Menu link-->
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">z
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
                             <span class="menu-link">
                                 <span class="menu-bullet">
@@ -1139,9 +1169,6 @@
                                 <span class="menu-title">Payment Transactions</span>
                             </span>
                         </div>
-                        @endcan
-
-                        @can('manage funds')
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                             <span class="menu-link">
                                 <span class="menu-bullet">
@@ -1150,12 +1177,9 @@
                                 <span class="menu-title">Manage Funds</span>
                             </span>
                         </div>
-                        @endcan
                     </div>
                 </div>
-                @endcan
 
-                @can('view reports')
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -1181,10 +1205,7 @@
                     </div>
                 </div>
                 @endcan
-                @endcan
 
-
-                @role('admin')
                 <div class="menu-item pt-5">
                     <!--begin:Menu content-->
                     <div class="menu-content">
@@ -1302,7 +1323,6 @@
                     </a>
                     <!--end:Menu link-->
                 </div>
-                @endrole
                 
             </div>
             <!--end::Menu-->

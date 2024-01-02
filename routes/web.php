@@ -212,6 +212,7 @@ Route::get('women-in-business-soft-loans', WIBLoan::class)->name('view-wib-loans
 Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
 Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');
 
+
 // Alerts and Notifications
 Route::get('successfully-applied-a-loan', SuccessPage::class)->name('success-application');
 Route::get('email-sent-successfully', SuccessEmailPage::class)->name('success-email');

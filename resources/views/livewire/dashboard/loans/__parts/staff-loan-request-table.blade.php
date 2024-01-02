@@ -11,6 +11,7 @@
                         <span class="card-label fw-bold fs-3 mb-1">Recent Loan Requests</span>
                         <span class="text-muted mt-1 fw-semibold fs-7">Over {{$requests->count()}} loans</span>
                     </h3>
+                    
                     <div class="card-toolbar">
                         <!--begin::Menu-->
                         <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -105,12 +106,16 @@
                                             <input class="form-check-input" type="checkbox" value="1" data-kt-check="true" data-kt-check-target=".widget-13-check" />
                                         </div>
                                     </th>
-                                    <th class="min-w-150px">Loan Type</th>
+                                    <th class="min-w-100px">Loan Type</th>
                                     <th class="min-w-140px">Principal</th>
                                     <th class="min-w-120px">Date</th>
                                     <th class="min-w-120px">Borrower</th>
                                     <th class="min-w-120px">Payback</th>
                                     <th class="min-w-120px">Status</th>
+                                    {{-- Setting --}}
+                                    @if($this->current_configs('loan-approval')->value == 'spooling')
+                                    <th class="min-w-120px"></th>
+                                    @endif
                                     <th class="min-w-100px text-end">Actions</th>
                                 </tr>
                             </thead>
@@ -125,7 +130,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="#" class="text-dark fw-bold text-hover-primary fs-6">
+                                        <a href="#" class="text-dark fw-bold text-hover-primary ">
                                             {{ $loan->type }} Loan
                                         </a>
                                     </td>
@@ -164,6 +169,11 @@
                                         <span class="badge badge-light-danger">Rejected</span>
                                         @endif
                                     </td>
+                                    @if($this->current_configs('loan-approval')->value == 'spooling')
+                                    <td>
+                                        <button class="btn btn-sm btn-success">Review</button>
+                                    </td>
+                                    @endif
                                     <td class="text-end">
                                         <a href="{{ route('loan-details',['id' => $loan->id]) }}" class="btn btn-icon btn-bg-light btn-primary btn-sm me-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">

@@ -11,12 +11,13 @@ use App\Models\User;
 use App\Traits\EmailTrait;
 use App\Traits\WalletTrait;
 use App\Traits\LoanTrait;
+use App\Traits\SettingTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
 class LoanRequestView extends Component
 {
-    use EmailTrait, WalletTrait, LoanTrait;
+    use EmailTrait, WalletTrait, LoanTrait, SettingTrait;
     public $loan_requests, $loan_request, $new_loan_user, $user_basic_pay, $user_net_pay;
     public $type = [];
     public $status = [];
@@ -48,9 +49,21 @@ class LoanRequestView extends Component
                     $loan_requests->whereIn('status', $this->status)->orderBy('id', 'desc');
                 }
 
-                $this->loan_requests = $loan_requests->where('complete', 1)->get();
-                $requests = $loan_requests->where('complete', 1)->paginate(5);
                 
+                if($this->current_configs('loan-approval')->value == 'auto'){
+                    // get loan only if first review as approved
+                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
+                    $requests = $loan_requests->where('complete', 1)->paginate(5);
+
+                }elseif($this->current_configs('loan-approval')->value == 'manual'){
+                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
+                    $requests = $loan_requests->where('complete', 1)->paginate(5);
+
+                }else{
+                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
+                    $requests = $loan_requests->where('complete', 1)->paginate(5);
+                }
+
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
                 ])->layout('layouts.admin');
