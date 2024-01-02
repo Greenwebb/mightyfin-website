@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 class LoanRequestView extends Component
 {
     use EmailTrait, WalletTrait, LoanTrait, SettingTrait;
-    public $loan_requests, $loan_request, $new_loan_user, $user_basic_pay, $user_net_pay;
+    public $loan_requests, $loan_request, $new_loan_user, $user_basic_pay, $user_net_pay, $loan_id;
     public $type = [];
     public $status = [];
     public $view = 'list';
@@ -30,8 +30,6 @@ class LoanRequestView extends Component
             // Retrieve users with the 'user' role, excluding their applications
             $this->users = User::role('user')->without('applications')->get();
     
-            // Create a query builder for loan requests
-            $loan_requests = Application::query();
 
             if (auth()->user()->hasRole('user')) {
                 // Retrieve loan requests for the authenticated user and paginate the results (5 items per page)
@@ -41,29 +39,19 @@ class LoanRequestView extends Component
                     'requests'=>$requests
                 ])->layout('layouts.dashboard');
             }else{
-                if ($this->type) {
-                    $loan_requests->whereIn('type', $this->type)->orderBy('id', 'desc');
-                }
-    
-                if ($this->status) {
-                    $loan_requests->whereIn('status', $this->status)->orderBy('id', 'desc');
-                }
 
                 
                 if($this->current_configs('loan-approval')->value == 'auto'){
                     // get loan only if first review as approved
-                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
-                    $requests = $loan_requests->where('complete', 1)->paginate(5);
-
+                    $this->loan_requests = $this->getLoanRequests('auto');
                 }elseif($this->current_configs('loan-approval')->value == 'manual'){
-                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
-                    $requests = $loan_requests->where('complete', 1)->paginate(5);
-
+                   
+                    $this->loan_requests = $this->getLoanRequests('manual');
+                    $requests = $this->getLoanRequests('manual');
                 }else{
-                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
-                    $requests = $loan_requests->where('complete', 1)->paginate(5);
+                    $this->loan_requests = $this->getLoanRequests('spooling');
+                    $requests = $this->getLoanRequests('spooling');
                 }
-
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
                 ])->layout('layouts.admin');
@@ -71,13 +59,13 @@ class LoanRequestView extends Component
         } catch (\Throwable $th) {
             // If an exception occurs, set $loan_requests to an empty array
             $this->loan_requests = [];
-                  
+            $requests = [];
             if (auth()->user()->hasRole('user')) {
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
                 ])->layout('layouts.dashboard');
             }else{
-                dd('here');
+                dd($th);
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
                 ])->layout('layouts.admin');
@@ -263,6 +251,10 @@ class LoanRequestView extends Component
         } catch (\Throwable $th) {
             session()->flash('error', 'Oops something failed here, please contact the Administrator.');
         }
+    }
+
+    public function setLoanID($id){
+        $this->loan_id = $id;
     }
 
     public function clear(){

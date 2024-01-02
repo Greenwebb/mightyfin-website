@@ -131,7 +131,19 @@
                                     @endif
                                     @if($this->current_configs('loan-approval')->value == 'manual')
                                     <td>
-                                        <button class="btn btn-sm btn-success"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">Assign</button>
+                                        @role('admin')
+                                            @if ($loan->is_assigned == 0)
+                                                <button wire:click="setLoanID({{$loan->id}})" class="btn btn-sm btn-success"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">Assign</button>
+                                            @else
+                                            <button wire:click="setLoanID({{$loan->id}})" class="btn btn-sm btn-light"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">
+                                                Assigned
+                                            </button>
+                                            @endif
+                                        @else
+                                            @can('review loan')
+                                                <button class="btn btn-sm btn-success">Review</button>
+                                            @endcan
+                                        @endrole
                                     </td>
                                     @endif
                                     <td class="text-end">
@@ -163,6 +175,10 @@
                     </div>
                 </div>
             </div>
+
+            
         </div>
     </div>
+
+    @include('livewire.dashboard.loans.__modals.assign-loan')
 </div>

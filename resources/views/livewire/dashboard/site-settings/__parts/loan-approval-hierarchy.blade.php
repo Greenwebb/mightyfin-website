@@ -59,7 +59,7 @@
                     <button type="button" class="btn btn-primary btn-xs" onclick="addSelectField()">+ Add Approver</button>
                     <div class="dynamic-field-wrapper flex" style="display: flex;width: 50%;">
                         <select name="approver[]" class="form-select m-2 aos-init" data-aos="fade-right">
-                            <option value="3">Bremah Nyeleti</option>
+                            <option value="">--Choose-</option>
                         </select>
                         <button type="button" class="btn btn-danger sm-btn">Delete</button>
                     </div>
@@ -67,7 +67,6 @@
                         {{-- Newly added select fields will be inserted here --}}
                     </div>
                 </div>
-                
             </div>
         </div>
     

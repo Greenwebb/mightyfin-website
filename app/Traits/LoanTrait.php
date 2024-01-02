@@ -19,10 +19,45 @@ use Illuminate\Support\Facades\Notification;
 trait LoanTrait{
     use EmailTrait;
     public $application;
+    public function getLoanRequests($type){
+        $userId = auth()->user()->id;
+        // if ($this->type) {
+        //     $loan_requests->whereIn('type', $this->type)->orderBy('id', 'desc');
+        // }
 
-    // public function __construct(Application $a){
-    //     $this->application = $a;
-    // }
+        // if ($this->status) {
+        //     $loan_requests->whereIn('status', $this->status)->orderBy('id', 'desc');
+        // }
+        if(auth()->user()->hasRole('admin')){
+            return Application::get();
+        }else{
+            switch ($type) {
+                case 'spooling':
+                    return Application::get();
+                    break;
+                case 'manual':
+                    return Application::with(['manual_approvers' => function ($query) use ($userId) {
+                        $query->where('user_id', $userId);
+                        $query->where('is_active', 1);
+                    }])
+                    ->whereHas('manual_approvers', function ($query) use ($userId) {
+                        $query->where('user_id', $userId);
+                        $query->where('is_active', 1);
+                    })
+                    ->where('complete', 1)
+                    ->get();
+    
+                    break;
+                case 'auto':
+                    # code...
+                    break;
+                
+                default:
+                    # code...
+                break;
+            }
+        }
+    }
 
     public function getLoanPackages(){
         return LoanPackage::orderBy('created_at', 'desc')->get();

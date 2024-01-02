@@ -136,7 +136,7 @@
                                 @endif
                             </div>
                             <div class="flex items-center justify-center text-xs my-4 mx-4">
-                                {{ $requests->links() }}
+                                {{-- {{ $requests->links() }} --}}
                             </div>
                         </div>
                     </div>
@@ -144,11 +144,12 @@
 
                 @else
                     {{-- Illustrate No Loan --}}
-                    <div class="container d-flex justify-content-center align-items-center">
+                    <div class="container m-12 d-flex justify-content-center align-items-center">
                         <div class="col-12 text-center">
                             <img width="300" src="https://img.freepik.com/free-vector/folder-concept-illustration_114360-2946.jpg?w=740&t=st=1702894470~exp=1702895070~hmac=7a300962196cdd3ab51091ea8a907cb99b7498d43b77e8967d60a6ef7c2b1780" alt="">
-                            <div class="">
-                                <a href="{{ route('new-loan') }}" style="background-color:#fff;" class="btn btn-primary">
+                            @role('user')
+                            <div class="my-4">
+                                <a href="{{ route('new-loan') }}" style="background-color:#571d58;" class="btn btn-primary">
                                     <strong>Get a Loan</strong>
                                 </a>
                             </div>
@@ -156,8 +157,12 @@
                             <div class="col-12 mt-3 text-center">
                                 <p class="text-muted">Need help or have questions? <a href="{{ route('contact') }}">Contact us</a>.</p>
                             </div>
+                            @endrole
                         </div>
                     </div>
+                    <br>
+                    <br>
+                    <br>
                     
                 @endif
             </div>

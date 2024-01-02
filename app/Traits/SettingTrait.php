@@ -2,7 +2,9 @@
 
 namespace App\Traits;
 
+use App\Models\Application;
 use App\Models\LoanApprover;
+use App\Models\LoanManualApprover;
 use App\Models\SystemSetting;
 use App\Models\User;
 
@@ -49,6 +51,7 @@ trait SettingTrait{
                         ],
                         [
                             'setting_id' => $config->id,
+                            'user_id' => $user_id,
                             'priority' => $key + 1,
                             'status' => 1,
                         ]
@@ -58,6 +61,30 @@ trait SettingTrait{
             return true;
         } catch (\Throwable $th) {
             return false;
+        }
+    }
+
+    public function set_manual_loan_approvers($data){
+        if(isset($data['approver'])){
+            foreach ($data['approver'] as $key => $user_id) {
+                LoanManualApprover::updateOrCreate(
+                    [
+                        'application_id' => $data['application_id'],
+                        'user_id' => $user_id,
+                    ],
+                    [
+                        'added_by' => auth()->user()->id,
+                        'application_id' => $data['application_id'],
+                        'user_id' => $user_id,
+                        'is_active' => ($key + 1) == 1 ? 1 : 0,
+                        'priority' => $key + 1,
+                        'status' => 1
+                    ]
+                );
+            }
+
+            // update application is_assigned to 1
+            Application::where('id', $data['application_id'])->update(['is_assigned' => 1]);
         }
     }
 
