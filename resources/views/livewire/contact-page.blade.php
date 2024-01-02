@@ -147,7 +147,7 @@
                                             <div class="bg-white bg-boxshadow pinside40 outline text-center mb30">
                                                 <div class="mb40"><i class="icon-briefcase icon-2x icon-default"></i></div>
                                                 <h2 class="capital-title">Branch Office</h2>
-                                                <p>Suite 118 Carousel Shopping Complex<br>Lusaka, Zambia.</p>
+                                                <p>House no 13, Chikuni Road, Off Makishi Rd, Northmead,<br>Lusaka, Zambia.</p>
                                             </div>
                                         </div>
                                     </div>

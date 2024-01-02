@@ -51,8 +51,7 @@
                                                 <div class="wpb_text_column wpb_content_element ">
                                                     <div class="wpb_wrapper">
                                                         <p id="location" class="address-text"><i
-                                                                class="icon-placeholder-3 icon-1x"></i> Suite 118
-                                                            Carousel Shopping Complex, Lusaka.</p>
+                                                                class="icon-placeholder-3 icon-1x"></i> Plot no 13, Chikuni Road, Off Makishi Rd, Northmead, Lusaka.</p>
                                                     </div>
                                                 </div>
                                             </div>

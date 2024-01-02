@@ -478,7 +478,7 @@ a {text-decoration: none;}
                                                             <tr>
                                                                 <td align="center" style="padding:0;Margin:0;padding-bottom:35px">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#333333;font-size:12px"> © Copyright 2022 | Mighty Finance Solutions</p>
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#333333;font-size:12px">Suite 118 Carousel Shopping Complex, Lusaka, Zambia.</p>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#333333;font-size:12px">House no 13, Chikuni Road, Off Makishi Rd, Northmead, Lusaka, Zambia.</p>
                                                                 </td>
                                                             </tr>
                                                             <tr>

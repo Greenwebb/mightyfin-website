@@ -51,8 +51,7 @@
                                                 <div class="wpb_text_column wpb_content_element ">
                                                     <div class="wpb_wrapper">
                                                         <p id="location" class="address-text"><i
-                                                                class="icon-placeholder-3 icon-1x"></i> Suite 118
-                                                            Carousel Shopping Complex, Lusaka.</p>
+                                                                class="icon-placeholder-3 icon-1x"></i> Plot no 13, Chikuni Road, Off Makishi Rd, Northmead, Lusaka.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,12 +102,10 @@
                                             <ul class="listnone">
                                                 <!--<li><a href="brid.php">Types of funding</a></li>-->
 
-                                                <li><a id="personal" href="{{ route('bridging') }}">Bridging Finance</a></li>
-                                                <li><a id="sme" href="{{ route('credit') }}">Credit Facility</a></li>
-                                                <li><a id="business" href="{{ route('equipment') }}">Equipment Financing</a></li>
-                                                <li><a id="business" href="{{ route('inventory') }}">Inventory Finance</a></li>
-                                                <li><a id="business" href="{{ route('offer') }}">Offer Trade credit</a></li>
-                                                <li><a id="business" href="{{ route('refinancing') }}">Refinancing</a></li>
+                                                <li><a id="personal" href="{{ route('bridging') }}">Business Funding</a></li>
+                                                <li><a id="sme" href="{{ route('credit') }}">Payday Loans</a></li>
+                                                <li><a id="business" href="{{ route('equipment') }}">Women Financing</a></li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -123,12 +120,12 @@
                                     <div class="wpb_wrapper">
                                         <div class="widget-social mt40">
                                             <ul class="listnone">
-                                                <li><a href="https://www.facebook.com/mfinsolution"><i
+                                                <li><a href="https://www.facebook.com/mightyfinsol"><i
                                                             class="fa fa-facebook"></i>Facebook</a></li>
                                                 <li><a href="https://www.instagram.com/mightyfinancesolution/"><i
                                                             class="fa fa-instagram"></i>Instagram</a></li>
-                                                <li><a href="https://twitter.com/mightyfinsol"><i
-                                                            class="fa fa-twitter"></i>Twitter</a></li>
+                                                <li><a href="https://www.youtube.com/@mightyfinancesolutionlimit6997"><i
+                                                            class="fa fa-youtube"></i>Youtube</a></li>
                                                 <li><a href="https://www.linkedin.com/company/mighty-finance-solution/"><i
                                                             class="fa fa-linkedin"></i>Linked In</a></li>
                                             </ul>
@@ -146,7 +143,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                    <p>© Copyright <t id="current_year">2022</t> | Mighty Finance Solutions</p>
+                    <p>© Copyright {{ now()->year }} | Mighty Finance Solutions</p>
                     <t style="color:white;">powered by <a style="color:white;" href="http://greenwebbtech.com"><t style="color:green;">green</t>webb</t></a>
                 </div>
                 <div class="col-md-6 col-sm-6 text-right col-xs-6">
@@ -158,10 +155,10 @@
     </div>
 </section>
 <!-- GetButton.io widget -->
-<script type="text/javascript">
+{{--<script type="text/javascript">
     // (function () {
     //     var options = {
-    //         whatsapp: "+260777620924", // WhatsApp number
+    //         whatsapp: "+260950082577", // WhatsApp number
     //         call_to_action: "Message us", // Call to action
     //         position: "right", // Position may be 'right' or 'left'
     //         pre_filled_message: "Hello how can we help", // WhatsApp pre-filled message
@@ -171,6 +168,4 @@
     //     s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
     //     var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
     // })();
-</script>
-<!-- /GetButton.io widget -->
-<!-- /GetButton.io widget -->
+</script>--}}
