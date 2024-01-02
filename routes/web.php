@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\LoanApplicationController;
 use App\Http\Controllers\PostController;
@@ -152,6 +153,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('notifications', NotificationView::class)->name('notifications');
     Route::get('user-roles-and-permissions', UserRolesView::class)->name('roles');
     Route::get('settings', SettingsLanding::class)->name('settings');
+
+    // ------ Role Permission 
+    Route::post('update-role', [RoleController::class, 'update'])->name('update-role');
 
     // ----- System Settings
     Route::get('system-settings', SystemSettings::class)->name('sys-settings');

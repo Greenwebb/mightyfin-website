@@ -13,7 +13,7 @@ use Spatie\Permission\Models\Role;
 class UserRolesView extends Component
 {
     use AuthorizesRequests, WithPagination;
-    public $user_roles, $name, $role_name, $role_id, $rolePermissions;
+    public $role, $user_roles, $name, $role_name, $role_id, $rolePermissions;
     public $permission = [];
     public $show, $style;
     public $createModal = false;
@@ -58,27 +58,30 @@ class UserRolesView extends Component
 
     public function show(Role $role)
     {
-        $role = $role;
-        $rolePermissions = $role->permissions;
+        $this->role = $role;
+        $this->rolePermissions = $role->permissions;
     }
 
     public function edit(Role $role)
     {
-        $this->role_name = $role->name;
+        $this->name = $role->name;
         $this->role_id = $role->id;
         $this->rolePermissions = $role->permissions->pluck('name')->toArray();
+        
         $this->show = 'true';
     }
 
-    public function updateUser(Role $role)
+    public function updateRole(Role $role)
     {
         try {
-            // $this->validate($request, [
-            //     'name' => 'required',
-            //     'permission' => 'required',
-            // ]);
+            $this->validate([
+                'name' => 'required',
+                'permission' => 'required|array',
+            ]);
+            
             $role->update(['name' => $this->name]);
             $role->syncPermissions($this->permission);
+            dd($this->permission);  
             Session::flash('attention', "Role updated successfully.");
         } catch (\Throwable $th) {
             Session::flash('error_msg', substr($th->getMessage(),16,110));

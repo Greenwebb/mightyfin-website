@@ -15,6 +15,18 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        @if (session()->has('attention'))
+            <div class="alert alert-success">
+                {{ session('attention') }}
+            </div>
+        @endif
+        @if (session()->has('error_msg'))
+            <div class="alert alert-danger">
+                {{ session('error_msg') }}
+            </div>
+        @endif
+    </div>
     <!--begin::Post-->
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
@@ -62,6 +74,7 @@
                         <!--end::Card body-->
                         <!--begin::Card footer-->
                         <div class="card-footer flex-wrap pt-0">
+                            <a class="btn btn-light btn-active-primary my-1 me-2"  wire:click="destroy({{ $role->id }})">Delete</a>
                             <a href="apps/user-management/roles/view.html" class="btn btn-light btn-active-primary my-1 me-2">View Role</a>
                             <button type="button" class="btn btn-light btn-active-light-primary my-1" data-bs-toggle="modal" data-bs-target="#kt_modal_update_role"  wire:click="edit({{ $role->id }})">Edit Role</button>
                         </div>
@@ -524,7 +537,7 @@
             <!--end::Modal - Add role-->
             <!--begin::Modal - Update role-->
             @if($show)
-            <div class="modal fade" id="kt_modal_update_role" tabindex="-1" aria-hidden="true">
+            <div wire:ignore.self class="modal fade" id="kt_modal_update_role" tabindex="-1" aria-hidden="true">
                 <!--begin::Modal dialog-->
                 <div class="modal-dialog modal-dialog-centered mw-750px">
                     <!--begin::Modal content-->
@@ -547,33 +560,22 @@
                         <!--begin::Modal body-->
                         <div class="modal-body scroll-y mx-5 my-7">
                             <!--begin::Form-->
-                            <form id="kt_modal_update_role_form" class="form" method="POST" wire:submit.prevent="updateUser({{ $role_id }})">
-                                <!--begin::Scroll-->
+                            <form id="updateRoleForm" class="form" method="POST" action="{{ route('update-role') }}">
+                                
+                                @csrf
+                                <input type="hidden" name="role_id" value="{{$role_id}}">
                                 <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_update_role_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_update_role_header" data-kt-scroll-wrappers="#kt_modal_update_role_scroll" data-kt-scroll-offset="300px">
-                                    <!--begin::Input group-->
                                     <div class="fv-row mb-10">
-                                        <!--begin::Label-->
                                         <label class="fs-5 fw-bold form-label mb-2">
                                             <span class="required">Role name</span>
                                         </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input class="form-control form-control-solid" placeholder="Enter a role name" name="role_name" value="Developer" />
-                                        <!--end::Input-->
+                                        <input class="form-control form-control-solid" name="name" value="{{$name}}" wire:model.defer="name" />
                                     </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Permissions-->
                                     <div class="fv-row">
-                                        <!--begin::Label-->
                                         <label class="fs-5 fw-bold form-label mb-2">Role Permissions</label>
-                                        <!--end::Label-->
-                                        <!--begin::Table wrapper-->
                                         <div class="table-responsive">
-                                            <!--begin::Table-->
                                             <table class="table align-middle table-row-dashed fs-6 gy-5">
-                                                <!--begin::Table body-->
                                                 <tbody class="text-gray-600 fw-semibold">
-                                                    <!--begin::Table row-->
                                                     <tr>
                                                         <td class="text-gray-800">Administrator Access
                                                         <span class="ms-1" data-bs-toggle="tooltip" title="Allows a full access to the system">
@@ -584,65 +586,50 @@
                                                             </i>
                                                         </span></td>
                                                         <td>
-                                                            <!--begin::Checkbox-->
                                                             <label class="form-check form-check-sm form-check-custom form-check-solid me-9">
                                                                 <input class="form-check-input" type="checkbox" value="" id="kt_roles_select_all" />
                                                                 <span class="form-check-label" for="kt_roles_select_all">Select all</span>
                                                             </label>
-                                                            <!--end::Checkbox-->
                                                         </td>
                                                     </tr>
-                                                    <!--end::Table row-->
-                                                    <!--begin::Table row-->
+                                                    @foreach($permissions as $g => $p)
                                                     <tr>
-                                                        <!--begin::Label-->
-                                                        <td class="text-gray-800">User Management</td>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input group-->
+                                                        <td class="text-gray-800">{{ ucwords($g) }} Management</td>
                                                         <td>
-                                                            <!--begin::Wrapper-->
                                                             <div class="d-flex">
-                                                                <!--begin::Checkbox-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
-                                                                    <input class="form-check-input" type="checkbox" value="" name="user_management_read" />
-                                                                    <span class="form-check-label">Read</span>
-                                                                </label>
-                                                                <!--end::Checkbox-->
-                                                                <!--begin::Checkbox-->
-                                                                <label class="form-check form-check-custom form-check-solid me-5 me-lg-20">
-                                                                    <input class="form-check-input" type="checkbox" value="" name="user_management_write" />
-                                                                    <span class="form-check-label">Write</span>
-                                                                </label>
-                                                                <!--end::Checkbox-->
-                                                                <!--begin::Checkbox-->
-                                                                <label class="form-check form-check-custom form-check-solid">
-                                                                    <input class="form-check-input" type="checkbox" value="" name="user_management_create" />
-                                                                    <span class="form-check-label">Create</span>
-                                                                </label>
-                                                                <!--end::Checkbox-->
+                                                                @foreach($p as $key => $perm)
+                                                                    <label for="{{ $perm->name.''.$perm->id }}" class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
+                                                                        <input 
+                                                                            id="{{ $perm->name.''.$perm->id }}"
+                                                                            class="form-check-input" 
+                                                                            type="checkbox" 
+                                                                            name="permission[]"
+                                                                            @if(!empty($rolePermissions))
+                                                                            value="{{ $perm->name }}" 
+                                                                            {{ 
+                                                                                in_array($perm->name, $rolePermissions) ? 'checked' : '' 
+                                                                            }} 
+                                                                            @endif
+                                                                            value="{{ $perm->name }}"
+
+                                                                        />
+                                                                        <small class="form-check-label">{{ ucwords($perm->permission) }}</small>
+                                                                        <span class="form-check-label">{{ $permission->permission }}</span>
+                                                                    </label>
+                                                                @endforeach
                                                             </div>
-                                                            <!--end::Wrapper-->
                                                         </td>
-                                                        <!--end::Input group-->
                                                     </tr>
-                                                    <!--end::Table row-->
-                                                    <!--begin::Table row-->
-                                                    
-                                                    <!--end::Table row-->
+                                                    @endforeach
                                                 </tbody>
-                                                <!--end::Table body-->
                                             </table>
-                                            <!--end::Table-->
                                         </div>
-                                        <!--end::Table wrapper-->
                                     </div>
-                                    <!--end::Permissions-->
                                 </div>
-                                <!--end::Scroll-->
-                                <!--begin::Actions-->
+                                
                                 <div class="text-center pt-15">
                                     <button type="reset" class="btn btn-light me-3" data-kt-roles-modal-action="cancel">Discard</button>
-                                    <button type="submit" class="btn btn-primary" data-kt-roles-modal-action="submit">
+                                    <button onclick="submitForm()" type="button" class="btn btn-primary" data-kt-roles-modal-action="cancel">
                                         <span class="indicator-label">Submit</span>
                                         <span class="indicator-progress">Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -665,4 +652,36 @@
         <!--end::Container-->
     </div>
     <!--end::Post-->
+    <script>
+        function submitForm() {
+            var form = document.getElementById('updateRoleForm');
+            var formData = new FormData(form);
+            // Prevent the default form submission behavior
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+            });
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the response data as needed
+                console.log(data);
+                jSuites.notification({
+                        name: 'Role Update',
+                        message: 'User role updated successfully!',
+                });
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+    </script>
 </div>
