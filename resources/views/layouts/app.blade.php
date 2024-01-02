@@ -1,6 +1,3 @@
-<?
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -539,7 +536,7 @@ session_start();
 </head>
 
 <body class="page-template page-template-page-templates page-template-template-home-7 page-template-page-templatestemplate-home-7-php page page-id-1360 borrow-theme-ver-1.2.0 wordpress-version-5.4.4 royal_preloader wpb-js-composer js-comp-ver-6.1 vc_responsive">
-  
+
     <style>
         div.parent {
             text-align: start;
@@ -1059,10 +1056,10 @@ session_start();
     @livewireStyles
 
     {{ $slot }}
-                
+
     @stack('modals')
 
-    @livewireScripts 
+    @livewireScripts
 
 
     @include('layouts.footer')

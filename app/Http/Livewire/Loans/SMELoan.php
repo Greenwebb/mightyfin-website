@@ -31,7 +31,7 @@ class SMELoan extends Component
             'state' => $this->state,
             'type' => $this->type,
         ];
-        
+
         $resp = $this->send_loan_enquiry($data);
         if($resp == null){
             session()->flash('message', 'Email sent successfully.');

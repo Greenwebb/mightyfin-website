@@ -57,6 +57,7 @@ use App\Http\Livewire\Loans\PersonalLoan;
 use App\Http\Livewire\Loans\SMELoan;
 use App\Http\Livewire\Loans\VehicleLoan;
 use App\Http\Livewire\Loans\WIBLoan;
+use App\Http\Livewire\Loans\Payday;
 use App\Http\Livewire\PersonFour;
 use App\Http\Livewire\PersonOne;
 use App\Http\Livewire\PersonThree;
@@ -91,7 +92,7 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::post('/share-docs', [UserController::class, 'share_doc'])->name('share.docs');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    
+
     Route::get('/dashboard', DashboardView::class)->name('dashboard');
     Route::get('/search', SearchEngineView::class)->name('search');
     // Administrator
@@ -107,7 +108,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('loan-rates', LoanRatesView::class)->name('view-loan-rates');
     Route::get('repayment-calculator', LoanRepaymentCalculatorView::class)->name('view-repayment-calculator');
     Route::get('edit-user/{id}', UserUpdateView::class)->name('edit-user');
-    
+
 
     // ---- Borrowers
     Route::get('borrowers', BorrowerView::class)->name('borrowers');
@@ -123,11 +124,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('apply-for-loan', [LoanApplicationController::class, 'new_loan'])->name('apply-loan');
     Route::post('apply-proxy-loan', [LoanApplicationController::class, 'new_proxy_loan'])->name('proxy-apply-loan');
     Route::post('update-loan', [LoanApplicationController::class, 'updateLoanDetails'])->name('update-loan-details');
-    
+
     // ---- Payments
-    Route::get('make-payments', PaymentPage::class)->name('payments');    
-    Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');    
-   
+    Route::get('make-payments', PaymentPage::class)->name('payments');
+    Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');
+
 
 
     // ---- Employees
@@ -154,7 +155,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('user-roles-and-permissions', UserRolesView::class)->name('roles');
     Route::get('settings', SettingsLanding::class)->name('settings');
 
-    // ------ Role Permission 
+    // ------ Role Permission
     Route::post('update-role', [RoleController::class, 'update'])->name('update-role');
 
     // ----- System Settings
@@ -168,11 +169,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('updating-kyc-uploads', [LoanApplicationController::class, 'updateKYCFiles'])->name('update-kyc-uploads');
     Route::post('update-prof-pic', [UserController::class, 'updatePic'])->name('update-prof-pic');
     Route::post('update-profile', [UserController::class, 'updateProfile'])->name('update-profile');
-    
+
     Route::get('my-profile', MyProfile::class)->name('my-profile');
 
     // ------- Loan Continue Completion
-    
+
     Route::post('continue-loan', [LoanApplicationController::class, 'continue_loan'])->name('continue-loan');
 
 });
@@ -200,6 +201,7 @@ Route::get('chanda-mwenda-sales-and-marketing-director', PersonFour::class)->nam
 
 
 // Site Services Pages
+Route::get('payday', Payday::class)->name('payday');
 Route::get('inventory-financing', PersonalLoan::class)->name('inventory');
 Route::get('credit-facility', EducationalLoan::class)->name('credit');
 Route::get('bridging-financing', AssetFinanceLoan::class)->name('bridging');

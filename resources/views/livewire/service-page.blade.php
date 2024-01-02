@@ -73,7 +73,7 @@
             <div class="row" style="padding-left: 30px;">
 
                 <!-- Update 6-2018 -->
-                <div class="col-md-7 col-sm-9 col-xs-12"><a href="{{ route('welcome') }}"><button type="button"
+                <div class="col-md-7 col-sm-9 col-xs-12"><a href="{{ route('payday') }}"><button type="button"
                             class="btn btn-primary">
                             Apply Now
                         </button></a>
@@ -102,15 +102,15 @@
                                     style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
                                     <div class="service-img-box mb30 text-center ">
                                         <div class="service-img">
-                                            <a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <a href="#"
                                                 class="imghover hover-lazy-felix">
                                                 <img fetchpriority="high" decoding="async" width="358" height="250"
-                                                    src="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg"
+                                                    src="{{ asset('public/web/images/service-1.webp') }}"
                                                     class="img-responsive wp-post-image" alt=""
-                                                    srcset="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg 358w, http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7-300x209.jpg 300w"
+                                                    srcset="{{ asset('public/web/images/service-1.webp') }} 300w"
                                                     sizes="(max-width: 358px) 100vw, 358px"> <button
                                                     class="lazy-felix lazy-felix-download-btn"
-                                                    data-img-link="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg"><svg
+                                                    data-img-link="{{ asset('public/web/images/service-1.webp') }}"><svg
                                                         xmlns="http://www.w3.org/2000/svg" class="lazyfelix-icon"
                                                         width="27" height="25" viewBox="0 0 27 25"
                                                         fill="none">
@@ -136,13 +136,13 @@
 
                                                 <img style="max-width: 3rem" src="{{ asset('public/web/images/refinancing.svg') }}"
                                                     class="icon-svg-2x" alt="">
-    
-    
+
+
                                             </div>
-                                            <h2><a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <h2><a href="#"
                                                     class="title">Business Funding</a></h2>
                                             <p>We provide a range of business financial solutions, including Credit Facility, Equipment Finance, Inventory Finance, and Refinancing Loans.</p>
-                                            <a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <a href="#"
                                                 class="btn-link">Read More</a>
                                         </div>
                                     </div>
@@ -151,16 +151,16 @@
                                     style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
                                     <div class="service-img-box mb30 text-center ">
                                         <div class="service-img">
-                                            <a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <a href="#"
                                                 class="imghover hover-lazy-felix">
                                                 <img fetchpriority="high" decoding="async" width="358"
                                                     height="250"
-                                                    src="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg"
+                                                    src="{{ asset('public/web/images/service-2.webp') }}"
                                                     class="img-responsive wp-post-image" alt=""
-                                                    srcset="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg 358w, http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7-300x209.jpg 300w"
+                                                    srcset="{{ asset('public/web/images/service-2.webp') }} 358w, {{ asset('public/web/images/service-2.webp') }} 300w"
                                                     sizes="(max-width: 358px) 100vw, 358px"> <button
                                                     class="lazy-felix lazy-felix-download-btn"
-                                                    data-img-link="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg"><svg
+                                                    data-img-link="{{ asset('public/web/images/service-2.webp') }}"><svg
                                                         xmlns="http://www.w3.org/2000/svg" class="lazyfelix-icon"
                                                         width="27" height="25" viewBox="0 0 27 25"
                                                         fill="none">
@@ -187,13 +187,13 @@
 
                                                 <img style="max-width: 3rem" src="{{ asset('public/web/images/refinancing.svg') }}"
                                                     class="icon-svg-2x" alt="">
-    
-    
+
+
                                             </div>
-                                            <h2><a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <h2><a href="{{ route('payday') }}"
                                                     class="title">Payday Loans</a></h2>
                                             <p>We offer Salary Advance, collateral and MOU baked loans. We also lend to Civil Servants using PMEC system.</p>
-                                            <a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <a href="{{ route('payday') }}"
                                                 class="btn-link">Read More</a>
                                         </div>
                                     </div>
@@ -202,16 +202,16 @@
                                     style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
                                     <div class="service-img-box mb30 text-center ">
                                         <div class="service-img">
-                                            <a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <a href="#"
                                                 class="imghover hover-lazy-felix">
                                                 <img fetchpriority="high" decoding="async" width="358"
                                                     height="250"
-                                                    src="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg"
+                                                    src="{{ asset('public/web/images/service-3.webp') }}"
                                                     class="img-responsive wp-post-image" alt=""
-                                                    srcset="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg 358w, http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7-300x209.jpg 300w"
+                                                    srcset="{{ asset('public/web/images/service-3.webp') }} 358w, {{ asset('public/web/images/service-3.webp') }} 300w"
                                                     sizes="(max-width: 358px) 100vw, 358px"> <button
                                                     class="lazy-felix lazy-felix-download-btn"
-                                                    data-img-link="http://demowp.vegatheme.com/borrow/wp-content/uploads/sites/6/2016/12/blog-img-7.jpg"><svg
+                                                    data-img-link="{{ asset('public/web/images/service-3.webp') }}"><svg
                                                         xmlns="http://www.w3.org/2000/svg" class="lazyfelix-icon"
                                                         width="27" height="25" viewBox="0 0 27 25"
                                                         fill="none">
@@ -238,13 +238,13 @@
 
                                                 <img style="max-width: 3rem" src="{{ asset('public/web/images/refinancing.svg') }}"
                                                     class="icon-svg-2x" alt="">
-    
-    
+
+
                                             </div>
-                                            <h2><a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <h2><a href="#"
                                                     class="title">Mightyfin for Women (Femiprise)</a></h2>
                                             <p>We are fostering digital financial inclusion for women owned and women led businesses to empower them through working capital loans.</p>
-                                            <a href="http://demowp.vegatheme.com/borrow/loan/personal-loan/"
+                                            <a href="#"
                                                 class="btn-link">Read More</a>
                                         </div>
                                     </div>
