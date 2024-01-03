@@ -14,6 +14,7 @@ use App\Traits\LoanTrait;
 use App\Traits\SettingTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class LoanRequestView extends Component
 {
@@ -255,6 +256,20 @@ class LoanRequestView extends Component
 
     public function setLoanID($id){
         $this->loan_id = $id;
+    }
+
+    public function reviewLoan()
+    {
+        
+        Application::where('id', $this->loan_id)->update(['status' => 2]);
+        // Redirect to other page here
+        Redirect::route('loan-details',['id' => $this->loan_id]);
+        session()->flash('success', 'Loan successfully set under review!');
+    }
+
+    public function closeModal()
+    {
+        $this->dispatchBrowserEvent('closeModal');
     }
 
     public function clear(){

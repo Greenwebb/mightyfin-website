@@ -119,7 +119,7 @@
                                         @elseif($loan->status == 1)
                                             <span class="badge badge-light-success">Approved</span>
                                         @elseif($loan->status == 2)
-                                            <span class="badge badge-light-primary">Under Review</span>
+                                            <span class="badge badge-light-primary">Processing</span>
                                         @else
                                             <span class="badge badge-light-danger">Rejected</span>
                                         @endif
@@ -140,9 +140,10 @@
                                             </button>
                                             @endif
                                         @else
-                                            @can('review loan')
-                                                <button class="btn btn-sm btn-success">Review</button>
-                                            @endcan
+                                            {{-- @can('review loan') --}}
+                                            
+                                                <button wire:click="setLoanID({{ $loan->id }})" data-bs-toggle="modal" data-bs-target="#kt_modal_review_warning" class="btn btn-sm btn-success">Review</button>
+                                            {{-- @endcan --}}
                                         @endrole
                                     </td>
                                     @endif
@@ -181,4 +182,5 @@
     </div>
 
     @include('livewire.dashboard.loans.__modals.assign-loan')
+    @include('livewire.dashboard.loans.__modals.review-warning')
 </div>
