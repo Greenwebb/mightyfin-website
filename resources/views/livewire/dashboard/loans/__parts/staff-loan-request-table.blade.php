@@ -141,8 +141,9 @@
                                             @endif
                                         @else
                                             {{-- @can('review loan') --}}
-                                            
+                                            @if($loan->status == 0 || $loan->status == 3)
                                                 <button wire:click="setLoanID({{ $loan->id }})" data-bs-toggle="modal" data-bs-target="#kt_modal_review_warning" class="btn btn-sm btn-success">Review</button>
+                                            @endif
                                             {{-- @endcan --}}
                                         @endrole
                                     </td>

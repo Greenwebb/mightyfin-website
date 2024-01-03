@@ -34,12 +34,13 @@
                             </div>
                         </div>
                         
-                        <div wire:loading wire:target="reviewLoan" class="text-center justify-content-center items-center">
-                            <div class="container">
+                        <div wire:loading wire:target="reviewLoan" class="text-center">
+                            <div class="d-flex justify-content-center align-items-center gap-4 text-center items-center">
                                 <span class="spinner-border text-primary" role="status"></span>
                                 <p class="mt-2">Retrieving loan application details...</p>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </form>

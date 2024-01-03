@@ -265,6 +265,8 @@ class LoanRequestView extends Component
         // Redirect to other page here
         Redirect::route('loan-details',['id' => $this->loan_id]);
         session()->flash('success', 'Loan successfully set under review!');
+        sleep(3);
+        
     }
 
     public function closeModal()

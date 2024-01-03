@@ -10,14 +10,14 @@
             <!--begin::Symbol-->
             <div class="symbol symbol-50px">
                 @if (auth()->user()->profile_photo_path)
-                @if ($route == 'profile.show' || $route == 'loan-details' || $route == 'loan-statement')
-                <img src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                    @if ($route == 'profile.show' || $route == 'loan-details' || $route == 'loan-statement')
+                    <img src="{{ '../public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                    @else
+                    <img src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                    @endif
                 @else
-                <img src="{{ 'public/'.Storage::url(auth()->user()->profile_photo_path) }}" alt=""/>
+                    <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
                 @endif
-              @else
-                <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
-              @endif
             </div>
             <!--end::Symbol-->
             <!--begin::Wrapper-->
@@ -204,8 +204,8 @@
                     </i>
                     <!--end::Icon-->
                     <!--begin::Input-->
-                    <input type="text" class="search-input form-control ps-13 fs-7 h-40px" name="search" value=""
-                        placeholder="Quick Search" data-kt-search-element="input" />
+                    <input type="text" class="search-input form-control ps-13 fs-7 h-40px" name="search" 
+                        placeholder="Quick Search" value="Search" data-kt-search-element="input" />
                     <!--end::Input-->
                     <!--begin::Spinner-->
                     <span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5"
