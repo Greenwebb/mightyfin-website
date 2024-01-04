@@ -295,6 +295,7 @@
             @endrole
         </div>
 
+        @role('user') @else
         <div class="col-xl-12 col-xxl-12 col-md-12 mt-4 mb-4">
             <div class="d-flex justify-content-between align-items-center gap-4 text-center items-center">
                 <span>
@@ -302,7 +303,18 @@
                     <button class="btn btn-danger" data >Decline</button>
                 </span>
                 <span>
-                    <button wire:click="approve()" class="btn btn-primary">Approve 
+                    @if ($this->my_approval_status($loan->id) == 1)
+                        <span class="badge badge-success">You approved this loan
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </span>
+                    @else
+                        <span class="badge badge-warning">You have not approved this loan</span>
+                    @endif
+                </span>
+                <span>
+                    <button wire:click="accept({{$loan->id}})" class="btn btn-primary">Approve 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
                             <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                         </svg>
@@ -310,6 +322,7 @@
                 </span>
             </div>
         </div>
+        @endrole
     </div>
 </div>
 

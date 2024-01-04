@@ -78,6 +78,7 @@ trait SettingTrait{
                         'user_id' => $user_id,
                         'is_active' => ($key + 1) == 1 ? 1 : 0,
                         'priority' => $key + 1,
+                        'is_processing' => 0,
                         'status' => 1
                     ]
                 );

@@ -38,6 +38,10 @@ class LoanDetailView extends Component
             ->layout('layouts.admin');
         }
     } 
+    
+    public function setLoanID($id){
+        $this->loan_id = $id;
+    }
 
     public function confirm($id, $msg){
         $this->loan_id = $id;
@@ -48,50 +52,41 @@ class LoanDetailView extends Component
         $this->loan_id = '';
         $this->msg = '';
     }
-    
-    public function accept($id){
         
-        DB::beginTransaction();
+    // This method is the actual approval process - Recommended
+    public function accept($id){
+        // DB::beginTransaction();
         try {
-            $x = Application::find($id);
-            $this->make_loan($x, $this->due_date);
-            if($this->isCompanyEnough($x->amount)){
-                $x->status = 1;
-                $x->save();
-                if($x->email != null){
-                    $mail = [
-                        'user_id' => '',
-                        'application_id' => $x->id,
-                        'name' => $x->fname.' '.$x->lname,
-                        'loan_type' => $x->type,
-                        'phone' => $x->phone,
-                        'email' => $x->email,
-                        'duration' => $x->repayment_plan,
-                        'amount' => $x->amount,
-                        'payback' => Application::payback($x->amount, $x->repayment_plan),
-                        'type' => 'loan-application',
-                        'msg' => 'Your '.$x->type.' loan application request has been successfully accepted'
-                    ];
-                    $this->send_loan_feedback_email($mail);
-                }
-                $this->deposit($x->amount, $x);
-                DB::commit();
-                session()->flash('success', 'Successfully transfered '.$x->amount.' to '.$x->fname.' '.$x->lname);
+            $application_request = Application::find($id);
+            // Make the loan
+            // $this->make_loan($x, $this->due_date);
+            // $this->isCompanyEnough($x->amount);
+
+            // Do this - If this officer is the last approver
+            // dd($this->final_approver($id)['status']);
+            if($this->final_approver($id)['status']){
+                $this->approve_final($application_request);
             }else{
-                session()->flash('warning', 'Insuficient funds in the company account, please update funds.');
+                $this->approve_continue($id);
             }
         } catch (\Throwable $th) {
-            DB::rollback();
+            dd($th);
+            // DB::rollback();
             session()->flash('error', 'Oops something failed here, please contact the Administrator.'.$th);
         }
     }
-    
-    public function acceptOnly($id){
-        try {
-            $x = Application::find($id);
-            if($this->isCompanyEnough($x->amount)){
-                $x->status = 1;
-                $x->save();
+
+    public function approve_continue($id){
+        $this->upvote($id);
+    }
+
+    public function approve_final($x){
+        if(true){
+            $this->upvote($x->id);
+            $x->status = 1;
+            $x->save();
+            // dd($x->email);
+            if($x->email != null){
                 $mail = [
                     'user_id' => '',
                     'application_id' => $x->id,
@@ -106,12 +101,12 @@ class LoanDetailView extends Component
                     'msg' => 'Your '.$x->type.' loan application request has been successfully accepted'
                 ];
                 $this->send_loan_feedback_email($mail);
-                session()->flash('success', 'Successfully approved');
-            }else{
-                session()->flash('warning', 'Insuficient funds in the company account, please update funds.');
             }
-        } catch (\Throwable $th) {
-            session()->flash('error', 'Oops something failed here, please contact the Administrator.');
+            $this->deposit($x->amount, $x);
+            DB::commit();
+            session()->flash('success', 'Successfully transfered '.$x->amount.' to '.$x->fname.' '.$x->lname);
+        }else{
+            session()->flash('warning', 'Insuficient funds in the company account, please update funds.');
         }
     }
 

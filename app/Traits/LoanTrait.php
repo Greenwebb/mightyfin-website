@@ -5,6 +5,7 @@ namespace App\Traits;
 use App\Mail\LoanApplication;
 use App\Models\Application;
 use App\Models\LoanInstallment;
+use App\Models\LoanManualApprover;
 use App\Models\LoanPackage;
 use App\Models\Loans;
 use App\Models\User;
@@ -226,7 +227,6 @@ trait LoanTrait{
         } catch (\Throwable $th) {
             dd($th);
         }
-        // 0767759619
     }
 
     public function payback_ammount($amount, $duration){
@@ -274,5 +274,86 @@ trait LoanTrait{
         }
 
     }
+
+
+    // -------- Approvals
+    public function final_approver($application_id)
+    {
+        $approvers = LoanManualApprover::where('application_id', $application_id)->get();
+        $userPriority = $approvers->where('user_id', auth()->user()->id)->pluck('priority')->first();
+        $is_passed = $approvers->where('user_id', auth()->user()->id)->pluck('is_passed')->first();
+        
+        // dd((int)$approvers->count());
+        // dd((int)$userPriority);
+
+        // If false then there are still more approvers | must be dynamic
+        if ((int)$approvers->count() >= (int)$userPriority) {
+            return [
+                'status' => true,
+                'priority' => $userPriority,
+                'total_approvers' => $approvers->count(),
+                'is_passed' =>$is_passed
+            ];
+        } else {
+            return [
+                'status' => false,
+                'priority' => $userPriority,
+                'total_approvers' => $approvers->count(),
+                'is_passed' => $is_passed
+            ];
+        }
+    }
+
+    public function my_approval_status($application_id){
+        return LoanManualApprover::where('user_id', auth()->user()->id)
+                        ->where('application_id', $application_id)
+                        ->pluck('is_passed')->first();
+    }
+
+    public function upvote($application_id){
+        
+        // dd($application_id);
+        $approvers = LoanManualApprover::where('application_id', $application_id)->get();
+        $userPriority = $approvers->where('user_id', auth()->user()->id)->pluck('priority')->first();
+
+        // dd($userPriority);
+        // Leave current approver
+        $update = $approvers->where('priority', $userPriority)->first();
+        // dd($update);
+        $update->is_passed = 1;
+        $update->is_active = 0;
+        $update->is_processing = 0;
+        $update->save();
+
+        // Elevate to the next priority
+        $update = $approvers->where('priority', $userPriority + 1)->first();
+        if($update){
+            $update->is_active = 1;
+            $update->is_processing = 1;
+            $update->save();
+        }
+    } 
+    // public function final_upvote($application_id){
+        
+    //     // dd($application_id);
+    //     $approvers = LoanManualApprover::where('application_id', $application_id)->get();
+    //     $userPriority = $approvers->where('user_id', auth()->user()->id)->pluck('priority')->first();
+
+    //     // dd($userPriority);
+    //     // Leave current approver
+    //     $update = $approvers->where('priority', $userPriority)->first();
+    //     // dd($update);
+    //     $update->is_passed = 1;
+    //     $update->is_active = 0;
+    //     $update->is_processing = 0;
+    //     $update->save();
+
+    //     // Elevate to the next priority
+    //     $update = $approvers->where('priority', $userPriority + 1)->first();
+    //     $update->is_active = 1;
+    //     $update->is_processing = 1;
+    //     $update->save();
+    // } 
+    
 
 }
