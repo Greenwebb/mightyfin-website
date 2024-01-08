@@ -1009,7 +1009,7 @@
                         {{-- @endcan --}}
                         {{-- @can('view pending') --}}
                         <div class="menu-item">
-                            <a class="menu-link" href="{{ route('view-loan-requests') }}">
+                            <a class="menu-link" href="#">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1031,7 +1031,7 @@
 
                         @can('view closed')
                         <div class="menu-item">
-                            <a class="menu-link" href="account/activity.html">
+                            <a class="menu-link" href="#">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

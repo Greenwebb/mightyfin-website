@@ -125,8 +125,16 @@
                                         @endif
                                     </td>
                                     @if($this->current_configs('loan-approval')->value == 'spooling')
-                                    <td>
-                                        <button class="btn btn-sm btn-success">Review</button>
+                                    <td class="text-success">
+                                        @role('admin')
+                                            Spooling Mode
+                                        @else
+                                            @can('review loan')
+                                                @if($loan->status == 0 || $loan->status == 3)
+                                                    <button wire:click="setLoanID({{ $loan->id }})" data-bs-toggle="modal" data-bs-target="#kt_modal_review_warning" class="btn btn-sm btn-success">Review</button>
+                                                @endif
+                                            @endcan
+                                        @endrole
                                     </td>
                                     @endif
                                     @if($this->current_configs('loan-approval')->value == 'manual')
