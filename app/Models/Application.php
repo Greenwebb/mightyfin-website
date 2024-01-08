@@ -72,7 +72,8 @@ class Application extends Model
         'age',
         'is_zambian',
         'nationality',
-        'continue'
+        'continue',
+        'is_assigned'
     ];
     protected $appends = [
         'done_by',
@@ -99,6 +100,10 @@ class Application extends Model
 
     public function transactions(){
         return $this->hasMany(Transaction::class);
+    }
+
+    public function manual_approvers(){
+        return $this->hasMany(LoanManualApprover::class);
     }
 
     public function loan(){

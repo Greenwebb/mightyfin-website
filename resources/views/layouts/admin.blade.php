@@ -2967,7 +2967,7 @@
     <!--end::Modal - Users Search-->
     <!--end::Modals-->
     <!--begin::Javascript-->
-    {{-- @stack('modals') --}}
+    @stack('modals')
 
     @livewireScripts
     <script>
@@ -2998,6 +2998,15 @@
     <script src="{{ asset('public/mfs/admin/assets/js/custom/apps/chat/chat.js')}}"></script>
     <script src="{{ asset('public/mfs/admin/assets/js/custom/utilities/modals/users-search.js')}}"></script>
     <!--end::Custom Javascript-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script>
+        document.addEventListener('livewire:load', function () {
+            Livewire.on('closeModal', () => {
+                // Use JavaScript to close the modal
+                $('#kt_modal_review_warning').modal('hide');
+            });
+        });
+    </script> --}}
     <!--end::Javascript-->
 </body>
 <!--end::Body-->

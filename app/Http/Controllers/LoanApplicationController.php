@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Traits\EmailTrait;
 use App\Traits\FileTrait;
 use App\Traits\LoanTrait;
+use App\Traits\SettingTrait;
 use App\Traits\UserTrait;
 use App\Traits\WalletTrait;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 
 class LoanApplicationController extends Controller
 {     
-    use EmailTrait, LoanTrait, UserTrait, WalletTrait, FileTrait;
+    use EmailTrait, LoanTrait, UserTrait, WalletTrait, FileTrait, SettingTrait;
     /**
      * Display a listing of the resource.
      *
@@ -659,6 +660,17 @@ class LoanApplicationController extends Controller
             }else{
                 return redirect()->back();
             } 
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
+
+    public function assign_manual(Request $request){
+        try {
+            $set = $this->set_manual_loan_approvers($request->toArray());
+            Session::flash('success', "Loan successfully assigned.");
+            return redirect()->back();
         } catch (\Throwable $th) {
             dd($th);
         }

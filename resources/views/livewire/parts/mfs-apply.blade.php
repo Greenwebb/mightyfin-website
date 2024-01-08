@@ -5,19 +5,19 @@
 }
 
 /* .input-group input {
-  width: 100%;
-  height: 2rem;
-  padding: 0.5rem;
-  border-radius: 4px;
-  background-color: #792db8;
-  color: #fff;
-  outline: none;
-  transition: background-color 0.3s ease, border 0.3s ease;
+    width: 100%;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #792db8;
+    color: #fff;
+    outline: none;
+    transition: background-color 0.3s ease, border 0.3s ease;
 } */
 
 /* .input-group input:focus {
-  background-color: #8344a9;
-  border: 1px solid #fff; 
+    background-color: #8344a9;
+    border: 1px solid #fff; 
 } */
 
 .text-white {

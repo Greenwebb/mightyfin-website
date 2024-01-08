@@ -66,7 +66,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-dark">
-                        {{ preg_replace('/[^A-Za-z0-9. -]/', '',  Auth::user()->roles->pluck('name')) ?? 'Staff' }}
+                        {{ ucfirst(preg_replace('/[^A-Za-z0-9. -]/', '', optional(Auth::user()->roles)->pluck('name')->implode(' ')) ?? 'Staff') }}
                     </li>
                     <!--end::Item-->
                 </ul>
@@ -74,7 +74,7 @@
             </div>
             <!--end::Page title-->
             <!--begin::Action group-->
-            <div class="d-flex align-items-stretch overflow-auto pt-3 pt-lg-0">
+            {{-- <div class="d-flex align-items-stretch overflow-auto pt-3 pt-lg-0">
                 <!--begin::Action wrapper-->
                 <div class="d-flex align-items-center">
                     <!--begin::Label-->
@@ -246,7 +246,7 @@
                     <!--end::Menu-->
                 </div>
                 <!--end::Theme mode-->
-            </div>
+            </div> --}}
             <!--end::Action group-->
         </div>
         <!--end::Toolbar container-->

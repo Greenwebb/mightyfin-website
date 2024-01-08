@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Classes\Exports\LoanExport;
 use App\Models\Application;
+use App\Models\LoanManualApprover;
 use App\Models\User;
 use App\Traits\EmailTrait;
 use App\Traits\WalletTrait;
@@ -14,24 +15,23 @@ use App\Traits\LoanTrait;
 use App\Traits\SettingTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class LoanRequestView extends Component
 {
     use EmailTrait, WalletTrait, LoanTrait, SettingTrait;
-    public $loan_requests, $loan_request, $new_loan_user, $user_basic_pay, $user_net_pay;
+    public $loan_requests, $loan_request, $new_loan_user, $user_basic_pay, $user_net_pay, $loan_id;
     public $type = [];
     public $status = [];
     public $view = 'list';
     public $users, $due_date;
-
+    public $assignModal = false;
     public function render()
     {
         try {
             // Retrieve users with the 'user' role, excluding their applications
             $this->users = User::role('user')->without('applications')->get();
     
-            // Create a query builder for loan requests
-            $loan_requests = Application::query();
 
             if (auth()->user()->hasRole('user')) {
                 // Retrieve loan requests for the authenticated user and paginate the results (5 items per page)
@@ -41,29 +41,19 @@ class LoanRequestView extends Component
                     'requests'=>$requests
                 ])->layout('layouts.dashboard');
             }else{
-                if ($this->type) {
-                    $loan_requests->whereIn('type', $this->type)->orderBy('id', 'desc');
-                }
-    
-                if ($this->status) {
-                    $loan_requests->whereIn('status', $this->status)->orderBy('id', 'desc');
-                }
 
                 
                 if($this->current_configs('loan-approval')->value == 'auto'){
                     // get loan only if first review as approved
-                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
-                    $requests = $loan_requests->where('complete', 1)->paginate(5);
-
+                    $this->loan_requests = $this->getLoanRequests('auto');
                 }elseif($this->current_configs('loan-approval')->value == 'manual'){
-                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
-                    $requests = $loan_requests->where('complete', 1)->paginate(5);
-
+                   
+                    $this->loan_requests = $this->getLoanRequests('manual');
+                    $requests = $this->getLoanRequests('manual');
                 }else{
-                    $this->loan_requests = $loan_requests->where('complete', 1)->get();
-                    $requests = $loan_requests->where('complete', 1)->paginate(5);
+                    $this->loan_requests = $this->getLoanRequests('spooling');
+                    $requests = $this->getLoanRequests('spooling');
                 }
-
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
                 ])->layout('layouts.admin');
@@ -71,13 +61,13 @@ class LoanRequestView extends Component
         } catch (\Throwable $th) {
             // If an exception occurs, set $loan_requests to an empty array
             $this->loan_requests = [];
-                  
+            $requests = [];
             if (auth()->user()->hasRole('user')) {
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
                 ])->layout('layouts.dashboard');
             }else{
-                dd('here');
+                dd($th);
                 return view('livewire.dashboard.loans.loan-request-view',[
                     'requests'=>$requests
                 ])->layout('layouts.admin');
@@ -112,54 +102,34 @@ class LoanRequestView extends Component
         $this->view = $view;
     }
 
-    // public function openAcceptModal($id){
-    //     $this->loan_request = Application::find($id);
-    //     $this->render();
-    // }
+    public function setLoanID($id){
+        $this->loan_id = $id;
+    }
+    
+
+    // This method is the actual approval process - Recommended
     public function accept($id){
         
         DB::beginTransaction();
         try {
             $x = Application::find($id);
+            // Make the loan
             $this->make_loan($x, $this->due_date);
-            if($this->isCompanyEnough($x->amount)){
-                $x->status = 1;
-                $x->save();
-                if($x->email != null){
-                    $mail = [
-                        'user_id' => '',
-                        'application_id' => $x->id,
-                        'name' => $x->fname.' '.$x->lname,
-                        'loan_type' => $x->type,
-                        'phone' => $x->phone,
-                        'email' => $x->email,
-                        'duration' => $x->repayment_plan,
-                        'amount' => $x->amount,
-                        'payback' => Application::payback($x->amount, $x->repayment_plan),
-                        'type' => 'loan-application',
-                        'msg' => 'Your '.$x->type.' loan application request has been successfully accepted'
-                    ];
-                    $this->send_loan_feedback_email($mail);
-                }
-                $this->deposit($x->amount, $x);
-                DB::commit();
-                session()->flash('success', 'Successfully transfered '.$x->amount.' to '.$x->fname.' '.$x->lname);
-            }else{
-                session()->flash('warning', 'Insuficient funds in the company account, please update funds.');
-            }
+            // $this->isCompanyEnough($x->amount);
+
+            // Do this - If this officer is the last approver
+            $this->final_approval($x);
         } catch (\Throwable $th) {
             DB::rollback();
             session()->flash('error', 'Oops something failed here, please contact the Administrator.'.$th);
         }
     }
 
-
-    public function acceptOnly($id){
-        try {
-            $x = Application::find($id);
-            if($this->isCompanyEnough($x->amount)){
-                $x->status = 1;
-                $x->save();
+    public function final_approval($x){
+        if(true){
+            $x->status = 1;
+            $x->save();
+            if($x->email != null){
                 $mail = [
                     'user_id' => '',
                     'application_id' => $x->id,
@@ -174,16 +144,16 @@ class LoanRequestView extends Component
                     'msg' => 'Your '.$x->type.' loan application request has been successfully accepted'
                 ];
                 $this->send_loan_feedback_email($mail);
-                session()->flash('success', 'Successfully approved');
-            }else{
-                session()->flash('warning', 'Insuficient funds in the company account, please update funds.');
             }
-        } catch (\Throwable $th) {
-            session()->flash('error', 'Oops something failed here, please contact the Administrator.');
+            $this->deposit($x->amount, $x);
+            DB::commit();
+            session()->flash('success', 'Successfully transfered '.$x->amount.' to '.$x->fname.' '.$x->lname);
+        }else{
+            session()->flash('warning', 'Insuficient funds in the company account, please update funds.');
         }
     }
-
-
+    
+    // This method places the loan request on hold
     public function stall($id){
         try {
             $x = Application::find($id);
@@ -212,6 +182,7 @@ class LoanRequestView extends Component
     }
 
 
+    // This method reverses the loan request from being accepted to rejected
     public function reverse($id){
         try {
             $x = Application::find($id);
@@ -239,6 +210,7 @@ class LoanRequestView extends Component
         }
     }
 
+    // This method rejects the loan request
     public function rejectOnly($id){
         try {
             $x = Application::find($id);
@@ -263,6 +235,23 @@ class LoanRequestView extends Component
         } catch (\Throwable $th) {
             session()->flash('error', 'Oops something failed here, please contact the Administrator.');
         }
+    }
+
+    public function reviewLoan()
+    {
+        
+        Application::where('id', $this->loan_id)->update(['status' => 2]);
+        LoanManualApprover::where('user_id', auth()->id())->update(['is_processing' => 1]);
+        // Redirect to other page here
+        Redirect::route('loan-details',['id' => $this->loan_id]);
+        session()->flash('success', 'Loan successfully set under review!');
+        sleep(3);
+        
+    }
+
+    public function closeModal()
+    {
+        $this->dispatchBrowserEvent('closeModal');
     }
 
     public function clear(){

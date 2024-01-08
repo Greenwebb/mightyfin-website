@@ -189,6 +189,7 @@ Route::get('careers', CareerPage::class)->name('about.careers');
 Route::get('contact-us', ContactPage::class)->name('contact');
 Route::get('services', ServicePage::class)->name('services');
 Route::post('request-for-loan', [LoanApplicationController::class, 'store'])->name('loan-request');
+Route::post('assign-manual-approval', [LoanApplicationController::class, 'assign_manual'])->name('assign-manual-approval');
 
 Route::get('get-application', [LoanApplicationController::class, 'getLoan'])->name('get-application');
 Route::get('update-existing-application', [LoanApplicationController::class, 'updateExistingLoan'])->name('update-existing-application');

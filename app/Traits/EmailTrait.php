@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use App\Mail\ContactEmail;
 use App\Mail\SharedForms;
+use App\Notifications\LoanRequestAccepted;
+use App\Notifications\LoanRequestDeclined;
 
 trait EmailTrait{
 
@@ -84,6 +86,43 @@ trait EmailTrait{
         } catch (\Throwable $th) {
             dd($th);
         }
+    }
+
+
+    // Approval Process loans
+    public function send_loan_processing_notification($data){
+        $borrower = User::first();
+        $me = auth()->user();
+        try {
+            Notification::send($borrower, new LoanRequestAccepted($data));
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+
+    }
+    public function send_loan_accepted_notification($data){
+        $borrower = User::where('id', $data['user_id'])->first();
+        $me = auth()->user();
+        try {
+            Notification::send($borrower, new LoanRequestAccepted($data));
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+
+    }
+    
+    public function send_loan_declined_notification($data){
+        $borrower = User::where('id', $data['user_id'])->first();
+        $me = auth()->user();
+        try {
+            Notification::send($borrower, new LoanRequestDeclined($data));
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+
     }
 
 }
