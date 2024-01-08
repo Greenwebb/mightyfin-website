@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Dashboard\Loans;
 
 use App\Models\Application;
+use App\Models\LoanManualApprover;
 use App\Models\User;
 use App\Traits\EmailTrait;
 use App\Traits\LoanTrait;
@@ -10,11 +11,12 @@ use App\Traits\WalletTrait;
 use Illuminate\Http\Client\Request;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class LoanDetailView extends Component
 {
     use EmailTrait, WalletTrait, LoanTrait;
-    public $loan, $user, $loan_id, $msg, $due_date;
+    public $loan, $user, $loan_id, $msg, $due_date, $reason;
 
     public function mount($id){
         /**
@@ -52,6 +54,19 @@ class LoanDetailView extends Component
         $this->loan_id = '';
         $this->msg = '';
     }
+
+    // This method activates the reviewing state
+    public function reviewLoan()
+    {
+        
+        Application::where('id', $this->loan_id)->update(['status' => 2]);
+        LoanManualApprover::where('user_id', auth()->id())->update(['is_processing' => 1]);
+        // Redirect to other page here
+        Redirect::route('loan-details',['id' => $this->loan_id]);
+        session()->flash('success', 'Loan successfully set under review!');
+        sleep(3);
+        
+    }
         
     // This method is the actual approval process - Recommended
     public function accept($id){
@@ -88,7 +103,7 @@ class LoanDetailView extends Component
             // dd($x->email);
             if($x->email != null){
                 $mail = [
-                    'user_id' => '',
+                    'user_id' => $x->user_id,
                     'application_id' => $x->id,
                     'name' => $x->fname.' '.$x->lname,
                     'loan_type' => $x->type,
@@ -100,7 +115,9 @@ class LoanDetailView extends Component
                     'type' => 'loan-application',
                     'msg' => 'Your '.$x->type.' loan application request has been successfully accepted'
                 ];
-                $this->send_loan_feedback_email($mail);
+                $this->send_loan_accepted_notification($mail);
+                // $this->send_loan_feedback_email($mail);
+
             }
             $this->deposit($x->amount, $x);
             DB::commit();
@@ -166,16 +183,19 @@ class LoanDetailView extends Component
         }
     }
 
-    public function rejectOnly($id){
+    public function rejectOnly(){
+        
         try {
-            $x = Application::find($id);
+            $x = Application::find($this->loan_id);
             $x->status = 3;
             $x->save();
             
+            
             $mail = [
-                'user_id' => '',
+                'user_id' => $x->user_id,
                 'application_id' => $x->id,
                 'name' => $x->fname.' '.$x->lname,
+                'estimate' => 500,
                 'loan_type' => $x->type,
                 'phone' => $x->phone,
                 'email' => $x->email,
@@ -183,10 +203,13 @@ class LoanDetailView extends Component
                 'amount' => $x->amount,
                 'payback' => Application::payback($x->amount, $x->repayment_plan),
                 'type' => 'loan-application',
-                'msg' => 'Your '.$x->type.' loan application request has been rejected'
+                'msg' => 'Your '.$x->type.' loan application request. After careful consideration, we regret to inform you that your loan request has been declined. REASON: '.$this->reason
             ];
-            $this->send_loan_feedback_email($mail);
+            
+            $this->send_loan_declined_notification($mail);
+            Redirect::route('loan-details',['id' => $this->loan_id]);
             session()->flash('success', 'Loan has been rejected');
+            
         } catch (\Throwable $th) {
             session()->flash('error', 'Oops something failed here, please contact the Administrator.');
         }

@@ -7,39 +7,45 @@
                     <div class="card-header">
                         <h4 class="card-title text-primary home-chart">LOAN INFORMATION</h4>
                         @role('user')@else
-                        <span class="m-3 mt-7 alert alert-sm alert-primary text-center items-content-center d-flex gap-2">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
-                                    <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"/>
-                                </svg>
-                            </span>
-                            @if ($loan->status == 0)
-                                @if($loan->complete == 0)
-                                    <span class="text-warning fw-bold">
-                                        Incomplete KYC
+                            @if ($this->my_review_status($loan->id) == 1)
+                                <span class="m-3 mt-7 alert alert-sm alert-primary text-center items-content-center d-flex gap-2">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"/>
+                                        </svg>
                                     </span>
-                                @else
-                                    <span class="text-warning fw-bold">
-                                        Processing 
-                                    </span>
-                                @endif
-                            @endif
-                            @if ($loan->status == 1)
-                                <span class="text-success fw-bold">
-                                    Accepted 
+                                    @if ($loan->status == 0)
+                                        @if($loan->complete == 0)
+                                            <span class="text-warning fw-bold">
+                                                Incomplete KYC
+                                            </span>
+                                        @else
+                                            <span class="text-warning fw-bold">
+                                                Processing 
+                                            </span>
+                                        @endif
+                                    @endif
+                                    @if ($loan->status == 1)
+                                        <span class="text-success fw-bold">
+                                            Accepted 
+                                        </span>
+                                    @endif
+                                    @if ($loan->status == 2)
+                                        <span class="text-info fw-bold">
+                                            Processing 
+                                        </span>
+                                    @endif
+                                    @if ($loan->status == 3)
+                                        <span class="text-danger fw-bold">
+                                            Loan Request Rejected 
+                                        </span>
+                                    @endif
                                 </span>
+                            @else
+                                <div class="mt-6">
+                                    <button wire:click="setLoanID({{ $loan->id }})" data-bs-toggle="modal" data-bs-target="#kt_modal_review_warning" class="btn btn-sm btn-success">Review</button>
+                                </div>
                             @endif
-                            @if ($loan->status == 2)
-                                <span class="text-success fw-bold">
-                                    Processing 
-                                </span>
-                            @endif
-                            @if ($loan->status == 3)
-                                <span class="text-success fw-bold">
-                                    Rejected 
-                                </span>
-                            @endif
-                        </span>
                         @endrole
                     </div>
                     <div class="card-body">
@@ -200,7 +206,71 @@
                         <h4 class="card-title text-primary">SUPPORT DOCUMENTS & REFERENCES</h4>
                     </div>
                     <div class="card-body">
-
+                        <div class="row">
+                            <div class="row col-6">
+                                @if ($loan->user->uploads->where('name', 'nrc_file')->isNotEmpty())
+                                    <div class="col-6">
+                                        <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'nrc_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                        </a>
+                                        <p class="file-list">NRC uploaded on {{ $loan->user->uploads->where('name', 'nrc_file')->first()->created_at->toFormattedDateString() }}</p>
+                                    </div>
+                                @endif
+                                @if ($loan->user->uploads->where('name', 'tpin_file')->isNotEmpty())
+                                    <div class="col-6">
+                                        <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'tpin_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                        </a>
+                                        <p class="file-list">Tpin uploaded on {{ $loan->user->uploads->where('name', 'tpin_file')->first()->created_at->toFormattedDateString() }}</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="row col-6">
+                                @if ($loan->user->uploads->where('name', 'preapproval')->isNotEmpty())
+                                    <div class="col-6">
+                                        <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'preapproval')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                        </a>
+                                        <p class="file-list">Preapproval uploaded on {{ $loan->user->uploads->where('name', 'preapproval')->first()->created_at->toFormattedDateString() }}</p>
+                                    </div>
+                                @endif
+                                @if ($loan->user->uploads->where('name', 'letterofintro')->isNotEmpty())
+                                    <div class="col-6">
+                                        <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'letterofintro')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                        </a>
+                                        <p class="file-list">Letter of Introduction uploaded on {{ $loan->user->uploads->where('name', 'letterofintro')->first()->created_at->toFormattedDateString() }}</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="row col-12">
+                                @if ($loan->user->uploads->where('name', 'bankstatement')->isNotEmpty())
+                                    <div class="col-3">
+                                        <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'bankstatement')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                        </a>
+                                        <p class="file-list">Bank Statement uploaded on {{ $loan->user->uploads->where('name', 'bankstatement')->first()->created_at->toFormattedDateString() }}</p>
+                                    </div>
+                                @endif
+                                @if ($loan->user->uploads->where('name', 'payslip_file')->isNotEmpty())
+                                    <div class="col-3">
+                                        <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'payslip_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                        </a>
+                                        <p class="file-list">Payslip uploaded on {{ $loan->user->uploads->where('name', 'payslip_file')->first()->created_at->toFormattedDateString() }}</p>
+                                    </div>
+                                @endif
+                                @if ($loan->user->uploads->where('name', 'passport')->isNotEmpty())
+                                    <div class="col-3">
+                                        <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'passport')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                            <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
+                                        </a>
+                                        <p class="file-list">Passport Size photo uploaded on {{ $loan->user->uploads->where('name', 'passport')->first()->created_at->toFormattedDateString() }}</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <!--end::Table-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -296,33 +366,39 @@
         </div>
 
         @role('user') @else
-        <div class="col-xl-12 col-xxl-12 col-md-12 mt-4 mb-4">
-            <div class="d-flex justify-content-between align-items-center gap-4 text-center items-center">
-                <span>
-                    <button class="btn btn-light">Cancel Review</button>
-                    <button class="btn btn-danger" data >Decline</button>
-                </span>
-                <span>
-                    @if ($this->my_approval_status($loan->id) == 1)
-                        <span class="badge badge-success">You approved this loan
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                            </svg>
+            @if ($this->my_review_status($loan->id) == 1)
+                <div class="col-xl-12 col-xxl-12 col-md-12 mt-4 mb-4">
+                    <div class="d-flex justify-content-between align-items-center gap-4 text-center items-center">
+                        <span>
+                            <button class="btn btn-light">Cancel Review</button>
+                            <button wire:click="setLoanID({{$loan->id}})" data-bs-target="#kt_modal_decline_warning" data-bs-toggle="modal" class="btn btn-danger" data >Decline</button>
                         </span>
-                    @else
-                        <span class="badge badge-warning">You have not approved this loan</span>
-                    @endif
-                </span>
-                <span>
-                    <button wire:click="accept({{$loan->id}})" class="btn btn-primary">Approve 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-                        </svg>
-                    </button>
-                </span>
-            </div>
-        </div>
+                        <span>
+                            @if ($this->my_approval_status($loan->id) == 1)
+                                <span class="badge badge-success">You approved this loan
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                                    </svg>
+                                </span>
+                            @else
+                                <span class="badge badge-warning">You have not approved this loan</span>
+                            @endif
+                        </span>
+                        <span>
+                            <button wire:click="accept({{$loan->id}})" class="btn btn-primary">Approve 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                                </svg>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            @endif
         @endrole
+        <br>
     </div>
+    
+    @include('livewire.dashboard.loans.__modals.review-warning')
+    @include('livewire.dashboard.loans.__modals.decline-loan')
 </div>
 

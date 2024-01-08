@@ -1007,6 +1007,16 @@
                             </a>
                         </div>
                         {{-- @endcan --}}
+                        {{-- @can('view pending') --}}
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('view-loan-requests') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Approved Loans</span>
+                            </a>
+                        </div>
+                        {{-- @endcan --}}
 
                         {{-- @can('view loans')
                         <div class="menu-item">

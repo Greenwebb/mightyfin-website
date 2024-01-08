@@ -1067,7 +1067,7 @@
                                                         <a href="{{ 'public/'.Storage::url($data->uploads->where('name', 'payslip_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
                                                             <img width="90" src="https://img.freepik.com/free-vector/illustration-folder-with-document_53876-37005.jpg?w=740&t=st=1676996943~exp=1676997543~hmac=d03d65c77d403c5ed653a733705504e21b5b3fb42e7cfe3c4340f90aaf55f9d2">
                                                         </a>
-                                                        <p class="file-list">Bank Statement uploaded on {{ $data->uploads->where('name', 'payslip_file')->first()->created_at->toFormattedDateString() }}</p>
+                                                        <p class="file-list">Payslip uploaded on {{ $data->uploads->where('name', 'payslip_file')->first()->created_at->toFormattedDateString() }}</p>
                                                 </div>
                                                 @endif
                                             </div>

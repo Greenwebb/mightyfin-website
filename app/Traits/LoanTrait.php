@@ -310,6 +310,12 @@ trait LoanTrait{
                         ->pluck('is_passed')->first();
     }
 
+    public function my_review_status($application_id){
+        return LoanManualApprover::where('user_id', auth()->user()->id)
+                        ->where('application_id', $application_id)
+                        ->pluck('is_processing')->first();
+    }
+
     public function upvote($application_id){
         
         // dd($application_id);

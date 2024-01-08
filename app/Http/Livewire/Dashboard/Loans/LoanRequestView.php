@@ -237,7 +237,6 @@ class LoanRequestView extends Component
         }
     }
 
-
     public function reviewLoan()
     {
         

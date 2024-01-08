@@ -68,10 +68,10 @@
                                     <th class="min-w-120px">Status</th>
                                     
                                     @if($this->current_configs('loan-approval')->value == 'spooling')
-                                    <th class="min-w-120px"></th>
+                                    <th class="min-w-150px"></th>
                                     @endif
                                     @if($this->current_configs('loan-approval')->value == 'manual')
-                                    <th class="min-w-120px"></th>
+                                    <th class="min-w-150px"></th>
                                     @endif
                                     <th class="min-w-100px text-end">Actions</th>
                                 </tr>
@@ -133,11 +133,19 @@
                                     <td>
                                         @role('admin')
                                             @if ($loan->is_assigned == 0)
-                                                <button wire:click="setLoanID({{$loan->id}})" class="btn btn-sm btn-success"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">Assign</button>
+                                                <button wire:click="setLoanID({{$loan->id}})" class="btn btn-sm btn-success"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">
+                                                    Assign
+                                                </button>
                                             @else
-                                            <button wire:click="setLoanID({{$loan->id}})" class="btn btn-sm btn-light"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">
-                                                Assigned
-                                            </button>
+                                                @if($loan->status == 1)
+                                                <button title="Cancel loan before disbursing funds" wire:click="setLoanID({{$loan->id}})" class="btn btn-sm btn-light"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">
+                                                    Cancel
+                                                </button>
+                                                @else
+                                                <button wire:click="setLoanID({{$loan->id}})" class="btn btn-xs btn-warning"  data-bs-toggle="modal" data-bs-target="#kt_modal_assign">
+                                                    Re-assign
+                                                </button>
+                                                @endif
                                             @endif
                                         @else
                                             {{-- @can('review loan') --}}
