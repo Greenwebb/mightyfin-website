@@ -14,7 +14,9 @@
                         <div class="row">
 
                             <div class="col-md-8 col-sm-7 col-xs-12">
-
+                                <br>
+                                <br>
+                                <br>
                                 <h1 class="page-title text-white" style="font-size: 60px;">Our <t
                                         style="color: #fec00f;">Products</t>
                                 </h1>
@@ -73,7 +75,7 @@
             <div class="row" style="padding-left: 30px;">
 
                 <!-- Update 6-2018 -->
-                <div class="col-md-7 col-sm-9 col-xs-12"><a href="{{ route('payday') }}"><button type="button"
+                <div class="col-md-7 col-sm-9 col-xs-12"><a href="{{ route('welcome') }}"><button type="button"
                             class="btn btn-primary">
                             Apply Now
                         </button></a>
