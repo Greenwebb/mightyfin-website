@@ -9,6 +9,7 @@
     $route = request()
         ->route()
         ->getName();
+        dd($activeLoan->repayment_plan);
 @endphp
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 

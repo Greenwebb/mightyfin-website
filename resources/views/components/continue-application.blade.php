@@ -5,7 +5,7 @@
         <div class="p-6 modal-content">
             <div class="modal-header">
                 <h4 class="modal-title text-center ">
-                <b>Loan Completion Form</b>
+                    <b>Loan Completion Form</b>
                 </h4>
 
                 {{-- <span style="cursor:pointer" onclick="closeModal()">x</span> --}}
@@ -29,9 +29,7 @@
                             data-aos-duration="500">
 
                             <div style="width: 90%" class="d-flex justify-content-between mb-2">
-                                
-                                <h5>
-                                    Profile Details</h5>
+                                <h5>Profile Details</h5>
                             </div>
                             <br>
                             <div class="row mb-4">
@@ -163,7 +161,7 @@
                                             <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
                                             <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"/>
                                         </svg>
-                                        <span>Upload Copy of Tpin</span>
+                                        <span>Upload Copy of Tpin <span class="badge badge-danger bg-danger">Optional</span></span>
                                     </label>
                                     
                                     <!-- Uploaded file list -->
@@ -516,7 +514,7 @@
                                             <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
                                             <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"/>
                                         </svg>
-                                        <span>Letter of Introduction </span>
+                                        <span>Letter of Introduction <span class="badge badge-danger bg-danger">Optional</span></span>
                                     </label>
                                     
                                     <!-- Uploaded file list -->
@@ -561,7 +559,7 @@
                                     <input type="hidden" name="final" value="1">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <p>Payback Amount: <b>K{{ App\Models\Application::payback($activeLoan->amount, $activeLoan->repayment_plan)}}</b> </p>
+                                    <p>Payback Amount: <b>K {{ App\Models\Application::payback($activeLoan->amount, $activeLoan->repayment_plan)}}</b> </p>
                                     <p>Phone Number: <b>{{ auth()->user()->phone }}</b> </p>
                                     <p>Email: <b>{{ auth()->user()->email }}</b> </p>
                                 </div>
@@ -580,7 +578,6 @@
                                     </div>
                                     <div id="finishicon">
                                         Finish
-                                            
                                         <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg>
@@ -598,7 +595,9 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init();
+    // if (window.innerWidth > 768) {
+    //     AOS.init();
+    // }
     let currentStep = 1;
     showStep(1);
 
@@ -789,11 +788,11 @@
       if (!fileInput.value && nrcExists === 'null') {
         nrcFileError.textContent = 'Please upload copy of national ID';
       }
-      if (!fileInput2.value && tpinExists === 'null') {
-        fiileInput2Error.textContent = 'Please upload copy of Tpin';
-      }
-      
-      if (!fileInput2.value && tpinExists === 'null' || !fileInput.value && nrcExists === 'null') {
+        //   if (!fileInput2.value && tpinExists === 'null') {
+        //     fiileInput2Error.textContent = 'Please upload copy of Tpin';
+        //   }
+        // !fileInput2.value && tpinExists === 'null' || 
+      if (!fileInput.value && nrcExists === 'null') {
           return false;
       } else {
   
@@ -908,17 +907,19 @@
       if (!hrContactNumber.value) {
         contactHRError.textContent = 'HR contact is required';
       }
-      if (!supervisorLastName.value) {
-        supLNError.textContent = 'Supervisor First Name';
-      }
-      if (!supervisorFirstName.value) {
-        supFNError.textContent = 'Supervisor Last Name';
-      }
-      if (!supervisorContactNumber.value) {
-        supContactError.textContent = 'Supervisor Conact Number';
-      }
-      
-      if (!hrFirstName.value || !hrLastName.value || !hrContactNumber.value || !supervisorLastName.value || !supervisorFirstName.value || !supervisorContactNumber.value  ) {
+
+        //   ---- supervisor
+    //   if (!supervisorLastName.value) {
+    //     supLNError.textContent = 'Supervisor First Name';
+    //   }
+    //   if (!supervisorFirstName.value) {
+    //     supFNError.textContent = 'Supervisor Last Name';
+    //   }
+    //   if (!supervisorContactNumber.value) {
+    //     supContactError.textContent = 'Supervisor Conact Number';
+    //   }
+    // || !supervisorLastName.value || !supervisorFirstName.value || !supervisorContactNumber.value 
+      if (!hrFirstName.value || !hrLastName.value || !hrContactNumber.value ) {
           return false;
       } else {
           // Prepare data to send to the server
@@ -1035,15 +1036,14 @@
       if (!fileInput6.value && preapprovalExists === 'null') {
         preapprovalError.textContent = 'Please upload signed Preapproval form';
       }
-      if (!fileInput7.value && letterExists === 'null') {
-        letterError.textContent = 'Please upload Letter of Introduction';
-      }
-      
+    //   if (!fileInput7.value && letterExists === 'null') {
+    //     letterError.textContent = 'Please upload Letter of Introduction';
+    //   }
+    // || !fileInput7.value && letterExists === 'null'
       if (!fileInput3.value && payslipExists === 'null'|| 
           !fileInput4.value && bankExists === 'null' || 
           !fileInput5.value && passportExists === 'null'|| 
-          !fileInput6.value && preapprovalExists === 'null' || 
-          !fileInput7.value && letterExists === 'null' ) {
+          !fileInput6.value && preapprovalExists === 'null' ) {
           return false;
       } else {
           // Prepare data to send to the server
