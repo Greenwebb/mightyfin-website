@@ -89,14 +89,14 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'update loans','group'=>'loan','permission'=>'Update', 'description' => 'Update loan management'])->syncRoles([$role1,$role2]);
         Permission::create(['name' => 'create loans','group'=>'loan','permission'=>'Create', 'description' => 'Create loan management'])->syncRoles([$role1,$role2]);
         Permission::create(['name' => 'delete loans','group'=>'loan','permission'=>'Delete', 'description' => 'Delete loan management'])->syncRoles([$role1,$role2]);
-        Permission::create(['name' => 'view loan history','group'=>'loan','permission'=>'', 'description' => 'View loan management'])->syncRoles([$role1]);
+        Permission::create(['name' => 'view loan history','group'=>'loan','permission'=>'View History', 'description' => 'View loan management'])->syncRoles([$role1]);
         
         // --deplicated --
         // Permission::create(['name' => 'view loan requests','group'=>'loan','permission'=>'View Loan Requests', 'description' => 'View loan requests'])->syncRoles([$role1,$role2]);
         // Permission::create(['name' => 'accept and reject loan requests','group'=>'loan','permission'=>'Review', 'description' => 'Review, accept or reject loan requests'])->syncRoles([$role1]);
 
         // Loan Rates
-        Permission::create(['name' => 'view loan rates','group'=>'loan rates','permission'=>'', 'description' => 'View loan management'])->syncRoles([$role1]);
+        Permission::create(['name' => 'view loan rates','group'=>'loan rates','permission'=>'View Rates', 'description' => 'View loan rates management'])->syncRoles([$role1]);
         
         // Calculator
         Permission::create(['name' => 'view loan calculator','group'=>'calculator','permission'=>'View Calculator', 'description' => 'View loan management'])->syncRoles([$role1,$role2]);
