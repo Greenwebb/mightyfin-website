@@ -9,7 +9,7 @@
     $route = request()
         ->route()
         ->getName();
-        dd($activeLoan->repayment_plan);
+        // @dd($status)
 @endphp
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
@@ -262,8 +262,10 @@
 
         {{ $slot }}
 
-        @include('components.continue-application')
-        @include('components.email-docs')
+        @if($status == 1)
+            @include('components.continue-application')
+            @include('components.email-docs')
+        @endif
     </div>
     @stack('modals')
 
