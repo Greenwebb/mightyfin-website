@@ -85,8 +85,9 @@ class UserController extends Controller
                 DB::commit();
                 return back();
             } catch (\Throwable $th) {
-                Session::flash('error', "Failed. Check your internet connection and try again.");
-                DB::rollback();
+                Session::flash('error', "Email not sent. Check your internet connection. You may contact '.$u->fname.' '.$u->lname,.' and provide them with their account login information. ");
+                // DB::rollback();
+                DB::commit();
                 return back();
             }
         } catch (\Throwable $th) {

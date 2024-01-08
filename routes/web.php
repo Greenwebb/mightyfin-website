@@ -49,6 +49,7 @@ use App\Http\Livewire\Dashboard\SiteSettings\SystemItemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\SystemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\TestPage;
 use App\Http\Livewire\FaqPage;
+use App\Http\Livewire\GuidelinePage;
 use App\Http\Livewire\KYCView;
 use App\Http\Livewire\Loans\AssetFinanceLoan;
 use App\Http\Livewire\Loans\EducationalLoan;
@@ -61,11 +62,13 @@ use App\Http\Livewire\PersonFour;
 use App\Http\Livewire\PersonOne;
 use App\Http\Livewire\PersonThree;
 use App\Http\Livewire\PersonTwo;
+use App\Http\Livewire\PrivacyPolicyPage;
 use App\Http\Livewire\ReportView;
 use App\Http\Livewire\ServicePage;
 use App\Http\Livewire\SuccessEmailPage;
 use App\Http\Livewire\SuccessPage;
 use App\Http\Livewire\TeamPage;
+use App\Http\Livewire\TermsConditionPage;
 use App\Http\Livewire\WelcomePage;
 use App\Http\Livewire\WithdrawRequestView;
 use App\Models\LoanWallet;
@@ -210,6 +213,12 @@ Route::get('refinancing', VehicleLoan::class)->name('refinancing');
 Route::get('women-in-business-soft-loans', WIBLoan::class)->name('view-wib-loans');
 Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
 Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');
+
+// Legal Pages
+Route::get('privacy-policy', PrivacyPolicyPage::class)->name('pp');
+Route::get('terms-and-conditions', TermsConditionPage::class)->name('terms');
+Route::get('how-to', GuidelinePage::class)->name('guideline');
+
 
 
 // Alerts and Notifications

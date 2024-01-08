@@ -30,7 +30,7 @@
     div,
     h1,
     p {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Basier Circle', 'montserrat', 'Helvetica', 'Arial', sans-serif;
       font-size:12px;
     }
 
@@ -121,20 +121,20 @@
             </tr>
             <!--  Intro Section -->
             <tr>
-              <td style="padding:6%;background-color:#ffffff;">
+              <td style="border-radius:5%; padding:6%;background-color:#ffffffd4;">
                 <h1 style="text-align:center; margin-top:0;margin-bottom:1.38em;font-size:1.953em;line-height:1.3;font-weight:bold;letter-spacing:-0.02em;">
                    {{  $data['subject']  }}
                 </h1>
                 
-                <p style="text-align: center;">
+                <p style="text-align: center; font-size:12px">
                     {{  $data['message']  }}. 
                 </p>
-                <p style="text-align: center;">
+                <p style="text-align: center; font-size:12px">
                     {{  $data['message2']  }}. 
                 </p>
                 <div style="width: 100%; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <a style="margin-left:20%; color: #fff; padding:5%;font-size:18px" target="_blank" href="https://mightyfinance.co.zm/dashboard" class="-btn -bg -txt">
-                        Continue to loan submission
+                    <a style="margin-left:15%; color: #fff; padding-left:6%; padding:5%;font-size:18px" target="_blank" href="https://mightyfinance.co.zm/dashboard" class="-btn -bg -txt">
+                        Continue to Loan Submission
                     </a>
                 </div>
                 
