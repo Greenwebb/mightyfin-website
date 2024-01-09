@@ -36,16 +36,16 @@
                         <h4 class="text-white" style="margin-top:2rem" id="slogan-text">Financial Inclusion for All!</h4>
                         <p class="text-white mb-4" id="id-text">Welcome Back!</p>
             </div>
-              
+
             <div class="auth-form card" style="box-shadow: rgba(255, 255, 255, 0.219) 0px 5px 15px 0px; border-radius:2%">
               <div class="w-full">
                 <h2 id="create-text" style="color: #792db8" class="text-center mb-2"> <b>Sign In</b> </h2>
                 <p style="color: #792db8" class="text-center">Do not have an account? <a class="text-warning" href="{{ route('register') }}">Sign Up</a></p>
             </div>
-              
+
               <x-jet-validation-errors class="alert text-center alert-danger text-danger text-xs" />
               <div class="">
-                
+
                 <form
                   name="myform"
                   class=" row g-3" method="POST" action="{{ route('login') }}">

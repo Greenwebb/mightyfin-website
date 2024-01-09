@@ -19,9 +19,10 @@
             font-family: 'Montserrat', sans-serif
         }
 
-        a{
+        a {
             color: rgb(255, 187, 0);
         }
+
         #background-container {
             position: fixed;
             top: 0;
@@ -29,10 +30,10 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to right, rgba(102, 45, 145, 0.619), rgba(145, 45, 115, 0.906)),
-                        url('https://media.istockphoto.com/id/1385118964/photo/shot-of-a-young-woman-using-a-digital-tablet-while-working-in-an-organic-store.jpg?s=612x612&w=0&k=20&c=mFc1p5N1FBnIRKSb6P106J2X98jXqV_IXH4eLFrsbO0=');
-            background-size:cover;
+                url('https://media.istockphoto.com/id/1385118964/photo/shot-of-a-young-woman-using-a-digital-tablet-while-working-in-an-organic-store.jpg?s=612x612&w=0&k=20&c=mFc1p5N1FBnIRKSb6P106J2X98jXqV_IXH4eLFrsbO0=');
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position:left;
+            background-position: left;
         }
 
         .authincation {
@@ -41,7 +42,8 @@
 
         .authincation-content {
             margin-top: 0%;
-            background-color: #ffffff; /* Adjust the transparency level as needed */
+            background-color: #ffffff;
+            /* Adjust the transparency level as needed */
             border-radius: 5px;
             overflow: hidden;
             margin-bottom: 0%;
@@ -67,70 +69,84 @@
                 width: 100%;
             }
         }
+
         .float-alert-bar {
             position: absolute;
             padding: 15px;
             width: 100%;
-            background-color: #dc3545; /* Choose a background color that suits your design */
-            color: #c77878; /* Text color */
+            background-color: #dc3545;
+            /* Choose a background color that suits your design */
+            color: #c77878;
+            /* Text color */
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 99999; /* Ensure it appears above other elements */
-            display: block; /* Hide it by default */
+            z-index: 99999;
+            /* Ensure it appears above other elements */
+            display: block;
+            /* Hide it by default */
         }
 
         #policy {
-                margin-top: 4%;
-                font-size: 12px;
+            margin-top: 4%;
+            font-size: 12px;
         }
+
         @media (max-width: 767px) {
             #policy {
                 margin-top: 0%;
                 font-size: 9px;
             }
         }
+
         #form-card {
             padding: 4%;
         }
+
         @media (max-width: 767px) {
             #form-card {
                 padding: 0%;
             }
         }
+
         #form-content {
             padding-top: 4%;
         }
-        #leftSide{
+
+        #leftSide {
             padding-top: 0%;
         }
-            #slogan-text{
-                font-size:18px;
-            }
-            #id-text{
-                font-size:14px;
-                margin-bottom: 2%;
-            }
-        @media (max-width: 767px) {
-            #form-content{
-                padding-top: 0%;
-            }
-            #create-text{
-                font-size:14px;
-            }
-            #leftSide{
-                padding-top: 0%;
-                margin-bottom: 2%;
-            }
-            #slogan-text{
-                font-size:14px;
-            }
-            #id-text{
-                font-size:10px;
-            }
+
+        #slogan-text {
+            font-size: 18px;
         }
 
+        #id-text {
+            font-size: 14px;
+            margin-bottom: 2%;
+        }
 
+        @media (max-width: 767px) {
+            #form-content {
+                padding-top: 0%;
+            }
 
+            #create-text {
+                font-size: 14px;
+            }
+
+            #leftSide {
+                padding-top: 0%;
+                margin-bottom: 2%;
+            }
+
+            #slogan-text {
+                font-size: 14px;
+            }
+
+            #id-text {
+                font-size: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -144,14 +160,83 @@
                     <div class="text-center">
                         <div class="logo">
                             <a href="{{ route('welcome') }}">
-                                <img width="170" src="{{ asset("/public/web/images/01-ft-logo.png") }}" alt="">
+                                <img width="170" src="{{ asset('/public/web/images/01-ft-logo.png') }}"
+                                    alt="">
                             </a>
                         </div>
-                        <h4 class="text-white" style="margin-top:2rem" id="slogan-text">Financial Inclusion for All!</h4>
+                        <h4 class="text-white" style="margin-top:2rem" id="slogan-text">Financial Inclusion for All!
+                        </h4>
                         <p class="text-white mb-4" id="id-text">Welcome Back!</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12 p-0 m-0">
+                <div class="col-md-6 d-flex align-items-center py-5">
+                    <div class="container my-auto py-4 shadow-lg bg-white">
+                        <div class="row">
+                            <div class="col-11 col-lg-10 mx-auto">
+                                <h2 id="create-text" style="color: #792db8" class="text-center mb-4"> <b>Validate
+                                        OTP</b> </h2>
+                                <p class="text-center"><img class="img-fluid"
+                                        src="{{ asset('/public/web/images/otp-icon.png') }}" alt="verification"></p>
+                                <p style="color:#792db8" class="text-muted text-center mb-4">Please enter the OTP (one
+                                    time password) to verify your account. A code has been sent to <span
+                                        class="text-dark text-4">{{ '-phone variable-' }}</span></p>
+                                <p class="text-dark text-center fw-600 mb-3">Enter 5 digit code</p>
+                                <form id="otp-screen" method="POST" class="text-white" action="{{ route('otp') }}">
+                                    @csrf
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
+                                                maxlength="1" required="" autocomplete="off">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
+                                                maxlength="1" required="" autocomplete="off">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
+                                                maxlength="1" required="" autocomplete="off">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
+                                                maxlength="1" required="" autocomplete="off">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
+                                                maxlength="1" required="" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="d-grid my-4">
+                                        <button
+                                            style="background-color:#792db8; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;"
+                                            type="submit" class="btn btn-block text-white text-lg"
+                                            type="submit">Verify</button>
+                                        <p class="form-check-label font-w400">{!! __(
+                                            'By confirming your credential we are able to secure and confirm your account. Please check our Mightyfin :terms_of_service and :privacy_policy',
+                                            [
+                                                'terms_of_service' =>
+                                                    '<a target="_blank" href="' .
+                                                    route('terms.show') .
+                                                    '" class="underline text-sm text-gray-600 hover:text-gray-900">' .
+                                                    __('Terms of Service') .
+                                                    '</a>',
+                                                'privacy_policy' =>
+                                                    '<a target="_blank" href="' .
+                                                    route('policy.show') .
+                                                    '" class="underline text-sm text-gray-600 hover:text-gray-900">' .
+                                                    __('Privacy Policy') .
+                                                    '</a>',
+                                            ],
+                                        ) !!}</p>
+                                    </div>
+
+                                </form>
+                                <p class="text-center">Not received your code? <a href="#"><u>Resend code</u></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="col-md-6 col-sm-12 p-0 m-0">
                     <div class="authincation-content">
                         <div class="row no-gutters">
                             <div id="form-card">
@@ -178,11 +263,6 @@
                                                 <input name="email" :value="old('email')" required type="email" class="form-control" placeholder="yourname@email.com">
                                             </div>
                                             <div class="col-12">
-                                                
-                                                <label class="text-dark mb-1"><strong>Phone</strong></label>
-                                                <input name="phone" :value="old('phone')" required type="phone" class="form-control" placeholder="097">
-                                            </div>
-                                            <div class="col-12">
                                                 <label class="text-dark mb-1"><strong>Password</strong></label>
                                                 <input name="password" required autocomplete="new-password" type="password" class="form-control">
                                             </div>
@@ -204,7 +284,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -220,4 +300,5 @@
     <script src="{{ asset('public/theme/js/deznav-init.js') }}"></script>
 
 </body>
+
 </html>
