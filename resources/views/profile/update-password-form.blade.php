@@ -36,7 +36,7 @@
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-        <x-jet-button class="btn  btn-square btn-primary">
+        <x-jet-button class="btn  btn-square btn-bg">
             {{ __('Save') }}
         </x-jet-button>
     </x-slot>

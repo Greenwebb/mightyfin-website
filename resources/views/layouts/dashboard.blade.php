@@ -138,6 +138,9 @@
         .modal-content{
           width: 60%;
         } */
+        .btn-bg{
+            background-color: #662d91;
+        }
 
 
         /* Style for the file input */

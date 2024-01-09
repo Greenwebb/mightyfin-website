@@ -45,9 +45,12 @@ use App\Http\Livewire\Dashboard\Settings\UserView;
 use App\Http\Livewire\Dashboard\Settings\CareerSettings;
 use App\Http\Livewire\Dashboard\Settings\ContactSettings;
 use App\Http\Livewire\Dashboard\Settings\UserUpdateView;
+use App\Http\Livewire\Dashboard\SiteSettings\CreateSetting;
 use App\Http\Livewire\Dashboard\SiteSettings\SystemItemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\SystemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\TestPage;
+use App\Http\Livewire\Dashboard\SiteSettings\UpdateSetting;
+use App\Http\Livewire\Dashboard\SiteSettings\ViewSetting;
 use App\Http\Livewire\FaqPage;
 use App\Http\Livewire\GuidelinePage;
 use App\Http\Livewire\KYCView;
@@ -130,8 +133,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     // ---- Payments
     Route::get('make-payments', PaymentPage::class)->name('payments');    
     Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');    
-   
-
 
     // ---- Employees
     Route::get('view-employees', EmployeesView::class)->name('employees');
@@ -156,6 +157,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('notifications', NotificationView::class)->name('notifications');
     Route::get('user-roles-and-permissions', UserRolesView::class)->name('roles');
     Route::get('settings', SettingsLanding::class)->name('settings');
+    
 
     // ------ Role Permission 
     Route::post('update-role', [RoleController::class, 'update'])->name('update-role');
@@ -163,6 +165,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     // ----- System Settings
     Route::get('system-settings', SystemSettings::class)->name('sys-settings');
     Route::get('system-property-settings', SystemItemSettings::class)->name('item-settings');
+    Route::get('system-create-setting', CreateSetting::class)->name('system-create');
+    Route::get('system-edit-setting', UpdateSetting::class)->name('system-edit');
+    Route::get('system-view-setting', ViewSetting::class)->name('system-view');
     Route::get('test-page', TestPage::class)->name('test-page');
 
     // ------ KYC Profile

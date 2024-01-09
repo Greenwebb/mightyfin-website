@@ -51,12 +51,12 @@
 
         <div class="user-balance">
             <div class="available">
-                <p>Available</p>
+                <p>Loan</p>
                 <span>0.00 ZMW</span>
             </div>
             <div class="total">
-                <p>Total</p>
-                <span>0.00 ZMW</span>
+                <p>Status</p>
+                <span>No Loan</span>
             </div>
         </div>
         <a href="{{ route('my-profile', ['view' => 'profile']) }}"

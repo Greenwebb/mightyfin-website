@@ -62,7 +62,7 @@
                         </script>
                         
                         <div class="col-xxl-12">
-                            <button type="submit" class="btn btn-secondary waves-effect">
+                            <button type="submit" class="btn btn-bg waves-effect">
                                 Save
                             </button>
                         </div>
