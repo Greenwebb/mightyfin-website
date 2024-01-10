@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    
+
     {{-- Custom --}}
     <style>
         .sm-btn{
@@ -90,12 +90,12 @@
                 <!--begin::Content-->
 
 				<!-- Hey bremah we will switch between dashboards eg accounts dashboard-->
-                
+
 				{{-- /*if ($variable = $role){
 					echo('switch dashboard but with role based access')
 				}*/ --}}
 			    {{ $slot }}
-            
+
                 <!--end::Content-->
                 <!--begin::Footer-->
 		        @include('layouts.parts.admin.footer')
