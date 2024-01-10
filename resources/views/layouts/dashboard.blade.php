@@ -9,6 +9,7 @@
     $route = request()
         ->route()
         ->getName();
+        // @dd($status)
 @endphp
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
@@ -137,6 +138,9 @@
         .modal-content{
           width: 60%;
         } */
+        .btn-bg{
+            background-color: #662d91;
+        }
 
 
         /* Style for the file input */
@@ -261,8 +265,10 @@
 
         {{ $slot }}
 
-        @include('components.continue-application')
-        @include('components.email-docs')
+        @if($status == 1)
+            @include('components.continue-application')
+            @include('components.email-docs')
+        @endif
     </div>
     @stack('modals')
 

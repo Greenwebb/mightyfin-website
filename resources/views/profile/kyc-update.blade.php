@@ -210,7 +210,7 @@ input:focus {
                                     <input required class="form-control" name="nrc_file" type="file" id="formFile">
                                 
                                     @if ($meta->uploads->where('name', 'nrc_file')->isNotEmpty())
-                                        <p class="text-success file-list">You uploaded a National ID Copy on {{ $meta->uploads->where('name', 'tpin_file')->first()->created_at->toFormattedDateString() }}</p>
+                                        <p class="text-success file-list">You uploaded a National ID Copy on {{ $meta->uploads->where('name', 'nrc_file')->first()->created_at->toFormattedDateString() }}</p>
                                     @endif
                                 </div>
     
@@ -232,8 +232,8 @@ input:focus {
                         </div>
                     </div>
 
-                    <button class="btn btn-dark text-white float-start back rounded-3" type="button" onclick="navigateStep('prev')">Previous</button>
-                    <button class="btn text-white float-end submit-button rounded-3 bg-color-info" type="submit">Submit</button>
+                    <button class="btn btn-bg text-primary float-start back rounded-3" type="button" onclick="navigateStep('prev')">Previous</button>
+                    <button class="btn text-white float-end submit-button rounded-3  btn-bg" type="submit">Submit</button>
                 </div>
             </form>
             <br><br><br><br>

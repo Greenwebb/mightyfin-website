@@ -208,202 +208,179 @@
         cursor: not-allowed; /* Set the cursor to "not-allowed" */
     }
 
-    
-#preloader2 {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: #fff;
-  z-index: 999999999; }
-  #preloader2 i {
-    display: block;
-    width: 16px;
-    height: 16px;
-    background: black;
-    border-radius: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -8px 0 0 -8px;
-    opacity: 1;
-    -webkit-transform: translate3d(60px, 0, 0);
-    overflow: hidden;
-    text-indent: -9999px;
-    border: 1px solid white; }
-    #preloader2 i:nth-child(1) {
-      background: #613de6;
-      -webkit-animation: googleDotA 1.75s ease-in-out infinite; }
-    #preloader2 i:nth-child(2) {
-      background: #36b37e;
-      -webkit-animation: googleDotB 1.75s ease-in-out infinite; }
-    #preloader2 i:nth-child(3) {
-      background: #ffab00;
-      -webkit-animation: googleDotC 1.75s ease-in-out infinite; }
+        
+    #preloader2 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    z-index: 999999999; }
+    #preloader2 i {
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: black;
+        border-radius: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -8px 0 0 -8px;
+        opacity: 1;
+        -webkit-transform: translate3d(60px, 0, 0);
+        overflow: hidden;
+        text-indent: -9999px;
+        border: 1px solid white; }
+        #preloader2 i:nth-child(1) {
+        background: #613de6;
+        -webkit-animation: googleDotA 1.75s ease-in-out infinite; }
+        #preloader2 i:nth-child(2) {
+        background: #36b37e;
+        -webkit-animation: googleDotB 1.75s ease-in-out infinite; }
+        #preloader2 i:nth-child(3) {
+        background: #ffab00;
+        -webkit-animation: googleDotC 1.75s ease-in-out infinite; }
 
-@-webkit-keyframes googleDotA {
-  0% {
-    opacity: 0;
-    transform: translate3d(60px, 0, 0);
-    -webkit-transform: translate3d(60px, 0, 0); }
-  30% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0); }
-  70% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0); }
-  100% {
-    opacity: 0;
-    transform: translate3d(-300px, 0, 0);
-    -webkit-transform: translate3d(-300px, 0, 0); } }
+    @-webkit-keyframes googleDotA {
+    0% {
+        opacity: 0;
+        transform: translate3d(60px, 0, 0);
+        -webkit-transform: translate3d(60px, 0, 0); }
+    30% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
+    70% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
+    100% {
+        opacity: 0;
+        transform: translate3d(-300px, 0, 0);
+        -webkit-transform: translate3d(-300px, 0, 0); } }
 
-@-webkit-keyframes googleDotB {
-  0% {
-    opacity: 0;
-    transform: translate3d(180px, 0, 0);
-    -webkit-transform: translate3d(180px, 0, 0); }
-  35% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0); }
-  77% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0); }
-  100% {
-    opacity: 0;
-    transform: translate3d(-180px, 0, 0);
-    -webkit-transform: translate3d(-180px, 0, 0); } }
+    @-webkit-keyframes googleDotB {
+    0% {
+        opacity: 0;
+        transform: translate3d(180px, 0, 0);
+        -webkit-transform: translate3d(180px, 0, 0); }
+    35% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
+    77% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
+    100% {
+        opacity: 0;
+        transform: translate3d(-180px, 0, 0);
+        -webkit-transform: translate3d(-180px, 0, 0); } }
 
-@-webkit-keyframes googleDotC {
-  0% {
-    opacity: 0;
-    transform: translate3d(300px, 0, 0);
-    -webkit-transform: translate3d(300px, 0, 0); }
-  40% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0); }
-  80% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0); }
-  100% {
-    opacity: 0;
-    transform: translate3d(-60px, 0, 0);
-    -webkit-transform: translate3d(-60px, 0, 0); } }
+    @-webkit-keyframes googleDotC {
+    0% {
+        opacity: 0;
+        transform: translate3d(300px, 0, 0);
+        -webkit-transform: translate3d(300px, 0, 0); }
+    40% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
+    80% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
+    100% {
+        opacity: 0;
+        transform: translate3d(-60px, 0, 0);
+        -webkit-transform: translate3d(-60px, 0, 0); } }
 
+        /* Media Queries */
+        .textMedia{
+            font-size: 100%;
+        }
+        #stepOneMedia, #stepTwoMedia, #stepThreeMedia, #stepFourMedia{
+            padding: 4%;
+        }
+        @media (max-width: 768px) {
+            #stepOneMedia, #stepTwoMedia, #stepThreeMedia, #stepFourMedia {
+                padding: 7%;
+            }
+            .textMedia{
+                font-size: 60%;
+            }
+        }
     </style>
     <div class="content-body">
             <div class="">
                 {{-- <h2 class="mx-4">Get a Loan</h2> --}}
                 <!-- section -->
                 <section>
-                    <!-- container -->
                     <div class="">
-                    <!-- main content -->
                     <form  action="{{ route("apply-loan") }}" method="POST" enctype="multipart/form-data" class="main-content">
                         @csrf
                         
-                        <!-- alert box -->
                         <div class="row justify-content-center">
-                        <div class="col-lg-7 col-md-8">
-                            <!-- svg -->
-                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                                </symbol>
-                            </svg>
-                            <!-- /svg -->
-                            <div class="alert alert-danger d-flex align-items-center mt-3 d-none mb-0" id="alertBox" role="alert">
-                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div>
-                                    Please fill up all the neccessary fields
+                            <div class="col-lg-7 col-md-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </symbol>
+                                </svg>
+                                <div class="alert alert-danger d-flex align-items-center mt-3 d-none mb-0" id="alertBox" role="alert">
+                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                    <div>
+                                        Please fill up all the neccessary fields
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
-                        <!-- alert box -->
-                        <!-- row -->
+                        
                         <div class="row justify-content-center pt-0 p-2" id="wizardRow">
-                        <!-- col -->
-                        <div class="col-md-12 text-center">
-                            <!-- wizard -->
-                            <div class="wizard-form py-4 my-2">
-                            <!-- ul -->
-                            <ul id="progressBar" class="progressbar px-lg-5 px-0">
-                                <li id="progressList-1"
-                                class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list active">
-                                Amount </li>
-                                <li id="progressList-2"
-                                class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
-                                Loan</li>
-                                <li id="progressList-3"
-                                class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
-                                Repayment</li>
-                                <li id="progressList-4"
-                                class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
-                                Requirements</li>
-                            </ul>
-                            <!-- /ul -->
+                            <div class="col-md-12 text-center">
+                                <div class="wizard-form py-4 my-2">
+                                    <ul id="progressBar" class="progressbar px-lg-5 px-0">
+                                        <li id="progressList-1" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list active">
+                                            <span class="textMedia">Amount</span>
+                                        </li>
+                                        <li id="progressList-2" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
+                                            <span class="textMedia">Loan</span>
+                                        </li>
+                                        <li id="progressList-3" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
+                                            <span class="textMedia">Repayment</span>
+                                        </li>
+                                        <li id="progressList-4" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
+                                            <span class="textMedia">Requirements</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <!-- /wizard -->
                         </div>
-                        <!-- /col -->
-                        </div>
-                        <!-- /row -->
-                        <!-- row -->
+                        
                         <div class="row justify-content-center" id="cardSection">
-                            <!-- col -->
-                            <div class="col-lg-9 col-md-9" style="padding: 3%">
+                            <div class="col-lg-9 col-md-9" id="stepOneMedia">
                                 <h3 class="fw-bold pt-2">Loan Details</h3>
                                 <p class="small pb-0">How much would you like to borrow?</p>
-                                <!-- cards -->
                                 <div>
-                                    <div class="col-md-12">
+                                    <div class="col-12">
                                         <input type="text" class="col-12" contentEditable='true' data-mask='K #,##0.00' id="amountInput" name="amount"/>
+                                        <small class="text-danger" id="principalText"></small>
                                     </div>
                                 </div>
-                                {{-- <div class="row row-cols-1 row-cols-lg-2 g-4 pb-5 border-bottom">
-                                    <div class="col">
-                                        <div class="card tecol-12xt-center h-100 py-5 shadow-sm">
-                                        <i class="fas fa-microphone fa-beat-fade card-img-top mx-auto img-light fs-1 pb-1"></i>
-                                        <div class="card-body px-0">
-                                            <h5 class="card-title title-binding">Locutor</h5>
-                                            <p class="card-text">
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card text-center h-100 py-5"><i class="fas fa-headphones fa-beat-fade  card-img-top mx-auto img-light fs-1 pb-1"></i>
-                                        <div class="card-body px-0">
-                                            <h5 class="card-title title-binding">Controles</h5>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                <!-- /cards -->
-                                <!-- NEXT BUTTON-->
                                 <button type="button" class="btn text-white float-end next mt-4 rounded-3 bg-color-info">Continue</button>
-                                <!-- /NEXT BUTTON-->
                             </div>
-                            <!-- /col -->
                         </div>
-                        <!-- /row -->
-                        <!-- row -->
+                        
                         <div class="row justify-content-center form-business">
-                            <!-- col -->
-                            <div class="col-lg-9 col-md-9" style="padding: 3%">
+                            <div class="col-lg-9 col-md-9" id="stepTwoMedia">
                                 <h3 class="fw-bold pt-2">Loan Detail</h3>
                                 <p class="small pb-0">What is your reason for a loan?</p>
-                                <!-- cards -->
+                                
                                 <div class="row row-cols-2 row-cols-lg-3 g-4 pb-2 border-bottom">
                                     <div class="col">
                                         <label onclick="selectCard(this)" class="card text-center h-70 py-2">
-                                            <input type="radio" name="loan_type" value="GRZ" class="d-none">
+                                            <input checked type="radio" name="loan_type" value="GRZ" class="d-none">
                                             <i class="fas fa-users card-img-top mx-auto img-light fs-1"></i>
                                             <div class="card-body px-0">
                                                 <h5 class="card-title title-binding">GRZ Loan</h5>
@@ -411,48 +388,16 @@
                                             </div>
                                         </label>
                                     </div>
-                                
-                                    {{-- Make this col disabled --}}
-    
-                                    {{-- <div class="col">
-                                        onclick="selectCard(this)"
-                                        <label class="card text-center h-70 py-2 disabled-card">
-                                            <input type="radio" name="loan_type" value="Business" class="d-none" disabled>
-                                            <i class="fas fa-briefcase card-img-top mx-auto img-light fs-1"></i>
-                                            <div class="card-body px-0">
-                                                <h5 class="card-title title-binding">Business Loan</h5>
-                                                <p class="card-text">For starting <br>a business</p>
-                                            </div>
-                                        </label>
-                                    </div> --}}
-                                
-                                    {{-- Make this col disabled --}}
-                                   {{-- <div class="col">
-                                        onclick="selectCard(this)"
-                                        <label  class="card text-center h-70 py-2 disabled-card">
-                                            <input type="radio" name="loan_type" value="SME" class="d-none" disabled>
-                                            <i class="fas fa-store card-img-top mx-auto img-light fs-1"></i>
-                                            <div class="card-body px-0 pt-4">
-                                                <h5 class="card-title title-binding">SME Loans</h5>
-                                                <p class="card-text">Small / Medium / Enterprise Loan</p>
-                                            </div>
-                                        </label>
-                                    </div>  --}}
                                 </div>
                                 
-                                <!-- /cards -->
-                                <!-- NEXT BUTTON-->
                                 <button type="button" class="btn btn-dark text-white float-start back mt-0 rounded-3">Go Back</button>
                                 <button type="button" class="btn text-white float-end next mt-0 rounded-3 bg-color-info">Next</button>
-                                <!-- /NEXT BUTTON-->
+                                
                             </div>
-                            <!-- /col -->
                         </div>
-                        <!-- /row -->
-                        <!-- row -->
+
                         <div class="row justify-content-center form-business">
-                        <!-- col -->
-                            <div class="col-lg-9 col-md-9" style="padding: 3%">
+                            <div class="col-lg-9 col-md-9" id="stepThreeMedia">
                             <h3 class="fw-bold pt-2">Repayment Options</h3>
                             <p class="small pb-0">How will you pay back?</p>
                             <div>
@@ -553,6 +498,8 @@
             $(document).ready(function () {
                 var principal = 0;
                 var rate = 21;
+                var principalVal = document.getElementById('amountInput');
+                var principalText = document.getElementById('principalText');
                 
                 // hidden things
                 $(".form-business").hide();
@@ -562,7 +509,10 @@
                     click: function () {
                         // select any card
                         var getValue = $(this).parents(".row").find(".card").hasClass("active-card");
-                        // alert(getValue);
+                        if (!principalVal.value) {
+                            principalText.textContent = 'Please enter amount you want to borrow';
+                            return false;
+                        }
                         if (getValue) {
                             $("#progressBar").find(".active").next().addClass("active");
                             $("#alertBox").addClass("d-none");

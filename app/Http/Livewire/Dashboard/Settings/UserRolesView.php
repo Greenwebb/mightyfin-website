@@ -49,7 +49,7 @@ class UserRolesView extends Component
         
             Session::flash('attention', "New role created successfully.");
             $this->clearFields();
-            return redirect()->back();
+            return redirect()->route('roles');
         } catch (\Throwable $th) {
             Session::flash('error_msg', substr($th->getMessage(),16,110));
             return redirect()->route('roles');
@@ -71,6 +71,7 @@ class UserRolesView extends Component
         $this->show = 'true';
     }
 
+    // Not in use
     public function updateRole(Role $role)
     {
         try {
@@ -83,6 +84,7 @@ class UserRolesView extends Component
             $role->syncPermissions($this->permission);
             dd($this->permission);  
             Session::flash('attention', "Role updated successfully.");
+            return redirect()->route('roles');
         } catch (\Throwable $th) {
             Session::flash('error_msg', substr($th->getMessage(),16,110));
             return redirect()->route('roles');
@@ -94,7 +96,8 @@ class UserRolesView extends Component
     {
         $role->delete();
         Session::flash('attention', "Role deleted successfully.");
-        // return redirect()->route('roles.index');
+        
+        return redirect()->route('roles');
     }
 
     // ------------------ Toggles

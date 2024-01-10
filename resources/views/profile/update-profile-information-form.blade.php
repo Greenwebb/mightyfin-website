@@ -612,7 +612,7 @@
                 </div>
             
                 <div class="col-xxl-12">
-                    <button type="submit" onclick="submitForm()" style="background-color: blueviolet" class="btn btn-xs waves-effect">
+                    <button type="submit" onclick="submitForm()" class="btn btn-xs  btn-bg waves-effect">
                         Save Changes
                     </button>
                 </div>

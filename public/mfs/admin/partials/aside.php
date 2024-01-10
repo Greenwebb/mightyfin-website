@@ -71,12 +71,12 @@
                             <!--end::Menu separator-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <a href="account/overview.html" class="menu-link px-5">My Profile</a>
+                                <a href="#" class="menu-link px-5">My Profile</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <a href="apps/projects/list.html" class="menu-link px-5">
+                                <a href="#" class="menu-link px-5">
                                     <span class="menu-text">System Settings</span>
                                     <span class="menu-badge">
                                         <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
@@ -95,17 +95,17 @@
                                 <div class="menu-sub menu-sub-dropdown w-175px py-4">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="account/referrals.html" class="menu-link px-5">Change Password</a>
+                                        <a href="#" class="menu-link px-5">Change Password</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="account/billing.html" class="menu-link px-5">Devices</a>
+                                        <a href="#" class="menu-link px-5">Devices</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="account/statements.html" class="menu-link px-5">Activity Log</a>
+                                        <a href="#" class="menu-link px-5">Activity Log</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -141,13 +141,19 @@
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5 my-1">
-                                <a href="account/settings.html" class="menu-link px-5">Account Settings</a>
+                                <a href="#" class="menu-link px-5">Account Settings</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <a href="authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign
-                                    Out</a>
+                                
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="menu-link px-5">
+                                        <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                        <span class="ms-2">Sign Out </span>
+                                    </button>
+                                </form>
                             </div>
                             <!--end::Menu item-->
                         </div>
@@ -1167,7 +1173,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/corporate/sign-up.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1179,7 +1185,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/corporate/two-factor.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1191,7 +1197,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/corporate/reset-password.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1203,7 +1209,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/corporate/new-password.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1232,7 +1238,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/overlay/sign-in.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1244,7 +1250,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/overlay/sign-up.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1256,7 +1262,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/overlay/two-factor.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1268,7 +1274,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/overlay/reset-password.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1280,7 +1286,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/overlay/new-password.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1309,7 +1315,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="authentication/layouts/creative/sign-in.html">
+                                    <a class="menu-link" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>

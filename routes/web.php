@@ -45,10 +45,14 @@ use App\Http\Livewire\Dashboard\Settings\UserView;
 use App\Http\Livewire\Dashboard\Settings\CareerSettings;
 use App\Http\Livewire\Dashboard\Settings\ContactSettings;
 use App\Http\Livewire\Dashboard\Settings\UserUpdateView;
+use App\Http\Livewire\Dashboard\SiteSettings\CreateSetting;
 use App\Http\Livewire\Dashboard\SiteSettings\SystemItemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\SystemSettings;
 use App\Http\Livewire\Dashboard\SiteSettings\TestPage;
+use App\Http\Livewire\Dashboard\SiteSettings\UpdateSetting;
+use App\Http\Livewire\Dashboard\SiteSettings\ViewSetting;
 use App\Http\Livewire\FaqPage;
+use App\Http\Livewire\GuidelinePage;
 use App\Http\Livewire\KYCView;
 use App\Http\Livewire\Loans\AssetFinanceLoan;
 use App\Http\Livewire\Loans\EducationalLoan;
@@ -62,11 +66,13 @@ use App\Http\Livewire\PersonFour;
 use App\Http\Livewire\PersonOne;
 use App\Http\Livewire\PersonThree;
 use App\Http\Livewire\PersonTwo;
+use App\Http\Livewire\PrivacyPolicyPage;
 use App\Http\Livewire\ReportView;
 use App\Http\Livewire\ServicePage;
 use App\Http\Livewire\SuccessEmailPage;
 use App\Http\Livewire\SuccessPage;
 use App\Http\Livewire\TeamPage;
+use App\Http\Livewire\TermsConditionPage;
 use App\Http\Livewire\WelcomePage;
 use App\Http\Livewire\WithdrawRequestView;
 use App\Models\LoanWallet;
@@ -126,10 +132,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('update-loan', [LoanApplicationController::class, 'updateLoanDetails'])->name('update-loan-details');
 
     // ---- Payments
+<<<<<<< HEAD
     Route::get('make-payments', PaymentPage::class)->name('payments');
     Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');
 
 
+=======
+    Route::get('make-payments', PaymentPage::class)->name('payments');    
+    Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');    
+>>>>>>> 3a876aec1f40885f524cbed43e1bccc47c20c038
 
     // ---- Employees
     Route::get('view-employees', EmployeesView::class)->name('employees');
@@ -154,6 +165,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('notifications', NotificationView::class)->name('notifications');
     Route::get('user-roles-and-permissions', UserRolesView::class)->name('roles');
     Route::get('settings', SettingsLanding::class)->name('settings');
+    
 
     // ------ Role Permission
     Route::post('update-role', [RoleController::class, 'update'])->name('update-role');
@@ -161,6 +173,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     // ----- System Settings
     Route::get('system-settings', SystemSettings::class)->name('sys-settings');
     Route::get('system-property-settings', SystemItemSettings::class)->name('item-settings');
+    Route::get('system-create-setting', CreateSetting::class)->name('system-create');
+    Route::get('system-edit-setting', UpdateSetting::class)->name('system-edit');
+    Route::get('system-view-setting', ViewSetting::class)->name('system-view');
     Route::get('test-page', TestPage::class)->name('test-page');
 
     // ------ KYC Profile
@@ -212,6 +227,12 @@ Route::get('refinancing', VehicleLoan::class)->name('refinancing');
 Route::get('women-in-business-soft-loans', WIBLoan::class)->name('view-wib-loans');
 Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
 Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');
+
+// Legal Pages
+Route::get('privacy-policy', PrivacyPolicyPage::class)->name('pp');
+Route::get('terms-and-conditions', TermsConditionPage::class)->name('terms');
+Route::get('how-to', GuidelinePage::class)->name('guideline');
+
 
 
 // Alerts and Notifications

@@ -168,9 +168,8 @@
                     {{-- <input type="range" value="0" min="1" max="1" style="width:100%; height: 5px; " id="slidate" title="Slide for amount">
                     <input name="repayment_plan" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number">
                     <output></output> --}}
-
                     <input onclick="checker()" oninput="this.nextElementSibling.value = this.value" type="range" value="0" min="1" max="30" style="width:100%; height: 5px;" id="slidate" title="Slide for amount">
-                    <input required onclick="checker()" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number">
+                    <input name="repayment_plan" required onclick="checker()" style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center; margin: 20px 0; width: 100%;" class="output" value="1" id="time_duration" min="1" max="100" type="number">
                     <output></output>
                 </div>
             </div>

@@ -225,7 +225,7 @@
                                         <label class="fs-6 fw-semibold mb-2">Password</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" disabled class="form-control form-control-solid"  placeholder="mighty4you" required />
+                                        <input type="text" disabled class="form-control form-control-solid"  placeholder="mighty.@2023@" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
