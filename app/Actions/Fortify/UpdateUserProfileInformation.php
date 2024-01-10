@@ -31,8 +31,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'gender' => ['required'],
             'nrc_no' => ['required'],
             'net_pay' => ['required'],
-            'id_type' => ['required'],
-            'basic_pay' => ['required']
+            'id_type' => ['required']
+            // 'basic_pay' => ['required']
         ])->validateWithBag('updateProfileInformation');
 
         

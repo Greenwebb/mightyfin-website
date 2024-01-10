@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('loan_product_attributes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('usage_count')->nullable();
-            $table->unsignedBigInteger('loan_product_id')->nullable();
-            $table->bigInteger('usage_success_count')->nullable();
-            $table->bigInteger('usage_success_count')->nullable();
+        Schema::create('loan_repayment_orders', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loan_product_attributes');
+        Schema::dropIfExists('loan_repayment_orders');
     }
 };
