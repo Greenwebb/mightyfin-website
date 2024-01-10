@@ -132,15 +132,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('update-loan', [LoanApplicationController::class, 'updateLoanDetails'])->name('update-loan-details');
 
     // ---- Payments
-<<<<<<< HEAD
     Route::get('make-payments', PaymentPage::class)->name('payments');
     Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');
-
-
-=======
-    Route::get('make-payments', PaymentPage::class)->name('payments');    
-    Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');    
->>>>>>> 3a876aec1f40885f524cbed43e1bccc47c20c038
 
     // ---- Employees
     Route::get('view-employees', EmployeesView::class)->name('employees');
@@ -165,7 +158,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('notifications', NotificationView::class)->name('notifications');
     Route::get('user-roles-and-permissions', UserRolesView::class)->name('roles');
     Route::get('settings', SettingsLanding::class)->name('settings');
-    
+
 
     // ------ Role Permission
     Route::post('update-role', [RoleController::class, 'update'])->name('update-role');
