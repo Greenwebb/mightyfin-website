@@ -37,7 +37,7 @@
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                                 <span class="path3"></span>
-                                            </i>Loan Application</a>
+                                            </i>Grz Loan Application</a>
 
 
                                     </div>
@@ -45,117 +45,46 @@
                                 </div>
                                 <!--end::User-->
                                 <!--begin::Actions-->
-                                <div class="d-flex my-4">
-                                    <p class=" me-2" id="kt_user_follow_button">
-                                        <i class="ki-duotone ki-check fs-3 d-none"></i>
-                                        <!--begin::Indicator label-->
-                                        <span class="indicator-label">Follow</span>
-                                        <!--end::Indicator label-->
-                                        <!--begin::Indicator progress-->
-                                        <span class="indicator-progress">Please wait...
-                                            <span
-                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                        <!--end::Indicator progress-->
-                                    </p>
-                                    <p class="me-3" data-bs-toggle="modal"
-                                        data-bs-target="#kt_modal_offer_a_deal">Hire Me</p>
-                                    <!--begin::Menu-->
-                                    <div class="me-0">
-                                        <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary"
-                                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                            <i class="ki-solid ki-dots-horizontal fs-2x"></i>
-                                        </button>
-                                        <!--begin::Menu 3-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3"
-                                            data-kt-menu="true">
-                                            <!--begin::Heading-->
-                                            <div class="menu-item px-3">
-                                                <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">
-                                                    Payments</div>
+                                <div class="d-flex">
+                                    <div class="row">
+                                        <div class="col-4"><div class="m-2 d-flex flex-column">
+                                            <div class="d-flex fw-semibold align-items-center mb-">
+                                                <p class="text-white fs-2 me-1">#53321</p>
+
                                             </div>
-                                            <!--end::Heading-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Create Invoice</a>
+                                            <div class="d-flex align-items-center fw-semibold">
+                                                <p class=" align-items-center text-gray-400">Loan ID</p>
+
                                             </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link flex-stack px-3">Create Payment
-                                                    <span class="ms-2" data-bs-toggle="tooltip"
-                                                        title="Specify a target name for future usage and reference">
-                                                        <i class="ki-duotone ki-information fs-6">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                        </i>
-                                                    </span></a>
+
+                                        </div></div>
+                                        <div class="col-4"><div class="m-2 d-flex flex-column">
+                                            <div class="d-flex fw-semibold align-items-center mb-">
+                                                <p class="align-items-center text-white fs-2 me-1">01/22/2024</p>
+
                                             </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Generate Bill</a>
+                                            <div class="d-flex align-items-center fw-semibold">
+                                                <p class="align-items-center fs- text-gray-400">Application date</p>
+
                                             </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3" data-kt-menu-trigger="hover"
-                                                data-kt-menu-placement="right-end">
-                                                <a href="#" class="menu-link px-3">
-                                                    <span class="menu-title">Subscription</span>
-                                                    <span class="menu-arrow"></span>
-                                                </a>
-                                                <!--begin::Menu sub-->
-                                                <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3">Plans</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3">Billing</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3">Statements</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator my-2"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <div class="menu-content px-3">
-                                                            <!--begin::Switch-->
-                                                            <label
-                                                                class="form-check form-switch form-check-custom form-check-solid">
-                                                                <!--begin::Input-->
-                                                                <input class="form-check-input w-30px h-20px"
-                                                                    type="checkbox" value="1" checked="checked"
-                                                                    name="notifications" />
-                                                                <!--end::Input-->
-                                                                <!--end::Label-->
-                                                                <span
-                                                                    class="form-check-label text-muted fs-6">Recuring</span>
-                                                                <!--end::Label-->
-                                                            </label>
-                                                            <!--end::Switch-->
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                </div>
-                                                <!--end::Menu sub-->
+
+                                        </div></div>
+                                        <div class="col-4"><div class="m-2 d-flex flex-column">
+                                            <div class="d-flex fw-semibold align-items-center mb-">
+                                                <p class="align-items-center text-white fs-2 me-1">3</p>
+
                                             </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3 my-1">
-                                                <a href="#" class="menu-link px-3">Settings</a>
+                                            <div class="d-flex align-items-center fw-semibold">
+                                                <p class=" fs- text-gray-400">Loan term (months)</p>
+
                                             </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu 3-->
+
+                                        </div></div>
                                     </div>
+
+
+                                    <!--begin::Menu-->
+
                                     <!--end::Menu-->
                                 </div>
                                 <!--end::Actions-->
