@@ -108,25 +108,15 @@
                                 <label class="col-lg-4 col-form-label required fw-bold fs-6">Disbursed By</label>
                                 <div class="col-lg-8 fv-row">
                                     <div class="d-block mt-3">
-                                        <label for="cash" class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input id="cash" class="form-check-input" wire:model.lazy="loan_disbursed_by" type="checkbox" value="cash" />
-                                            <span class="fw-semibold ps-2 fs-6">Cash</span>
+                                        @forelse ($disbursements as $option)
+                                        <label for="{{ $option->tag }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
+                                            <input id="{{ $option->tag }}" class="form-check-input" wire:model.lazy="loan_disbursed_by" type="checkbox" value="{{ $option->id }}" />
+                                            <span class="fw-semibold ps-2 fs-6">{{ $option->name }}</span>
                                         </label>
                                         <br>
-                                        <label for="cheque" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="chaeque" class="form-check-input" wire:model.lazy="loan_disbursed_by" type="checkbox" value="cheque" />
-                                            <span class="fw-semibold ps-2 fs-6">Cheque</span>
-                                        </label>
-                                        <br>
-                                        <label for="wire-transfer" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="wire-transfer" class="form-check-input" wire:model.lazy="loan_disbursed_by" type="checkbox" value="wire-transfer" />
-                                            <span class="fw-semibold ps-2 fs-6">Wire Transfer</span>
-                                        </label>
-                                        <br>
-                                        <label for="online-transfer" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="online-transfer" class="form-check-input" wire:model.lazy="loan_disbursed_by" type="checkbox" value="online-transfer" />
-                                            <span class="fw-semibold ps-2 fs-6">Online Transfer</span>
-                                        </label>
+                                        @empty
+                                            <p>No Sources</p>
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>
@@ -225,11 +215,11 @@
                                 <div class="col-lg-8 fv-row">
                                     <select type="text" wire:model.lazy="loan_interest_method" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="Keenthemes">
                                         <option value=""></option>
-                                        <option value="flat-rate">Flat Rate</option>
-                                        <option value="reducing-balance-ei">Reducing Balance - Equal Installments</option>
-                                        <option value="reducing-balance-ep">Reducing Balance - Equal Principal</option>
-                                        <option value="interest-only">Interest-Only</option>
-                                        <option value="compound-interest">Compound Interest</option>
+                                        @forelse ($interest_methods as $option)
+                                        <option value="{{ $option->id }}">{{ $option->name }}</option>
+                                        @empty
+                                            <span>No Methods</span>
+                                        @endforelse
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -252,14 +242,14 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
                                     <div class="d-block align-items-center mt-3">
-                                        <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" wire:model.lazy="loan_interest_type" type="radio" value="percentage" />
-                                            <span class="fw-semibold ps-2 fs-6">I want interest rate to be percentage % based</span>
-                                        </label>
-                                        <label class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input class="form-check-input" wire:model.lazy="loan_interest_type" type="radio" value="fixed" />
-                                            <span class="fw-semibold ps-2 fs-6">I want interest be a fixed amount Per Cycle</span>
-                                        </label>
+                                        @forelse ($interest_types as $option)
+                                            <label for="{{ $option->name }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
+                                                <input id="{{ $option->name }}" class="form-check-input" wire:model.lazy="loan_interest_type" type="radio" value="{{ $option->id }}" />
+                                                <span class="fw-semibold ps-2 fs-6"> {{ $option->description }} </span>
+                                            </label>
+                                        @empty
+                                            
+                                        @endforelse
                                     </div>
                                 </div>
                                 <!--end::Col-->
@@ -360,6 +350,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
                                     <select type="text" wire:model.lazy="minimum_loan_duration" class="form-control form-control-lg form-control-solid">
+                                        <option value=""></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -381,6 +372,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
                                     <select type="text" wire:model.lazy="default_loan_duration" class="form-control form-control-lg form-control-solid" placeholder="0.00">
+                                        <option value=""></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -402,6 +394,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
                                     <select type="text" wire:model.lazy="maximum_loan_duration" class="form-control form-control-lg form-control-solid" placeholder="0.00">
+                                        <option value=""></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -448,55 +441,15 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
                                     <div class="mt-3 align-items-start" style="display: block">
-                                        <label for="daily" class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input id="daily" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="daily" />
-                                            <span class="fw-semibold ps-2 fs-6">Daily</span>
-                                        </label>
-                                        <br>
-                                        <label for="weekly" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="weekly" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="weekly" />
-                                            <span class="fw-semibold ps-2 fs-6">Weekly</span>
-                                        </label>
-                                        <br>
-                                        <label for="biweekly" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="biweekly" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="biweekly" />
-                                            <span class="fw-semibold ps-2 fs-6">Biweekly</span>
-                                        </label>
-                                        <br>
-                                        <label for="bimonthly" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="bimonthly" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="bimonthly" />
-                                            <span class="fw-semibold ps-2 fs-6">Bimonthly</span>
-                                        </label>
-                                        <br>
-                                        <label for="quarterly" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="quarterly" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="quarterly" />
-                                            <span class="fw-semibold ps-2 fs-6">Quarterly</span>
-                                        </label>
-                                        <br>
-                                        <label for="every-4-months" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="every-4-months" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="every-4-months" />
-                                            <span class="fw-semibold ps-2 fs-6">Every 4 Months</span>
-                                        </label>
-                                        <br>
-                                        <label for="semi-annual" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="semi-annual" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="semi-annual" />
-                                            <span class="fw-semibold ps-2 fs-6">Semi Annual</span>
-                                        </label>
-                                        <br>
-                                        <label for="every-9-months" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="every-9-months" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="every-9-months" />
-                                            <span class="fw-semibold ps-2 fs-6">Every 9 Months</span>
-                                        </label>
-                                        <br>
-                                        <label for="yearly" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="yearly" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="yearly" />
-                                            <span class="fw-semibold ps-2 fs-6">Yearly</span>
-                                        </label>
-                                        <br>
-                                        <label for="lamp-sum" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                            <input id="lamp-sum" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="lamp-sum" />
-                                            <span class="fw-semibold ps-2 fs-6">Lamp-Sum</span>
-                                        </label>
+                                        @forelse ($repayment_cycles as $option)
+                                            <label for="{{ $option->name }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
+                                                <input id="{{ $option->name }}" class="form-check-input" wire:model.lazy="loan_repayment_cycle" type="checkbox" value="{{ $option->id }}" />
+                                                <span class="fw-semibold ps-2 fs-6"> {{ $option->name }} </span>
+                                            </label>
+                                            <br>
+                                        @empty
+                                            
+                                        @endforelse
                                     </div>
                                 </div>
                                 <!--end::Col-->
@@ -581,7 +534,6 @@
                                 <div class="col-lg-8 fv-row">
                                     <select type="text" wire:model.lazy="loan_decimal_place" class="form-control form-control-lg form-control-solid">
                                         <option value=""></option>
-
                                         <option value="off-to-2">Round Off to 2 Decimal Places</option>
                                         <option value="off-to-int">Round Off to Integer</option>
                                         <option value="down-to-integer">Round Down to Integer</option>
@@ -697,25 +649,15 @@
                                     <label class="col-lg-4 col-form-label required fw-bold fs-6">Cash/Bank</label>
                                     <div class="col-lg-8 fv-row">
                                         <div class="d-block mt-3">
-                                            <label for="cash" class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                                <input id="cash" class="form-check-input" wire:model.lazy="auto_payment_sources" type="checkbox" value="cash" />
-                                                <span class="fw-semibold ps-2 fs-6">Cash</span>
-                                            </label>
-                                            <br>
-                                            <label for="zanaco" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                                <input id="zanaco" class="form-check-input" wire:model.lazy="auto_payment_sources" type="checkbox" value="cheque" />
-                                                <span class="fw-semibold ps-2 fs-6">ZANACO (Zambia National Commercial Bank)</span>
-                                            </label>
-                                            <br>
-                                            <label for="stanbic" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                                <input id="stanbic" class="form-check-input" wire:model.lazy="auto_payment_sources" type="checkbox" value="wire-transfer" />
-                                                <span class="fw-semibold ps-2 fs-6">Stanbic Bank Zambia</span>
-                                            </label>
-                                            <br>
-                                            <label for="petty-cash" class="mt-2 form-check form-check-custom form-check-inline form-check-solid">
-                                                <input id="petty-cash" class="form-check-input" wire:model.lazy="auto_payment_sources" type="checkbox" value="online-transfer" />
-                                                <span class="fw-semibold ps-2 fs-6">Petty Cash</span>
-                                            </label>
+                                            @forelse ($company_accounts as $option)
+                                                <label for="{{ $option->id.''.$option->type }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
+                                                    <input id="{{ $option->id.''.$option->type }}" class="form-check-input" wire:model.lazy="auto_payment_sources" type="checkbox" value="{{ $option->id }}" />
+                                                    <span class="fw-semibold ps-2 fs-6">{{ $option->description }}</span>
+                                                </label>
+                                                <br>
+                                            @empty
+                                                
+                                            @endforelse
                                         </div>
                                         <div class="p-2 py-3">
                                             <a href="#">Add or Edit Bank Accounts</a>

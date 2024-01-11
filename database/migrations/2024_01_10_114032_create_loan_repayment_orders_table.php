@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('loan_repayment_orders', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('repayment_order_id')->nullable();
+            $table->unsignedBigInteger('loan_product_id')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

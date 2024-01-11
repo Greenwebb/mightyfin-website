@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('loan_disbursed_bies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
-            $table->text('description')->nullable();
-            $table->string('tag')->nullable();
+            $table->unsignedBigInteger('loan_product_id')->nullable();
+            $table->unsignedBigInteger('disbursed_by_id')->nullable();
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\Application;
 use App\Models\LoanInstallment;
 use App\Models\LoanManualApprover;
 use App\Models\LoanPackage;
+use App\Models\LoanProduct;
 use App\Models\Loans;
 use App\Models\User;
 use App\Notifications\LoanRequestNotification;
@@ -20,6 +21,14 @@ use Illuminate\Support\Facades\Notification;
 trait LoanTrait{
     use EmailTrait;
     public $application;
+
+    public function get_all_loan_products(){
+        return LoanProduct::with([
+            'disbursed_by.disbursed_by',
+            'interest_methods.interest_method', 
+            'interest_types.interest_type'
+            ])->get();
+    }
     public function getLoanRequests($type){
         $userId = auth()->user()->id;
         // if ($this->type) {

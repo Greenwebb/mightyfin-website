@@ -13,6 +13,7 @@ class LoanProduct extends Model
         'name',
         'description',
         'release_date',
+        'auto_payment',
         'min_principal_amount',
         'def_principal_amount',
         'max_principal_amount',
@@ -29,4 +30,24 @@ class LoanProduct extends Model
     public function disbursed_by(){
         return $this->hasMany(LoanDisbursedBy::class);
     }
+    public function interest_methods(){
+        return $this->hasMany(LoanInterestMethod::class);
+    }
+    public function interest_types(){
+        return $this->hasMany(LoanInterestType::class);
+    }
+    public function repayment_order(){
+        return $this->hasMany(LoanRepaymentOrder::class);
+    }
+    public function repayment_cycle(){
+        return $this->hasMany(LoanRepaymentCycle::class);
+    }
+    public function loan_decimal_places(){
+        return $this->hasMany(LoanDecimalPlace::class);
+    }
+    public function loan_accounts(){
+        return $this->hasMany(LoanAccountPayment::class);
+    }
+
+
 }

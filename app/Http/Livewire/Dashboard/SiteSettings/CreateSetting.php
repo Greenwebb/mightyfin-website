@@ -2,11 +2,31 @@
 
 namespace App\Http\Livewire\Dashboard\SiteSettings;
 
+use App\Models\AccountPayment;
+use App\Models\DisbursedBy;
+use App\Models\InterestMethod;
+use App\Models\InterestType;
+use App\Models\LoanAccountPayment;
+use App\Models\LoanDecimalPlace;
+use App\Models\LoanDisbursedBy;
+use App\Models\LoanInterestMethod;
+use App\Models\LoanInterestType;
+use App\Models\LoanProduct;
+use App\Models\LoanRepaymentCycle;
+use App\Models\LoanRepaymentOrder;
+use App\Models\RepaymentCycle;
+use App\Models\RepaymentOrder;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class CreateSetting extends Component
 {
     public $page;
+
+    // Preset Data
+    public $interest_methods, $interest_types, $disbursements, $repayment_cycles;
+    public $repayment_orders, $decimal_places, $company_accounts;
+
 
     // Loan Product
     public $new_loan_name, $loan_release_date, $minimum_loan_principal_amount, $default_loan_principal_amount, $maximum_principal_amount, $loan_interest_method, $loan_interest_type;
@@ -19,14 +39,101 @@ class CreateSetting extends Component
 
     
     
+    
     public function render()
     {
         $this->page = $_GET['page'];
+        $this->get_data();
         return view('livewire.dashboard.site-settings.create-setting')
         ->layout('layouts.admin');
     }
 
+    public function get_data(){
+        $this->interest_methods =  InterestMethod::get();
+        $this->interest_types = InterestType::get();
+        $this->disbursements =  DisbursedBy::get();
+        $this->repayment_cycles = RepaymentCycle::get();
+        $this->repayment_orders = RepaymentOrder::get();
+        $this->company_accounts = AccountPayment::get();
+    }
+
     public function create_loan_product(){
-        dd($this);
+        
+        try {
+            // Create loan product
+            $loan_product = LoanProduct::Create([
+                'name' => $this->new_loan_name,
+            
+                'release_date' => $this->loan_release_date,
+                'auto_payment' => $this->add_automatic_payments,
+                'min_principal_amount' => $this->minimum_loan_principal_amount,
+                'def_principal_amount' => $this->default_loan_principal_amount,
+                'max_principal_amount' => $this->maximum_principal_amount,
+        
+                'min_loan_interest' => $this->minimum_loan_interest,
+                'def_loan_interest' => $this->default_loan_interest,
+                'max_loan_interest' => $this->maximum_loan_interest,
+        
+                'min_num_of_repayments' => $this->minimum_num_of_repayments,
+                'def_num_of_repayments' => $this->default_num_of_repayments,
+                'max_num_of_repayments' => $this->maximum_num_of_repayments
+            ]);
+
+            // Replace rand() with respective Parent table Primary key IDs
+            // Disbursed Bys ****Loop
+            foreach ($this->loan_disbursed_by as $key => $value) {
+                LoanDisbursedBy::Create([
+                    'disbursed_by_id' => $value,
+                    'loan_product_id' => $loan_product->id
+                ]);
+            }
+
+            // Interest Methods
+            LoanInterestMethod::Create([
+                'interest_method_id' => $this->loan_interest_method,
+                'loan_product_id' => $loan_product->id
+            ]);
+
+            // Interest Types
+            LoanInterestType::Create([
+                'interest_type_id' => $this->loan_interest_type,
+                'loan_product_id' => $loan_product->id
+            ]);
+
+            // Repayment Cycles ****Loop
+            foreach ($this->loan_repayment_cycle as $key => $value) {
+                LoanRepaymentCycle::Create([
+                    'repay_cycle_id' => $value,
+                    'loan_product_id' => $loan_product->id
+                ]);
+            }
+
+            // Loan Decimal Places
+            LoanDecimalPlace::Create([
+                'value' => $this->loan_decimal_place,
+                'loan_product_id' => $loan_product->id
+            ]);
+
+            // Loan Repayment Orders ****Loop
+            // LoanRepaymentOrder::Create([
+            //     'repayment_order_id' => rand(1, 12),
+            //     'loan_product_id' => $loan_product->id
+            // ]);
+
+            // Loan Automated Payments ****Loop
+            foreach ($this->auto_payment_sources as $key => $value) {
+                LoanAccountPayment::Create([
+                    'account_payment_id' => $value,
+                    'loan_product_id' => $loan_product->id
+                ]);
+            }
+            
+            Session::flash('success', "Loan product created successfully.");
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-types']);
+            
+        } catch (\Throwable $th) {
+            Session::flash('error', "Failed. ". $th->getMessage());
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-types']);
+        }
     }
 }
