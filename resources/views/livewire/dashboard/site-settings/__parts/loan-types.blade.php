@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
                                     <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $product->name }}</a>
-                                    <span class="text-muted fw-semibold text-muted d-block fs-7">Civil servants</span>
+                                    <span class="text-muted fw-semibold text-muted d-block fs-7">{{ $product->name }}</span>
                                 </div>
                             </div>
                         </td>
