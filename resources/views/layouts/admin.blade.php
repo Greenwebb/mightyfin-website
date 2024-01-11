@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="{{ asset('public/mfs/admin/assets/css/wizard.min.css')}}">
 
     {{-- Custom --}}
     <style>
