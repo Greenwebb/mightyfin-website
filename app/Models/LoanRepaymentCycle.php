@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LoanRepaymentOrder extends Model
+class LoanRepaymentCycle extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'repayment_order_id',
+        'repayment_cycle_id',
         'loan_product_id',
         'status'
     ];
 
-    public function repayment_order(){
-        return $this->belongsTo(RepaymentOrder::class);
+    public function repayment_cycle(){
+        return $this->belongsTo(RepaymentCycle::class);
     }
 
     public function loan_products(){

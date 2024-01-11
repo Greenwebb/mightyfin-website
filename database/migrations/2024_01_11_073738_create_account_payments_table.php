@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('disbursed_bies', function (Blueprint $table) {
+        Schema::create('account_payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->string('branch_name')->nullable();
+            $table->string('type')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('account_name')->nullable();
             $table->text('description')->nullable();
-            $table->string('tag')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
         });
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disbursed_bies');
+        Schema::dropIfExists('account_payments');
     }
 };

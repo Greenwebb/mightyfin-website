@@ -22,13 +22,14 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
 
-        // $this->call(CategorySeeder::class);
-
-        // Tag::factory(8)->create();
+        $this->call(DisbursedBySeeder::class);
+        $this->call(InterestMethodSeeder::class);
+        $this->call(InterestTypeSeeder::class);
+        $this->call(RepaymentCycleSeeder::class);
+        $this->call(RepaymentOrderSeeder::class);
+        $this->call(CompanyAccountSeeder::class);
 
         Storage::makeDirectory('public/posts');
-
-        // $this->call(PostSeeder::class);
 
     }
 }

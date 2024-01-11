@@ -19,6 +19,13 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('release_date')->nullable();
+            $table->integer('auto_payment')->nullable();
+            $table->string('loan_duration_period')->nullable();
+
+            $table->string('min_loan_duration')->nullable();
+            $table->string('def_loan_duration')->nullable();
+            $table->string('max_loan_duration')->nullable();
+
             $table->string('min_principal_amount')->nullable();
             $table->string('def_principal_amount')->nullable();
             $table->string('max_principal_amount')->nullable();
@@ -30,7 +37,8 @@ return new class extends Migration
             $table->string('min_num_of_repayments')->nullable();
             $table->string('def_num_of_repayments')->nullable();
             $table->string('max_num_of_repayments')->nullable();
-            
+            $table->string('tag')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
