@@ -17,7 +17,7 @@ class SystemItemSettings extends Component
         $this->current_conf = $this->current_configs($_GET['settings']);
         
         // Loan Products
-        $this->get_all_loan_products();
+        $this->loan_products = $this->get_all_loan_products();
 
 
         return view('livewire.dashboard.site-settings.system-item-settings')

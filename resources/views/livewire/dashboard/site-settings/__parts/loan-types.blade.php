@@ -38,13 +38,14 @@
                 <!--end::Table head-->
                 <!--begin::Table body-->
                 <tbody>
+                    @forelse ($loan_products as $product)
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-label bg-light-danger symbol-50px me-5">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
-                                    <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">GRZ Loan</a>
+                                    <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $product->name }}</a>
                                     <span class="text-muted fw-semibold text-muted d-block fs-7">Civil servants</span>
                                 </div>
                             </div>
@@ -79,7 +80,9 @@
                             </a>
                         </td>
                     </tr>
-                    
+                    @empty
+                        
+                    @endforelse
                 </tbody>
             </table>
         </div>
