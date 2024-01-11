@@ -192,8 +192,8 @@
                                                 <div  id="policy" class="form-check text-dark">
                                                     <input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox" checked>
                                                     <label class="form-check-label font-w400" for="termsCheckbox">{!! __('By creating an account, you agree to Mighty Finance Solution :terms_of_service and :privacy_policy', [
-                                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                                        'terms_of_service' => '<a target="_blank" href="#" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                                        'privacy_policy' => '<a target="_blank" href="#" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
                                                     ]) !!}</label>
                                                 </div>
                                                 @endif

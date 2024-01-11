@@ -18,8 +18,8 @@ return new class extends Migration
 
             $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('release_date')->nullable();
-            $table->integer('auto_payment')->nullable();
+            $table->string('release_date')->default(1);
+            $table->integer('auto_payment')->default(1);
             $table->string('loan_duration_period')->nullable();
 
             $table->string('min_loan_duration')->nullable();
