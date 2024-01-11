@@ -305,6 +305,12 @@
                             <div class="card-body pt-15">
                                 <!--begin::Summary-->
                                 <div class="d-flex flex-center flex-column mb-5">
+
+                                    <div class="mb-5">
+                                        <!--begin::Badge-->
+                                        <div class="badge badge-lg badge-light-primary d-inline">Primary Applicant</div>
+                                        <!--begin::Badge-->
+                                    </div>
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-100px symbol-circle mb-7">
                                         <img src="{{ asset('public/mfs/admin/assets/media/avatars/300-1.jpg')}}" alt="image" />
@@ -342,7 +348,7 @@
                                             </div>
                                             <div class="col-lg-4 border border-gray-300 border-dashed rounded py-3 px-3 mx-4 m-3">
                                                 <div class="fs-4 fw-bold text-gray-700">
-                                                    <span class="w-50px">ZMW 1300</span>
+                                                    <span class="w-50px">K1300</span>
                                                     <i class="ki-duotone ki-usd fs-3 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -352,13 +358,13 @@
                                             </div>
                                             <div class="col-lg-4 border border-gray-300 border-dashed rounded py-3 px-3 mx-4 m-3">
                                                 <div class="fs-4 fw-bold text-gray-700">
-                                                    <span class="w-50px">ZMW 1300</span>
+                                                    <span class="w-50px">K500</span>
                                                     <i class="ki-duotone ki-usd fs-3 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
                                                 </div>
-                                                <div class="fw-semibold text-muted">Principle<br>Amount</div>
+                                                <div class="fw-semibold text-muted">Monthly<br>Repayment</div>
                                             </div>
 
                                         </div>
@@ -536,6 +542,101 @@
                     <!--end::Sidebar-->
                     <!--begin::Content-->
                     <div class="flex-lg-row-fluid ms-lg-15">
+                        <div class="float-end" >
+                            <!--begin::Action menu-->
+                            <a href="#" class="btn btn-primary ps-7" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">Action
+                            <i class="ki-duotone ki-down fs-2 me-0"></i></a>
+                            <!--begin::Menu-->
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold py-4 w-250px fs-6" data-kt-menu="true">
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Payments</div>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link px-5">Create invoice</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link flex-stack px-5">Create payments
+                                    <span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">
+                                        <i class="ki-duotone ki-information fs-7">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>
+                                    </span></a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
+                                    <a href="#" class="menu-link px-5">
+                                        <span class="menu-title">Subscription</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <!--begin::Menu sub-->
+                                    <div class="menu-sub menu-sub-dropdown w-175px py-4">
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-5">Apps</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-5">Billing</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-5">Statements</a>
+                                        </div>
+                                        <!--end::Menu item-->
+                                        <!--begin::Menu separator-->
+                                        <div class="separator my-2"></div>
+                                        <!--end::Menu separator-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <div class="menu-content px-3">
+                                                <label class="form-check form-switch form-check-custom form-check-solid">
+                                                    <input class="form-check-input w-30px h-20px" type="checkbox" value="" name="notifications" checked="checked" id="kt_user_menu_notifications" />
+                                                    <span class="form-check-label text-muted fs-6" for="kt_user_menu_notifications">Notifications</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!--end::Menu item-->
+                                    </div>
+                                    <!--end::Menu sub-->
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu separator-->
+                                <div class="separator my-3"></div>
+                                <!--end::Menu separator-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Account</div>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link px-5">Reports</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5 my-1">
+                                    <a href="#" class="menu-link px-5">Account Settings</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-5">
+                                    <a href="#" class="menu-link text-danger px-5">Delete customer</a>
+                                </div>
+                                <!--end::Menu item-->
+                            </div>
+                            <!--end::Menu-->
+                            <!--end::Menu-->
+                        </div>
                         <!--begin:::Tabs-->
                         <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-8">
                             <!--begin:::Tab item-->
@@ -545,110 +646,20 @@
                             <!--end:::Tab item-->
                             <!--begin:::Tab item-->
                             <li class="nav-item">
-                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_customer_view_overview_events_and_logs_tab">Events & Logs</a>
+                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_customer_view_overview_events_and_logs_tab">Loan Details</a>
                             </li>
                             <!--end:::Tab item-->
                             <!--begin:::Tab item-->
                             <li class="nav-item">
-                                <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_customer_view_overview_statements">Statements</a>
+                                <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_customer_view_overview_statements">Documents</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_customer_view_overview_statements">Activity Log</a>
+                            </li>
+
                             <!--end:::Tab item-->
                             <!--begin:::Tab item-->
-                            <li class="nav-item ms-auto">
-                                <!--begin::Action menu-->
-                                <a href="#" class="btn btn-primary ps-7" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">Actions
-                                <i class="ki-duotone ki-down fs-2 me-0"></i></a>
-                                <!--begin::Menu-->
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold py-4 w-250px fs-6" data-kt-menu="true">
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5">
-                                        <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Payments</div>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5">
-                                        <a href="#" class="menu-link px-5">Create invoice</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5">
-                                        <a href="#" class="menu-link flex-stack px-5">Create payments
-                                        <span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">
-                                            <i class="ki-duotone ki-information fs-7">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span></a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-                                        <a href="#" class="menu-link px-5">
-                                            <span class="menu-title">Subscription</span>
-                                            <span class="menu-arrow"></span>
-                                        </a>
-                                        <!--begin::Menu sub-->
-                                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-5">Apps</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-5">Billing</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-5">Statements</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu separator-->
-                                            <div class="separator my-2"></div>
-                                            <!--end::Menu separator-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <div class="menu-content px-3">
-                                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="" name="notifications" checked="checked" id="kt_user_menu_notifications" />
-                                                        <span class="form-check-label text-muted fs-6" for="kt_user_menu_notifications">Notifications</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu sub-->
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu separator-->
-                                    <div class="separator my-3"></div>
-                                    <!--end::Menu separator-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5">
-                                        <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Account</div>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5">
-                                        <a href="#" class="menu-link px-5">Reports</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5 my-1">
-                                        <a href="#" class="menu-link px-5">Account Settings</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5">
-                                        <a href="#" class="menu-link text-danger px-5">Delete customer</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                                <!--end::Menu-->
-                            </li>
+
                             <!--end:::Tab item-->
                         </ul>
                         <!--end:::Tabs-->

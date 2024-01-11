@@ -178,7 +178,7 @@
                                                 <input name="email" :value="old('email')" required type="email" class="form-control" placeholder="yourname@email.com">
                                             </div>
                                             <div class="col-12">
-                                                
+
                                                 <label class="text-dark mb-1"><strong>Phone</strong></label>
                                                 <input name="phone" :value="old('phone')" required type="phone" class="form-control" placeholder="097">
                                             </div>
