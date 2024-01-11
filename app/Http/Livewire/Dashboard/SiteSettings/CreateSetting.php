@@ -66,10 +66,16 @@ class CreateSetting extends Component
             
                 'release_date' => $this->loan_release_date,
                 'auto_payment' => $this->add_automatic_payments,
+                'loan_duration_period'=>$this->loan_duration_period,
+
                 'min_principal_amount' => $this->minimum_loan_principal_amount,
                 'def_principal_amount' => $this->default_loan_principal_amount,
                 'max_principal_amount' => $this->maximum_principal_amount,
-        
+                
+                'min_loan_duration' => $this->minimum_loan_duration,
+                'def_loan_duration' => $this->default_loan_duration,
+                'max_loan_duration' => $this->maximum_loan_duration,
+
                 'min_loan_interest' => $this->minimum_loan_interest,
                 'def_loan_interest' => $this->default_loan_interest,
                 'max_loan_interest' => $this->maximum_loan_interest,

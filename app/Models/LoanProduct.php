@@ -14,9 +14,15 @@ class LoanProduct extends Model
         'description',
         'release_date',
         'auto_payment',
+        'loan_duration_period',
+        
         'min_principal_amount',
         'def_principal_amount',
         'max_principal_amount',
+        
+        'min_loan_duration',
+        'def_loan_duration',
+        'max_loan_duration',
 
         'min_loan_interest',
         'def_loan_interest',

@@ -51,19 +51,23 @@
                             </div>
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">2.3%</a>
-                            <span class="text-muted fw-semibold text-muted d-block fs-7">Percentage</span>
+                            <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ $product->def_loan_interest }}</a>
+                            <span class="text-muted fw-semibold text-muted d-block fs-7">{{ $product->interest_types->first()->interest_type->name }}</span>
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">1 month</a>
-                            <span class="text-muted fw-semibold text-muted d-block fs-7">Insurance</span>
+                            <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ $product->default_loan_duration ?? '1' }} month</a>
+                            {{-- <span class="text-muted fw-semibold text-muted d-block fs-7">Insurance</span> --}}
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">Auto</a>
-                            <span class="text-muted fw-semibold text-muted d-block fs-7">Todate</span>
+                            <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{ $product->auto_payment == 1 ? 'Automatic' : 'Manual' }}</a>
+                            <span class="text-muted fw-semibold text-muted d-block fs-7">{{ $product->auto_payment == 1 ? 'Todate' : 'Set Date' }}</span>
                         </td>
                         <td>
-                            <span class="badge badge-light-primary fs-7 fw-bold">Active</span>
+                            @if ($product->status == 1)
+                            <span class="badge badge-light-success fs-7 fw-bold">Active</span>
+                            @else
+                            <span class="badge badge-light-dark fs-7 fw-bold">Disabled</span>
+                            @endif
                         </td>
                         <td class="text-end">
                             <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
