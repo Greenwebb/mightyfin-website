@@ -42,6 +42,9 @@ Route::get('get-loan-interest-amount/{duration}/{principal}', [LoanRequestContro
 Route::get('get-loan-monthly-installment-amount/{duration}/{principal}', [LoanRequestController::class, 'loanMonthlyInstallments']);
 Route::get('get-total-payback-amount/{duration}/{principal}', [LoanRequestController::class, 'totalCollectable']);
 
+
+Route::get('/get-loan-product-details/{loan_id}', [SettingController::class, '__get_loan_details']);
+
 // Deprected
 Route::get('get-my-wallet/{id}', [LoanRequestController::class, 'getWallets']);
 Route::get('get-my-withdrawal-requests/{id}', [LoanRequestController::class, 'getWithdrawalRequests']);

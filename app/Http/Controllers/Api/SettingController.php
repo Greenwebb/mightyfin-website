@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Traits\LoanTrait;
 use App\Traits\SettingTrait;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    use SettingTrait;
+    use SettingTrait, LoanTrait;
     public function __get_approvers(){
         return $this->active_loan_approvers();
     }
@@ -20,4 +21,10 @@ class SettingController extends Controller
             dd('failed');
         }
     }
+
+    public function __get_loan_details($id){
+        return $this->get_loan_product($id);
+    }
+
+
 }
