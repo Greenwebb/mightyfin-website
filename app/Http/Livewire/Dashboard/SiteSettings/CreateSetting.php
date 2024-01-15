@@ -14,8 +14,10 @@ use App\Models\LoanInterestType;
 use App\Models\LoanProduct;
 use App\Models\LoanRepaymentCycle;
 use App\Models\LoanRepaymentOrder;
+use App\Models\LoanServiceCharge;
 use App\Models\RepaymentCycle;
 use App\Models\RepaymentOrder;
+use App\Models\ServiceCharge;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
@@ -25,8 +27,8 @@ class CreateSetting extends Component
 
     // Preset Data
     public $interest_methods, $interest_types, $disbursements, $repayment_cycles;
-    public $repayment_orders, $decimal_places, $company_accounts;
-
+    public $repayment_orders, $decimal_places, $company_accounts, $service_charges;
+    
 
     // Loan Product
     public $new_loan_name, $loan_release_date, $minimum_loan_principal_amount, $default_loan_principal_amount, $maximum_principal_amount, $loan_interest_method, $loan_interest_type;
@@ -36,6 +38,7 @@ class CreateSetting extends Component
     public $auto_payment_sources = [];
     public $loan_disbursed_by = []; 
     public $loan_repayment_cycle = [];
+    public $extra_fees = [];
 
     
     
@@ -55,6 +58,7 @@ class CreateSetting extends Component
         $this->repayment_cycles = RepaymentCycle::get();
         $this->repayment_orders = RepaymentOrder::get();
         $this->company_accounts = AccountPayment::get();
+        $this->service_charges = ServiceCharge::get();
     }
 
     public function create_loan_product(){
@@ -125,6 +129,14 @@ class CreateSetting extends Component
             //     'repayment_order_id' => rand(1, 12),
             //     'loan_product_id' => $loan_product->id
             // ]);
+
+            // Loan Service Charges ****Loop
+            foreach ($this->extra_fees as $key => $value) {
+                LoanServiceCharge::Create([
+                    'service_charge_id' => $value,
+                    'loan_product_id' => $loan_product->id
+                ]);
+            }
 
             // Loan Automated Payments ****Loop
             foreach ($this->auto_payment_sources as $key => $value) {

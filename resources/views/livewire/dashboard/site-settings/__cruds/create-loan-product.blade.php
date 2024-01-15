@@ -1,4 +1,15 @@
+
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-types']) }}" class="flex py-4 px-9">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z"/>
+            </svg>
+        </span>
+        <span>
+            Return Back to Loan Product List
+        </span>
+    </a>
     <!--begin::Post-->
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
@@ -586,6 +597,47 @@
                                 <!--end::Col-->
                             </div>
                         </div>
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <!--end::Content-->
+            </div>
+
+            <div class="card mb-5 mb-xl-10">
+                <!--begin::Card header-->
+                <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+                    <!--begin::Card title-->
+                    <div class="card-title m-0">
+                        <h3 class="fw-bold text-info m-0">Extra Charges:</h3>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Content-->
+                <div id="kt_account_settings_profile_details" class="collapse show">
+                    <!--begin::Form-->
+                    <div id="kt_account_profile_details_form" class="form">
+                        <!--begin::Card body-->
+                        <div class="card-body border-top p-9">
+                            
+                            <div class="row mb-6">
+                                <label class="col-lg-4 col-form-label required fw-bold fs-6">Service Charges</label>
+                                <div class="col-lg-8 fv-row">
+                                    <div class="d-block mt-3">
+                                        @forelse ($service_charges as $option)
+                                        <label for="{{ $option->tag }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
+                                            <input id="{{ $option->tag }}" class="form-check-input" wire:model.lazy="extra_fees" type="checkbox" value="{{ $option->id }}" />
+                                            <span class="fw-semibold ps-2 fs-6">{{ $option->name }}  <span class="badge badge-info">K {{ $option->value }}</span> </span>
+                                        </label>
+                                        <br>
+                                        @empty
+                                            <p>No Charges</p>
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                     <!--end::Form-->
                 </div>

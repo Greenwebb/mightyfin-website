@@ -29,6 +29,14 @@ trait LoanTrait{
             'interest_types.interest_type'
             ])->get();
     }
+    public function get_loan_product($id){
+        return LoanProduct::where('id', $id)->with([
+            'disbursed_by.disbursed_by',
+            'interest_methods.interest_method', 
+            'interest_types.interest_type',
+            'loan_accounts.account_payment'
+            ])->first();
+    }
     public function getLoanRequests($type){
         $userId = auth()->user()->id;
         // if ($this->type) {

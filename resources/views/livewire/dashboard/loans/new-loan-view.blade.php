@@ -378,16 +378,23 @@
                                 <p class="small pb-0">What is your reason for a loan?</p>
                                 
                                 <div class="row row-cols-2 row-cols-lg-3 g-4 pb-2 border-bottom">
-                                    <div class="col">
-                                        <label onclick="selectCard(this)" class="card text-center h-70 py-2">
-                                            <input checked type="radio" name="loan_type" value="GRZ" class="d-none">
-                                            <i class="fas fa-users card-img-top mx-auto img-light fs-1"></i>
-                                            <div class="card-body px-0">
-                                                <h5 class="card-title title-binding">GRZ Loan</h5>
-                                                <p class="card-text">Civil servant<br>based loan</p>
-                                            </div>
-                                        </label>
-                                    </div>
+                                    @forelse ($this->get_all_loan_products() as $p)
+                                        <div class="col">
+                                            <label class="card text-center h-70 py-2">
+                                                <input type="radio" name="loan_type" value="{{ $p->id }}" class="d-none">
+                                                <i class="fas fa-users card-img-top mx-auto img-light fs-1"></i>
+                                                <div class="card-body px-0">
+                                                    <h5 class="card-title title-binding">{{ $p->name }}</h5>
+                                                    <p class="card-text">{{ $p->def_loan_interest.' '.$p->interest_types->first()->interest_type->name }} </p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    @empty
+                                        <div class="col">
+                                            <label for=""></label>
+                                        </div>
+                                    @endforelse
+                                    <small class="text-danger" id="loanProdValidText"></small>
                                 </div>
                                 
                                 <button type="button" class="btn btn-dark text-white float-start back mt-0 rounded-3">Go Back</button>
@@ -407,7 +414,7 @@
                                     <div id="slider_line" class="range-slider_line-fill"></div>
                                     </div>
                                     
-                                    <input id="slider_input" name="duration" class="range-slider_input" type="range" value="2" min="1" max="12">
+                                    <input id="slider_input" name="duration" class="range-slider_input" type="range" value="2" min="2" max="12">
                                 </div>
                             </div>  
                             <div class="row">
@@ -419,7 +426,7 @@
                                         </div> 
                                         <div class="col-lg-6">
                                             <p id="slider_value">2 Months</p>
-                                            <p id="interest_value">Interest Rate: 21%</p>
+                                            {{-- <p id="interest_value">Interest Rate: 21%</p> --}}
                                             <p id="interest_value">Service Charge: K3.50</p>
                                         </div>
                                     </div>
@@ -495,12 +502,18 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         {{-- <script src="{{ asset('public/js/zan/dist/zangdar.min.js')}}"></script> --}}
         <script type="text/javascript">
+
             $(document).ready(function () {
+                var stepCount = 0;
                 var principal = 0;
                 var rate = 21;
+                var duration = document.getElementById('slider_input');
                 var principalVal = document.getElementById('amountInput');
-                var principalText = document.getElementById('principalText');
-                
+                var principalText = document.getElementById('principalText');  
+                var loanProdValidText = document.getElementById('loanProdValidText');  
+                // Check if at least one radio button is selected
+                var selectedLoanProduct = document.querySelector('input[name="loan_type"]:checked');
+                duration = 1;
                 // hidden things
                 $(".form-business").hide();
                 $("#successMessage").hide();
@@ -508,9 +521,16 @@
                 $(".next").on({
                     click: function () {
                         // select any card
+                        stepCount ++;
+
                         var getValue = $(this).parents(".row").find(".card").hasClass("active-card");
+                        // alert(stepCount);
                         if (!principalVal.value) {
                             principalText.textContent = 'Please enter amount you want to borrow';
+                            return false;
+                        } 
+                        if ( stepCount === 2 && selectedLoanProduct === null) {
+                            loanProdValidText.textContent = 'Please select a loan product to continue';
                             return false;
                         }
                         if (getValue) {
@@ -560,6 +580,45 @@
                         location.reload(true);
                     }
                 });
+
+
+                $(".card").on({
+                    click: function () {
+                        // Remove the 'selected-card' class from all labels
+                        var labels = document.querySelectorAll('.card');
+                        labels.forEach(function (label) {
+                            label.classList.remove('selected-card');
+                        });
+
+                        // Add the 'selected-card' class to the clicked label
+                        this.classList.add('selected-card');
+
+                        // Additional code to get the details of the selected loan product ID from the database
+                        var selectedLoanProductID = $(this).find('input[type="radio"]').val();
+                        fetch(`api/get-loan-product-details/${selectedLoanProductID}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data); 
+                                
+                                // Update the UI with the retrieved details
+                                var sliderValue = $(this).val();
+                                rate = data.def_loan_interest;
+                                duration = data.def_loan_duration;
+                                var my_returns = (parseInt(principal) * data.def_loan_interest) * parseInt(data.default_loan_duration) + parseInt(principal);
+
+                                $('#payback_value').text( 'Payback amount of: K'+my_returns.toFixed(2));
+                                $('#principal_value').text( 'Borrowing: K'+principal);
+                                $('#interest_value').text( 'Interest Rate: '+data.def_loan_interest);
+                                // Update a display element with the current value
+                                $('#slider_value').text( 'Payback in '+data.def_loan_duration + ' Months');
+
+                            })
+                            .catch(error => {
+                                console.error('Error fetching loan product details:', error);
+                            });
+                    }
+                });
+
     
                 // Get the input element by its ID
                 const amountInput = document.getElementById('amountInput');
@@ -619,16 +678,55 @@
             window.addEventListener("resize",showSliderValue);
             slider_input.addEventListener('input', showSliderValue, false);
     
-            function selectCard(selectedLabel) {
-                // Remove the 'selected-card' class from all labels
-                var labels = document.querySelectorAll('.card');
-                labels.forEach(function (label) {
-                    label.classList.remove('selected-card');
-                });
+            // function selectCard(selectedLabel) {
+            //     console.log(selectedLabel);
+            //     // Remove the 'selected-card' class from all labels
+            //     var labels = document.querySelectorAll('.card');
+            //     labels.forEach(function (label) {
+            //         label.classList.remove('selected-card');
+            //     });
     
-                // Add the 'selected-card' class to the clicked label
-                selectedLabel.classList.add('selected-card');
-            }
+            //     // Add the 'selected-card' class to the clicked label
+            //     selectedLabel.classList.add('selected-card');
+            // }
+
+            // function selectCard(selectedLabel) {
+            //     alert(rate);
+            //     // Get the value of the selected radio button
+            //     var selectedRadioButton = selectedLabel.querySelector('input[type="radio"]');
+            //     var selectedLoanProductID = selectedRadioButton.value;
+
+            //     // Make an AJAX request to the server to get details
+            //     fetch(`api/get-loan-product-details/${selectedLoanProductID}`)
+            //         .then(response => response.json())
+            //         .then(data => {
+            //             console.log(data); // Display the details in the console
+            //             // Update the UI with the retrieved details
+            //             updateUI(data);
+            //         })
+            //         .catch(error => {
+            //             console.error('Error fetching loan product details:', error);
+            //         });
+
+            //     // Remove the 'selected-card' class from all labels
+            //     var labels = document.querySelectorAll('.card');
+            //     labels.forEach(function (label) {
+            //         label.classList.remove('selected-card');
+            //     });
+
+            //     // Add the 'selected-card' class to the clicked label
+            //     selectedLabel.classList.add('selected-card');
+            // }
+
+            // function updateUI(data) {
+            //     // Update your UI with the retrieved loan product details
+            //     // For example, you can update HTML elements with the data.
+            //     // Replace the following lines with your specific logic.
+            //     document.getElementById('loanProductName').textContent = data.name;
+            //     document.getElementById('loanProductInterest').textContent = data.interest;
+            //     // Add more lines for other details as needed.
+            // }
+
         </script>
         
     </div>
