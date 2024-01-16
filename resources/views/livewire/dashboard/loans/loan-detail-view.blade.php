@@ -756,7 +756,7 @@
                                                     <span class="fs-1 fw-bold text-gray-800 lh-1">
                                                         <span class="" data-kt-countup="true"
                                                             data-kt-countup-value="18">0</span>%
-                                                        </span>
+                                                    </span>
                                                     <span
                                                         class="fs-6 fw-semibold text-muted d-block lh-1 pt-2">r</span>
                                                 </div>
@@ -1269,7 +1269,7 @@
                                                         <table class="table table-flush fw-semibold gy-1">
                                                             <tr>
                                                                 <td class="text-muted min-w-125px w-125px">Name</td>
-                                                                <td class="text-gray-800">Emma Smith</td>
+                                                                <td class="text-gray-800">Samual Mwale</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="text-muted min-w-125px w-125px">Number</td>
@@ -2420,7 +2420,180 @@
 
                                 <!--end::Card-->
                                 <!--begin::Card-->
-                               full loan details
+                                <div class="row g-5 g-xl-12">
+
+
+                                    <div class="col-xl-12">
+
+                                        <!--begin::List Widget 2-->
+                                        <div class="card card-xl-stretch mb-xl-8">
+                                            <!--begin::Header-->
+                                            <div class="card-header border-0">
+                                                <h3 class="card-title fw-bold text-gray-900">Parties Information</h3>
+
+                                                <div class="card-toolbar">
+                                                    <!--begin::Menu-->
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
+                                                        data-kt-menu-trigger="click"
+                                                        data-kt-menu-placement="bottom-end">
+                                                        <i class="ki-duotone ki-category fs-6"><span
+                                                                class="path1"></span><span
+                                                                class="path2"></span><span
+                                                                class="path3"></span><span
+                                                                class="path4"></span></i> </button>
+
+                                                    <!--begin::Menu 2-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                                                        data-kt-menu="true">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <div
+                                                                class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                                                                Quick Actions</div>
+                                                        </div>
+                                                        <!--end::Menu item-->
+
+                                                        <!--begin::Menu separator-->
+                                                        <div class="separator mb-3 opacity-75"></div>
+                                                        <!--end::Menu separator-->
+
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3">
+                                                                New Ticket
+                                                            </a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3">
+                                                                New Customer
+                                                            </a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3" data-kt-menu-trigger="hover"
+                                                            data-kt-menu-placement="right-start">
+                                                            <!--begin::Menu item-->
+                                                            <a href="#" class="menu-link px-3">
+                                                                <span class="menu-title">New Group</span>
+                                                                <span class="menu-arrow"></span>
+                                                            </a>
+                                                            <!--end::Menu item-->
+
+                                                            <!--begin::Menu sub-->
+                                                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
+                                                                <!--begin::Menu item-->
+                                                                <div class="menu-item px-3">
+                                                                    <a href="#" class="menu-link px-3">
+                                                                        Admin Group
+                                                                    </a>
+                                                                </div>
+                                                                <!--end::Menu item-->
+
+                                                                <!--begin::Menu item-->
+                                                                <div class="menu-item px-3">
+                                                                    <a href="#" class="menu-link px-3">
+                                                                        Staff Group
+                                                                    </a>
+                                                                </div>
+                                                                <!--end::Menu item-->
+
+                                                                <!--begin::Menu item-->
+                                                                <div class="menu-item px-3">
+                                                                    <a href="#" class="menu-link px-3">
+                                                                        Member Group
+                                                                    </a>
+                                                                </div>
+                                                                <!--end::Menu item-->
+                                                            </div>
+                                                            <!--end::Menu sub-->
+                                                        </div>
+                                                        <!--end::Menu item-->
+
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3">
+                                                                New Contact
+                                                            </a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+
+                                                        <!--begin::Menu separator-->
+                                                        <div class="separator mt-3 opacity-75"></div>
+                                                        <!--end::Menu separator-->
+
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <div class="menu-content px-3 py-3">
+                                                                <a class="btn btn-primary  btn-sm px-4"
+                                                                    href="#">
+                                                                    Generate Reports
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
+                                                    <!--end::Menu 2-->
+                                                    <!--end::Menu-->
+                                                </div>
+                                            </div>
+                                            <!--end::Header-->
+
+                                            <!--begin::Body-->
+                                            <div class="card-body pt-2">
+                                                <!--begin::Item-->
+                                                <div class="d-flex align-items-center mb-7">
+                                                    <!--begin::Avatar-->
+                                                    <div class="symbol symbol-50px me-5">
+                                                        <img src="{{ asset('public/mfs/admin/assets/avatars/blank.png') }}"
+                                                            class="" alt="">
+                                                    </div>
+                                                    <!--end::Avatar-->
+
+                                                    <!--begin::Text-->
+                                                    <div class="flex-grow-1">
+                                                        <a href="#"
+                                                            class="text-gray-900 fw-bold text-hover-primary fs-6">Emmanuel Kakoma</a>
+
+                                                        <span class="text-muted d-block fw-bold">HR Manager</span>
+                                                    </div>
+                                                    <!--end::Text-->
+                                                </div>
+                                                <!--end::Item-->
+                                                <!--begin::Item-->
+                                                <div class="d-flex align-items-center mb-7">
+                                                    <!--begin::Avatar-->
+                                                    <div class="symbol symbol-50px me-5">
+                                                        <img src="{{ asset('public/mfs/admin/assets/avatars/blank.png') }}"
+                                                            class="" alt="">
+                                                    </div>
+                                                    <!--end::Avatar-->
+
+                                                    <!--begin::Text-->
+                                                    <div class="flex-grow-1">
+                                                        <a href="#"
+                                                            class="text-gray-900 fw-bold text-hover-primary fs-6">Sean
+                                                            Tembo</a>
+
+                                                        <span class="text-muted d-block fw-bold">Superviser</span>
+                                                    </div>
+                                                    <!--end::Text-->
+                                                </div>
+                                                <!--end::Item-->
+                                               
+
+                                            </div>
+                                            <!--end::Body-->
+                                        </div>
+                                        <!--end::List Widget 2-->
+                                    </div>
+
+
+                                </div>
                                 <!--end::Card-->
                             </div>
                             <!--end:::Tab pane-->
