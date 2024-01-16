@@ -37,6 +37,8 @@ trait LoanTrait{
             'loan_accounts.account_payment'
             ])->first();
     }
+
+
     public function getLoanRequests($type){
         $userId = auth()->user()->id;
         // if ($this->type) {

@@ -120,14 +120,15 @@
                                 <div class="col-lg-8 fv-row">
                                     <div class="d-block mt-3">
                                         @forelse ($disbursements as $option)
-                                        <label for="{{ $option->tag }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input id="{{ $option->tag }}" class="form-check-input" wire:model.lazy="loan_disbursed_by" type="checkbox" value="{{ $option->id }}" />
-                                            <span class="fw-semibold ps-2 fs-6">{{ $option->name }}</span>
-                                        </label>
-                                        <br>
+                                            <label for="{{ $option->tag }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
+                                                <input id="{{ $option->tag }}" class="form-check-input" wire:model.lazy="loan_disbursed_by" type="checkbox" value="{{ $option->id }}" {{ in_array($option->id, $loan_disbursed_by) ? 'checked' : '' }} />
+                                                <span class="fw-semibold ps-2 fs-6">{{ $option->name }}</span>
+                                            </label>
+                                            <br>
                                         @empty
                                             <p>No Sources</p>
                                         @endforelse
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -223,15 +224,19 @@
                                 <label class="col-lg-4 col-form-label required fw-bold fs-6">Interest Method</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
+                                {{-- @dd($loan_interest_method) --}}
                                 <div class="col-lg-8 fv-row">
                                     <select type="text" wire:model.lazy="loan_interest_method" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="Keenthemes">
                                         <option value=""></option>
                                         @forelse ($interest_methods as $option)
-                                        <option value="{{ $option->id }}">{{ $option->name }}</option>
+                                            <option value="{{ $option->id }}" {{ $loan_interest_method == $option->id ? 'selected' : '' }}>
+                                                {{ $option->name }}
+                                            </option>
                                         @empty
                                             <span>No Methods</span>
                                         @endforelse
                                     </select>
+                                    
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -255,12 +260,12 @@
                                     <div class="d-block align-items-center mt-3">
                                         @forelse ($interest_types as $option)
                                             <label for="{{ $option->name }}" class="mt-2 form-check form-check-custom form-check-inline form-check-solid me-5">
-                                                <input id="{{ $option->name }}" class="form-check-input" wire:model.lazy="loan_interest_type" type="radio" value="{{ $option->id }}" />
+                                                <input id="{{ $option->name }}" class="form-check-input" wire:model.lazy="loan_interest_type" type="radio" value="{{ $option->id }}" {{ $loan_interest_type == $option->id ? 'checked' : '' }} />
                                                 <span class="fw-semibold ps-2 fs-6"> {{ $option->description }} </span>
                                             </label>
                                         @empty
-                                            
-                                        @endforelse
+                                            <!-- Handle the case when there are no interest types -->
+                                        @endforelse                                    
                                     </div>
                                 </div>
                                 <!--end::Col-->

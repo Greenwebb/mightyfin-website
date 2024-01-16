@@ -18,26 +18,40 @@
                     <!--end::Card title-->
                 </div>
                 @switch($settings)
-                    {{-- User Settings Group --}}
                     @case('user-req')
                         
-                        @break
-                    {{-- Loan Settings Group --}}
+                    @break
+                    
                     @case('loan-types')
                         @include('livewire.dashboard.site-settings.__parts.loan-types')
                     @break
+
                     @case('loan-rates')
                         @include('livewire.dashboard.site-settings.__parts.loan-rates')
                     @break
+
                     @case('loan-approval')
                         @include('livewire.dashboard.site-settings.__parts.loan-approval-hierarchy')
                     @break
-                    @case('loan-repayments')
-                        @include('livewire.dashboard.site-settings.__parts.loan-repayments')
+
+                    @case('loan-repayment-cycle')
+                        @include('livewire.dashboard.site-settings.__parts.loan-repayment-cycle')
                     @break
 
+                    @case('loan-disbursements')
+                        @include('livewire.dashboard.site-settings.__parts.loan-disbursements')
+                    @break
 
+                    @case('loan-penalty-settings')
+                        @include('livewire.dashboard.site-settings.__parts.loan-penalty-settings')
+                    @break
+
+                    @case('loan-fees')
+                        @include('livewire.dashboard.site-settings.__parts.loan-fees')
+                    @break
+                    
                     @default
+
                     @break
                 @endswitch
             </div>

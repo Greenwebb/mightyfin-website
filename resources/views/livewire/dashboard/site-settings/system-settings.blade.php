@@ -32,12 +32,12 @@
                             <div class="d-flex flex-wrap mb-6 p-4">
                                 <ul class="list-unstyled">
                                     <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-types']) }}" class="fs-6 text-info fw-bold">Loan Products</a></li> 
-                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-types']) }}" class="fs-6 text-info fw-bold">Loan Disbursed By</a></li> 
-                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Loan Rates</a></li> <!-- Change text color to blue -->
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-disbursements']) }}" class="fs-6 text-info fw-bold">Loan Disbursed By</a></li> 
+                                    {{-- <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-rates']) }}" class="fs-6 text-info fw-bold">Loan Rates</a></li> <!-- Change text color to blue --> --}}
                                     <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-approval']) }}" class="fs-6 text-info fw-bold">Loan Approval Hierachy</a></li> <!-- Change text color to blue -->
-                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment']) }}" class="fs-6 text-info fw-bold">Loan Repayment Cycles</a></li> 
-                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment']) }}" class="fs-6 text-info fw-bold">Loan Penalty Sttings</a></li> 
-                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment']) }}" class="fs-6 text-info fw-bold">Loan Fees</a></li> 
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment-cycle']) }}" class="fs-6 text-info fw-bold">Loan Repayment Cycles</a></li> 
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-penalty-settings']) }}" class="fs-6 text-info fw-bold">Loan Penalty Settings</a></li> 
+                                    <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-fees']) }}" class="fs-6 text-info fw-bold">Loan Fees</a></li> 
                                     <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment']) }}" class="fs-6 text-info fw-bold">Loan Remainder Settngs</a></li> 
                                     <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment']) }}" class="fs-6 text-info fw-bold">Adjust Interest Rate in Middle</a></li> 
                                     <li><a href="{{ route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment']) }}" class="fs-6 text-info fw-bold">Send OTP to Borrower before Loan Disbursment</a></li> 
