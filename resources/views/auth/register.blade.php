@@ -191,10 +191,11 @@
                                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                                 <div  id="policy" class="form-check text-dark">
                                                     <input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox" checked>
-                                                    <label class="form-check-label font-w400" for="termsCheckbox">{!! __('By creating an account, you agree to Mighty Finance Solution :terms_of_service and :privacy_policy', [
-                                                        'terms_of_service' => '<a target="_blank" href="#" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                                        'privacy_policy' => '<a target="_blank" href="#" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                                    ]) !!}</label>
+                                                    <label class="form-check-label font-w400" for="termsCheckbox">By creating an account, you agree to Mighty Finance Solution
+                                                        <a target="_blank" href="{{ route('terms') }}" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a>
+                                                        and
+                                                        <a target="_blank" href="{{ route('pp') }}" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                                                    </label>
                                                 </div>
                                                 @endif
                                             </div>

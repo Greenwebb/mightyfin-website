@@ -15,6 +15,7 @@ use App\Models\LoanProduct;
 use App\Models\LoanRepaymentCycle;
 use App\Models\LoanRepaymentOrder;
 use App\Models\LoanServiceCharge;
+use App\Models\Penalty;
 use App\Models\RepaymentCycle;
 use App\Models\RepaymentOrder;
 use App\Models\ServiceCharge;
@@ -40,8 +41,9 @@ class CreateSetting extends Component
     public $loan_repayment_cycle = [];
     public $extra_fees = [];
 
-    
-    
+    // Disbursements
+    public $disbursement_name, $penalty_name, $penalty_amount, $penalty_grace, $repayment_cycle_name;
+    public $loan_charge_name, $loan_charge_amount;
     
     public function render()
     {
@@ -71,6 +73,7 @@ class CreateSetting extends Component
                 'release_date' => $this->loan_release_date,
                 'auto_payment' => $this->add_automatic_payments,
                 'loan_duration_period'=>$this->loan_duration_period,
+                'loan_interest_period'=>$this->loan_interest_period,
 
                 'min_principal_amount' => $this->minimum_loan_principal_amount,
                 'def_principal_amount' => $this->default_loan_principal_amount,
@@ -154,4 +157,79 @@ class CreateSetting extends Component
             return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-types']);
         }
     }
+
+
+
+    // Create Disbursement
+    public function create_disbursement(){
+        try {
+            DisbursedBy::Create([
+                'name' => $this->disbursement_name,
+                'tag' => strtolower(str_replace(' ', '-', $this->disbursement_name)) 
+            ]);
+            
+            Session::flash('success', "Disbursement method created successfully.");
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-disbursements']);
+            
+        } catch (\Throwable $th) {
+            Session::flash('error', "Failed. ". $th->getMessage());
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-disbursements']);
+        }
+    }
+
+    // Create Penalty
+    public function create_penalty(){
+        try {
+            Penalty::Create([
+                'name' => $this->penalty_name,
+                'value' => $this->penalty_amount,
+                'grace_period' => $this->penalty_grace,
+                'tag' => strtolower(str_replace(' ', '-', $this->disbursement_name)) 
+            ]);
+            
+            Session::flash('success', "Penalty created successfully.");
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-penalty-settings']);
+            
+        } catch (\Throwable $th) {
+            Session::flash('error', "Failed. ". $th->getMessage());
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-penalty-settings']);
+        }
+    }
+
+    // Create repayment cycle
+    public function create_repayment_cycle(){
+        try {
+            RepaymentCycle::Create([
+                'name' => $this->repayment_cycle_name,
+                'tag' => strtolower(str_replace(' ', '-', $this->repayment_cycle_name)) 
+            ]);
+            
+            Session::flash('success', "Repayment Cycle created successfully.");
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment-cycle']);
+            
+        } catch (\Throwable $th) {
+            Session::flash('error', "Failed. ". $th->getMessage());
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment-cycle']);
+        }
+    }
+
+
+    public function create_loan_fee(){ 
+        try {
+            ServiceCharge::Create([
+                'name' => $this->loan_charge_name,
+                'value' => $this->loan_charge_amount,
+                'tag' => strtolower(str_replace(' ', '-', $this->loan_charge_name)) 
+            ]);
+            
+            Session::flash('success', "Loan Fee created successfully.");
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-fees']);
+            
+        } catch (\Throwable $th) {
+            Session::flash('error', "Failed. ". $th->getMessage());
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-fees']);
+        }
+    }
+
+    
 }
