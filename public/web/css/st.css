@@ -5,7 +5,7 @@ strong {
 a,
 a:hover,
 a:focus {
-    color: #c170ff;
+    color: #fabe15;
     text-decoration: none;
     -o-transition: all .3s;
     -moz-transition: all .3s;
@@ -15,13 +15,13 @@ a:focus {
 }
 
 ::-moz-selection {
-    background: #c170ff;
+    background: #fabe15;
     color: #fff;
     text-shadow: none;
 }
 
 ::selection {
-    background: #c170ff;
+    background: #fabe15;
     color: #fff;
     text-shadow: none;
 }
@@ -77,25 +77,25 @@ a:focus {
 .f1-progress {
     position: absolute;
     top: 24px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #ddd;
+    /* left: 0; */
+    width: 91%;
+    height: 3px;
+    background: #ffffff;
 }
 
 .f1-progress-line {
     position: absolute;
     top: 0;
     left: 0;
-    height: 1px;
-    background: #c170ff;
+    height: 3px;
+    background: #fabe15;
 }
 
 .f1-step {
     position: relative;
     float: left;
-    width: 33.333333%;
-    padding: 0 1rem;
+    width: 33.33%;
+    padding: 0 0rem;
 }
 
 .f1-step-icon {
@@ -103,7 +103,7 @@ a:focus {
     width: 40px;
     height: 40px;
     margin-top: 4px;
-    background: #ddd;
+    background: #632691;
     font-size: 16px;
     color: #fff;
     line-height: 40px;
@@ -114,8 +114,8 @@ a:focus {
 
 .f1-step.activated .f1-step-icon {
     background: #fff;
-    border: 1px solid #c170ff;
-    color: #c170ff;
+    border: 1px solid #fabe15;
+    color: #fabe15;
     line-height: 38px;
 }
 
@@ -123,21 +123,25 @@ a:focus {
     width: 48px;
     height: 48px;
     margin-top: 0;
-    background: #c170ff;
+    background: #fabe15;
     font-size: 22px;
     line-height: 48px;
 }
 
 .f1-step p {
     color: #ccc;
+    padding-top: 3px;
 }
-
+.slider h4.text-white {
+    line-height: 15px;
+}
 .f1-step.activated p {
-    color: #c170ff;
+    color: #fabe15;
 }
 
 .f1-step.active p {
-    color: #c170ff;
+    color: #fabe15;
+    font-weight: bold;
 }
 
 .f1 fieldset {
@@ -150,5 +154,8 @@ a:focus {
 }
 
 .f1 .input-error {
-    border-color: #c170ff;
+    border-color: #fabe15;
+}
+fieldset .slider {
+   padding: 20px 0 5px 0;
 }

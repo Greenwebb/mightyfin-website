@@ -1,6 +1,6 @@
 <section>
 
-    <div style="margin-top: -4px; background: url(public/web/images/1.webp) no-repeat; background-size: auto; background-size: cover; padding-top: 80px; padding-bottom: 80px;"
+    <div style="background: url(public/web/images/1.webp) no-repeat; background-size: auto; background-size: cover; padding-top: 30px; padding-bottom: 30px;"
         class="lead-hero-wrapper">
         <div class="container">
 
@@ -329,7 +329,7 @@
                             <p class="text-white" style="margin-top:0.8; font-size: clamp(2vh, 3.2vh, 5vh);">
                                 Take control of your finances by opening a free account now. Get your loan decision within minutes!
                             </p>
-                           
+
                         <div class="wpb_text_column wpb_content_element vc_custom_1531470973815">
                             <div class="wpb_wrapper">
                                 <div class="row">

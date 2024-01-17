@@ -17,18 +17,18 @@ class LoanApplicationSeeder extends Seeder
      */
     public function run()
     {
-        
+
         $user = User::create([
             'fname' => 'Johny',
             'lname' => 'Dollice',
-            'email' => 'youremail@gmail.com',
+            'email' => 'georgemunganga@gmail.com',
             'password' => bcrypt('mighty4you'),
         ])->assignRole('user');
 
         Application::create([
             'lname' => 'Johny',
             'fname' => 'Dollice',
-            'email' => 'youremail@gmail.com',
+            'email' => 'georgemunganga@gmail.com',
             'phone' => '771235431',
             'gender' => 'male',
             'type' => 'ABX Loan',

@@ -145,6 +145,7 @@
             padding: 0 !important;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('public/web/css/form-elements.css') }}">
     <link rel="stylesheet" href="{{ asset('public/web/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('public/web/css/st.css') }}">
@@ -177,6 +178,8 @@
     <link rel='shortlink' href='http://demo.oceanthemes.net/borrow/?p=1360' />
     <link rel="alternate" type="application/json+oembed" href="http://demo.oceanthemes.net/borrow/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.oceanthemes.net%2Fborrow%2Fhome-bank%2F" />
     <link rel="alternate" type="text/xml+oembed" href="http://demo.oceanthemes.net/borrow/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.oceanthemes.net%2Fborrow%2Fhome-bank%2F&#038;format=xml" />
+
+
 
     <style type="text/css">
         /* 01 MAIN STYLES

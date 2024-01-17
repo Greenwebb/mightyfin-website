@@ -31,9 +31,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 
 /*
-+ General css 
++ General css
 + Space css
-+ Background & Block color 
++ Background & Block color
 + Buttons
 + Input Form
 + Bullet
@@ -50,7 +50,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   - Personal Loan Single
   - Home Loan Single
   - Education Loan Single
-+ ABOUT US 
++ ABOUT US
   - About us
   - Team
 + BLOG
@@ -71,8 +71,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
     - Shortcodes
       - Tab
       - Accordion
-      - Alert       
-- CONTACT US 
+      - Alert
+- CONTACT US
 */
 
 
@@ -547,7 +547,7 @@ Padding space
 /*---------------
 Section Space
 
-* Section space help to create top bottom space. 
+* Section space help to create top bottom space.
 *
 -----------------*/
 
@@ -588,7 +588,7 @@ Section Space
 
 
 /*-----------------------------------------
-Background & Block color 
+Background & Block color
 ------------------------------------------*/
 
 .bg-light {
@@ -2073,18 +2073,18 @@ index-1
 }
 
 .lead-calculator .ui-widget-header {
-    border: 1px solid #61a6f2;
-    background: #61a6f2;
+    border: 1px solid #f9ca24;
+    background: #f9ca24;
 }
 
 .lead-calculator .ui-widget-content {
-    border: 1px solid #61a6f2;
+    border: 1px solid ##f9ca24;
     background: #61a6f2;
 }
 
 .lead-cal-small-text {
     font-size: 12px;
-    color: #70adf0;
+    color: #f9ca24;
 }
 
 .pink-circle {}
@@ -3289,7 +3289,7 @@ compare Student loan table 6-2018
 
 
 /*--------------------------------
- Page header 
+ Page header
 ---------------------------------*/
 
 .page-header {
@@ -3304,7 +3304,7 @@ compare Student loan table 6-2018
 #businessfund.page-header {
 
     padding: 20px 0px 80px;
-   
+
 }
 
 .page-title {
@@ -3408,7 +3408,7 @@ compare Student loan table 6-2018
 
 
 /*--------------------------------
- Blog  
+ Blog
 ---------------------------------*/
 
 .post-holder {
@@ -3525,7 +3525,7 @@ compare Student loan table 6-2018
 
 
 /*--------------------------------
- Blog-sidebar  
+ Blog-sidebar
 ---------------------------------*/
 
 #secondary .widget {
@@ -3761,7 +3761,7 @@ compare Student loan table 6-2018
 
 
 /*--------------------------------
- Blog-single  
+ Blog-single
 ---------------------------------*/
 
 .name {
@@ -3774,7 +3774,7 @@ compare Student loan table 6-2018
 
 
 /*--------------------------------
- Pagination  
+ Pagination
 ---------------------------------*/
 
 .st-pagination {}
@@ -3914,7 +3914,7 @@ compare Student loan table 6-2018
 
 
 /*--------------------------------
- Extra Plugin CSS - Back to top  
+ Extra Plugin CSS - Back to top
 ---------------------------------*/
 
 .cd-top {
@@ -4221,7 +4221,7 @@ img {
 
 
 /*--------------------------------
-Team  
+Team
 ---------------------------------*/
 
 .team-block {}
@@ -4239,7 +4239,7 @@ Team
 
 
 /*--------------------------------
-About us 
+About us
 ---------------------------------*/
 
 .about-section {}
@@ -4261,7 +4261,7 @@ About us
 
 
 /*--------------------------------
-Contact us 
+Contact us
 ---------------------------------*/
 
 .map {
