@@ -4,11 +4,11 @@
         Terms and conditions</b></h1>
     <br>
     <h3><b>Introduction</b></h3>
-    1.1 This agreement outlines the terms and conditions (the “Terms”) between you (a “Lender” or “you”) and PremierCredit Zambia Limited (“PCZL”, the “Company”, “we” or “us”) under which you agree to lend money through the Company’s peer-to-peer lending website (the “Platform”) to third party borrowers.
+    1.1 This agreement outlines the terms and conditions (the “Terms”) between you (a “Lender” or “you”) and Mighty Finance Solution Limited (“MFSL”, the “Company”, “we” or “us”) under which you agree to lend money through the Company’s peer-to-peer lending website (the “Platform”) to third party borrowers.
     
     1.2 It is important that you read these Terms carefully. It is also important that you understand peer-to-peer lending. We strongly recommend that you seek independent financial and tax advice when considering whether to lend your money through the Platform.
     
-    1.3 PCZL does not provide any advice, nor does it make any recommendations to you. The Company solely Matches you to Borrowers on the Platform. It is your responsibility to assess whether the Platform is suitable or appropriate for your needs and any decision made to use our Services is done so entirely at your own risk. Please be aware that execution of these Terms does not imply that we have confirmed that use of the Platform and our Services are suitable or appropriate for you. We advise you to consider whether lending through the Platform meets your required risk levels and investment objectives, and you should only commit such funds that you are able to financially bear the risk of losing considering your other financial commitments. By using the Platform, you confirm that you have the necessary experience and knowledge to understand the risks involved or are able to take advice from a relevant qualified investment professional or advisor to assist you in understanding the risks involved.
+    1.3 MFSL does not provide any advice, nor does it make any recommendations to you. The Company solely Matches you to Borrowers on the Platform. It is your responsibility to assess whether the Platform is suitable or appropriate for your needs and any decision made to use our Services is done so entirely at your own risk. Please be aware that execution of these Terms does not imply that we have confirmed that use of the Platform and our Services are suitable or appropriate for you. We advise you to consider whether lending through the Platform meets your required risk levels and investment objectives, and you should only commit such funds that you are able to financially bear the risk of losing considering your other financial commitments. By using the Platform, you confirm that you have the necessary experience and knowledge to understand the risks involved or are able to take advice from a relevant qualified investment professional or advisor to assist you in understanding the risks involved.
     
     1.4 You confirm your agreement to these Terms either by registering on our online application system or by signing a physical copy of these Terms and returning them to us. You should read these Terms carefully before making an online application or signing a physical copy of them and you should retain a copy for future reference. Please refer to clause 26.2 for information regarding future amendments to the Terms.
     
@@ -52,7 +52,7 @@
     \]"?"
     “My Account” means your personalised secure area of the Platform (accessible through your log-in details) which shows the Loan Agreements to which you have been Matched, your Lending Commitments and your balance in the Holding Account.
     
-    “Platform” means the internet based peer-to-peer lending service provided by PCZL and includes all secure areas of the Website in addition to any technology made available to Lenders.
+    “Platform” means the internet based peer-to-peer lending service provided by MFSL and includes all secure areas of the Website in addition to any technology made available to Lenders.
     
     “Product” means each individual lending product made available on the Website.
     
@@ -60,7 +60,7 @@
     
     “Security” means any mortgage, charge (whether fixed or floating, legal or equitable), pledge, lien, assignment by way of security or other security interest.
     
-    “Security Trustee” means PCZL which will hold in trust all Security granted by Borrowers pursuant to Loan Agreements.
+    “Security Trustee” means MFSL which will hold in trust all Security granted by Borrowers pursuant to Loan Agreements.
     
     “Service Providers” means all third party suppliers who provide either a service or product to the Company which is used by us to provide the Services.
     
@@ -68,7 +68,7 @@
     
      “Thirty Day Product” means the Product available on the Platform called the “30 Day Product (Income)” or “30 Day Product (Capital)”.
     
-    “Website” means www.premiercredit.co.zm 
+    “Website” means www.mightyfinance.co.zm 
     <br>
     <h3><b>Interpretation</b></h3>
     3.1 In these Terms, the following rules of interpretation shall apply:
@@ -82,9 +82,9 @@
     (d) unless the context otherwise requires, a reference to one gender shall include a reference to the other genders.
     
     Legal and Regulatory Information
-    PCZL is a limited liability company registered in Zambia with its registered address atUnit 502 5th Floor Sun Share Tower Stand No. LN_15584/1 Katima Mulilo Road Lusaka, Zambia. The Company is authorized and regulated by the Patents and Companies Registration Agency (Registration Number 120190002254), the Ministry of Finance, under the Money lenders Act and it has obtained permissions for ‘peer to peer lending platform activity’ from SEC.
-    The Company is the operator of the Platform and, under the terms of this Agreement, will arrange for Lenders to be Matched into Loan Agreements and makes arrangement for payment of interest and capital received from Borrowers to be paid to you or re-Matched in accordance with the terms of the Product or Products you have selected when you made your Lending Commitment. PCZL administers the means by which the Loan Agreements are repaid, interest thereupon is collected and forwarded to Lenders and where necessary defaulting Borrowers are pursued.
-    PCZL is not authorized or regulated to provide lenders with advice on the loans they enter into, nor to provide any other designated investment service. Additionally, PCZL does not provide fiscal, financial, legal or other professional advice to Lenders.
+    MFSL is a limited liability company registered in Zambia with its registered address atUnit 502 5th Floor Sun Share Tower Stand No. LN_15584/1 Katima Mulilo Road Lusaka, Zambia. The Company is authorized and regulated by the Patents and Companies Registration Agency (Registration Number 120190002254), the Ministry of Finance, under the Money lenders Act and it has obtained permissions for ‘peer to peer lending platform activity’ from SEC.
+    The Company is the operator of the Platform and, under the terms of this Agreement, will arrange for Lenders to be Matched into Loan Agreements and makes arrangement for payment of interest and capital received from Borrowers to be paid to you or re-Matched in accordance with the terms of the Product or Products you have selected when you made your Lending Commitment. MFSL administers the means by which the Loan Agreements are repaid, interest thereupon is collected and forwarded to Lenders and where necessary defaulting Borrowers are pursued.
+    MFSL is not authorized or regulated to provide lenders with advice on the loans they enter into, nor to provide any other designated investment service. Additionally, MFSL does not provide fiscal, financial, legal or other professional advice to Lenders.
     Basis of Agreement
     5.1 These Terms and the terms of any Loan Agreement to which you are Matched constitute the terms on which you agree to lend money to third party Borrowers through the Platform.
     
@@ -198,7 +198,7 @@
     
     10.2. The Holding Account is provided to the Lender as a convenience and it is not a service in its own right.
     
-    10.3. All money deposited by Lenders in the Holding Account is held in a segregated bank account and PCZL will hold all such money together with other money that it holds for other persons in the conduct of its activities (including other Lenders such as corporate). All such money is recognized as client money. When you enter into this Agreement you are deemed to consent to this arrangement.
+    10.3. All money deposited by Lenders in the Holding Account is held in a segregated bank account and MFSL will hold all such money together with other money that it holds for other persons in the conduct of its activities (including other Lenders such as corporate). All such money is recognized as client money. When you enter into this Agreement you are deemed to consent to this arrangement.
     
     10.4. Please note that we do not accept responsibility to you for the solvency of the bank at which the Holding Account is maintained.
     
@@ -230,7 +230,7 @@
     
     14.2. These Terms may be superseded by any amended Terms in accordance with clause 26.2.
     
-    14.3. These Terms may be terminated by you provided that you have no outstanding Lending Commitments or Loan Agreements. Notice of termination must be provided in writing to the Company at its registered address and/or the following email address: investments@premiercredit.co.zm . The notice of termination shall only take effect 30 days after it shall have been provided and served on the Company.
+    14.3. These Terms may be terminated by you provided that you have no outstanding Lending Commitments or Loan Agreements. Notice of termination must be provided in writing to the Company at its registered address and/or the following email address: investments@mightyfinance.co.zm . The notice of termination shall only take effect 30 days after it shall have been provided and served on the Company.
     
     14.4. These Terms may be terminated by the Company at any time without notice.
     
@@ -259,13 +259,13 @@
     
     <br>
     <h3><b>Cookies</b></h3>
-    18.1 You confirm that you have read and understood our Cookie Policy which provides information and guidance relating to our use of Cookies, and which can be found at the following website address: www.premiercredit.co.zm https://www.wellesley.co.uk/cookie-policy
+    18.1 You confirm that you have read and understood our Cookie Policy which provides information and guidance relating to our use of Cookies, and which can be found at the following website address: www.mightyfinance.co.zm https://www.wellesley.co.uk/cookie-policy
     
     18.2. You also further acknowledge that the Company may amend this policy from time to time without notice.
     
     <br>
     <h3><b>Privacy</b></h3>
-    19.1 You confirm that you have read and understood the Company’s Privacy Policy which provides information on how we use and store the personal information that you provide to us, and which can be found at the following website address: www.premiercredit.co.zm https://www.wellesley.co.uk/privacy-policy
+    19.1 You confirm that you have read and understood the Company’s Privacy Policy which provides information on how we use and store the personal information that you provide to us, and which can be found at the following website address: www.mightyfinance.co.zm https://www.wellesley.co.uk/privacy-policy
     
     19.2. You also further acknowledge that the Company may amend and update this policy from time to time without notice.
     
@@ -286,7 +286,7 @@
     
     <br>
     <h3><b>Indemnity</b></h3>
-    22.1 You agree to indemnify and hold harmless the Company, any Lender or Borrower, any employee or director of PCZL our Service Providers, and all our other agents or sub-contractors, against all liabilities, costs, expenses, damages and losses (including any direct, indirect or consequential losses, loss of profit, loss of reputation and all interest penalties and legal and other reasonable professional costs and expenses) suffered or incurred as a result of:
+    22.1 You agree to indemnify and hold harmless the Company, any Lender or Borrower, any employee or director of MFSL our Service Providers, and all our other agents or sub-contractors, against all liabilities, costs, expenses, damages and losses (including any direct, indirect or consequential losses, loss of profit, loss of reputation and all interest penalties and legal and other reasonable professional costs and expenses) suffered or incurred as a result of:
     
     (a) your fraudulent or illegal use of the Platform, the Services or the Website;
     
@@ -366,15 +366,15 @@
     
     26.12. If the Company chooses to translate these Terms into another language at some point in the future, it does so for reference purposes only and the English version shall prevail.
     
-    26.13. The Company shall be under no obligation to provide a Lender with any information that is reported to any law enforcement agency. You agree to indemnify and hold harmless the Company against any losses or liabilities as a result of any obligation that the Company has in the delay of payments or transactions pending consent by/from any law enforcement agency. PCZL shall not be responsible to you or any third party for any loss or delay in the return of your money incurred as a result of any actions taken by any law enforcement agency.
+    26.13. The Company shall be under no obligation to provide a Lender with any information that is reported to any law enforcement agency. You agree to indemnify and hold harmless the Company against any losses or liabilities as a result of any obligation that the Company has in the delay of payments or transactions pending consent by/from any law enforcement agency. MFSL shall not be responsible to you or any third party for any loss or delay in the return of your money incurred as a result of any actions taken by any law enforcement agency.
     
-    26.14. PCZL shall not be responsible to you or any third party for any loss incurred as a result of any and legal requests/compliance obligations relating to the detection, investigation and prevention of financial crime. This may include:
+    26.14. MFSL shall not be responsible to you or any third party for any loss incurred as a result of any and legal requests/compliance obligations relating to the detection, investigation and prevention of financial crime. This may include:
     
     (a) screening, intercepting and investigating any communication, application for services or any payment, whether sent to or by you or on your behalf;
     
     (b) investigating the source of or intended recipient of money;
     
-    (c) combining customer information with other related information in the possession of PCZL; or
+    (c) combining customer information with other related information in the possession of MFSL; or
     
     (d) making further enquiries as to the status of a relevant person or entity, whether they are subject to a sanctions regime, or confirming their identity or status.
     
@@ -384,7 +384,7 @@
     <h3><b>Complaints</b></h3>
     27.1 In the event that you have a complaint, the Company will make every effort to rectify the problem as soon as practicably possible.
     
-    27.2. Please write to us making clear the details surrounding your complaint. You can send your complaint by e-mail to customercare@premiercredit.co.zm mailto:complaints@wellesley.co.uk or by post to Customer Support, PCZL at P.O. Box 31159, Lusaka
+    27.2. Please write to us making clear the details surrounding your complaint. You can send your complaint by e-mail to customercare@mightyfinance.co.zm mailto:complaints@wellesley.co.uk or by post to Customer Support, MFSL at P.O. Box 31159, Lusaka
     
     27.3. We will endeavor to respond to you to acknowledge your complaint within 2 Business Days of receiving it. We will endeavor to provide a response to your complaint within 5 Business Days of receiving it.
     
