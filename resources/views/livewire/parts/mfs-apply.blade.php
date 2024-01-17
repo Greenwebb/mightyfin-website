@@ -387,7 +387,7 @@
                                         <label class="custom-radio">
                                             <input type="radio" onclick="checker()" id="grz"
                                                 name="loan_type"
-                                                value="grz_loan"aria-checked="@checked(true)"
+                                                value="grz_loanf" aria-checked="@checked(true)"
                                                 checked>
                                             <div class="radio-btn">
                                                 <div class="content">
