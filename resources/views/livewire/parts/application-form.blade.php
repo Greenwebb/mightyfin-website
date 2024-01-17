@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="apply-form-box__content">
                                     <div id="apply-form" name="apply_form" class="default-form2" action="https://st.ourhtmldemo.com/new/finbank-demo/index.php" method="post">
-                                        
+
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group">
@@ -112,7 +112,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group">
@@ -158,7 +158,7 @@
                                         <div class="modal-guts2">
                                             <div class="flex row">
                                                 <div class="col-lg-12">
-                                                    
+
                                                     <h1 style="color:#7b1919">
                                                         <img width="40" src="https://cdn-icons-png.flaticon.com/512/4202/4202134.png">
                                                         Account Aready Exists
@@ -166,7 +166,7 @@
                                                 </div>
                                                 <div class="col-lg-12" style="padding-top:3px">
                                                     <p>
-                                                        An account with this email <span style="color:#7b1919" id="emailValidCheck"></span> already exists please sign in to check your account. 
+                                                        An account with this email <span style="color:#7b1919" id="emailValidCheck"></span> already exists please sign in to check your account.
                                                     </p>
                                                 </div>
                                             </div>
@@ -457,7 +457,7 @@
                                     </div>
                                 </div>
                             </section>
-                          
+
                             {{-- @endif --}}
                             <h3>Step 3 Title</h3>
                             <section>
@@ -516,7 +516,7 @@
                                 </div>
                                 <div wire:loading wire:target="submit">
                                     Loading...
-                                 </div> 
+                                 </div>
                             </section>
                         </form>
 
@@ -533,7 +533,7 @@
         </div>
     </div>
     <style>
-    
+
         .modal2 {
           display: block;
           width: 600px;
@@ -553,7 +553,7 @@
         .closed2 {
           display: none;
         }
-        
+
         .modal-overlay2 {
           position: fixed;
           top: 0;
@@ -574,22 +574,22 @@
         }
         .modal2 .close-button2 {
           position: absolute;
-          
+
           /* don't need to go crazy with z-index here, just sits over .modal-guts */
           z-index: 1;
-          
+
           top: 10px;
-          
+
           /* needs to look OK with or without scrollbar */
           right: 20px;
-          
+
           border: 0;
           background: black;
           color: white;
           padding: 5px 10px;
           font-size: 1.3rem;
         }
-        
+
         .open-button2 {
           border: 0;
           position: absolute;
@@ -613,7 +613,7 @@
                 display: flex;
                 position: fixed;
             }
-        
+
             .apply-form-box__content {
                 position: relative;
                 display: block;
@@ -623,7 +623,7 @@
                 background-color: #f7f1eb;
                 padding: 50px;
             }
-        
+
             #closere {
                 position: absolute;
                 top: 9px;
@@ -639,7 +639,7 @@
                 z-index: 99999999;
                 color: #7b1919;
             }
-            
+
         </style>
         <script>
         $(document).ready(function(){
@@ -653,14 +653,14 @@
             var step2P = $('#step2P');
             var guarant = $('#guarant');
             var nok = $('#nok');
-            
+
             step2B.show();
             step2P.hide();
             guarant.show();
             nok.hide();
 
             $('#typeLoan').change(function() {
-                
+
                 // get the selected value
                 var selectedValue = $(this).val();
                 // do something with the selected value, e.g. log it to the console
@@ -675,10 +675,10 @@
             //     var myemail = $("#loanEmail").val();
             //     var emailValidCheck = $('#emailValidCheck');
             //     emailValidCheck.text(myemail);
-            //     $.ajax({    
+            //     $.ajax({
             //         type:'GET',
             //         url:'{{ route("get-application") }}',
-            //         data: { 
+            //         data: {
             //             email:myemail
             //         },
             //         success:function(data) {
@@ -688,16 +688,16 @@
             //                 $("#modal-overlay2").css("display", "block");
             //                 $("#modal2").css("display", "block");
             //             }
-            //         } 
+            //         }
             //     });
             // });
-        
+
             $("#updateExistingLoan").click(function() {
                 var myemail = $("#loanEmail").val();
-                $.ajax({    
+                $.ajax({
                     type:'GET',
                     url:'{{ route("update-existing-application") }}',
-                    data: { 
+                    data: {
                         email:myemail
                     },
                     success:function(data) {
@@ -707,10 +707,10 @@
                             $("#modal-overlay2").css("display", "none");
                             $("#modal2").css("display", "none");
                         }
-                    } 
+                    }
                 });
             });
-        
+
         });
         </script>
 </div>
