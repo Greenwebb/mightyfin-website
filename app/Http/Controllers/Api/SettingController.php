@@ -22,8 +22,14 @@ class SettingController extends Controller
         }
     }
 
+    public function __get_loan_products(){
+        $data = $this->get_all_loan_products();
+        return response()->json($data);
+    }
+
     public function __get_loan_details($id){
-        return $this->get_loan_product($id);
+        $data = $this->get_loan_product($id);
+        return response()->json($data);
     }
 
 
