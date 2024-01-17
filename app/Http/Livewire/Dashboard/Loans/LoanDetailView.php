@@ -33,12 +33,8 @@ class LoanDetailView extends Component
         // dd($this->loan->user->uploads[0]->path);
 
         if (auth()->user()->hasRole('user')) {
-<<<<<<< HEAD
-            return view('livewire.dashboard.loans.loan-detail-view')
-=======
             // return view('livewire.dashboard.loans.loan-app-hrdetail-view')
             return view('livewire.dashboard.loans.loan-detail-app-view')
->>>>>>> 78738c3278e310c1058878507e5ac1fc0e92f0b6
             ->layout('layouts.dashboard');
         }else{
             return view('livewire.dashboard.loans.loan-detail-view')
