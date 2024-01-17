@@ -12,6 +12,7 @@ class LoanProduct extends Model
     protected $fillable = [
         'name',
         'description',
+        'icon',
         'release_date',
         'auto_payment',
         'loan_duration_period',
