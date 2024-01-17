@@ -3,6 +3,18 @@
         @case('loan-product')
             @include('livewire.dashboard.site-settings.__cruds.update-loan-product')
         @break
+        @case('loan-disbursements')
+            @include('livewire.dashboard.site-settings.__cruds.update-disbursements')
+        @break
+        @case('loan-repayment-cycle')
+            @include('livewire.dashboard.site-settings.__cruds.update-repayment-cycle')
+        @break
+        @case('loan-penalty-settings')
+            @include('livewire.dashboard.site-settings.__cruds.update-penalty-settings')
+        @break
+        @case('loan-fees')
+            @include('livewire.dashboard.site-settings.__cruds.update-loan-fees')
+        @break
 
         @default
 

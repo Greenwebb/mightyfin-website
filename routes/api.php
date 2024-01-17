@@ -43,6 +43,7 @@ Route::get('get-loan-monthly-installment-amount/{duration}/{principal}', [LoanRe
 Route::get('get-total-payback-amount/{duration}/{principal}', [LoanRequestController::class, 'totalCollectable']);
 
 
+Route::get('/get-loan-products', [SettingController::class, '__get_loan_products']);
 Route::get('/get-loan-product-details/{loan_id}', [SettingController::class, '__get_loan_details']);
 
 // Deprected

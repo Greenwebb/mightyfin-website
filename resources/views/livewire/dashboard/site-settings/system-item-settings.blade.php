@@ -49,6 +49,18 @@
                     @case('loan-fees')
                         @include('livewire.dashboard.site-settings.__parts.loan-fees')
                     @break
+
+                    @case('loan-remainder-settings')
+                        @include('livewire.dashboard.site-settings.__parts.loan-remainder-settings')
+                    @break
+
+                    @case('loan-adjustments')
+                        @include('livewire.dashboard.site-settings.__parts.loan-adjustments')
+                    @break
+
+                    @case('send-borrower-otp')
+                        @include('livewire.dashboard.site-settings.__parts.send-borrower-otp')
+                    @break
                     
                     @default
 

@@ -17,11 +17,13 @@ return new class extends Migration
             $table->bigIncrements('id');
 
             $table->string('name')->nullable();
-            $table->string('description')->nullable();
+            $table->text('icon')->nullable();
+            $table->text('description')->nullable();
             $table->string('release_date')->default(1);
             $table->integer('auto_payment')->default(1);
             $table->string('loan_duration_period')->nullable();
-
+            $table->string('loan_interest_period')->nullable();
+            
             $table->string('min_loan_duration')->nullable();
             $table->string('def_loan_duration')->nullable();
             $table->string('max_loan_duration')->nullable();
