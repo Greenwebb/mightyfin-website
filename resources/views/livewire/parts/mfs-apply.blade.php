@@ -382,30 +382,8 @@
                     <div style="margin-bottom: -50px;" id="pricipal-slide">
                         <div class="wrapper">
                             <div class="radio-buttons">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label class="custom-radio">
-                                            <input type="radio" onclick="checker()" id="grz"
-                                                name="loan_type"
-                                                value="grz_loanf" aria-checked="@checked(true)"
-                                                checked>
-                                            <div class="radio-btn">
-                                                <div class="content">
+                                <div id="loan_products" class="row">
 
-                                                    <div class="mb-2">
-                                                        <img width="50px"
-                                                            src="{{ asset('public/web/images/2.svg') }}" />
-                                                    </div>
-                                                    <h2>GRZ</h2>
-                                                    <p class="skill">Civil Servant loan</p>
-
-                                                    <span class="check-icon">
-                                                        <span class="icon"></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
                                     <div class="col-6">
                                         <label class="custom-radio" style="opacity: 0.5;">
                                             <input disabled type="radio" name="loan_type" />
