@@ -35,7 +35,7 @@ class CreateSetting extends Component
     public $new_loan_name, $loan_release_date, $minimum_loan_principal_amount, $default_loan_principal_amount, $maximum_principal_amount, $loan_interest_method, $loan_interest_type;
     public $loan_interest_period, $minimum_loan_interest, $default_loan_interest, $maximum_loan_interest, $loan_duration_period, $minimum_loan_duration;
     public $default_loan_duration, $maximum_loan_duration, $default_num_of_repayments, $maximum_num_of_repayments, $minimum_num_of_repayments; 
-    public $loan_decimal_place, $add_automatic_payments, $new_loan_desc, $new_loan_icon;
+    public $loan_decimal_place, $add_automatic_payments, $new_loan_desc, $new_loan_icon, $new_loan_icon_alt;
     public $auto_payment_sources = [];
     public $loan_disbursed_by = []; 
     public $loan_repayment_cycle = [];
@@ -71,6 +71,7 @@ class CreateSetting extends Component
                 'name' => $this->new_loan_name,
                 'description'=> $this->new_loan_desc,
                 'icon'=> $this->new_loan_icon,
+                'icon_alt' => $this->new_loan_icon_alt,
                 'release_date' => $this->loan_release_date,
                 'auto_payment' => $this->add_automatic_payments,
                 'loan_duration_period'=>$this->loan_duration_period,

@@ -68,6 +68,16 @@
                                 </div>
                                 <!--end::Col-->
                             </div>
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label required fw-bold fs-6">Loan Icon Alternative (SVG)</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8 fv-row">
+                                    <textarea type="text" wire:model.lazy="new_loan_icon_alt" class="form-control form-control-lg form-control-solid" placeholder="SVG code" required></textarea>
+                                </div>
+                                <!--end::Col-->
+                            </div>
                         </div>
                     </div>
                 </div>
