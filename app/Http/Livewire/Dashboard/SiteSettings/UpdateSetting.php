@@ -158,7 +158,7 @@ class UpdateSetting extends Component
             foreach ($this->loan_repayment_cycle as $key => $value) {
                 LoanRepaymentCycle::where('loan_product_id', $this->loan_product->id)
                     ->update([             
-                        'repay_cycle_id' => $value,
+                        'repayment_cycle_id' => $value,
                         'loan_product_id' => $this->loan_product->id
                     ]);
             }
@@ -277,6 +277,7 @@ class UpdateSetting extends Component
         $this->new_loan_icon = $this->loan_product->icon;
         $this->new_loan_icon_alt = $this->loan_product->icon_alt;
         $this->add_automatic_payments = $this->loan_product->auto_payment;
+        
         //Dropdowns 
         $this->loan_interest_method = $this->loan_product->interest_methods->first()->id;
         $this->loan_interest_type = $this->loan_product->interest_types->first()->id;

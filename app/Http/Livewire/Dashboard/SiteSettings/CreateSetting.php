@@ -118,7 +118,7 @@ class CreateSetting extends Component
             // Repayment Cycles ****Loop
             foreach ($this->loan_repayment_cycle as $key => $value) {
                 LoanRepaymentCycle::Create([
-                    'repay_cycle_id' => $value,
+                    'repayment_cycle_id' => $value,
                     'loan_product_id' => $loan_product->id
                 ]);
             }
