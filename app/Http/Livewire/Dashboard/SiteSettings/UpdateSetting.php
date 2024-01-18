@@ -37,7 +37,7 @@ class UpdateSetting extends Component
     public $default_loan_principal_amount, $maximum_principal_amount, $loan_interest_method;
     public $loan_interest_period, $minimum_loan_interest, $default_loan_interest;
     public $maximum_loan_interest, $loan_duration_period, $minimum_loan_duration;
-    public $loan_decimal_place, $add_automatic_payments, $loan_product; 
+    public $loan_decimal_place, $add_automatic_payments, $loan_product, $new_loan_desc, $new_loan_icon,$new_loan_icon_alt;
 
     public $default_loan_duration, $maximum_loan_duration, $default_num_of_repayments; 
     public $maximum_num_of_repayments, $minimum_num_of_repayments; 
@@ -111,6 +111,8 @@ class UpdateSetting extends Component
             LoanProduct::where('id', $this->loan_product->id)->update([
                 'name' => $this->new_loan_name,
                 'release_date' => $this->loan_release_date,
+                'icon'=> $this->new_loan_icon,
+                'icon_alt' => $this->new_loan_icon_alt,
                 'auto_payment' => $this->add_automatic_payments,
                 'loan_duration_period' => $this->loan_duration_period,
                 'loan_interest_period' => $this->loan_interest_period,
@@ -156,7 +158,7 @@ class UpdateSetting extends Component
             foreach ($this->loan_repayment_cycle as $key => $value) {
                 LoanRepaymentCycle::where('loan_product_id', $this->loan_product->id)
                     ->update([             
-                        'repay_cycle_id' => $value,
+                        'repayment_cycle_id' => $value,
                         'loan_product_id' => $this->loan_product->id
                     ]);
             }
@@ -218,15 +220,15 @@ class UpdateSetting extends Component
     }
     public function update_repayment_cycle(){
         try{
-            LoanRepaymentCycle::where('id', $this->repayment_cycle_method->id)->update([
+            RepaymentCycle::where('id', $this->repayment_cycle_method->id)->update([
                 'name' => $this->repayment_cycle_name,
             ]);            
             Session::flash('success', "Loan Repayment Cycle updated successfully.");
-            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-disbursements']);
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment-cycle']);
             
         } catch (\Throwable $th) {
             Session::flash('error', "Failed. ". $th->getMessage());
-            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-disbursements']);
+            return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-repayment-cycle']);
         
         }
     }
@@ -268,8 +270,14 @@ class UpdateSetting extends Component
 
     // ---- Setters
     public function set_loan_product_values(){
+        // Loan Product
         $this->new_loan_name = $this->loan_product->name; 
         $this->loan_release_date = $this->loan_product->release_date; 
+        $this->new_loan_desc = $this->loan_product->description;
+        $this->new_loan_icon = $this->loan_product->icon;
+        $this->new_loan_icon_alt = $this->loan_product->icon_alt;
+        $this->add_automatic_payments = $this->loan_product->auto_payment;
+        
         //Dropdowns 
         $this->loan_interest_method = $this->loan_product->interest_methods->first()->id;
         $this->loan_interest_type = $this->loan_product->interest_types->first()->id;
@@ -279,8 +287,7 @@ class UpdateSetting extends Component
         $this->loan_repayment_cycle = $this->loan_product->repayment_cycle->pluck('id')->all();
         $this->auto_payment_sources = $this->loan_product->loan_accounts->pluck('id')->all();
 
-
-
+        // Durations
         $this->loan_duration_period = $this->loan_product->loan_duration_period; 
         $this->loan_interest_period = $this->loan_product->loan_interest_period;
 

@@ -13,6 +13,7 @@ class LoanProduct extends Model
         'name',
         'description',
         'icon',
+        'icon_alt',
         'release_date',
         'auto_payment',
         'loan_duration_period',
