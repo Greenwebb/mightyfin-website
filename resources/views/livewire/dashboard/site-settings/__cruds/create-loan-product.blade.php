@@ -594,7 +594,7 @@
                     </div>
                     <div class="alert alert-primary mt-2">
                         <small>
-                            If loan Due amount and/or Schedule amounts are in decimals for example K100.3333, the system will convert it based on the below option.
+                            The number of steps to display on the website loan application wizard.
                         </small>
                     </div>
                     <!--end::Card title-->
