@@ -382,48 +382,21 @@
                     <div style="margin-bottom: -50px;" id="pricipal-slide">
                         <div class="wrapper">
                             <div class="radio-buttons">
-                                <div class="row">
-                                    <div class="col-6">
+                                <div id="loan_products" class="row">
+
+                                    <div class="col-12">
                                         <label class="custom-radio">
-                                            <input type="radio" onclick="checker()" id="grz"
-                                                name="loan_type"
-                                                value="grz_loanf" aria-checked="@checked(true)"
-                                                checked>
-                                            <div class="radio-btn">
-                                                <div class="content">
-
-                                                    <div class="mb-2">
-                                                        <img width="50px"
-                                                            src="{{ asset('public/web/images/2.svg') }}" />
-                                                    </div>
-                                                    <h2>GRZ</h2>
-                                                    <p class="skill">Civil Servant loan</p>
-
-                                                    <span class="check-icon">
-                                                        <span class="icon"></span>
-                                                    </span>
-                                                </div>
+                                          <div class="radio-btn">
+                                            <div class="content">
+                                              <div class="mb-2">
+                                              <img width="50px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='50' height='50' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10' /%3E%3Cline x1='15' y1='9' x2='9' y2='15' /%3E%3Cline x1='15' y1='15' x2='9' y2='9' /%3E%3C/svg%3E" />
+                                              </div>
+                                              <h2>No Loans Available Yet</h2>
+                                              <p class="skill">Not ready!</p>
                                             </div>
+                                          </div>
                                         </label>
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="custom-radio" style="opacity: 0.5;">
-                                            <input disabled type="radio" name="loan_type" />
-                                            <div class="radio-btn">
-                                                <div class="content">
-                                                    <div class="mb-2">
-                                                        <img width="50px"
-                                                            src="{{ asset('public/web/images/1.svg') }}" />
-                                                    </div>
-                                                    <h2>Business Loan</h2>
-                                                    <p class="skill">SME (coming soon)</p>
-                                                    <span class="check-icon">
-                                                        <span class="icon"></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
+                                      </div>
                                 </div>
 
 
