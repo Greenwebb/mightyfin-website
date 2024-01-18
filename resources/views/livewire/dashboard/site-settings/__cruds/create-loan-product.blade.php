@@ -594,7 +594,7 @@
                     </div>
                     <div class="alert alert-primary mt-2">
                         <small>
-                            The number of steps to display on the website loan application wizard.
+                            The website loan application wizard is designed to present a specific count of steps, indicating the progression and stages involved in the application process for a loan. Select the number of steps to display on the website loan application wizard.
                         </small>
                     </div>
                     <!--end::Card title-->

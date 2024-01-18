@@ -612,9 +612,10 @@
                     <div class="card-title m-0">
                         <h3 class="fw-bold text-info m-0">Application Wizard Steps:</h3>
                     </div>
-                    <div class="alert alert-primary mt-2">
+                    <br>
+                    <div class="alert alert-primary mt-2 w-full">
                         <small>
-                            The number of steps to display on the website loan application wizard.
+                            The website loan application wizard is designed to present a specific count of steps, indicating the progression and stages involved in the application process for a loan. Select the number of steps to display on the website loan application wizard.
                         </small>
                     </div>
                     <!--end::Card title-->
