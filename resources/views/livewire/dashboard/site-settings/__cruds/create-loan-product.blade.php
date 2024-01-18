@@ -170,7 +170,7 @@
                                 <!--begin::Label-->
                                 <label class="col-lg-4 col-form-label fw-bold fs-6">
                                     <span class="required">Default Principal Amount</span>
-                                    <span class="ms-1" data-bs-toggle="tooltip" title="Defualt amount the can be borrowed">
+                                    <span class="ms-1" data-bs-toggle="tooltip" title="Default amount the can be borrowed">
                                         <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
@@ -319,7 +319,7 @@
                             </div>
                             <div class="row mb-6">
                                 <!--begin::Label-->
-                                <label class="col-lg-4 col-form-label fw-bold fs-6">Defualt Loan Interest</label>
+                                <label class="col-lg-4 col-form-label fw-bold fs-6">Default Loan Interest</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
@@ -401,7 +401,7 @@
                             </div>
                             <div class="row mb-6">
                                 <!--begin::Label-->
-                                <label class="col-lg-4 col-form-label fw-bold fs-6">Defualt Loan Duration</label>
+                                <label class="col-lg-4 col-form-label fw-bold fs-6">Default Loan Duration</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
@@ -417,6 +417,8 @@
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                         <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -439,6 +441,8 @@
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                         <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -504,7 +508,7 @@
                                 <!--begin::Label-->
                                 <label class="col-lg-4 col-form-label fw-bold fs-6">
                                     <span class="required">Default Number of Repayments</span>
-                                    <span class="ms-1" data-bs-toggle="tooltip" title="Defualt amount the can be borrowed">
+                                    <span class="ms-1" data-bs-toggle="tooltip" title="Default amount the can be borrowed">
                                         <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
