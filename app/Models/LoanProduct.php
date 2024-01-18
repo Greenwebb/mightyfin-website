@@ -14,6 +14,7 @@ class LoanProduct extends Model
         'description',
         'icon',
         'icon_alt',
+        'wiz_steps',
         'release_date',
         'auto_payment',
         'loan_duration_period',

@@ -168,7 +168,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <input type="text" wire:model.lazy="minimum_loan_principal_amount" class="form-control form-control-lg form-control-solid" placeholder="0.00" />
+                                    <input type="text" wire:model.lazy="minimum_loan_principal_amount" id="minimum_loan_principal_amount" class="form-control form-control-lg form-control-solid" placeholder="0.00" />
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -588,7 +588,6 @@
                                         <option value="off-to-nearest-5">Round Off to Nearest 5</option>
                                         <option value="up-to-nearest-10">Round Up to Nearest 10</option>
                                         <option value="off-to-nearest-100">Round Off to Nearest 100</option>
-                                        
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -601,6 +600,45 @@
             </div>
 
             <div class="card mb-5 mb-xl-10">
+                <!--begin::Card header-->
+                <div class="card-header border-0 cursor-pointer py-3" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+                    <!--begin::Card title-->
+                    <div class="card-title m-0">
+                        <h3 class="fw-bold text-info m-0">Application Wizard Steps:</h3>
+                    </div>
+                    <div class="alert alert-primary mt-2">
+                        <small>
+                            If loan Due amount and/or Schedule amounts are in decimals for example K100.3333, the system will convert it based on the below option.
+                        </small>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Content-->
+                <div id="kt_account_settings_profile_details" class="collapse show">
+                    <!--begin::Form-->
+                    <div id="kt_account_profile_details_form" class="form">
+                        <!--begin::Card body-->
+                        <div class="card-body border-top p-9">
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label fw-bold fs-6">Number of Steps</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8 fv-row">
+                                
+                                    <select wire:model.defer="num_of_steps" class="form-select form-control form-control-lg form-control-solid" id="loan_product_wiz_steps">
+                                    </select>
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <!--end::Content-->
+            </div>
+            {{-- <div class="card mb-5 mb-xl-10">
                 <!--begin::Card header-->
                 <div class="card-header border-0 cursor-pointer py-3" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
                     <!--begin::Card title-->
@@ -636,7 +674,7 @@
                     <!--end::Form-->
                 </div>
                 <!--end::Content-->
-            </div>
+            </div> --}}
 
             <div class="card mb-5 mb-xl-10">
                 <!--begin::Card header-->
@@ -742,3 +780,45 @@
     </div>
     <!--end::Post-->
 </div>
+<script>
+    // Get the input and select elements
+    const minAmountInput = document.getElementById('minimum_loan_principal_amount');
+    const selectElement = document.getElementById('loan_product_wiz_steps');
+
+    // Event listener to update select options when input changes
+    minAmountInput.addEventListener('input', updateSelectOptions);
+
+    // Initial update based on the current value
+    updateSelectOptions();
+
+    function updateSelectOptions() {
+        // Get the minimum loan principal amount from the input
+        const minAmount = parseFloat(minAmountInput.value);
+
+        // Clear existing options
+        selectElement.innerHTML = '';
+        // Add options based on the minimum loan principal amount
+        if (minAmount >= 1500) {
+            addOption(10);
+            addOption(50);
+            addOption(100);
+            addOption(500);
+        } else {
+            addOption(10);
+            addOption(50);
+            addOption(100);
+            addOption(500);
+            addOption(1000);
+        }
+
+        // Trigger the Livewire update if needed
+        selectElement.dispatchEvent(new Event('change'));
+    }
+
+    function addOption(value) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.text = value;
+        selectElement.add(option);
+    }
+</script>
