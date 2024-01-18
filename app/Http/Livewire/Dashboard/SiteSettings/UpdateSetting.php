@@ -276,7 +276,7 @@ class UpdateSetting extends Component
         $this->new_loan_desc = $this->loan_product->description;
         $this->new_loan_icon = $this->loan_product->icon;
         $this->new_loan_icon_alt = $this->loan_product->icon_alt;
-
+        $this->add_automatic_payments = $this->loan_product->auto_payment;
         //Dropdowns 
         $this->loan_interest_method = $this->loan_product->interest_methods->first()->id;
         $this->loan_interest_type = $this->loan_product->interest_types->first()->id;
