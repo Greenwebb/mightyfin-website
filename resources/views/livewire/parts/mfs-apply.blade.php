@@ -386,7 +386,7 @@
 
                                     <div class="col-6">
                                         <label class="custom-radio" style="opacity: 0.5;">
-                                            <input disabled type="radio" name="loan_type" />
+                                            <input disabled type="radio" name="loan_type" checker() />
                                             <div class="radio-btn">
                                                 <div class="content">
                                                     <div class="mb-2">
@@ -558,29 +558,7 @@
 
                     </div>
 
-                    <div class="slider">
-                        <div _ngcontent-c3="" class="col-xs-8 col-xs-offset-2">
-                            <h4 class="text-white">Are you Zambian</h4>
-                            <div style="width: 50%;float: left;">
-                                <label style="width: 60vw;min-width: 360px;" class="radio-inline">
-                                    <input value="zambian" type="radio" onclick="national()" id="zed"
-                                        name="nationality"><span class="design"></span>
-                                    <span class="text">Yes</span>
-                                </label>
-                            </div>
-                            <div style="width: 50%;float: right;"><label style="width: 60vw;min-width: 360px;"
-                                    class="radio-inline">
-                                    <input value="not_zambian" type="radio" onclick="national()" id="not_zed"
-                                        name="nationality"><span class="design"></span>
-                                    <span class="text">No</span>
-                                </label>
-                            </div>
-                            </radio>
-
-                        </div>
-
-
-                    </div>
+                 
 
                 </div>
                 <div id="totalyear-slide"></div>
