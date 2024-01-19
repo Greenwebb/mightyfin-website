@@ -9,7 +9,7 @@
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bold fs-3 mb-1">Loan Products</span>
-            <span class="text-muted mt-1 fw-semibold fs-7">Over loan products</span>
+            <span class="text-muted mt-1 fw-semibold fs-7">Over {{ $loan_products->count() }} loan products</span>
         </h3>
         <div class="card-toolbar">
             <a href="{{ route('system-create', ['page' => 'loan-product']) }}" class="btn btn-sm btn-light-primary">

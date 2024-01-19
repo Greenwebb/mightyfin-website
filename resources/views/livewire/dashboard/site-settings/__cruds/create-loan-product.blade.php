@@ -154,7 +154,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <input type="text" wire:model.lazy="minimum_loan_principal_amount" class="form-control form-control-lg form-control-solid" placeholder="0.00" />
+                                    <input type="text" wire:model.lazy="minimum_loan_principal_amount" id="minimum_loan_principal_amount" class="form-control form-control-lg form-control-solid" placeholder="0.00" />
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -290,7 +290,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <select type="text" wire:model.lazy="loan_interest_period" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="Keenthemes">
+                                    <select type="text" wire:model.lazy="loan_interest_period" class="form-select form-control form-control-lg form-control-solid" placeholder="Company name" value="Keenthemes">
                                         <option value=""></option>
                                         <option value="per-day">Per Day</option>
                                         <option value="per-week">Per Week</option>
@@ -361,7 +361,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <select type="text" wire:model.lazy="loan_duration_period" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="Keenthemes">
+                                    <select type="text" wire:model.lazy="loan_duration_period" class="form-select form-control form-control-lg form-control-solid" placeholder="Company name" value="Keenthemes">
                                         <option value=""></option>
                                         <option value="day">Days</option>
                                         <option value="week">Weeks</option>
@@ -377,7 +377,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <select type="text" wire:model.lazy="minimum_loan_duration" class="form-control form-control-lg form-control-solid">
+                                    <select type="text" wire:model.lazy="minimum_loan_duration" class="form-select form-control form-control-lg form-control-solid">
                                         <option value=""></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -399,7 +399,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <select type="text" wire:model.lazy="default_loan_duration" class="form-control form-control-lg form-control-solid" placeholder="0.00">
+                                    <select type="text" wire:model.lazy="default_loan_duration" class="form-select form-control form-control-lg form-control-solid" placeholder="0.00">
                                         <option value=""></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -423,7 +423,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <select type="text" wire:model.lazy="maximum_loan_duration" class="form-control form-control-lg form-control-solid" placeholder="0.00">
+                                    <select type="text" wire:model.lazy="maximum_loan_duration" class="form-select form-control form-control-lg form-control-solid" placeholder="0.00">
                                         <option value=""></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -564,7 +564,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <select type="text" wire:model.lazy="loan_decimal_place" class="form-control form-control-lg form-control-solid">
+                                    <select type="text" wire:model.lazy="loan_decimal_place" class="form-select form-control form-control-lg form-control-solid">
                                         <option value=""></option>
                                         <option value="off-to-2">Round Off to 2 Decimal Places</option>
                                         <option value="off-to-int">Round Off to Integer</option>
@@ -585,8 +585,46 @@
                 </div>
                 <!--end::Content-->
             </div>
-
             <div class="card mb-5 mb-xl-10">
+                <!--begin::Card header-->
+                <div class="card-header border-0 cursor-pointer py-3" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+                    <!--begin::Card title-->
+                    <div class="card-title m-0">
+                        <h3 class="fw-bold text-info m-0">Application Wizard Steps:</h3>
+                    </div>
+                    <div class="alert alert-primary mt-2">
+                        <small>
+                            The website loan application wizard is designed to present a specific count of steps, indicating the progression and stages involved in the application process for a loan. Select the number of steps to display on the website loan application wizard.
+                        </small>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Content-->
+                <div id="kt_account_settings_profile_details" class="collapse show">
+                    <!--begin::Form-->
+                    <div id="kt_account_profile_details_form" class="form">
+                        <!--begin::Card body-->
+                        <div class="card-body border-top p-9">
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label fw-bold fs-6">Number of Steps</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8 fv-row">
+                                
+                                    <select wire:model.defer="num_of_steps" class="form-select form-control form-control-lg form-control-solid" id="loan_product_wiz_steps">
+                                    </select>
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <!--end::Content-->
+            </div>
+            {{-- <div class="card mb-5 mb-xl-10">
                 <!--begin::Card header-->
                 <div class="card-header border-0 cursor-pointer py-3" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
                     <!--begin::Card title-->
@@ -622,7 +660,7 @@
                     <!--end::Form-->
                 </div>
                 <!--end::Content-->
-            </div>
+            </div> --}}
 
             <div class="card mb-5 mb-xl-10">
                 <!--begin::Card header-->
@@ -769,3 +807,45 @@
     </div>
     <!--end::Post-->
 </div>
+<script>
+    // Get the input and select elements
+    const minAmountInput = document.getElementById('minimum_loan_principal_amount');
+    const selectElement = document.getElementById('loan_product_wiz_steps');
+
+    // Event listener to update select options when input changes
+    minAmountInput.addEventListener('input', updateSelectOptions);
+
+    // Initial update based on the current value
+    updateSelectOptions();
+
+    function updateSelectOptions() {
+        // Get the minimum loan principal amount from the input
+        const minAmount = parseFloat(minAmountInput.value);
+
+        // Clear existing options
+        selectElement.innerHTML = '';
+        // Add options based on the minimum loan principal amount
+        if (minAmount >= 1500) {
+            addOption(10);
+            addOption(50);
+            addOption(100);
+            addOption(500);
+        } else {
+            addOption(10);
+            addOption(50);
+            addOption(100);
+            addOption(500);
+            addOption(1000);
+        }
+
+        // Trigger the Livewire update if needed
+        selectElement.dispatchEvent(new Event('change'));
+    }
+
+    function addOption(value) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.text = value;
+        selectElement.add(option);
+    }
+</script>

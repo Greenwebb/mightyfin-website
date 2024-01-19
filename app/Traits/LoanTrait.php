@@ -34,7 +34,8 @@ trait LoanTrait{
             'disbursed_by.disbursed_by',
             'interest_methods.interest_method', 
             'interest_types.interest_type',
-            'loan_accounts.account_payment'
+            'loan_accounts.account_payment',
+            'loan_decimal_places'
             ])->first();
     }
 

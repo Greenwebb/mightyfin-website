@@ -34,7 +34,7 @@ class UpdateSetting extends Component
 
     // Loan Product Update Data
     public $new_loan_name, $loan_release_date, $minimum_loan_principal_amount, $loan_interest_type;
-    public $default_loan_principal_amount, $maximum_principal_amount, $loan_interest_method;
+    public $default_loan_principal_amount, $maximum_principal_amount, $loan_interest_method, $num_of_steps;
     public $loan_interest_period, $minimum_loan_interest, $default_loan_interest;
     public $maximum_loan_interest, $loan_duration_period, $minimum_loan_duration;
     public $loan_decimal_place, $add_automatic_payments, $loan_product, $new_loan_desc, $new_loan_icon,$new_loan_icon_alt;
@@ -113,6 +113,7 @@ class UpdateSetting extends Component
                 'release_date' => $this->loan_release_date,
                 'icon'=> $this->new_loan_icon,
                 'icon_alt' => $this->new_loan_icon_alt,
+                'wiz_steps' => $this->num_of_steps,
                 'auto_payment' => $this->add_automatic_payments,
                 'loan_duration_period' => $this->loan_duration_period,
                 'loan_interest_period' => $this->loan_interest_period,
@@ -277,6 +278,10 @@ class UpdateSetting extends Component
         $this->new_loan_icon = $this->loan_product->icon;
         $this->new_loan_icon_alt = $this->loan_product->icon_alt;
         $this->add_automatic_payments = $this->loan_product->auto_payment;
+        $this->num_of_steps = $this->loan_product->wiz_steps;
+
+        // Decimal Places
+        $this->loan_decimal_place = $this->loan_product->loan_decimal_places->first()->value;
         
         //Dropdowns 
         $this->loan_interest_method = $this->loan_product->interest_methods->first()->id;
