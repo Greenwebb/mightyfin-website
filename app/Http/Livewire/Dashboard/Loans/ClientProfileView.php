@@ -8,6 +8,7 @@ class ClientProfileView extends Component
 {
     public function render()
     {
-        return view('livewire.dashboard.loans.client-profile-view');
+        
+        return view('livewire.dashboard.loans.client-profile-view')->layout('layouts.admin');
     }
 }

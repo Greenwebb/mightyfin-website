@@ -17,6 +17,7 @@ use App\Http\Livewire\Dashboard\Borrowers\LoanStatementView as BorrowersLoanStat
 use App\Http\Livewire\Dashboard\Borrowers\SendBorrowerMessageView;
 use App\Http\Livewire\Dashboard\DashboardView;
 use App\Http\Livewire\Dashboard\Employees\EmployeesView;
+use App\Http\Livewire\Dashboard\Loans\ApprovedLoansView;
 use App\Http\Livewire\Dashboard\Loans\ClosedLoanView;
 use App\Http\Livewire\Dashboard\Loans\CreateLoanView;
 
@@ -102,6 +103,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/dashboard', DashboardView::class)->name('dashboard');
     Route::get('/search', SearchEngineView::class)->name('search');
     // Administrator
+    Route::get('approved-loans', ApprovedLoansView::class)->name('approved-loans');
     Route::get('new-loan-request', NewLoanView::class)->name('new-loan');
     Route::get('client-loan-requests', LoanRequestView::class)->name('view-loan-requests');
     Route::get('active-repayments', LoanRepaymentView::class)->name('repayments');

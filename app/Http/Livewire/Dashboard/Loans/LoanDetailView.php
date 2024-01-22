@@ -34,9 +34,11 @@ class LoanDetailView extends Component
 
         if (auth()->user()->hasRole('user')) {
             // return view('livewire.dashboard.loans.loan-app-hrdetail-view')
-            return view('livewire.dashboard.loans.loan-detail-app-view')->layout('layouts.dashboard');
+            return view('livewire.dashboard.loans.loan-detail-app-view')
+            ->layout('layouts.dashboard');
         }else{
-            return view('livewire.dashboard.loans.loan-detail-view')->layout('layouts.admin');
+            return view('livewire.dashboard.loans.loan-detail-view')
+            ->layout('layouts.admin');
         }
     }
     
@@ -75,7 +77,7 @@ class LoanDetailView extends Component
             // Make the loan
             // $this->make_loan($x, $this->due_date);
             // $this->isCompanyEnough($x->amount);
-
+            // dd($application_request);
             // Do this - If this officer is the last approver
             // dd($this->final_approver($id)['status']);
             if($this->final_approver($id)['status']){

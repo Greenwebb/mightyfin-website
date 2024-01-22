@@ -26,7 +26,7 @@ class MakePaymentView extends Component
                         ->get();
         $this->transactions = Transaction::with('application.user')->orderBy('created_at', 'desc')->get();
         return view('livewire.dashboard.accounts.make-payment-view')
-        ->layout('layouts.dashboard');
+        ->layout('layouts.admin');
     }
 
     public function makepayment(){     
