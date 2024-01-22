@@ -1038,7 +1038,7 @@
 
                         @can('view closed')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('closed-loans') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1066,7 +1066,7 @@
                     <div class="menu-sub menu-sub-accordion">
                         @can('view pending repayments')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('repayments') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1077,7 +1077,7 @@
 
                         @can('view missed repayments')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('missed-repayments') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1088,7 +1088,7 @@
 
                         @can('view past maturity')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('past-maturity-date') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1173,7 +1173,7 @@
                     @endcan
 
                     @can('view reports')
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-abstract-28 fs-2">
@@ -1196,7 +1196,7 @@
                                 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     @endcan
                 @endcan
 

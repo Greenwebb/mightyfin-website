@@ -35,7 +35,7 @@ class UserView extends Component
             'users' => $users,
             'roles' => $roles
         ])
-        ->layout('layouts.dashboard');
+        ->layout('layouts.admin');
     }
 
     public function store(){

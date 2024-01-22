@@ -16,12 +16,14 @@ class LoanRepaymentView extends Component
             $this->loan_requests = Loans::with(['application' => function($q){
                 $q->where('user_id', auth()->user()->id);
             }])->where('closed', 0 )->orderBy('id', 'desc')->get();
+            return view('livewire.dashboard.loans.loan-repayment-view')
+            ->layout('layouts.dashboard');
         } else {
             $this->loan_requests = Loans::with('application')->where('closed', 0 )->orderBy('id', 'desc')->get();
+            return view('livewire.dashboard.loans.loan-repayment-view')
+            ->layout('layouts.admin');
         }
         
-        return view('livewire.dashboard.loans.loan-repayment-view')
-        ->layout('layouts.dashboard');
     }
 
     public function exportRepaymentLoans(){

@@ -1,4 +1,4 @@
-<div class="content-body">
+<div class="content d-flex flex-column flex-column-fluid">
         <style>
             /* Hide the default checkbox */
             input[type="radio"] {
@@ -47,14 +47,55 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Transaction History</h4>
-                        <div>
-                            <button wire:click="exportTransanctions()" title="Export to Excel" class="float-right btn btn-square btn-success">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-spreadsheet" viewBox="0 0 16 16">
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"/>
-                                  </svg>
-                            </button> 
-                            <button data-toggle="modal" data-target="#makeLoanRepayment" class="btn btn-square btn-primary">Make Loan Repayment</button>    
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bold fs-3 mb-1">Recent Loan Requests</span>
+                            <span class="text-muted mt-1 fw-semibold fs-7">Over {{$transactions->count()}} loans</span>
+                        </h3><div class="card-toolbar">
+                            <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                <i class="ki-duotone ki-category fs-6">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                    <span class="path4"></span>
+                                </i>
+                            </button>
+                            
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+    
+                                <div class="menu-item px-3">
+                                    <div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+                                </div>
+                                
+                                <div class="separator mb-3 opacity-75"></div>
+                                
+                                <div class="menu-item px-3">
+                                    <a href="#" title="Export to Excel" wire:click="exportTransanctions()" class="menu-link px-3">
+                                        Export to Excel &nbsp;
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-spreadsheet" viewBox="0 0 16 16">
+                                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                
+                                <div class="menu-item px-3">
+                                    <button data-bs-toggle="modal" data-bs-target="#makeLoanRepayment"  href="#" title="Make a loan repayment" class="btn btn-sm px-3">
+                                        Make Loan Repayment &nbsp;
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
+                                            <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="separator mt-3 opacity-75"></div>
+                                
+                                <div class="menu-item px-3">
+                                    <div class="menu-content px-3 py-3">
+                                        <a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
                         </div>
                     </div>
 
@@ -76,9 +117,9 @@
                                     </div>
                                 @endif
                             </div>
-                            <table wire:ignore.self id="example5" class="display" style="min-width: 845px; position:relative;">
+                            <table wire:ignore.self id="example5" class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
                                 <thead>
-                                    <tr>
+                                    <tr class="fw-bold text-muted">
                                         {{-- <th>ID.</th> --}}
                                         <th>Ref</th>
                                         <th>Loan</th>
@@ -130,49 +171,45 @@
                 </div>
             </div>
         </div>
-
-        <div class="modal fade" id="makeLoanRepayment" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
+        
+        <div wire:ignore class="modal fade" id="makeLoanRepayment" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered mw-650px">
                 <form wire:submit.prevent="makepayment()" class="modal-content">
                     <div class="modal-header ">
                         <h5 class="modal-title">Make Loan Repayment</h5>
                         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="input-group row">
-                            <label class="form-label">Payment Method</label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" id="checkbox1">
+                        <p class="fs-5 fw-bold">Payment Method</p>
+                        <div class="form-group flex gap-3">
+                            <input type="radio" wire:model.defer="payment_method" id="checkbox1">
                             <label for="checkbox1" class="checkbox"></label>
-                            &nbsp;&nbsp;&nbsp;
-                            <input type="radio" id="checkbox2">
+                            
+                            <input type="radio" wire:model.defer="payment_method" id="checkbox2">
                             <label for="checkbox2" class="checkbox"></label>
-                            &nbsp;&nbsp;&nbsp;
-                            <input type="radio" id="checkbox3">
+                            
+                            <input type="radio" wire:model.defer="payment_method" id="checkbox3">
                             <label for="checkbox3" class="checkbox"></label>
                         </div>
-
-                        <div class="input-group row">
-                            <label class="form-label">Loan Application</label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <select wire:model.defer="loan_id" class="default-select uppercase form-control wide mb-3" id="exampleInputEmail7" placeholder="Find Customer" data-live-search="true">
+                        <br>
+                        <p class="fs-5 fw-bold">Loan Application</p>
+                        <div class="form-group">
+                            <select wire:model.defer="loan_id" class="form-select uppercase form-control wide mb-3" id="exampleInputEmail7" placeholder="Find Customer" data-live-search="true">
                                 @forelse ($loans as $item)
                                 <option value="{{ $item->id }}">{{ $item->application->fname.' '.$item->application->lname.' | K'.App\Models\Loans::loan_balance($item->application->id).' - '.$item->application->type.' Loan'.' | Duration '.$item->application->repayment_plan}}</option>
                                 @empty
-                                <option>No Customers Yet</option>
+                                <option>No Active Loans Found</option>
                                 @endforelse
                             </select>
                         </div>
-
-                        <div class="input-group row">
-                            <label class="form-label">Loan Application</label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span class="input-group-text">ZMW</span>
+                        <br>
+                        <p class="fs-5 fw-bold">Amount</p>
+                        <div class="form-group">
                             <input wire:model.defer="amount" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
                         <button type="submit" data-dismiss="modal" class="btn btn-primary">Make Payment</button>
                     </div>
                 </form>

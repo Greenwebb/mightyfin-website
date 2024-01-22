@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="content d-flex flex-column flex-column-fluid m-6 py-4">
     <div class="content-body">
-        <div class="card">
+        <div class="card pb-5">
             <form method="POST" action="{{ route('update-user') }}"  class="needs-validation" validate enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
@@ -180,7 +180,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>  
             </form>
