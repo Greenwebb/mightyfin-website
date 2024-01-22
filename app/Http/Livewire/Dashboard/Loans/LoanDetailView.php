@@ -34,14 +34,12 @@ class LoanDetailView extends Component
 
         if (auth()->user()->hasRole('user')) {
             // return view('livewire.dashboard.loans.loan-app-hrdetail-view')
-            return view('livewire.dashboard.loans.loan-detail-app-view')
-            ->layout('layouts.dashboard');
+            return view('livewire.dashboard.loans.loan-detail-app-view')->layout('layouts.dashboard');
         }else{
-            return view('livewire.dashboard.loans.loan-detail-view')
-            ->layout('layouts.admin');
+            return view('livewire.dashboard.loans.loan-detail-view')->layout('layouts.admin');
         }
     }
-
+    
     public function setLoanID($id){
         $this->loan_id = $id;
     }

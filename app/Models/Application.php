@@ -338,7 +338,8 @@ class Application extends Model
     public static function monthly_installment($amount, $duration){
         try {
             $total_collectable = Application::payback($amount, $duration);
-            return $total_collectable / $duration;
+            $total = $total_collectable / $duration;
+            return number_format($total, 2, '.', '');
         } catch (\Throwable $th) {
             return 0;
         }

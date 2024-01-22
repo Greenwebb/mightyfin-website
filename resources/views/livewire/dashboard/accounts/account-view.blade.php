@@ -580,23 +580,6 @@
                                                             <td class="text-muted min-w-125px w-125px">Branch Name</td>
                                                             <td class="text-gray-800">{{ $data->bank->first()->branchName }}</td>
                                                         </tr>
-                                                        
-                                                        {{-- <tr>
-                                                            <td class="text-muted min-w-125px w-125px">Expires</td>
-                                                            <td class="text-gray-800">12/2024</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-muted min-w-125px w-125px">Type</td>
-                                                            <td class="text-gray-800">Mastercard credit card</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-muted min-w-125px w-125px">Issuer</td>
-                                                            <td class="text-gray-800">VICBANK</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-muted min-w-125px w-125px">ID</td>
-                                                            <td class="text-gray-800">id_4325df90sdf8</td>
-                                                        </tr> --}}
                                                     </table>
                                                 </div>
                                                 <!--end::Col-->
