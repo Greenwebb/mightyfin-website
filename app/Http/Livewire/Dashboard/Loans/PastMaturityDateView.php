@@ -29,15 +29,17 @@ class PastMaturityDateView extends Component
                 $q->where('user_id', auth()->user()->id);
             }])->where('final_due_date', '<', now())
             ->orderBy('id', 'desc')->get();
+            return view('livewire.dashboard.loans.past-maturity-date-view')
+            ->layout('layouts.dashboard');
         }else{
             $this->loan_requests = Loans::with('application')
             ->where('final_due_date', '<', now())
             ->orderBy('id', 'desc')->get();
+            return view('livewire.dashboard.loans.past-maturity-date-view')
+            ->layout('layouts.admin');
         }
         
 
-        return view('livewire.dashboard.loans.past-maturity-date-view')
-        ->layout('layouts.dashboard');
     }
 
     public function exportPMLoans(){

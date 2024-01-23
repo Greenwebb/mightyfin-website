@@ -41,7 +41,7 @@ class LoanDetailView extends Component
             ->layout('layouts.admin');
         }
     }
-
+    
     public function setLoanID($id){
         $this->loan_id = $id;
     }
@@ -77,7 +77,7 @@ class LoanDetailView extends Component
             // Make the loan
             // $this->make_loan($x, $this->due_date);
             // $this->isCompanyEnough($x->amount);
-
+            // dd($application_request);
             // Do this - If this officer is the last approver
             // dd($this->final_approver($id)['status']);
             if($this->final_approver($id)['status']){

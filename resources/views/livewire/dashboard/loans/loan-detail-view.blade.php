@@ -1,27 +1,19 @@
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-    <!--begin::Post-->
+    
     <div class="post d-flex flex-column-fluid" id="kt_post">
-        <!--begin::Container-->
+        
         <div id="kt_content_container" class="container-xxl">
-            <!--begin::Navbar-->
             <div style="margin-top: -4%; z-index: 5; background-image: url( {{ asset('public/mfs/admin/assets/media/product/loan_header.webp') }}); width: 109%;
             left: -5%;"
                 class="card mb-6">
                 <div class="card-body pt-9 pb-0">
-                    <!--begin::Details-->
                     <div class="d-flex flex-wrap flex-sm-nowrap">
-                        <!--begin: Pic-->
-
-                        <!--end::Pic-->
-                        <!--begin::Info-->
+                        
                         <div style="margin-left: 2%;" class="flex-grow-1">
-                            <!--begin::Title-->
                             <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
-                                <!--begin::User-->
                                 <div class="d-flex flex-column">
-                                    <!--begin::Name-->
                                     <div class="d-flex align-items-center mb-2">
-                                        <p class="text-white fs-2 fw-bold mb-1 me-1">ZMW 1000</p>
+                                        <p class="text-white fs-2 fw-bold mb-1 me-1">ZMW {{ $loan->amount ?? 0 }}</p>
                                         <a href="#">
                                             <i class="text-white ki-duotone ki-verify fs-1 ">
                                                 <span class="path1"></span>
@@ -29,29 +21,24 @@
                                             </i>
                                         </a>
                                     </div>
-                                    <!--end::Name-->
-                                    <!--begin::Info-->
+                                    
                                     <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
-                                        <a href="#"
-                                            class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+                                        <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                                             <i class="ki-duotone ki-profile-circle fs-4 me-1">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                                 <span class="path3"></span>
-                                            </i>GRZ Salary Advance</a>
-
-
+                                            </i>{{ $loan->type }}
+                                        </a>
                                     </div>
-                                    <!--end::Info-->
                                 </div>
-                                <!--end::User-->
-                                <!--begin::Actions-->
+                                
                                 <div class="d-flex">
                                     <div class="row">
                                         <div class="col-4">
                                             <div class="m-2 d-flex flex-column">
                                                 <div class="d-flex fw-semibold align-items-center mb-">
-                                                    <p class="text-white fs-2 me-1">#53321</p>
+                                                    <p class="text-white fs-2 me-1">#{{ $loan->id }}</p>
 
                                                 </div>
                                                 <div class="d-flex align-items-center fw-semibold">
@@ -64,8 +51,7 @@
                                         <div class="col-4">
                                             <div class="m-2 d-flex flex-column">
                                                 <div class="d-flex fw-semibold align-items-center mb-">
-                                                    <p class="align-items-center text-white fs-2 me-1">01/22/2024</p>
-
+                                                    <p class="align-items-center text-white fs-2 me-1">{{ $loan->created_at->toFormattedDateString()}}</p>
                                                 </div>
                                                 <div class="d-flex align-items-center fw-semibold">
                                                     <p class="align-items-center fs- text-gray-400">Application date</p>
@@ -77,36 +63,19 @@
                                         <div class="col-4">
                                             <div class="m-2 d-flex flex-column">
                                                 <div class="d-flex fw-semibold align-items-center mb-">
-                                                    <p class="align-items-center text-white fs-2 me-1">3</p>
-
+                                                    <p class="align-items-center text-white fs-2 me-1">{{ $loan->repayment_plan ?? 1 }}</p>
                                                 </div>
                                                 <div class="d-flex align-items-center fw-semibold">
                                                     <p class=" fs- text-gray-400">Loan term (months)</p>
-
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <!--begin::Menu-->
-
-                                    <!--end::Menu-->
                                 </div>
-                                <!--end::Actions-->
                             </div>
-                            <!--end::Title-->
-                            <!--begin::Stats-->
-
-                            <!--end::Stats-->
                         </div>
-                        <!--end::Info-->
                     </div>
-                    <!--end::Details-->
-                    <!--begin::Navs-->
-
-                    <!--begin::Navs-->
+                    
                 </div>
             </div>
             <div style=" width: 109%; top:-5%; left: -5%;" class="card">
@@ -115,15 +84,10 @@
                     <div class="col-12">
                         <div class="tabbable">
                             <ul class="nav nav-tabss wizard">
-                                <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false"><span
-                                            class="nmbr">1</span>Application Submitted</a></li>
-                                <li><a href="#w4" data-toggle="tab" aria-expanded="false"><span
-                                            class="nmbr">2</span>Verification</a></li>
-                                <li><a href="#stateinfo" data-toggle="tab" aria-expanded="false"><span
-                                            class="nmbr">3</span>Approval</a></li>
-                                <li><a href="#finish" data-toggle="tab" aria-expanded="true"><span
-                                            class="nmbr">5</span>Disbusements</a></li>
-
+                                <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false"><span class="nmbr">1</span>Application Submitted</a></li>
+                                <li><a href="#w4" data-toggle="tab" aria-expanded="false"><span class="nmbr">2</span>Verification</a></li>
+                                <li><a href="#stateinfo" data-toggle="tab" aria-expanded="false"><span class="nmbr">3</span>Approval</a></li>
+                                <li><a href="#finish" data-toggle="tab" aria-expanded="true"><span class="nmbr">5</span>Disbusements</a></li>
                             </ul>
                         </div>
                         {{-- hello bremah edit the bottom styles and scripts and add in appropriate files --}}
@@ -133,7 +97,6 @@
                             $('.wizard li').click(function() {
                                 $(this).prevAll().addClass("completed");
                                 $(this).nextAll().removeClass("completed")
-
                             });
                         </script>
                         <style>
@@ -308,21 +271,25 @@
 
                                     <div class="mb-5">
                                         <!--begin::Badge-->
-                                        <div class="badge badge-lg badge-light-primary d-inline">Primary Applicant</div>
+                                        {{-- <div class="badge badge-lg badge-light-primary d-inline">Primary Applicant</div> --}}
                                         <!--begin::Badge-->
                                     </div>
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-100px symbol-circle mb-7">
-                                        <img src="{{ asset('public/mfs/admin/assets/media/avatars/300-1.jpg') }}"
-                                            alt="image" />
+                                        @if ($loan->user->profile_photo_path)
+                                            <img src="{{ '../public/'.Storage::url($loan->user->profile_photo_path) }}" alt=""/>
+                                        @else
+                                            <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt=""/>
+                                        @endif
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Name-->
-                                    <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">Max
-                                        Smith</a>
+                                    <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">
+                                        {{ $loan->user->fname.' '.$loan->user->lname }}
+                                    </a>
                                     <!--end::Name-->
                                     <!--begin::Position-->
-                                    <div class="fs-5 fw-semibold text-muted mb-6">Software Enginer</div>
+                                    <div class="fs-5 fw-semibold text-muted mb-6">{{ $loan->user->occupation }}</div>
                                     <!--end::Position-->
                                     <!--begin::Info-->
                                     <div class="d-flex flex-wrap flex-center">
@@ -331,7 +298,7 @@
                                             <div
                                                 class="col-lg-4 border border-gray-300 border-dashed rounded py-3 px-3 mx-4 m-3">
                                                 <div class="fs-4 fw-bold text-gray-700">
-                                                    <span class="w-50px">ZMW 1300</span>
+                                                    <span class="w-50px">ZMW {{ $loan->amount}}</span>
                                                     <i class="ki-duotone ki-usd fs-3 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -342,7 +309,7 @@
                                             <div
                                                 class="col-lg-4 border border-gray-300 border-dashed rounded py-3 px-3 mx-4 m-3">
                                                 <div class="fs-4 fw-bold text-gray-700">
-                                                    <span class="w-50px">3 (Months)</span>
+                                                    <span class="w-50px">{{ $loan->repayment_plan ?? 1}} (Months)</span>
                                                     <i class="ki-duotone ki-usd fs-3 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -353,7 +320,7 @@
                                             <div
                                                 class="col-lg-4 border border-gray-300 border-dashed rounded py-3 px-3 mx-4 m-3">
                                                 <div class="fs-4 fw-bold text-gray-700">
-                                                    <span class="w-50px">K1300</span>
+                                                    <span class="w-50px">K {{ App\Models\Application::payback($loan->amount, $loan->repayment_plan) }}</span>
                                                     <i class="ki-duotone ki-usd fs-3 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -364,7 +331,7 @@
                                             <div
                                                 class="col-lg-4 border border-gray-300 border-dashed rounded py-3 px-3 mx-4 m-3">
                                                 <div class="fs-4 fw-bold text-gray-700">
-                                                    <span class="w-50px">K500</span>
+                                                    <span class="w-50px">K {{ App\Models\Application::monthly_installment($loan->amount, $loan->repayment_plan) }}</span>
                                                     <i class="ki-duotone ki-usd fs-3 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -387,11 +354,11 @@
                                             <i class="ki-duotone ki-down fs-3"></i>
                                         </span>
                                     </div>
-                                    <span data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                    {{-- <span data-bs-toggle="tooltip" data-bs-trigger="hover"
                                         title="Edit customer details">
                                         <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal"
                                             data-bs-target="#kt_modal_update_customer">Edit</a>
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <!--end::Details toggle-->
                                 <div class="separator separator-dashed my-3"></div>
@@ -399,41 +366,40 @@
                                 <div id="kt_customer_view_details" class="collapse show">
                                     <div class="py-5 fs-6">
                                         <!--begin::Badge-->
-                                        <div class="badge badge-light-info d-inline">Premium user</div>
+                                        {{-- <div class="badge badge-light-info d-inline">Premium user</div> --}}
                                         <!--begin::Badge-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Account ID</div>
                                         <div class="text-gray-600">ID-45453423</div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
-                                        <div class="fw-bold mt-5">Status</div>
-                                        <div class="text-gray-600">Married</div>
+                                        <div class="fw-bold mt-5">Gender</div>
+                                        <div class="text-gray-600">{{ ucwords($loan->gender) }}</div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Email</div>
                                         <div class="text-gray-600">
                                             <a href="#"
-                                                class="text-gray-600 text-hover-primary">info@keenthemes.com</a>
+                                                class="text-gray-600 text-hover-primary">{{ $loan->user->email ?? 'Not set'}}</a>
                                         </div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Address</div>
-                                        <div class="text-gray-600">101 Collin Street,
-                                            <br />Melbourne 3000 VIC
-                                            <br />Australia
+                                        <div class="text-gray-600">
+                                            {{ $loan->user->address ?? 'Not set'}}
                                         </div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Phone</div>
-                                        <div class="text-gray-600">+260978265456</div>
+                                        <div class="text-gray-600">+260{{ $loan->user->phone ?? ' --' }}</div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Interest Rate</div>
-                                        <div class="text-gray-600">18%</div>
+                                        <div class="text-gray-600">{{ App\Models\Application::interest_rate($loan->repayment_plan) }}%</div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
-                                        <div class="fw-bold mt-5">Tax ID</div>
-                                        <div class="text-gray-600">TX-8674</div>
+                                        {{-- <div class="fw-bold mt-5">Tax ID</div>
+                                        <div class="text-gray-600">TX-8674</div> --}}
                                         <!--begin::Details item-->
                                     </div>
                                 </div>
@@ -443,7 +409,7 @@
                         </div>
                         <!--end::Card-->
                         <!--begin::Connected Accounts-->
-                        <div class="card mb-5 mb-xl-8">
+                        {{-- <div class="card mb-5 mb-xl-8">
                             <!--begin::Card header-->
                             <div class="card-header border-0">
                                 <div class="card-title">
@@ -576,144 +542,55 @@
                                 <button class="btn btn-sm btn-light-primary">Save Changes</button>
                             </div>
                             <!--end::Card footer-->
-                        </div>
+                        </div> --}}
                         <!--end::Connected Accounts-->
                     </div>
                     <!--end::Sidebar-->
                     <!--begin::Content-->
                     <div class="flex-lg-row-fluid ms-lg-15">
                         <div class="float-end">
-                            <!--begin::Action menu-->
+                            
                             <a href="#" class="btn btn-primary ps-7" data-kt-menu-trigger="click"
                                 data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">Action
                                 <i class="ki-duotone ki-down fs-2 me-0"></i></a>
-                            <!--begin::Menu-->
-                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold py-4 w-250px fs-6"
-                                data-kt-menu="true">
-                                <!--begin::Menu item-->
+                                
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold py-4 w-250px fs-6" data-kt-menu="true">
                                 <div class="menu-item px-5">
                                     <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Payments</div>
                                 </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="#" class="menu-link px-5">Create invoice</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="#" class="menu-link flex-stack px-5">Create payments
-                                        <span class="ms-2" data-bs-toggle="tooltip"
-                                            title="Specify a target name for future usage and reference">
-                                            <i class="ki-duotone ki-information fs-7">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span></a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5" data-kt-menu-trigger="hover"
-                                    data-kt-menu-placement="left-start">
-                                    <a href="#" class="menu-link px-5">
-                                        <span class="menu-title">Subscription</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <!--begin::Menu sub-->
-                                    <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-5">Apps</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-5">Billing</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-5">Statements</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu separator-->
-                                        <div class="separator my-2"></div>
-                                        <!--end::Menu separator-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <div class="menu-content px-3">
-                                                <label
-                                                    class="form-check form-switch form-check-custom form-check-solid">
-                                                    <input class="form-check-input w-30px h-20px" type="checkbox"
-                                                        value="" name="notifications" checked="checked"
-                                                        id="kt_user_menu_notifications" />
-                                                    <span class="form-check-label text-muted fs-6"
-                                                        for="kt_user_menu_notifications">Notifications</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!--end::Menu item-->
+                                @if ($this->my_review_status($loan->id) == 1)
+                                    <div class="menu-item px-5">
+                                        <a href="#" wire:click="setLoanID({{$loan->id}})" class="menu-link px-5"> Decline </a>
                                     </div>
-                                    <!--end::Menu sub-->
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu separator-->
-                                <div class="separator my-3"></div>
-                                <!--end::Menu separator-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Account</div>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="#" class="menu-link px-5">Reports</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5 my-1">
-                                    <a href="#" class="menu-link px-5">Account Settings</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="#" class="menu-link text-danger px-5">Delete customer</a>
-                                </div>
-                                <!--end::Menu item-->
+                                    <div class="menu-item px-5">
+                                        <a href="#" wire:click="accept({{$loan->id}})" class="menu-link px-5"> Approve </a>
+                                    </div>
+                                @endif
                             </div>
-                            <!--end::Menu-->
-                            <!--end::Menu-->
                         </div>
-                        <!--begin:::Tabs-->
-                        <ul
-                            class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-8">
-                            <!--begin:::Tab item-->
+
+
+
+                        <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-8">
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab"
                                     href="#kt_customer_view_overview_tab">Overview</a>
                             </li>
-                            <!--end:::Tab item-->
-                            <!--begin:::Tab item-->
+                            
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
                                     href="#kt_customer_view_overview_loan_details">Loan Details</a>
                             </li>
-                            <!--end:::Tab item-->
-                            <!--begin:::Tab item-->
+                            
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true"
                                     data-bs-toggle="tab" href="#kt_customer_view_documents">Documents</a>
                             </li>
-                            <li class="nav-item">
+                            
+                            {{-- <li class="nav-item">
                                 <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true"
                                     data-bs-toggle="tab" href="#kt_customer_view_activity">Activity Log</a>
-                            </li>
-
-                            <!--end:::Tab item-->
-                            <!--begin:::Tab item-->
-
-                            <!--end:::Tab item-->
+                            </li> --}}
                         </ul>
                         <!--end:::Tabs-->
                         <!--begin:::Tab content-->
@@ -722,7 +599,7 @@
                             <div class="tab-pane fade show active" id="kt_customer_view_overview_tab"
                                 role="tabpanel">
                                 <!--begin::Card-->
-                                <div class="card mb-6 mb-xl-9">
+                                {{-- <div class="card mb-6 mb-xl-9">
                                     <!--begin::Header-->
                                     <div class="card-header border-0">
                                         <div class="card-title">
@@ -732,8 +609,10 @@
                                     <!--end::Header-->
                                     <!--begin::Body-->
                                     <div class="card-body py-0">
-                                        <div class="fs-5 fw-semibold text-gray-500 mb-4">Last 30 day earnings
-                                            calculated. Apart from arranging the order of topics.</div>
+                                        <div class="fs-5 fw-semibold text-gray-500 mb-4">
+                                            Last 30 day earnings
+                                            calculated. Apart from arranging the order of topics.
+                                        </div>
                                         <!--begin::Left Section-->
                                         <div class="d-flex flex-wrap flex-stack mb-5">
                                             <!--begin::Row-->
@@ -747,18 +626,17 @@
 
                                                     </span>
                                                     <span class="fs-6 fw-semibold text-muted d-block lh-1 pt-2">Net
-                                                        Earnings</span>
+                                                        Earnings
+                                                    </span>
                                                 </div>
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div
                                                     class="border border-dashed border-gray-300 w-125px rounded my-3 p-4 me-6">
                                                     <span class="fs-1 fw-bold text-gray-800 lh-1">
-                                                        <span class="" data-kt-countup="true"
-                                                            data-kt-countup-value="18">0</span>%
+                                                        <span class="" data-kt-countup="true" data-kt-countup-value="18">0</span>%
                                                     </span>
-                                                    <span
-                                                        class="fs-6 fw-semibold text-muted d-block lh-1 pt-2">r</span>
+                                                    <span class="fs-6 fw-semibold text-muted d-block lh-1 pt-2">r</span>
                                                 </div>
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
@@ -782,13 +660,13 @@
                                         <!--end::Left Section-->
                                     </div>
                                     <!--end::Body-->
-                                </div>
+                                </div> --}}
                                 <div class="card pt-4 mb-6 mb-xl-9">
                                     <!--begin::Card header-->
                                     <div class="card-header border-0">
                                         <!--begin::Card title-->
                                         <div class="card-title">
-                                            <h2>Payment Records</h2>
+                                            <h2>Repayment Records</h2>
                                         </div>
                                         <!--end::Card title-->
                                         <!--begin::Card toolbar-->
@@ -821,321 +699,37 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="fs-6 fw-semibold text-gray-600">
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">9673-1893</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-success">Successful</span>
-                                                    </td>
-                                                    <td>K1,200.00</td>
-                                                    <td>14 Dec 2020, 8:43 pm</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
+                                                @forelse (App\Models\Transaction::hasTransaction($data->id) as $item)
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="text-gray-600 text-hover-primary mb-1">9673-1893</a>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-light-success">Successful</span>
+                                                        </td>
+                                                        <td>$1,200.00</td>
+                                                        <td>14 Dec 2020, 8:43 pm</td>
+                                                        <td class="pe-0 text-end">
+                                                            <a href="#" class="btn btn-sm btn-light image.png btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                                             <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
+                                                            <!--begin::Menu-->
+                                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                                <!--begin::Menu item-->
+                                                                <div class="menu-item px-3">
+                                                                    <a href="../apps/customers/view.html" class="menu-link px-3">View</a>
+                                                                </div>
+                                                                <!--end::Menu item-->
+                                                                <!--begin::Menu item-->
+                                                                <div class="menu-item px-3">
+                                                                    <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                                                </div>
+                                                                <!--end::Menu item-->
                                                             </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">2655-1234</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-success">Successful</span>
-                                                    </td>
-                                                    <td>K79.00</td>
-                                                    <td>01 Dec 2020, 10:12 am</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">6732-1806</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-success">Successful</span>
-                                                    </td>
-                                                    <td>K5,500.00</td>
-                                                    <td>12 Nov 2020, 2:01 pm</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">4269-7965</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-warning">Pending</span>
-                                                    </td>
-                                                    <td>K880.00</td>
-                                                    <td>21 Oct 2020, 5:54 pm</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">2188-4533</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-success">Successful</span>
-                                                    </td>
-                                                    <td>K7,650.00</td>
-                                                    <td>19 Oct 2020, 7:32 am</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">3602-3127</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-success">Successful</span>
-                                                    </td>
-                                                    <td>K375.00</td>
-                                                    <td>23 Sep 2020, 12:38 am</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">2810-7956</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-success">Successful</span>
-                                                    </td>
-                                                    <td>K129.00</td>
-                                                    <td>11 Sep 2020, 3:18 pm</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">1476-1160</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-danger">Rejected</span>
-                                                    </td>
-                                                    <td>K450.00</td>
-                                                    <td>03 Sep 2020, 1:08 am</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#"
-                                                            class="text-gray-600 text-hover-primary mb-1">6427-8124</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-light-warning">Pending</span>
-                                                    </td>
-                                                    <td>K8,700.00</td>
-                                                    <td>01 Sep 2020, 4:58 pm</td>
-                                                    <td class="pe-0 text-end">
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-light image.png btn-active-light-primary"
-                                                            data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end">Actions
-                                                            <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                                        <!--begin::Menu-->
-                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                                            data-kt-menu="true">
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="../apps/customers/view.html"
-                                                                    class="menu-link px-3">View</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                            <!--begin::Menu item-->
-                                                            <div class="menu-item px-3">
-                                                                <a href="#" class="menu-link px-3"
-                                                                    data-kt-customer-table-filter="delete_row">Delete</a>
-                                                            </div>
-                                                            <!--end::Menu item-->
-                                                        </div>
-                                                        <!--end::Menu-->
-                                                    </td>
-                                                </tr>
+                                                            <!--end::Menu-->
+                                                        </td>
+                                                    </tr>
+                                                @empty  
+                                                @endforelse
                                             </tbody>
                                             <!--end::Table body-->
                                         </table>
@@ -1150,7 +744,7 @@
                                     <div class="card-header border-0">
                                         <!--begin::Card title-->
                                         <div class="card-title">
-                                            <h2 class="fw-bold mb-0">Payment Methods</h2>
+                                            <h2 class="fw-bold mb-0">Repayment Methods</h2>
                                         </div>
                                         <!--end::Card title-->
                                         <!--begin::Card toolbar-->
@@ -1171,92 +765,7 @@
                                         <!--begin::Option-->
                                         <div class="py-0" data-kt-customer-payment-method="row">
                                             <!--begin::Header-->
-                                            <div class="py-3 d-flex flex-stack flex-wrap">
-                                                <!--begin::Toggle-->
-                                                <div class="d-flex align-items-center collapsible rotate"
-                                                    data-bs-toggle="collapse"
-                                                    href="#kt_customer_view_payment_method_1" role="button"
-                                                    aria-expanded="false"
-                                                    aria-controls="kt_customer_view_payment_method_1">
-                                                    <!--begin::Arrow-->
-                                                    <div class="me-3 rotate-90">
-                                                        <i class="ki-duotone ki-right fs-3"></i>
-                                                    </div>
-                                                    <!--end::Arrow-->
-                                                    <!--begin::Logo-->
-                                                    <img src="assets/media/svg/card-logos/mastercard.svg"
-                                                        class="w-40px me-3" alt="" />
-                                                    <!--end::Logo-->
-                                                    <!--begin::Summary-->
-                                                    <div class="me-3">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="text-gray-800 fw-bold">Mastercard</div>
-                                                            <div class="badge badge-light-primary ms-5">Primary</div>
-                                                        </div>
-                                                        <div class="text-muted">Expires Dec 2024</div>
-                                                    </div>
-                                                    <!--end::Summary-->
-                                                </div>
-                                                <!--end::Toggle-->
-                                                <!--begin::Toolbar-->
-                                                <div class="d-flex my-3 ms-9">
-                                                    <!--begin::Edit-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                                        data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
-                                                        <span data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                            title="Edit">
-                                                            <i class="ki-duotone ki-pencil fs-3">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                        </span>
-                                                    </a>
-                                                    <!--end::Edit-->
-                                                    <!--begin::Delete-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                                        data-bs-toggle="tooltip" title="Delete"
-                                                        data-kt-customer-payment-method="delete">
-                                                        <i class="ki-duotone ki-trash fs-3">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                            <span class="path4"></span>
-                                                            <span class="path5"></span>
-                                                        </i>
-                                                    </a>
-                                                    <!--end::Delete-->
-                                                    <!--begin::More-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                                        data-bs-toggle="tooltip" title="More Options"
-                                                        data-kt-menu-trigger="click"
-                                                        data-kt-menu-placement="bottom-end">
-                                                        <i class="ki-duotone ki-setting-3 fs-3">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                            <span class="path4"></span>
-                                                            <span class="path5"></span>
-                                                        </i>
-                                                    </a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3"
-                                                        data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3"
-                                                                data-kt-payment-mehtod-action="set_as_primary">Set as
-                                                                Primary</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                    <!--end::More-->
-                                                </div>
-                                                <!--end::Toolbar-->
-                                            </div>
+                                            
                                             <!--end::Header-->
                                             <!--begin::Body-->
                                             <div id="kt_customer_view_payment_method_1"
@@ -1267,430 +776,40 @@
                                                     <!--begin::Col-->
                                                     <div class="flex-equal me-5">
                                                         <table class="table table-flush fw-semibold gy-1">
+                                                            @if($data->bank !== null)
                                                             <tr>
                                                                 <td class="text-muted min-w-125px w-125px">Name</td>
-                                                                <td class="text-gray-800">Samual Mwale</td>
+                                                                <td class="text-gray-800">{{ $data->bank->first()->accountNames }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="text-muted min-w-125px w-125px">Number</td>
-                                                                <td class="text-gray-800">**** 9637</td>
+                                                                <td class="text-gray-800">{{ $data->bank->first()->accountNumber }}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Expires</td>
-                                                                <td class="text-gray-800">12/2024</td>
+                                                                <td class="text-muted min-w-125px w-125px">Branch Name</td>
+                                                                <td class="text-gray-800">{{ $data->bank->first()->branchName }}</td>
                                                             </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Type</td>
-                                                                <td class="text-gray-800">Mastercard credit card</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Issuer</td>
-                                                                <td class="text-gray-800">VICBANK</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">ID</td>
-                                                                <td class="text-gray-800">id_4325df90sdf8</td>
-                                                            </tr>
+                                                            @else
+                                                            <span class="text-muted">Not Set</span>
+                                                            @endif
                                                         </table>
                                                     </div>
                                                     <!--end::Col-->
                                                     <!--begin::Col-->
-                                                    <div class="flex-equal">
-                                                        <table class="table table-flush fw-semibold gy-1">
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Billing
-                                                                    address</td>
-                                                                <td class="text-gray-800">AU</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Phone</td>
-                                                                <td class="text-gray-800">No phone provided</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Email</td>
-                                                                <td class="text-gray-800">
-                                                                    <a href="#"
-                                                                        class="text-gray-900 text-hover-primary">smith@kpmg.com</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Origin</td>
-                                                                <td class="text-gray-800">Australia
-                                                                    <div class="symbol symbol-20px symbol-circle ms-2">
-                                                                        <img src="assets/media/flags/australia.svg" />
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">CVC check
-                                                                </td>
-                                                                <td class="text-gray-800">Passed
-                                                                    <i
-                                                                        class="ki-duotone ki-check-circle fs-2 text-success">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                    </i>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
+                                                    
                                                     <!--end::Col-->
                                                 </div>
                                                 <!--end::Details-->
                                             </div>
                                             <!--end::Body-->
                                         </div>
-                                        <!--end::Option-->
-                                        <div class="separator separator-dashed"></div>
-                                        <!--begin::Option-->
-                                        <div class="py-0" data-kt-customer-payment-method="row">
-                                            <!--begin::Header-->
-                                            <div class="py-3 d-flex flex-stack flex-wrap">
-                                                <!--begin::Toggle-->
-                                                <div class="d-flex align-items-center collapsible collapsed rotate"
-                                                    data-bs-toggle="collapse"
-                                                    href="#kt_customer_view_payment_method_2" role="button"
-                                                    aria-expanded="false"
-                                                    aria-controls="kt_customer_view_payment_method_2">
-                                                    <!--begin::Arrow-->
-                                                    <div class="me-3 rotate-90">
-                                                        <i class="ki-duotone ki-right fs-3"></i>
-                                                    </div>
-                                                    <!--end::Arrow-->
-                                                    <!--begin::Logo-->
-                                                    <img src="assets/media/svg/card-logos/visa.svg"
-                                                        class="w-40px me-3" alt="" />
-                                                    <!--end::Logo-->
-                                                    <!--begin::Summary-->
-                                                    <div class="me-3">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="text-gray-800 fw-bold">Visa</div>
-                                                        </div>
-                                                        <div class="text-muted">Expires Feb 2022</div>
-                                                    </div>
-                                                    <!--end::Summary-->
-                                                </div>
-                                                <!--end::Toggle-->
-                                                <!--begin::Toolbar-->
-                                                <div class="d-flex my-3 ms-9">
-                                                    <!--begin::Edit-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                                        data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
-                                                        <span data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                            title="Edit">
-                                                            <i class="ki-duotone ki-pencil fs-3">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                        </span>
-                                                    </a>
-                                                    <!--end::Edit-->
-                                                    <!--begin::Delete-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                                        data-bs-toggle="tooltip" title="Delete"
-                                                        data-kt-customer-payment-method="delete">
-                                                        <i class="ki-duotone ki-trash fs-3">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                            <span class="path4"></span>
-                                                            <span class="path5"></span>
-                                                        </i>
-                                                    </a>
-                                                    <!--end::Delete-->
-                                                    <!--begin::More-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                                        data-bs-toggle="tooltip" title="More Options"
-                                                        data-kt-menu-trigger="click"
-                                                        data-kt-menu-placement="bottom-end">
-                                                        <i class="ki-duotone ki-setting-3 fs-3">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                            <span class="path4"></span>
-                                                            <span class="path5"></span>
-                                                        </i>
-                                                    </a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3"
-                                                        data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3"
-                                                                data-kt-payment-mehtod-action="set_as_primary">Set as
-                                                                Primary</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                    <!--end::More-->
-                                                </div>
-                                                <!--end::Toolbar-->
-                                            </div>
-                                            <!--end::Header-->
-                                            <!--begin::Body-->
-                                            <div id="kt_customer_view_payment_method_2" class="collapse fs-6 ps-10"
-                                                data-bs-parent="#kt_customer_view_payment_method">
-                                                <!--begin::Details-->
-                                                <div class="d-flex flex-wrap py-5">
-                                                    <!--begin::Col-->
-                                                    <div class="flex-equal me-5">
-                                                        <table class="table table-flush fw-semibold gy-1">
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Name</td>
-                                                                <td class="text-gray-800">Melody Macy</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Number</td>
-                                                                <td class="text-gray-800">**** 6477</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Expires</td>
-                                                                <td class="text-gray-800">02/2022</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Type</td>
-                                                                <td class="text-gray-800">Visa credit card</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Issuer</td>
-                                                                <td class="text-gray-800">ENBANK</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">ID</td>
-                                                                <td class="text-gray-800">id_w2r84jdy723</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <!--end::Col-->
-                                                    <!--begin::Col-->
-                                                    <div class="flex-equal">
-                                                        <table class="table table-flush fw-semibold gy-1">
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Billing
-                                                                    address</td>
-                                                                <td class="text-gray-800">UK</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Phone</td>
-                                                                <td class="text-gray-800">No phone provided</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Email</td>
-                                                                <td class="text-gray-800">
-                                                                    <a href="#"
-                                                                        class="text-gray-900 text-hover-primary">melody@altbox.com</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Origin</td>
-                                                                <td class="text-gray-800">United Kingdom
-                                                                    <div class="symbol symbol-20px symbol-circle ms-2">
-                                                                        <img
-                                                                            src="assets/media/flags/united-kingdom.svg" />
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">CVC check
-                                                                </td>
-                                                                <td class="text-gray-800">Passed
-                                                                    <i
-                                                                        class="ki-duotone ki-check fs-2 text-success"></i>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <!--end::Col-->
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--end::Body-->
-                                        </div>
-                                        <!--end::Option-->
-                                        <div class="separator separator-dashed"></div>
-                                        <!--begin::Option-->
-                                        <div class="py-0" data-kt-customer-payment-method="row">
-                                            <!--begin::Header-->
-                                            <div class="py-3 d-flex flex-stack flex-wrap">
-                                                <!--begin::Toggle-->
-                                                <div class="d-flex align-items-center collapsible collapsed rotate"
-                                                    data-bs-toggle="collapse"
-                                                    href="#kt_customer_view_payment_method_3" role="button"
-                                                    aria-expanded="false"
-                                                    aria-controls="kt_customer_view_payment_method_3">
-                                                    <!--begin::Arrow-->
-                                                    <div class="me-3 rotate-90">
-                                                        <i class="ki-duotone ki-right fs-3"></i>
-                                                    </div>
-                                                    <!--end::Arrow-->
-                                                    <!--begin::Logo-->
-                                                    <img src="assets/media/svg/card-logos/american-express.svg"
-                                                        class="w-40px me-3" alt="" />
-                                                    <!--end::Logo-->
-                                                    <!--begin::Summary-->
-                                                    <div class="me-3">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="text-gray-800 fw-bold">American Express</div>
-                                                            <div class="badge badge-light-danger ms-5">Expired</div>
-                                                        </div>
-                                                        <div class="text-muted">Expires Aug 2021</div>
-                                                    </div>
-                                                    <!--end::Summary-->
-                                                </div>
-                                                <!--end::Toggle-->
-                                                <!--begin::Toolbar-->
-                                                <div class="d-flex my-3 ms-9">
-                                                    <!--begin::Edit-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                                        data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
-                                                        <span data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                            title="Edit">
-                                                            <i class="ki-duotone ki-pencil fs-3">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                        </span>
-                                                    </a>
-                                                    <!--end::Edit-->
-                                                    <!--begin::Delete-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-                                                        data-bs-toggle="tooltip" title="Delete"
-                                                        data-kt-customer-payment-method="delete">
-                                                        <i class="ki-duotone ki-trash fs-3">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                            <span class="path4"></span>
-                                                            <span class="path5"></span>
-                                                        </i>
-                                                    </a>
-                                                    <!--end::Delete-->
-                                                    <!--begin::More-->
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-active-light-primary w-30px h-30px"
-                                                        data-bs-toggle="tooltip" title="More Options"
-                                                        data-kt-menu-trigger="click"
-                                                        data-kt-menu-placement="bottom-end">
-                                                        <i class="ki-duotone ki-setting-3 fs-3">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                            <span class="path4"></span>
-                                                            <span class="path5"></span>
-                                                        </i>
-                                                    </a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3"
-                                                        data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3"
-                                                                data-kt-payment-mehtod-action="set_as_primary">Set as
-                                                                Primary</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                    <!--end::More-->
-                                                </div>
-                                                <!--end::Toolbar-->
-                                            </div>
-                                            <!--end::Header-->
-                                            <!--begin::Body-->
-                                            <div id="kt_customer_view_payment_method_3" class="collapse fs-6 ps-10"
-                                                data-bs-parent="#kt_customer_view_payment_method">
-                                                <!--begin::Details-->
-                                                <div class="d-flex flex-wrap py-5">
-                                                    <!--begin::Col-->
-                                                    <div class="flex-equal me-5">
-                                                        <table class="table table-flush fw-semibold gy-1">
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Name</td>
-                                                                <td class="text-gray-800">Max Smith</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Number</td>
-                                                                <td class="text-gray-800">**** 3608</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Expires</td>
-                                                                <td class="text-gray-800">08/2021</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Type</td>
-                                                                <td class="text-gray-800">American express credit card
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Issuer</td>
-                                                                <td class="text-gray-800">USABANK</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">ID</td>
-                                                                <td class="text-gray-800">id_89457jcje63</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <!--end::Col-->
-                                                    <!--begin::Col-->
-                                                    <div class="flex-equal">
-                                                        <table class="table table-flush fw-semibold gy-1">
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Billing
-                                                                    address</td>
-                                                                <td class="text-gray-800">US</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Phone</td>
-                                                                <td class="text-gray-800">No phone provided</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Email</td>
-                                                                <td class="text-gray-800">
-                                                                    <a href="#"
-                                                                        class="text-gray-900 text-hover-primary">max@kt.com</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">Origin</td>
-                                                                <td class="text-gray-800">United States of America
-                                                                    <div class="symbol symbol-20px symbol-circle ms-2">
-                                                                        <img
-                                                                            src="assets/media/flags/united-states.svg" />
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-muted min-w-125px w-125px">CVC check
-                                                                </td>
-                                                                <td class="text-gray-800">Failed
-                                                                    <i class="ki-duotone ki-cross fs-2 text-danger">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                    </i>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <!--end::Col-->
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--end::Body-->
-                                        </div>
-                                        <!--end::Option-->
+                                        
                                     </div>
                                     <!--end::Card body-->
                                 </div>
                                 <!--end::Card-->
                                 <!--begin::Card-->
-                                <div class="card pt-4 mb-6 mb-xl-9">
+                                {{-- <div class="card pt-4 mb-6 mb-xl-9">
                                     <!--begin::Card header-->
                                     <div class="card-header border-0">
                                         <!--begin::Card title-->
@@ -1719,698 +838,9 @@
                                         </div>
                                     </div>
                                     <!--end::Card body-->
-                                </div>
+                                </div> --}}
                                 <!--end::Card-->
                                 <!--begin::Card-->
-                                <div class="card pt-2 mb-6 mb-xl-9">
-                                    <!--begin::Card header-->
-                                    <div class="card-header border-0">
-                                        <!--begin::Card title-->
-                                        <div class="card-title">
-                                            <h2>Invoices</h2>
-                                        </div>
-                                        <!--end::Card title-->
-                                        <!--begin::Toolbar-->
-                                        <div class="card-toolbar m-0">
-                                            <!--begin::Tab nav-->
-                                            <ul class="nav nav-stretch fs-5 fw-semibold nav-line-tabs nav-line-tabs-2x border-transparent"
-                                                role="tablist">
-                                                <li class="nav-item" role="presentation">
-                                                    <a id="kt_referrals_year_tab"
-                                                        class="nav-link text-active-primary active"
-                                                        data-bs-toggle="tab" role="tab"
-                                                        href="#kt_customer_details_invoices_1">This Year</a>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <a id="kt_referrals_2019_tab"
-                                                        class="nav-link text-active-primary ms-3" data-bs-toggle="tab"
-                                                        role="tab" href="#kt_customer_details_invoices_2">2020</a>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <a id="kt_referrals_2018_tab"
-                                                        class="nav-link text-active-primary ms-3" data-bs-toggle="tab"
-                                                        role="tab" href="#kt_customer_details_invoices_3">2019</a>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <a id="kt_referrals_2017_tab"
-                                                        class="nav-link text-active-primary ms-3" data-bs-toggle="tab"
-                                                        role="tab" href="#kt_customer_details_invoices_4">2018</a>
-                                                </li>
-                                            </ul>
-                                            <!--end::Tab nav-->
-                                        </div>
-                                        <!--end::Toolbar-->
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <!--begin::Tab Content-->
-                                        <div id="kt_referred_users_tab_content" class="tab-content">
-                                            <!--begin::Tab panel-->
-                                            <div id="kt_customer_details_invoices_1"
-                                                class="py-0 tab-pane fade show active" role="tabpanel">
-                                                <!--begin::Table-->
-                                                <table id="kt_customer_details_invoices_table_1"
-                                                    class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
-                                                    <thead
-                                                        class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
-                                                        <tr class="text-start text-muted gs-0">
-                                                            <th class="min-w-100px">Order ID</th>
-                                                            <th class="min-w-100px">Amount</th>
-                                                            <th class="min-w-100px">Status</th>
-                                                            <th class="min-w-125px">Date</th>
-                                                            <th class="min-w-100px text-end pe-7">Invoice</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="fs-6 fw-semibold text-gray-600">
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">102445788</a>
-                                                            </td>
-                                                            <td class="text-success">K38.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">423445721</a>
-                                                            </td>
-                                                            <td class="text-danger">K-2.60</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Oct 24, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K76.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Oct 08, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K5.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Sep 15, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">523445943</a>
-                                                            </td>
-                                                            <td class="text-danger">K-1.30</td>
-                                                            <td>
-                                                                <span class="badge badge-light-info">In progress</span>
-                                                            </td>
-                                                            <td>May 30, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">231445943</a>
-                                                            </td>
-                                                            <td class="text-success">K204.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Apr 22, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">426445943</a>
-                                                            </td>
-                                                            <td class="text-success">K31.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Feb 09, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">984445943</a>
-                                                            </td>
-                                                            <td class="text-success">K52.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-info">In progress</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">324442313</a>
-                                                            </td>
-                                                            <td class="text-danger">K-0.80</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Jan 04, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--end::Table-->
-                                            </div>
-                                            <!--end::Tab panel-->
-                                            <!--begin::Tab panel-->
-                                            <div id="kt_customer_details_invoices_2" class="py-0 tab-pane fade"
-                                                role="tabpanel">
-                                                <!--begin::Table-->
-                                                <table id="kt_customer_details_invoices_table_2"
-                                                    class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
-                                                    <thead
-                                                        class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
-                                                        <tr class="text-start text-muted gs-0">
-                                                            <th class="min-w-100px">Order ID</th>
-                                                            <th class="min-w-100px">Amount</th>
-                                                            <th class="min-w-100px">Status</th>
-                                                            <th class="min-w-125px">Date</th>
-                                                            <th class="min-w-100px text-end pe-7">Invoice</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="fs-6 fw-semibold text-gray-600">
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">523445943</a>
-                                                            </td>
-                                                            <td class="text-danger">K-1.30</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>May 30, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">231445943</a>
-                                                            </td>
-                                                            <td class="text-success">K204.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-info">In progress</span>
-                                                            </td>
-                                                            <td>Apr 22, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">426445943</a>
-                                                            </td>
-                                                            <td class="text-success">K31.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Feb 09, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">984445943</a>
-                                                            </td>
-                                                            <td class="text-success">K52.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">324442313</a>
-                                                            </td>
-                                                            <td class="text-danger">K-0.80</td>
-                                                            <td>
-                                                                <span class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Jan 04, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">102445788</a>
-                                                            </td>
-                                                            <td class="text-success">K38.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">423445721</a>
-                                                            </td>
-                                                            <td class="text-danger">K-2.60</td>
-                                                            <td>
-                                                                <span class="badge badge-light-info">In
-                                                                    progress</span>
-                                                            </td>
-                                                            <td>Oct 24, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K76.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Oct 08, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K5.00</td>
-                                                            <td>
-                                                                <span
-                                                                    class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Sep 15, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--end::Table-->
-                                            </div>
-                                            <!--end::Tab panel-->
-                                            <!--begin::Tab panel-->
-                                            <div id="kt_customer_details_invoices_3" class="py-0 tab-pane fade"
-                                                role="tabpanel">
-                                                <!--begin::Table-->
-                                                <table id="kt_customer_details_invoices_table_3"
-                                                    class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
-                                                    <thead
-                                                        class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
-                                                        <tr class="text-start text-muted gs-0">
-                                                            <th class="min-w-100px">Order ID</th>
-                                                            <th class="min-w-100px">Amount</th>
-                                                            <th class="min-w-100px">Status</th>
-                                                            <th class="min-w-125px">Date</th>
-                                                            <th class="min-w-100px text-end pe-7">Invoice</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="fs-6 fw-semibold text-gray-600">
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">426445943</a>
-                                                            </td>
-                                                            <td class="text-success">K31.00</td>
-                                                            <td>
-                                                                <span
-                                                                    class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Feb 09, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">984445943</a>
-                                                            </td>
-                                                            <td class="text-success">K52.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">324442313</a>
-                                                            </td>
-                                                            <td class="text-danger">K-0.80</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Jan 04, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K5.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Sep 15, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">102445788</a>
-                                                            </td>
-                                                            <td class="text-success">K38.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-info">In
-                                                                    progress</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">423445721</a>
-                                                            </td>
-                                                            <td class="text-danger">K-2.60</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Oct 24, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K76.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Oct 08, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">523445943</a>
-                                                            </td>
-                                                            <td class="text-danger">K-1.30</td>
-                                                            <td>
-                                                                <span class="badge badge-light-info">In
-                                                                    progress</span>
-                                                            </td>
-                                                            <td>May 30, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">231445943</a>
-                                                            </td>
-                                                            <td class="text-success">K204.00</td>
-                                                            <td>
-                                                                <span
-                                                                    class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Apr 22, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--end::Table-->
-                                            </div>
-                                            <!--end::Tab panel-->
-                                            <!--begin::Tab panel-->
-                                            <div id="kt_customer_details_invoices_4" class="py-0 tab-pane fade"
-                                                role="tabpanel">
-                                                <!--begin::Table-->
-                                                <table id="kt_customer_details_invoices_table_4"
-                                                    class="table align-middle table-row-dashed fs-6 fw-bold gy-5">
-                                                    <thead
-                                                        class="border-bottom border-gray-200 fs-7 text-uppercase fw-bold">
-                                                        <tr class="text-start text-muted gs-0">
-                                                            <th class="min-w-100px">Order ID</th>
-                                                            <th class="min-w-100px">Amount</th>
-                                                            <th class="min-w-100px">Status</th>
-                                                            <th class="min-w-125px">Date</th>
-                                                            <th class="min-w-100px text-end pe-7">Invoice</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="fs-6 fw-semibold text-gray-600">
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">102445788</a>
-                                                            </td>
-                                                            <td class="text-success">K38.00</td>
-                                                            <td>
-                                                                <span
-                                                                    class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">423445721</a>
-                                                            </td>
-                                                            <td class="text-danger">K-2.60</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Oct 24, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">102445788</a>
-                                                            </td>
-                                                            <td class="text-success">K38.00</td>
-                                                            <td>
-                                                                <span
-                                                                    class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">423445721</a>
-                                                            </td>
-                                                            <td class="text-danger">K-2.60</td>
-                                                            <td>
-                                                                <span class="badge badge-light-info">In
-                                                                    progress</span>
-                                                            </td>
-                                                            <td>Oct 24, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">426445943</a>
-                                                            </td>
-                                                            <td class="text-success">K31.00</td>
-                                                            <td>
-                                                                <span
-                                                                    class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Feb 09, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">984445943</a>
-                                                            </td>
-                                                            <td class="text-success">K52.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-warning">Pending</span>
-                                                            </td>
-                                                            <td>Nov 01, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">324442313</a>
-                                                            </td>
-                                                            <td class="text-danger">K-0.80</td>
-                                                            <td>
-                                                                <span
-                                                                    class="badge badge-light-success">Approved</span>
-                                                            </td>
-                                                            <td>Jan 04, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K76.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Oct 08, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#"
-                                                                    class="text-gray-600 text-hover-primary">312445984</a>
-                                                            </td>
-                                                            <td class="text-success">K76.00</td>
-                                                            <td>
-                                                                <span class="badge badge-light-danger">Rejected</span>
-                                                            </td>
-                                                            <td>Oct 08, 2020</td>
-                                                            <td class="text-end">
-                                                                <button
-                                                                    class="btn btn-sm btn-light btn-active-light-primary">Download</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--end::Table-->
-                                            </div>
-                                            <!--end::Tab panel-->
-                                        </div>
-                                        <!--end::Tab Content-->
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Card-->
                             </div>
                             <!--end:::Tab pane-->
                             <!--begin:::Tab pane-->
@@ -2442,91 +872,66 @@
                                                                 class="path2"></span><span
                                                                 class="path3"></span><span
                                                                 class="path4"></span></i> </button>
-
-                                                    <!--begin::Menu 2-->
                                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
                                                         data-kt-menu="true">
-                                                        <!--begin::Menu item-->
                                                         <div class="menu-item px-3">
                                                             <div
                                                                 class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
                                                                 Quick Actions</div>
                                                         </div>
-                                                        <!--end::Menu item-->
-
-                                                        <!--begin::Menu separator-->
+                                                        
                                                         <div class="separator mb-3 opacity-75"></div>
-                                                        <!--end::Menu separator-->
-
-                                                        <!--begin::Menu item-->
+                                                    
                                                         <div class="menu-item px-3">
                                                             <a href="#" class="menu-link px-3">
                                                                 New Ticket
                                                             </a>
                                                         </div>
-                                                        <!--end::Menu item-->
-
-                                                        <!--begin::Menu item-->
+                                                        
                                                         <div class="menu-item px-3">
                                                             <a href="#" class="menu-link px-3">
                                                                 New Customer
                                                             </a>
                                                         </div>
-                                                        <!--end::Menu item-->
-
-                                                        <!--begin::Menu item-->
+                                                        
                                                         <div class="menu-item px-3" data-kt-menu-trigger="hover"
                                                             data-kt-menu-placement="right-start">
-                                                            <!--begin::Menu item-->
+                                                            
                                                             <a href="#" class="menu-link px-3">
                                                                 <span class="menu-title">New Group</span>
                                                                 <span class="menu-arrow"></span>
                                                             </a>
-                                                            <!--end::Menu item-->
-
-                                                            <!--begin::Menu sub-->
+                                                            
                                                             <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                                                <!--begin::Menu item-->
+                                                            
                                                                 <div class="menu-item px-3">
                                                                     <a href="#" class="menu-link px-3">
                                                                         Admin Group
                                                                     </a>
                                                                 </div>
-                                                                <!--end::Menu item-->
-
-                                                                <!--begin::Menu item-->
+                                                                
                                                                 <div class="menu-item px-3">
                                                                     <a href="#" class="menu-link px-3">
                                                                         Staff Group
                                                                     </a>
                                                                 </div>
-                                                                <!--end::Menu item-->
-
-                                                                <!--begin::Menu item-->
+                                                                
                                                                 <div class="menu-item px-3">
                                                                     <a href="#" class="menu-link px-3">
                                                                         Member Group
                                                                     </a>
                                                                 </div>
-                                                                <!--end::Menu item-->
                                                             </div>
-                                                            <!--end::Menu sub-->
                                                         </div>
-                                                        <!--end::Menu item-->
-
-                                                        <!--begin::Menu item-->
+                                                        
                                                         <div class="menu-item px-3">
                                                             <a href="#" class="menu-link px-3">
                                                                 New Contact
                                                             </a>
                                                         </div>
-                                                        <!--end::Menu item-->
-
-                                                        <!--begin::Menu separator-->
+                                                    
                                                         <div class="separator mt-3 opacity-75"></div>
-                                                        <!--end::Menu separator-->
-
-                                                        <!--begin::Menu item-->
+                                                    
                                                         <div class="menu-item px-3">
                                                             <div class="menu-content px-3 py-3">
                                                                 <a class="btn btn-primary  btn-sm px-4"
@@ -2535,61 +940,47 @@
                                                                 </a>
                                                             </div>
                                                         </div>
-                                                        <!--end::Menu item-->
                                                     </div>
-                                                    <!--end::Menu 2-->
-                                                    <!--end::Menu-->
+                                                    
                                                 </div>
                                             </div>
-                                            <!--end::Header-->
-
-                                            <!--begin::Body-->
+                                            
                                             <div class="card-body pt-2">
-                                                <!--begin::Item-->
                                                 <div class="d-flex align-items-center mb-7">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-50px me-5">
+                                                    {{-- <div class="symbol symbol-50px me-5">
                                                         <img src="{{ asset('public/mfs/admin/assets/avatars/blank.png') }}"
                                                             class="" alt="">
-                                                    </div>
-                                                    <!--end::Avatar-->
-
-                                                    <!--begin::Text-->
+                                                    </div> --}}
+                                                    
                                                     <div class="flex-grow-1">
                                                         <a href="#"
-                                                            class="text-gray-900 fw-bold text-hover-primary fs-6">Emmanuel Kakoma</a>
+                                                            class="text-gray-900 fw-bold text-hover-primary fs-6">{{ $loan->type }}</a>
 
-                                                        <span class="text-muted d-block fw-bold">HR Manager</span>
+                                                        <span class="text-muted d-block fw-bold">ZMW {{ $loan->amount }}</span>
                                                     </div>
-                                                    <!--end::Text-->
                                                 </div>
-                                                <!--end::Item-->
-                                                <!--begin::Item-->
+                                                
                                                 <div class="d-flex align-items-center mb-7">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-50px me-5">
-                                                        <img src="{{ asset('public/mfs/admin/assets/avatars/blank.png') }}"
-                                                            class="" alt="">
-                                                    </div>
-                                                    <!--end::Avatar-->
-
-                                                    <!--begin::Text-->
+                                                    {{-- <div class="symbol symbol-50px me-5">
+                                                        <img src="{{ asset('public/mfs/admin/assets/avatars/blank.png') }}" class="" alt="">
+                                                    </div> --}}
+                                                    
                                                     <div class="flex-grow-1">
-                                                        <a href="#"
-                                                            class="text-gray-900 fw-bold text-hover-primary fs-6">Sean
-                                                            Tembo</a>
-
-                                                        <span class="text-muted d-block fw-bold">Superviser</span>
+                                                        <a href="#" class="text-gray-900 fw-bold text-hover-primary fs-6">
+                                                            KYC information
+                                                        </a>
+                                                        <span class="text-muted d-block fw-bold mt-2">
+                                                            @if($loan->complete == 1)
+                                                                <span class="text-white bg-success p-2 rounded">{{ 'Completed' }}</span>
+                                                            @else
+                                                                <span class="text-primary bg-danger p-2 rounded">{{ 'Incomplete' }}</span>
+                                                            @endif        
+                                                        </span>
                                                     </div>
-                                                    <!--end::Text-->
                                                 </div>
-                                                <!--end::Item-->
-                                               
-
                                             </div>
-                                            <!--end::Body-->
+
                                         </div>
-                                        <!--end::List Widget 2-->
                                     </div>
 
 
@@ -2629,12 +1020,11 @@
 
 
                                             <!--begin::Col-->
-                                            <div class="col-md-6 col-lg-4 col-xl-3">
+                                            {{-- <div class="col-md-6 col-lg-4 col-xl-3">
                                                 <!--begin::Card-->
                                                 <div class="card h-100 ">
                                                     <!--begin::Card body-->
-                                                    <div
-                                                        class="card-body d-flex justify-content-center text-center flex-column p-8">
+                                                    <div class="card-body d-flex justify-content-center text-center flex-column p-8">
                                                         <!--begin::Name-->
                                                         <a href="/metronic8/demo8/../demo8/apps/file-manager/files.html"
                                                             class="text-gray-800 text-hover-primary d-flex flex-column">
@@ -2663,122 +1053,73 @@
                                                     <!--end::Card body-->
                                                 </div>
                                                 <!--end::Card-->
-                                            </div>
-                                            <!--end::Col-->
+                                            </div> --}}
 
-                                            <!--begin::Col-->
-                                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                                <!--begin::Card-->
-                                                <div class="card h-100 ">
-                                                    <!--begin::Card body-->
-                                                    <div
-                                                        class="card-body d-flex justify-content-center text-center flex-column p-8">
-                                                        <!--begin::Name-->
-                                                        <a href="/metronic8/demo8/../demo8/apps/file-manager/files.html"
-                                                            class="text-gray-800 text-hover-primary d-flex flex-column">
-                                                            <!--begin::Image-->
-                                                            <div class="symbol symbol-60px mb-5">
-                                                                <img src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}"
-                                                                    class="theme-light-show" alt="">
-                                                                <img src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}"
-                                                                    class="theme-dark-show" alt="">
-
-                                                            </div>
-                                                            <!--end::Image-->
-
-                                                            <!--begin::Title-->
-                                                            <div class="fs-5 fw-bold mb-2">
-                                                                Payslip </div>
-                                                            <!--end::Title-->
-                                                        </a>
-                                                        <!--end::Name-->
-
-                                                        <!--begin::Description-->
-                                                        <div class="fs-7 fw-semibold text-gray-500">
-                                                            3 days ago </div>
-                                                        <!--end::Description-->
-                                                    </div>
-                                                    <!--end::Card body-->
+                                            <div class="row">
+                                                <div class="row col-6">
+                                                    @if ($loan->user->uploads->where('name', 'nrc_file')->isNotEmpty())
+                                                        <div class="col-6">
+                                                            <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'nrc_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                                <img width="90" src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}">
+                                                            </a>
+                                                            <p class="file-list">NRC uploaded on {{ $loan->user->uploads->where('name', 'nrc_file')->first()->created_at->toFormattedDateString() }}</p>
+                                                        </div>
+                                                    @endif
+                                                    @if ($loan->user->uploads->where('name', 'tpin_file')->isNotEmpty())
+                                                        <div class="col-6">
+                                                            <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'tpin_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                                <img width="90" src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}">
+                                                            </a>
+                                                            <p class="file-list">Tpin uploaded on {{ $loan->user->uploads->where('name', 'tpin_file')->first()->created_at->toFormattedDateString() }}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
-                                                <!--end::Card-->
-                                            </div>
-                                            <!--end::Col-->
-
-                                            <!--begin::Col-->
-                                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                                <!--begin::Card-->
-                                                <div class="card h-100 ">
-                                                    <!--begin::Card body-->
-                                                    <div
-                                                        class="card-body d-flex justify-content-center text-center flex-column p-8">
-                                                        <!--begin::Name-->
-                                                        <a href="#"
-                                                            class="text-gray-800 text-hover-primary d-flex flex-column">
-                                                            <!--begin::Image-->
-                                                            <div class="symbol symbol-60px mb-5">
-                                                                <img src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}"
-                                                                    class="theme-light-show" alt="">
-                                                                <img src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}"
-                                                                    class="theme-dark-show" alt="">
-
-                                                            </div>
-                                                            <!--end::Image-->
-
-                                                            <!--begin::Title-->
-                                                            <div class="fs-5 fw-bold mb-2">
-                                                                Bank Statement </div>
-                                                            <!--end::Title-->
-                                                        </a>
-                                                        <!--end::Name-->
-
-                                                        <!--begin::Description-->
-                                                        <div class="fs-7 fw-semibold text-gray-500">
-                                                            4 days ago </div>
-                                                        <!--end::Description-->
-                                                    </div>
-                                                    <!--end::Card body-->
+                                                <div class="row col-6">
+                                                    @if ($loan->user->uploads->where('name', 'preapproval')->isNotEmpty())
+                                                        <div class="col-6">
+                                                            <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'preapproval')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                                <img width="90" src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}">
+                                                            </a>
+                                                            <p class="file-list">Preapproval uploaded on {{ $loan->user->uploads->where('name', 'preapproval')->first()->created_at->toFormattedDateString() }}</p>
+                                                        </div>
+                                                    @endif
+                                                    @if ($loan->user->uploads->where('name', 'letterofintro')->isNotEmpty())
+                                                        <div class="col-6">
+                                                            <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'letterofintro')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                                <img width="90" src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}">
+                                                            </a>
+                                                            <p class="file-list">Letter of Introduction uploaded on {{ $loan->user->uploads->where('name', 'letterofintro')->first()->created_at->toFormattedDateString() }}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
-                                                <!--end::Card-->
-                                            </div>
-                                            <!--end::Col-->
-
-                                            <!--begin::Col-->
-                                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                                <!--begin::Card-->
-                                                <div class="card h-100 ">
-                                                    <!--begin::Card body-->
-                                                    <div
-                                                        class="card-body d-flex justify-content-center text-center flex-column p-8">
-                                                        <!--begin::Name-->
-                                                        <a href="/metronic8/demo8/../demo8/apps/file-manager/files.html"
-                                                            class="text-gray-800 text-hover-primary d-flex flex-column">
-                                                            <!--begin::Image-->
-                                                            <div class="symbol symbol-60px mb-5">
-                                                                <img src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}"
-                                                                    class="theme-light-show" alt="">
-                                                                <img src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}"
-                                                                    class="theme-dark-show" alt="">
-
-                                                            </div>
-                                                            <!--end::Image-->
-
-                                                            <!--begin::Title-->
-                                                            <div class="fs-5 fw-bold mb-2">
-                                                                Pre approval Document </div>
-                                                            <!--end::Title-->
-                                                        </a>
-                                                        <!--end::Name-->
-
-                                                        <!--begin::Description-->
-                                                        <div class="fs-7 fw-semibold text-gray-500">
-                                                            5 days ago </div>
-                                                        <!--end::Description-->
-                                                    </div>
-                                                    <!--end::Card body-->
+                                                <div class="row col-12">
+                                                    @if ($loan->user->uploads->where('name', 'bankstatement')->isNotEmpty())
+                                                        <div class="col-3">
+                                                            <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'bankstatement')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                                <img width="90" src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}">
+                                                            </a>
+                                                            <p class="file-list">Bank Statement uploaded on {{ $loan->user->uploads->where('name', 'bankstatement')->first()->created_at->toFormattedDateString() }}</p>
+                                                        </div>
+                                                    @endif
+                                                    @if ($loan->user->uploads->where('name', 'payslip_file')->isNotEmpty())
+                                                        <div class="col-3">
+                                                            <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'payslip_file')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                                <img width="90" src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}">
+                                                            </a>
+                                                            <p class="file-list">Payslip uploaded on {{ $loan->user->uploads->where('name', 'payslip_file')->first()->created_at->toFormattedDateString() }}</p>
+                                                        </div>
+                                                    @endif
+                                                    @if ($loan->user->uploads->where('name', 'passport')->isNotEmpty())
+                                                        <div class="col-3">
+                                                            <a href="{{ 'public/'.Storage::url($loan->user->uploads->where('name', 'passport')->first()->path) }}"  class="open-modal" data-toggle="modal" data-target="#fileModal" data-file-url="{{ 'public/'.Storage::url($loan->user->uploads[0]->path) }}">
+                                                                <img width="90" src="{{ asset('public/mfs/admin/assets/media/svg/files/pdf.svg') }}">
+                                                            </a>
+                                                            <p class="file-list">Passport Size photo uploaded on {{ $loan->user->uploads->where('name', 'passport')->first()->created_at->toFormattedDateString() }}</p>
+                                                        </div>
+                                                    @endif
                                                 </div>
-                                                <!--end::Card-->
+                                                <!--end::Table-->
                                             </div>
-                                            <!--end::Col-->
 
                                         </div>
                                         <!--end::Table-->
@@ -3250,30 +1591,24 @@
                                     <!--end::Input group-->
                                     <!--begin::Input group-->
                                     <div class="fv-row mb-7">
-                                        <!--begin::Label-->
                                         <label class="required fs-6 fw-semibold form-label mb-2">Amount</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
                                         <input id="kt_modal_inputmask" type="text"
                                             class="form-control form-control-solid" name="amount"
                                             value="" />
-                                        <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
                                     <!--begin::Input group-->
                                     <div class="fv-row mb-7">
-                                        <!--begin::Label-->
                                         <label class="fs-6 fw-semibold form-label mb-2">Add adjustment note</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
                                         <textarea class="form-control form-control-solid rounded-3 mb-5"></textarea>
-                                        <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
                                     <!--begin::Disclaimer-->
-                                    <div class="fs-7 text-muted mb-15">Please be aware that all manual balance changes
+                                    <div class="fs-7 text-muted mb-15">
+                                        Please be aware that all manual balance changes
                                         will be audited by the financial team every fortnight. Please maintain your
-                                        invoices and receipts until then. Thank you.</div>
+                                        invoices and receipts until then. Thank you.
+                                    </div>
                                     <!--end::Disclaimer-->
                                     <!--begin::Actions-->
                                     <div class="text-center">
@@ -3347,8 +1682,10 @@
                                             <div class="d-flex flex-stack flex-grow-1">
                                                 <!--begin::Content-->
                                                 <div class="fw-semibold">
-                                                    <div class="fs-6 text-gray-700">Updating customer details will
+                                                    <div class="fs-6 text-gray-700">
+                                                        Updating customer details will
                                                         receive a privacy audit. For more info, please read our
+
                                                         <a href="#">Privacy Policy</a>
                                                     </div>
                                                 </div>
@@ -3397,19 +1734,16 @@
                                                         </div>
                                                         <!--end::Preview existing avatar-->
                                                         <!--begin::Edit-->
-                                                        <label
-                                                            class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
                                                             data-kt-image-input-action="change"
                                                             data-bs-toggle="tooltip" title="Change avatar">
                                                             <i class="ki-duotone ki-pencil fs-7">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
                                                             </i>
-                                                            <!--begin::Inputs-->
-                                                            <input type="file" name="avatar"
-                                                                accept=".png, .jpg, .jpeg" />
+                                                            
+                                                            <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
                                                             <input type="hidden" name="avatar_remove" />
-                                                            <!--end::Inputs-->
                                                         </label>
                                                         <!--end::Edit-->
                                                         <!--begin::Cancel-->
@@ -3456,8 +1790,7 @@
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold mb-2">
                                                     <span>Email</span>
-                                                    <span class="ms-1" data-bs-toggle="tooltip"
-                                                        title="Email address must be active">
+                                                    <span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
                                                         <i class="ki-duotone ki-information fs-7">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
@@ -3571,6 +1904,7 @@
                                                     </span>
                                                 </label>
                                                 <!--end::Label-->
+
                                                 <!--begin::Input-->
                                                 <select name="country" aria-label="Select a Country"
                                                     data-control="select2" data-placeholder="Select a Country..."
@@ -4079,4 +2413,4 @@
         </div>
         <!--end::Post-->
     </div>
-    <
+</div>

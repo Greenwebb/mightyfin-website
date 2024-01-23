@@ -1,9 +1,12 @@
-<div class="content-body">
+<div class="content d-flex flex-column flex-column-fluid">
     <div class="container-fluid">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Missed Repayments</h4>
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bold fs-3 mb-1">Recent Missed Repayments</span>
+                        <span class="text-muted mt-1 fw-semibold fs-7">Over {{$mssd_repays->count()}} Missed Repayments</span>
+                    </h3>
                     <div>
                         @can('view all loan requests')
                             <button wire:click="exportMRLoans()" title="Export to Excel" class="btn btn-square btn-success">
@@ -34,9 +37,9 @@
                                 </div>
                             </div>
                         </div>
-                        <table wire:ignore id="example3" class="display" style="min-width: 845px">
+                        <table wire:ignore id="example3" class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
                             <thead>
-                                <tr>
+                                <tr class="fw-bold text-muted">
                                     <th class="actions-btns"></th>
                                     <th>Borrower</th>
                                     <th>Loan Purpose</th>

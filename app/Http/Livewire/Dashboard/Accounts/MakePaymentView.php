@@ -16,7 +16,7 @@ use Carbon\Carbon;
 class MakePaymentView extends Component
 {
     use AuthorizesRequests, WalletTrait;
-    public $amount, $loan_id, $loans, $transactions;
+    public $amount, $loan_id, $loans, $transactions, $payment_method;
 
     public function render()
     {
@@ -26,7 +26,7 @@ class MakePaymentView extends Component
                         ->get();
         $this->transactions = Transaction::with('application.user')->orderBy('created_at', 'desc')->get();
         return view('livewire.dashboard.accounts.make-payment-view')
-        ->layout('layouts.dashboard');
+        ->layout('layouts.admin');
     }
 
     public function makepayment(){     

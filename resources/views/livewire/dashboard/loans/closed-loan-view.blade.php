@@ -1,4 +1,4 @@
-<div class="content-body">
+<div class="content d-flex flex-column flex-column-fluid">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -42,9 +42,9 @@
                                 </div> --}}
                                 @endcan
                             </div>
-                            <table wire:ignore.self wire:poll.1000000ms id="example3" class="display" style="min-width: 845px; position:relative;">
+                            <table wire:ignore.self wire:poll.1000000ms id="example3" class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
                                 <thead>
-                                    <tr>
+                                    <tr class="fw-bold text-muted">
                                         <th>Loan #.</th>
                                         <th>Borrower</th>
                                         <th>Loan Type</th>

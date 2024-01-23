@@ -1016,7 +1016,7 @@
                         {{-- @endcan --}}
                         {{-- @can('view pending') --}}
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('approved-loans') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1038,7 +1038,7 @@
 
                         @can('view closed')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('closed-loans') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1066,7 +1066,7 @@
                     <div class="menu-sub menu-sub-accordion">
                         @can('view pending repayments')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('repayments') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1077,7 +1077,7 @@
 
                         @can('view missed repayments')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('missed-repayments') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1088,7 +1088,7 @@
 
                         @can('view past maturity')
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ route('past-maturity-date') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -1101,103 +1101,103 @@
                 @endcan
                 
                 @can('view operations')
-                <div class="menu-item pt-5">
-                    <div class="menu-content">
-                        <span class="menu-heading fw-bold text-uppercase fs-7">Operations & Staff</span>
+                    <div class="menu-item pt-5">
+                        <div class="menu-content">
+                            <span class="menu-heading fw-bold text-uppercase fs-7">Operations & Staff</span>
+                        </div>
                     </div>
-                </div>
                 
-                @can('view employees')
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <i class="ki-duotone ki-abstract-28 fs-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
+                    @can('view employees')
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-28 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Employees</span>
+                            <span class="menu-arrow"></span>
                         </span>
-                        <span class="menu-title">Employees</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    
-                    <div class="menu-sub menu-sub-accordion">
-                        <div  class="menu-item menu-accordion mb-1">
-                            <a class="menu-link" href="{{ route('employees') }}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">All Staff</span>
-                            </a>
+                        
+                        <div class="menu-sub menu-sub-accordion">
+                            <div  class="menu-item menu-accordion mb-1">
+                                <a class="menu-link" href="{{ route('employees') }}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">All Staff</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @endcan
+                    @endcan
                 
-                @can('view accounting')
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <i class="ki-duotone ki-abstract-28 fs-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
+                    @can('view accounting')
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-28 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Accounting</span>
+                            <span class="menu-arrow"></span>
                         </span>
-                        <span class="menu-title">Accounting</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    
-                    <div class="menu-sub menu-sub-accordion">
-                        @can('view transactions')
-                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
-                            <span class="menu-link">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Payment Transactions</span>
-                            </span>
-                        </div>
-                        @endcan
+                        
+                        <div class="menu-sub menu-sub-accordion">
+                            @can('view transactions')
+                            <div class="menu-item menu-accordion mb-1">
+                                <a href="{{ route('make-payment') }}" class="menu-link">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Payment Transactions</span>
+                                </a>
+                            </div>
+                            @endcan
 
-                        @can('manage funds')
-                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                            <span class="menu-link">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
+                            @can('manage funds')
+                            {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                <span class="menu-link">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Manage Funds</span>
                                 </span>
-                                <span class="menu-title">Manage Funds</span>
-                            </span>
-                        </div>
-                        @endcan
-                    </div>
-                </div>
-                @endcan
-
-                @can('view reports')
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <i class="ki-duotone ki-abstract-28 fs-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                        </span>
-                        <span class="menu-title">Reports</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    
-                    <div class="menu-sub menu-sub-accordion">
-                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
-                            <span class="menu-link">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Loan Report</span>
-                            </span>
-                            
+                            </div> --}}
+                            @endcan
                         </div>
                     </div>
-                </div>
-                @endcan
+                    @endcan
+
+                    @can('view reports')
+                    {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-28 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Reports</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        
+                        <div class="menu-sub menu-sub-accordion">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+                                <span class="menu-link">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Loan Report</span>
+                                </span>
+                                
+                            </div>
+                        </div>
+                    </div> --}}
+                    @endcan
                 @endcan
 
 
