@@ -119,7 +119,7 @@
         margin: 0px;
         background-color: #2b152a47;
         border: 4px solid transparent;
-        border-radius: 10px;
+        border-radius: 1.2rem;
         cursor: pointer;
     }
 
@@ -402,6 +402,7 @@
                                             </div>
                                         </label>
                                     </div>
+
                                 </div>
 
 
@@ -416,7 +417,7 @@
 
                 <div class="slider">
                     <h4 class="text-white">Loan Amount</h4>
-                    <div class="range" style="margin-bottom: -60px;" id="pricipal-slide">
+                    <div v class="range" style="margin-bottom: -60px;" id="pricipal-slide">
 
                         <div class="form-group range__slider">
                             <input value="1" oninput="this.nextElementSibling.value = this.value"
@@ -445,10 +446,10 @@
 
                             <input onclick="checker()" oninput="this.nextElementSibling.value = this.value"
                                 type="range" value="0" min="1" max="30" style="width:100%;"
-                                id="slidate" title="Slide for amount">
-                            <input name="repayment_plan" required onclick="checker()"
+                                id="loan_duration" title="Slide for amount">
+                            <input name="repayment_plan" required oninput="checker()"
                                 style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center;; width: 100%; border: 1px #f8f8f800 solid;"
-                                class="output form-control" value="1" id="time_duration" min="1" max="100"
+                                class="output form-control" value="1" id=   " min="1" max="100"
                                 type="number">
                             <output></output>
                             <div>
@@ -558,7 +559,7 @@
 
                     </div>
 
-                 
+
 
                 </div>
                 <div id="totalyear-slide"></div>
@@ -576,13 +577,13 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="single-total">
                         <h5 class="lead-cal-small-text">Total Repayment</h5>
-                        <h4 id="amountatious" class="text-white emi-price">2600</h4>
+                        <h4 id="total_repayment" class="text-white emi-price">2600</h4>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                     <div class="single-total">
                         <h5 class="lead-cal-small-text">Monthly Repayment</h5>
-                        <h4 id="result_duration" class="text-white">K500</h4>
+                        <h4 id="monthly_repayment" class="text-white">K500</h4>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
@@ -601,35 +602,4 @@
     </div>
 </form>
 <!-- Add this to the end of your HTML body or in the head section -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const sliderEl = document.querySelectorAll(".range__slider input[type='range']")
-        sliderEl.forEach((sliderEl) => {
-            sliderEl.addEventListener("input", (event) => {
-                const tempSliderValue = event.target.value;
-                const progress = (tempSliderValue / sliderEl.max) * 100;
 
-                sliderEl.style.background =
-                    `linear-gradient(to right, #f9ca24 ${progress}%, #ccc ${progress}%)`;
-            });
-        });
-        const inputGroups = document.querySelectorAll('.input-group input');
-
-        inputGroups.forEach(input => {
-            input.addEventListener('focus', function() {
-                input.parentNode.classList.add('focused');
-            });
-
-            input.addEventListener('blur', function() {
-                if (!input.value.trim()) {
-                    input.parentNode.classList.remove('focused');
-                }
-            });
-
-            // Check if the input has value on page load
-            if (input.value.trim()) {
-                input.parentNode.classList.add('focused');
-            }
-        });
-    });
-</script>

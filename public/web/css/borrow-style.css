@@ -765,8 +765,8 @@ Buttons
 
 .btn {
     font-size: 14px;
-    border-radius: 2px;
-    line-height: 12px;
+    border-radius: 2.5rem;
+    line-height: 19px;
     letter-spacing: 1px;
     text-transform: uppercase;
     padding: 20px 30px;
@@ -2065,7 +2065,7 @@ index-1
 .lead-calculator {
     background: #792db8;
     color: #fff;
-    border-radius: 6px;
+    border-radius: 2.5rem;
 }
 
 .lead-calculator .ui-widget.ui-widget-content {
@@ -2078,7 +2078,7 @@ index-1
 }
 
 .lead-calculator .ui-widget-content {
-    border: 1px solid ##f9ca24;
+    border: 1px solid #f9ca24;
     background: #61a6f2;
 }
 
