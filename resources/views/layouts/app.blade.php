@@ -20,106 +20,14 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Home Mighty Finance Solution" />
     <meta name="twitter:image" content="images/07-app-store-img.png" />
-    <script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>
-        {
-            "@context": "https://schema.org",
-            "@graph": [{
-                "@type": "WebSite",
-                "@id": "http://demo.oceanthemes.net/borrow/#website",
-                "url": "http://demo.oceanthemes.net/borrow/",
-                "name": "Mighty Finance solution",
-                "inLanguage": "en-US",
-                "description": "Loan Finance Company ",
-                "potentialAction": [{
-                    "@type": "SearchAction",
-                    "target": "http://demo.oceanthemes.net/borrow/?s={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                }]
-            }, {
-                "@type": "ImageObject",
-                "@id": "http://demo.oceanthemes.net/borrow/home-bank/#primaryimage",
-                "inLanguage": "en-US",
-                "url": "images/07-app-store-img.png",
-                "width": 170,
-                "height": 50
-            }, {
-                "@type": "WebPage",
-                "@id": "http://demo.oceanthemes.net/borrow/home-bank/#webpage",
-                "url": "http://demo.oceanthemes.net/borrow/home-bank/",
-                "name": "Home Mighty Finance Solution",
-                "isPartOf": {
-                    "@id": "http://demo.oceanthemes.net/borrow/#website"
-                },
-                "inLanguage": "en-US",
-                "primaryImageOfPage": {
-                    "@id": "http://demo.oceanthemes.net/borrow/home-bank/#primaryimage"
-                },
-                "datePublished": "2018-07-10T09:20:28+00:00",
-                "dateModified": "2021-10-07T03:59:37+00:00",
-                "potentialAction": [{
-                    "@type": "ReadAction",
-                    "target": ["http://demo.oceanthemes.net/borrow/home-bank/"]
-                }]
-            }]
-        }
-    </script>
+
     <!-- / Yoast SEO plugin. -->
 
     <link rel='dns-prefetch' href='//maps.googleapis.com' />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
-    <link rel="alternate" type="application/rss+xml" title="mighty finance &raquo; Feed" href="http://demo.oceanthemes.net/borrow/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="mighty finance &raquo; Comments Feed" href="http://demo.oceanthemes.net/borrow/comments/feed/" />
-    <script type="text/javascript">
-        window._wpemojiSettings = {
-            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/",
-            "ext": ".png",
-            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/",
-            "svgExt": ".svg",
-            "source": {
-                "concatemoji": "http:\/\/demo.oceanthemes.net\/borrow\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.4"
-            }
-        };
-        /*! This file is auto-generated */
-        ! function(e, a, t) {
-            var r, n, o, i, p = a.createElement("canvas"),
-                s = p.getContext && p.getContext("2d");
 
-            function c(e, t) {
-                var a = String.fromCharCode;
-                s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, e), 0, 0);
-                var r = p.toDataURL();
-                return s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, t), 0, 0), r === p.toDataURL()
-            }
 
-            function l(e) {
-                if (!s || !s.fillText) return !1;
-                switch (s.textBaseline = "top", s.font = "600 32px Arial", e) {
-                    case "flag":
-                        return !c([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) && (!c([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !c([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]));
-                    case "emoji":
-                        return !c([55357, 56424, 55356, 57342, 8205, 55358, 56605, 8205, 55357, 56424, 55356, 57340], [55357, 56424, 55356, 57342, 8203, 55358, 56605, 8203, 55357, 56424, 55356, 57340])
-                }
-                return !1
-            }
-
-            function d(e) {
-                var t = a.createElement("script");
-                t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)
-            }
-            for (i = Array("flag", "emoji"), t.supports = {
-                    everything: !0,
-                    everythingExceptFlag: !0
-                }, o = 0; o < i.length; o++) t.supports[i[o]] = l(i[o]), t.supports.everything = t.supports.everything && t.supports[i[o]], "flag" !== i[o] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[i[o]]);
-            t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function() {
-                t.DOMReady = !0
-            }, t.supports.everything || (n = function() {
-                t.readyCallback()
-            }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function() {
-                "complete" === a.readyState && t.readyCallback()
-            })), (r = t.source || {}).concatemoji ? d(r.concatemoji) : r.wpemoji && r.twemoji && (d(r.twemoji), d(r.wpemoji)))
-        }(window, document, window._wpemojiSettings);
-    </script>
     <style type="text/css">
         .normal {
             bottom: 7rem !important;
@@ -167,17 +75,12 @@
     <link rel='stylesheet' id='borrow-style-css' href='{{ asset("public/web/css/borrow-style.css") }}' type='text/css' media='all' />
     <link rel='stylesheet' id='newsletter-css' href='{{ asset("public/web/css/newsletter-style.css") }}' type='text/css' media='all' />
     <link rel='stylesheet' id='js_composer_front-css' href='{{ asset("public/web/css/css-js_composer.min.css") }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='shmac-dynamic-css-css' href='http://demo.oceanthemes.net/borrow/wp-admin/admin-ajax.php?action=shmac_dynamic_css&#038;ver=1.4.5' type='text/css' media='all' />
     <script type='text/javascript' src='{{ asset("public/web/js/jquery-jquery.js") }}'></script>
     <script type='text/javascript' src='{{ asset("public/web/js/jquery-jquery-migrate.min.js") }}'></script>
     <script type='text/javascript' src='{{ asset("public/web/js/royal_preloader.min.js") }}'></script>
-    <link rel='https://api.w.org/' href='http://demo.oceanthemes.net/borrow/wp-json/' />
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://mightyfinance.co.zm?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wlwmanifest.xml" />
     <meta name="generator" content="greenwebb" />
-    <link rel='shortlink' href='http://demo.oceanthemes.net/borrow/?p=1360' />
-    <link rel="alternate" type="application/json+oembed" href="http://demo.oceanthemes.net/borrow/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.oceanthemes.net%2Fborrow%2Fhome-bank%2F" />
-    <link rel="alternate" type="text/xml+oembed" href="http://demo.oceanthemes.net/borrow/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.oceanthemes.net%2Fborrow%2Fhome-bank%2F&#038;format=xml" />
 
 
 
@@ -1108,16 +1011,7 @@
     <script type="text/html" id="wpb-modifications"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel='stylesheet' id='vc_tta_style-css' href='{{ asset("public/web/css/css-js_composer_tta.min.css") }}' type='text/css' media='all' />
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var wpcf7 = {
-            "apiSettings": {
-                "root": "http:\/\/demo.oceanthemes.net\/borrow\/wp-json\/contact-form-7\/v1",
-                "namespace": "contact-form-7\/v1"
-            }
-        };
-        /* ]]> */
-    </script>
+
     <script>
         var maps = document.getElementById('maps_location');
 
