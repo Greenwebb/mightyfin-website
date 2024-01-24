@@ -1,7 +1,7 @@
 <style>
     .input-group {
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
     }
 
     /* .input-group input {
@@ -35,7 +35,7 @@
     }
 
     .prefix {
-        width: 220px !important;
+        width: 30% !important;
         /* Adjust the width as needed */
         padding: 0.8rem;
         border: 1px solid rgb(122, 88, 88);
@@ -333,17 +333,48 @@
     .range__slider [type="range"]:focus::-moz-range-thumb {
         box-shadow: 0 0 0 13px rgba(255, 225, 0, 0.1)
     }
+
     /*inputs*/
 
     .form-control:focus {
-    color: #7A7995;
-    background-color: #F3F8FE;
-    border-color: #f7ff8b50;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem #ffe8687d; }
+        color: #7A7995;
+        background-color: #F3F8FE;
+        border-color: #f7ff8b50;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem #ffe8687d;
+    }
+
+
+    .dash {
+
+        border: dashed 2px rgb(255, 255, 255);
+        border-radius: 2.4rem;
+    }
+
+    .summary-container p {
+        margin: 0 0 6px;
+        line-height: 0.9;
+        color: #792db8;
+        text-align: center !important;
+    }
+
+    .tacbox {
+        display: block;
+        padding: 0em;
+        margin: 0em;
+
+        max-width: 800px;
+    }
+
+    #terms_conditions {
+        height: 2em;
+        width: 2em;
+        vertical-align: middle;
+    }
 </style>
 <form role="form" action="{{ route('loan-request') }}" method="POST" id="form_calculater" class="f1">
     @csrf
+
     <div id="form_one" class="lead-calculator pinside40">
         <h2 class="text-transform: none; text-white" class="text-white mb20">Pick Your <t style="color: #fabe15;">Loan!
             </t>
@@ -457,33 +488,23 @@
                         </div>
 
                     </div>
-
+                    <div class="f1-buttons">
+                        <button id="apply" type="button"
+                            class="btn btn-next btn-default btn-next ">Next</button>
+                    </div>
         </fieldset>
 
 
 
         <fieldset>
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb10">
-                <h2 class="text-white mb20">Tell us about you</h2>
-                <div class="slider">
-                    <h4 class="text-white">AGE</h4>
-                    <div style="margin-bottom: -60px;" id="age-slide"><input value="1"
-                            oninput="this.nextElementSibling.value = this.value" type="range" min="20"
-                            max="90" style="width:100%; height: 5px;" id="slider_age"
-                            title="Slide for amount">
-                        <input id="update_age" min="20" max="90" value="20"
-                            style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8; display: block; font-size: 20px;font-weight: bold;color: #fff;text-align: center;width: 100%;"
-                            class="output" type="number">
-                        <output></output>
-                    </div>
-                    <div>
-                        <h6 id="pricipal" class="text-white"></h6>
-                    </div>
-                </div>
-                <div class="slider">
-                    <div class="form-group col-lg-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb20">
+                <br>
+                <h4 style="margin-bottom: -25px;" class="text-white mb10">Tell us about you!</h4>
 
-                        <div style="left: -14px;" class="input-group">
+                <div style="padding: 0px;" class="slider">
+                    <div style="padding: 0px;" class="form-group col-12">
+
+                        <div class="input-group">
 
                             <div class="slider">
                                 <br>
@@ -491,7 +512,7 @@
                                 <div style="display: flex; gap:2px;">
                                     <radio>
                                         <h4 class="text-white"></h4>
-                                        <label class="input-group">First Name
+                                        <label class="input-group">First Name *
                                             <input required type="text" id="fname" name="name"
                                                 placeholder="Your first name">
                                         </label>
@@ -499,7 +520,7 @@
 
                                     <radio>
                                         <h4 class="text-white"></h4>
-                                        <label class="input-group">Last Name
+                                        <label class="input-group">Last Name *
                                             <input required id="lname" name="lname"
                                                 placeholder="Your last name">
                                         </label>
@@ -516,7 +537,7 @@
 
                                 <radio>
                                     <h4 class="text-white"></h4>
-                                    <label class="input-group">Email
+                                    <label class="input-group">Email *
                                         <input required id="email" name="email"
                                             placeholder="Your name@email.com">
                                     </label>
@@ -525,7 +546,7 @@
                                 <radio>
                                     <h4 class="text-white"></h4>
                                     <label class="input-group">
-                                        <div class="mobile-input-group">
+                                        <div style=" width: 100%;" class="mobile-input-group">
                                             <select class="prefix" aria-label="Mobile Number Prefix">
                                                 <option value="+260">
                                                     <img width="50"
@@ -536,7 +557,7 @@
                                                 <!-- Add more options as needed -->
                                             </select>
                                             <input required minlength="9" maxlength="9" id="phone"
-                                                name="phone" placeholder="772 -- -- --">
+                                                name="phone" placeholder="972 -- -- --">
                                         </div>
                                     </label>
                                 </radio>
@@ -562,17 +583,108 @@
 
 
                 </div>
-                <div id="totalyear-slide"></div>
-                <div>
-                    <h6 id="totalyear" class="text-white"></h6>
+
+                <div class="f1-buttons">
+                    <button type="button" class="btn text-primary btn-light btn-previous">Previous</button>
+                    <button type="button" class="btn btn-default btn btn-next">Next</button>
                 </div>
             </div>
-            <div class="f1-buttons">
-                <button type="button" class="btn text-primary btn-light btn-previous">Previous</button>
-                <button type="submit" class="btn btn-default btn-submit">Submit</button>
-            </div>
+
         </fieldset>
-        <div class="col-12">
+
+        <fieldset>
+            <div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb10">
+
+                    <br>
+                    <div class="dash slider" style="padding: 5px;">
+                        <div class="col-lg-12" style="margin: 0px; padding-left: 1px; padding: 0px;">
+                            <div class="col-lg-12" style="padding: 0px;">
+
+                                <div class="input-group">
+                                    <style>
+                                        /* Add your custom styles here */
+
+
+                                        .summary-container {
+                                            margin: 0;
+                                            padding: 0px;
+                                            0 border-radius: 10px;
+                                        }
+
+                                        hr {
+                                            margin: 20px 0;
+                                            border: -1.5px solid #dee2e6;
+                                        }
+                                    </style>
+
+                                    <div class="slider" style="background: #ffffff; border-radius: 2.4rem;">
+
+                                        <br>
+                                        <div class="container">
+                                            <div class="summary-container">
+                                                <h2 class="text-center">Loan <t style="color: #fabe15;">Summary</t>
+                                                </h2>
+                                                <br>
+                                                <p><strong>Loan Amount:</strong> K10,000</p>
+                                                <hr>
+
+                                                <p><strong>Loan type:</strong>GRZ</p>
+                                                <hr>
+
+                                                <p><strong>Tenure (months):</strong> 24 months</p>
+                                                <hr>
+
+                                                <p><strong>Service Fee:</strong> K450</p>
+                                                <hr>
+                                                <p><strong>Approved Amount:</strong> K10,800</p>
+                                                <hr>
+                                                <p><strong>Monthly Installment:</strong> K10,800</p>
+                                                <hr>
+                                                <p><strong>Next Payment:</strong> K10,800</p>
+                                                <hr>
+
+
+                                            </div>
+
+                                            <br>
+                                        </div>
+
+
+
+
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="tacbox">
+                        <input id="terms_conditions" type="checkbox"> I agree to these <a href="#">Terms and
+                            Conditions</a>
+
+                    </div> <br>
+                    <div class="f1-buttons">
+                        <button type="button" class="btn btn-light text-primary btn-previous">Previous</button>
+                        <button type="submit" class="btn btn-default btn-submit">Submit</button>
+                    </div>
+                </div>
+
+
+
+        </fieldset>
+
+        <div class="col-12 mt25">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="single-total">
@@ -596,10 +708,7 @@
 
             </div>
         </div>
-        <div class="f1-buttons">
-            <button id="apply" type="button" class="btn btn-next btn-default">Next</button>
-        </div>
     </div>
+
 </form>
 <!-- Add this to the end of your HTML body or in the head section -->
-

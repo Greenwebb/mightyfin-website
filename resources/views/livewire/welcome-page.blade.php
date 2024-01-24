@@ -370,12 +370,12 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="map"><iframe class="col-md-12 col-sm-12 col-xs-12"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d323.0445386230034!2d28.288828803054475!3d-15.40441735191249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f4af8e8e2ae9%3A0x5091e2f35a341a9e!2sChikuni%2C%20Lusaka!5e1!3m2!1sen!2szm!4v1703671757685!5m2!1sen!2szm"
+            <div style="padding:0; margin: 0;" class="modal-body">
+                <div style="padding:0; margin: 0;" class="wpb_column vc_column_container vc_col-sm-12">
+                    <div style="padding:0; margin: 0;" class="vc_column-inner">
+                        <div style="padding:0; margin: 0;" class="wpb_wrapper">
+                            <div style="padding:0; margin: 0;" class="map"><iframe class="col-md-12 col-sm-12 col-xs-12"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.4874237827185!2d28.286439110025498!3d-15.404221913405616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f5743754a941%3A0x1b2b9f0479d83178!2sMighty%20Finance!5e0!3m2!1sen!2szm!4v1706083470507!5m2!1sen!2szm"
                                     height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                         </div>
