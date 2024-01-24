@@ -26,7 +26,7 @@ trait LoanTrait{
         return LoanProduct::with([
             'disbursed_by.disbursed_by',
             'interest_methods.interest_method', 
-            'interest_types.interest_type'
+            'interest_types.interest_type',
             ])->get();
     }
     public function get_loan_product($id){
@@ -35,6 +35,7 @@ trait LoanTrait{
             'interest_methods.interest_method', 
             'interest_types.interest_type',
             'loan_accounts.account_payment',
+            'loan_status.status',
             'loan_decimal_places'
             ])->first();
     }

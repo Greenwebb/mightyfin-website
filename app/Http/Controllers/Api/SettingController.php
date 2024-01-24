@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Status;
 use App\Traits\LoanTrait;
 use App\Traits\SettingTrait;
 use Illuminate\Http\Request;
@@ -32,5 +33,9 @@ class SettingController extends Controller
         return response()->json($data);
     }
 
+    public function __get_status(){
+        $data = Status::get();
+        return response()->json($data);
+    }
 
 }

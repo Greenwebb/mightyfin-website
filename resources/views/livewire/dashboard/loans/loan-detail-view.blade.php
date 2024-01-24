@@ -83,11 +83,18 @@
                     <!--begin::Details-->
                     <div class="col-12">
                         <div class="tabbable">
+                            {{-- @dd($loan_product->loan_status->where('stage', 'processing')) --}}
                             <ul class="nav nav-tabss wizard">
                                 <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false"><span class="nmbr">1</span>Application Submitted</a></li>
-                                <li><a href="#w4" data-toggle="tab" aria-expanded="false"><span class="nmbr">2</span>Verification</a></li>
+                                @forelse ($loan_product->loan_status->where('stage', 'processing') as $step)
+                                    <li><a href="#w{{ $step->id }}" data-toggle="tab" aria-expanded="false"><span class="nmbr">{{ $step->step + 1 }}</span>{{ $step->status->name }}</a></li>
+                                @empty
+
+                                @endforelse                                    
+                                
+                                {{-- <li><a href="#w4" data-toggle="tab" aria-expanded="false"><span class="nmbr">2</span>Verification</a></li>
                                 <li><a href="#stateinfo" data-toggle="tab" aria-expanded="false"><span class="nmbr">3</span>Approval</a></li>
-                                <li><a href="#finish" data-toggle="tab" aria-expanded="true"><span class="nmbr">5</span>Disbusements</a></li>
+                                <li><a href="#finish" data-toggle="tab" aria-expanded="true"><span class="nmbr">5</span>Disbusements</a></li> --}}
                             </ul>
                         </div>
                         {{-- hello bremah edit the bottom styles and scripts and add in appropriate files --}}
@@ -550,22 +557,23 @@
                     <div class="flex-lg-row-fluid ms-lg-15">
                         <div class="float-end">
                             
+                            @if ($this->my_review_status($loan->id) == 1)
                             <a href="#" class="btn btn-primary ps-7" data-kt-menu-trigger="click"
                                 data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">Action
-                                <i class="ki-duotone ki-down fs-2 me-0"></i></a>
+                                <i class="ki-duotone ki-down fs-2 me-0"></i>
+                            </a>
+                            @endif
                                 
                             <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold py-4 w-250px fs-6" data-kt-menu="true">
-                                <div class="menu-item px-5">
-                                    <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Payments</div>
-                                </div>
-                                @if ($this->my_review_status($loan->id) == 1)
+                                    {{-- <div class="menu-item px-5">
+                                        <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Payments</div>
+                                    </div> --}}
                                     <div class="menu-item px-5">
                                         <a href="#" wire:click="setLoanID({{$loan->id}})" class="menu-link px-5"> Decline </a>
                                     </div>
                                     <div class="menu-item px-5">
                                         <a href="#" wire:click="accept({{$loan->id}})" class="menu-link px-5"> Approve </a>
                                     </div>
-                                @endif
                             </div>
                         </div>
 

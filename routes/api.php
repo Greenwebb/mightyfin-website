@@ -45,6 +45,8 @@ Route::get('get-total-payback-amount/{duration}/{principal}', [LoanRequestContro
 
 Route::get('/get-loan-products', [SettingController::class, '__get_loan_products']);
 Route::get('/get-loan-product-details/{loan_id}', [SettingController::class, '__get_loan_details']);
+Route::get('/get-loan-statuses', [SettingController::class, '__get_status']);
+
 
 // Deprected
 Route::get('get-my-wallet/{id}', [LoanRequestController::class, 'getWallets']);

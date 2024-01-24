@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Redirect;
 class LoanDetailView extends Component
 {
     use EmailTrait, WalletTrait, LoanTrait;
-    public $loan, $user, $loan_id, $msg, $due_date, $reason;
+    public $loan, $user, $loan_id, $msg, $due_date, $reason, $loan_product;
 
     public function mount($id){
         /**
@@ -30,7 +30,8 @@ class LoanDetailView extends Component
     public function render()
     {
         $this->loan = $this->get_loan_details($this->loan_id);
-        // dd($this->loan->user->uploads[0]->path);
+        $this->loan_product = $this->get_loan_product($this->loan->loan_product_id);
+        
 
         if (auth()->user()->hasRole('user')) {
             // return view('livewire.dashboard.loans.loan-app-hrdetail-view')

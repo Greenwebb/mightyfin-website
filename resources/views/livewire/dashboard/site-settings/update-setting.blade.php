@@ -15,7 +15,10 @@
         @case('loan-fees')
             @include('livewire.dashboard.site-settings.__cruds.update-loan-fees')
         @break
-
+        @case('loan-statuses')
+            @include('livewire.dashboard.site-settings.__cruds.update-loan-statuses')
+        @break
+        
         @default
 
         @break

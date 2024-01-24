@@ -58,6 +58,9 @@ class LoanProduct extends Model
     public function loan_accounts(){
         return $this->hasMany(LoanAccountPayment::class);
     }
+    public function loan_status(){
+        return $this->hasMany(LoanStatus::class);
+    }
 
 
 }

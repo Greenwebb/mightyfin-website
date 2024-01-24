@@ -44,6 +44,13 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'view reports','group'=>'reports','permission'=>'View All', 'description' => 'View Reports Module'])->syncRoles([$role1]);
         Permission::create(['name' => 'view loan reports','group'=>'reports','permission'=>'Loan Reports ', 'description' => 'View Loan Reports'])->syncRoles([$role1]);
         
+        // Loan Statuses
+        Permission::create(['name' => 'processes loans','group'=>'loan_status','permission'=>'processes loans', 'description' => 'View Reports Module'])->syncRoles([$role1]);
+        Permission::create(['name' => 'approve a loan','group'=>'loan_status','permission'=>'approve', 'description' => 'View Loan Reports'])->syncRoles([$role1]);
+        Permission::create(['name' => 'decline a loan','group'=>'loan_status','permission'=>'decline', 'description' => 'View Loan Reports'])->syncRoles([$role1]);
+        Permission::create(['name' => 'default a loan','group'=>'loan_status','permission'=>'default', 'description' => 'View Loan Reports'])->syncRoles([$role1]);
+        Permission::create(['name' => 'not taken up loan','group'=>'loan_status','permission'=>'not taken up loan', 'description' => 'View Loan Reports'])->syncRoles([$role1]);
+        
         // Accounting
         Permission::create(['name' => 'view accounting','group'=>'accounts','permission'=>'View All', 'description' => 'View Accounting Module'])->syncRoles([$role1]);
         Permission::create(['name' => 'view transactions','group'=>'accounts','permission'=>'View All Transactions', 'description' => 'View Payment Transactions'])->syncRoles([$role1]);

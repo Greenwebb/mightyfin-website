@@ -46,6 +46,14 @@ class UpdateSetting extends Component
     public $loan_repayment_cycle = [];
     public $extra_fees = [];
 
+    // Loan Statuses
+    // public $processing = [];
+    public $open = [];
+    public $defaulted = [];
+    public $denied = [];
+    public $no_taken_up = [];
+
+
 
     // Other Update Data
     public $disbursement_name, $disbursement;
@@ -84,6 +92,13 @@ class UpdateSetting extends Component
                 $this->loan_charge = $this->get_loan_fees($_GET['item_id']);
                 $this->set_loan_fees();
             break;
+
+            case 'loan-statuses':
+                $this->get_data();
+                $this->loan_product = $this->get_loan_product($_GET['item_id']);
+                $this->set_loan_product_values();
+            break;
+            
             
             default:
             break;
@@ -233,6 +248,7 @@ class UpdateSetting extends Component
         
         }
     }
+
     public function update_penalty(){
 
         try {
@@ -267,6 +283,10 @@ class UpdateSetting extends Component
             Session::flash('error', "Failed. ". $th->getMessage());
             return redirect()->route('item-settings', ['confg' => 'loan','settings' => 'loan-fees']);
         }
+    }
+
+    public function update_loan_product_process(){
+        // dd($this->processing);
     }
 
     // ---- Setters

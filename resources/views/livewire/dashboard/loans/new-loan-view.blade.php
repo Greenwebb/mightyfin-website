@@ -1,29 +1,29 @@
 <style>
     
     .main-content .wizard-form .progressbar-list::before{
-    content: " ";
-    background-color: rgb(155, 155, 155);
-    border: 10px solid #fff;
-    border-radius: 50%;
-    display: block;
-    width: 30px;
-    height: 30px;
-    margin: 9px auto;
-    box-shadow: 1px 1px 3px #792db8;
-    transition:all;
+        content: " ";
+        background-color: rgb(155, 155, 155);
+        border: 10px solid #fff;
+        border-radius: 50%;
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin: 9px auto;
+        box-shadow: 1px 1px 3px #792db8;
+        transition:all;
     }
     .main-content .wizard-form .progressbar-list::after{
-    content: "";
-    background-color: rgb(155, 155, 155);
-    padding: 0px 0px;
-    position: absolute;
-    top: 14px;
-    left: -50%;
-    width: 100%;
-    height: 2px;
-    margin: 9px auto;
-    z-index: -1;
-    transition: all 0.8s;
+        content: "";
+        background-color: rgb(155, 155, 155);
+        padding: 0px 0px;
+        position: absolute;
+        top: 14px;
+        left: -50%;
+        width: 100%;
+        height: 2px;
+        margin: 9px auto;
+        z-index: -1;
+        transition: all 0.8s;
     }
     .main-content .wizard-form .progressbar-list.active::after{
         background-color: #792db8;
@@ -140,10 +140,10 @@
         z-index: 3;
         transform: translateY(-50%);
         -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 4px;
-      opacity: 0;
+        appearance: none;
+        width: 100%;
+        height: 4px;
+        opacity: 0;
         margin: 0;
     }
     
@@ -339,67 +339,63 @@
                         
                         <div class="row justify-content-center pt-0 p-2" id="wizardRow">
                             <div class="col-md-12 text-center">
-                                <div class="wizard-form py-4 my-2">
-                                    <ul id="progressBar" class="progressbar px-lg-5 px-0">
-                                        <li id="progressList-1" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list active">
+                                <div class="wizard-form mt-2 justify-content-between col-md-12">
+                                    <ul id="progressBar" class="progressbar gap-10" style="width: 100%">
+                                        <li id="progressList-1" class="d-inline-block fw-bold w-40 position-relative text-center progressbar-list active">
                                             <span class="textMedia">Amount</span>
                                         </li>
-                                        <li id="progressList-2" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
-                                            <span class="textMedia">Loan</span>
-                                        </li>
-                                        <li id="progressList-3" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <li id="progressList-3" class="d-inline-block fw-bold w-40 position-relative text-center progressbar-list">
                                             <span class="textMedia">Repayment</span>
                                         </li>
-                                        <li id="progressList-4" class="d-inline-block fw-bold w-25 position-relative text-center float-start progressbar-list">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <li id="progressList-4" class="d-inline-block fw-bold w-40 position-relative text-center progressbar-list">
                                             <span class="textMedia">Requirements</span>
                                         </li>
                                     </ul>
                                 </div>
+                                
                             </div>
                         </div>
                         
                         <div class="row justify-content-center" id="cardSection">
                             <div class="col-lg-9 col-md-9" id="stepOneMedia">
                                 <h3 class="fw-bold pt-2">Loan Details</h3>
-                                <p class="small pb-0">How much would you like to borrow?</p>
                                 <div>
-                                    <div class="col-12">
-                                        <input type="text" class="col-12" contentEditable='true' data-mask='K #,##0.00' id="amountInput" name="amount"/>
-                                        <small class="text-danger" id="principalText"></small>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn text-white float-end next mt-4 rounded-3 bg-color-info">Continue</button>
-                            </div>
-                        </div>
-                        
-                        <div class="row justify-content-center form-business">
-                            <div class="col-lg-9 col-md-9" id="stepTwoMedia">
-                                <h3 class="fw-bold pt-2">Loan Detail</h3>
-                                <p class="small pb-0">What is your reason for a loan?</p>
-                                
-                                <div class="row row-cols-2 row-cols-lg-3 g-4 pb-2 border-bottom">
-                                    @forelse ($this->get_all_loan_products() as $p)
+                                    {{-- Duration --}}                 
+                                    <p class="small pb-0">What is your reason for a loan?</p>    
+                                    <small class="text-danger" id="loanProdValidText"></small>           
+                                    <div class="row row-cols-2 row-cols-lg-3 g-4 pb-2">
+                                        @forelse ($this->get_all_loan_products() as $p)
                                         <div class="col">
                                             <label class="card text-center h-70 py-2">
                                                 <input type="radio" name="loan_type" value="{{ $p->id }}" class="d-none">
-                                                <i class="fas fa-users card-img-top mx-auto img-light fs-1"></i>
+                                                <span class="text-lg">
+                                                    {!! $p->icon !!}
+                                                </span>
                                                 <div class="card-body px-0">
                                                     <h5 class="card-title title-binding">{{ $p->name }}</h5>
-                                                    <p class="card-text">{{ $p->def_loan_interest.' '.$p->interest_types->first()->interest_type->name }} </p>
                                                 </div>
                                             </label>
                                         </div>
-                                    @empty
+                                        @empty
                                         <div class="col">
                                             <label for=""></label>
                                         </div>
-                                    @endforelse
-                                    <small class="text-danger" id="loanProdValidText"></small>
+                                        @endforelse
+                                    </div>
+
+                                    {{-- Principal --}}
+                                    <div class="col-12">
+                                        <p class="small pb-0">How much would you like to borrow?</p>
+                                        <small class="text-danger" id="principalText"></small>
+                                        <input type="text" class="col-12" contentEditable='true' data-mask='K #,##0.00' id="amountInput" name="amount"/>
+        
+                                    </div>
+
                                 </div>
-                                
-                                <button type="button" class="btn btn-dark text-white float-start back mt-0 rounded-3">Go Back</button>
-                                <button type="button" class="btn text-white float-end next mt-0 rounded-3 bg-color-info">Next</button>
-                                
+                                <button type="button" class="btn text-white float-end next mt-4 rounded-3 bg-color-info">Continue</button>
                             </div>
                         </div>
 
@@ -511,25 +507,29 @@
                 var principalVal = document.getElementById('amountInput');
                 var principalText = document.getElementById('principalText');  
                 var loanProdValidText = document.getElementById('loanProdValidText');  
-                // Check if at least one radio button is selected
-                var selectedLoanProduct = document.querySelector('input[name="loan_type"]:checked');
+                
+                var selectedLoanProduct = null;
                 duration = 1;
-                // hidden things
+                
                 $(".form-business").hide();
                 $("#successMessage").hide();
-                // next button
+
+                $('input[name="loan_type"]').change(function () {
+                    selectedLoanProduct = $('input[name="loan_type"]:checked').val();
+                });
+                
                 $(".next").on({
                     click: function () {
-                        // select any card
                         stepCount ++;
 
                         var getValue = $(this).parents(".row").find(".card").hasClass("active-card");
-                        // alert(stepCount);
+                    
                         if (!principalVal.value) {
                             principalText.textContent = 'Please enter amount you want to borrow';
                             return false;
                         } 
-                        if ( stepCount === 2 && selectedLoanProduct === null) {
+                        
+                        if ( selectedLoanProduct === null) {
                             loanProdValidText.textContent = 'Please select a loan product to continue';
                             return false;
                         }

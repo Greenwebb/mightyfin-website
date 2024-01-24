@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\LoanApplicationController;
+use App\Http\Controllers\LoanProductController;
 use App\Http\Controllers\PostController;
 use App\Http\Livewire\AboutPage;
 use App\Http\Livewire\AlreadyExistPage;
@@ -132,7 +133,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('apply-for-loan', [LoanApplicationController::class, 'new_loan'])->name('apply-loan');
     Route::post('apply-proxy-loan', [LoanApplicationController::class, 'new_proxy_loan'])->name('proxy-apply-loan');
     Route::post('update-loan', [LoanApplicationController::class, 'updateLoanDetails'])->name('update-loan-details');
-
+    Route::post('update-loan-statuses', [LoanProductController::class, 'updateLoanStatus'])->name('update-loan-statuses');
+    
     // ---- Payments
     Route::get('make-payments', PaymentPage::class)->name('payments');
     Route::get('/payments-portal', PaymentGatePage::class)->name('payment.gate');
@@ -183,7 +185,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('my-profile', MyProfile::class)->name('my-profile');
 
     // ------- Loan Continue Completion
-
     Route::post('continue-loan', [LoanApplicationController::class, 'continue_loan'])->name('continue-loan');
 
 });
