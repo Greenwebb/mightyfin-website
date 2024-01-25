@@ -372,7 +372,7 @@
         vertical-align: middle;
     }
 </style>
-<form role="form" action="{{ route('loan-request') }}" method="POST" id="form_calculater" class="f1">
+<form role="form" novalidate id="form_calculater" class="f1">
     @csrf
 
     <div id="form_one" class="lead-calculator pinside40">
@@ -478,7 +478,7 @@
                             <input onclick="checker()" oninput="this.nextElementSibling.value = this.value"
                                 type="range" value="0" min="1" max="30" style="width:100%;"
                                 id="loan_duration" title="Slide for amount">
-                            <input name="repayment_plan" required oninput="checker()"
+                            <input name="duration" required oninput="checker()"
                                 style="outline: none;border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background-color: #792db8;  display: block; font-size: 30px; font-weight: bold; color: #fff; text-align: center;; width: 100%; border: 1px #f8f8f800 solid;"
                                 class="output form-control" value="1" id=   " min="1" max="100"
                                 type="number">
@@ -521,7 +521,7 @@
                                     <radio>
                                         <h4 class="text-white"></h4>
                                         <label class="input-group">Last Name *
-                                            <input required id="lname" name="lname"
+                                            <input type="text" required id="lname" name="lname"
                                                 placeholder="Your last name">
                                         </label>
                                     </radio>
@@ -531,14 +531,14 @@
 
                                     <h4 class="text-white"></h4>
                                     <label class="input-group">Middle Name (optional)
-                                        <input id="lname" name="mname" placeholder="Your middle name">
+                                        <input id="mname" type="text" name="mname" placeholder="Your middle name">
                                     </label>
                                 </radio>
 
                                 <radio>
                                     <h4 class="text-white"></h4>
                                     <label class="input-group">Email *
-                                        <input required id="email" name="email"
+                                        <input required id="email" type="email" name="email"
                                             placeholder="Your name@email.com">
                                     </label>
                                 </radio>
@@ -557,7 +557,7 @@
                                                 <!-- Add more options as needed -->
                                             </select>
                                             <input required minlength="9" maxlength="9" id="phone"
-                                                name="phone" placeholder="972 -- -- --">
+                                                name="phone" type="tel" placeholder="972 -- -- --">
                                         </div>
                                     </label>
                                 </radio>
