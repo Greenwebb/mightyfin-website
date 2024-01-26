@@ -31,6 +31,7 @@ Route::post('upload-files', [UserController::class, 'uploadFiles']);
 
 
 // Functions
+Route::post('request-for-loan', [LoanApplicationController::class, 'store']);
 Route::post('apply-for-loan', [LoanApplicationController::class, 'new_loan']);
 Route::get('get-my-loans/{id}', [LoanRequestController::class, 'getMyLoans']);
 

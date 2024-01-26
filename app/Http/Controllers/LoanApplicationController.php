@@ -80,7 +80,7 @@ class LoanApplicationController extends Controller
         try {
         DB::beginTransaction();
         $form = $request->toArray();
-        // dd($form);
+        dd($form);
         if ($form['package_personal'] == 'salary_advance') {
             $loan_type = 'GRZ Loan';
         }else{

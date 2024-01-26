@@ -159,7 +159,7 @@ jQuery(document).ready(function () {
             console.log(jsonData)
 
             // Your API endpoint URL
-            const apiUrl = "https://api.example.com/your-endpoint";
+            const apiUrl = "api/request-for-loan";
 
             // Make a POST request to the API using fetch
             fetch(apiUrl, {
