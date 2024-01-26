@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                                 <h2>${product.name}</h2>
                                 <p class="skill">${
                                     product.description
-                                } (coming soon)</p>
+                                } ${isActiveProduct ? "(Available)" : "<br>(Coming Soon)"}</p>
                                 <span class="check-icon">
                                     <span class="icon"></span>
                                 </span>
