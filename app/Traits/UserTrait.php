@@ -171,25 +171,25 @@ trait UserTrait{
 
     public function VerifyOTP(){
         
-        // if(auth()->user()->opt_verified == 0){
-        //     // Generate otp code
-        //     $code = 12345;
+        if(auth()->user()->opt_verified == 0){
+            // Generate otp code
+            $code = 12345;
 
-        //     // Save into the database
-        //     User::where('id', auth()->user()->id)->update([
-        //         'opt_code' => $code
-        //     ]);
+            // Save into the database
+            User::where('id', auth()->user()->id)->update([
+                'opt_code' => $code
+            ]);
 
-        //     // Send SMS
-        //     $response = Africastalking::sms($code.' is your MightyFin OTP Verification code')
-        //     ->to('+260772147755')
-        //     ->send();
+            // Send SMS 
+            // $response = Africastalking::sms($code.' is your MightyFin OTP Verification code')
+            // ->to('+260772147755')
+            // ->send();
             
-        //     // Then redirect the user to go and verify
-        //     return redirect()->route('otp');
-        // }else{
-        //     return true;
-        // }
+            // Then redirect the user to go and verify
+            return redirect()->route('otp');
+        }else{
+            return true;
+        }
     }
 }
 
