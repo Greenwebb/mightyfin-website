@@ -372,7 +372,7 @@
         vertical-align: middle;
     }
 </style>
-<form role="form" action="{{ route('loan-request') }}" method="POST" id="form_calculater" class="f1">
+<form role="form" action="{{ route('loan-request') }}" method="POST" id="form_calculater" class="f1" novalidate>
     @csrf
 
     <div id="form_one" class="lead-calculator pinside40">

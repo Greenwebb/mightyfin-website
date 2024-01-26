@@ -75,7 +75,7 @@ class LoanRequestController extends Controller
     }
 
     public function interestRate($duration){
-        return (Application::interest_rate($duration) * 100).'%';
+        // return (Application::interest_rate($duration) * 100).'%';
     }
 
     public function totalCollectable($duration, $amount){

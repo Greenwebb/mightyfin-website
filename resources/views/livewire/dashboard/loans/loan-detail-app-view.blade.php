@@ -56,7 +56,7 @@
                             >
                             <div class="chart-price-value">
                                 <span>Loan</span>
-                                <h5>{{ $loan->type }} Loan</h5>
+                                <h5>{{ $loan_product->name }} Loan</h5>
                             </div>
                             </div>
                             <div
@@ -186,12 +186,12 @@
                                     <h4>{{ $loan->user->created_at->toFormattedDateString()}}</h4>
                                 </div>
                             </div>
-                            {{-- <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                             <div class="user-info">
                                 <span>TYPE</span>
-                                <h4>{{ $loan->type }} Loan</h4>
+                                <h4>{{ $loan_product->name }} Loan</h4>
                             </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>

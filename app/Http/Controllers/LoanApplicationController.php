@@ -80,21 +80,8 @@ class LoanApplicationController extends Controller
         try {
         DB::beginTransaction();
         $form = $request->toArray();
-        dd($form);
-        if ($form['package_personal'] == 'salary_advance') {
-            $loan_type = 'GRZ Loan';
-        }else{
-            $loan_type = 'GRZ Loan';
-        }
-        
-        if($request->file('tpin_file') !== null){               
-            $tpin_file = $request->file('tpin_file')->store('tpin_file', 'public');                
-        }
 
-        if($request->file('payslip_file') !== null){               
-            $payslip_file = $request->file('payslip_file')->store('payslip_file', 'public');         
-        }
-
+        // Create the new user account or Not if exists
         $register = [
             'lname'=> $form['lname'],
             'fname'=> $form['name'],
@@ -106,6 +93,7 @@ class LoanApplicationController extends Controller
         ];
         $user = $this->registerUser($register);
         
+        // If the user data exists 
         if($user !== 0){
             $data = [
                 'lname'=> $form['lname'],
@@ -113,25 +101,17 @@ class LoanApplicationController extends Controller
                 'email'=> $form['email'],
                 'amount'=> $form['amount'],
                 'phone'=> $form['phone'],
-                'gender'=> $form['gender'],
-                'type'=> $loan_type,
+                'loan_product_id'=> $form['loan_type'],
                 'repayment_plan'=> $form['repayment_plan'],
-                'age'=> $form['age'],
-                'cust_type'=> $form['customer_type'],
-                'personal_loan_type'=> $loan_type,
-                'nationality' => $form['nationality'],
-                'tpin_file' => $tpin_file ?? 'no file',
-                'payslip_file' => $payslip_file ?? 'no file',
                 'user_id' =>  $user->id,
                 'complete' => 0
             ];
             
-            // $this->apply_loan($data);
+            // Apply for the loan
             $res = $this->apply_loan($data);
             
             if($res == 'exists'){
-                $loan = Application::where('status', 0)->where('complete', 0)
-                                    ->where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
+                $loan = Application::where('status', 0)->where('complete', 0)->where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
                 return response()->json([
                     "status" => 500, 
                     "success" => false, 
@@ -159,6 +139,7 @@ class LoanApplicationController extends Controller
                 return response()->json([
                     "status" => 200, 
                     "success" => true, 
+                    'amount' => $form['amount'],
                     "message" => "Your loan has been sent."
                 ]); 
             }
@@ -170,6 +151,7 @@ class LoanApplicationController extends Controller
             return response()->json([
                 "status" => 500, 
                 "success" => false, 
+                'amount' => $form['amount'],
                 "message" => "Failed to submit your loan request, please try again."
             ]); 
         }

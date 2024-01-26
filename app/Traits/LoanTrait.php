@@ -40,7 +40,6 @@ trait LoanTrait{
             ])->first();
     }
 
-
     public function getLoanRequests($type){
         $userId = auth()->user()->id;
         // if ($this->type) {
@@ -51,18 +50,17 @@ trait LoanTrait{
         //     $loan_requests->whereIn('status', $this->status)->orderBy('id', 'desc');
         // }
         if(auth()->user()->hasRole('admin')){
-            return Application::get();
+            return Application::with('loan_product')->where('complete', 0)->get();
         }else{
             switch ($type) {
                 case 'spooling':
-                    return Application::get();
+                    return Application::with('loan_product')->where('complete', 1)->get();
                     break;
                 case 'manual':
-                    return Application::with(['manual_approvers' => function ($query) use ($userId) {
+                    return Application::with('loan_product')->with(['manual_approvers' => function ($query) use ($userId) {
                         $query->where('user_id', $userId);
                         $query->where('is_active', 1);
-                    }])
-                    ->whereHas('manual_approvers', function ($query) use ($userId) {
+                    }])->whereHas('manual_approvers', function ($query) use ($userId) {
                         $query->where('user_id', $userId);
                         $query->where('is_active', 1);
                     })
@@ -363,27 +361,27 @@ trait LoanTrait{
             $update->save();
         }
     } 
-    // public function final_upvote($application_id){
+    public function final_upvote($application_id){
         
-    //     // dd($application_id);
-    //     $approvers = LoanManualApprover::where('application_id', $application_id)->get();
-    //     $userPriority = $approvers->where('user_id', auth()->user()->id)->pluck('priority')->first();
+        // dd($application_id);
+        $approvers = LoanManualApprover::where('application_id', $application_id)->get();
+        $userPriority = $approvers->where('user_id', auth()->user()->id)->pluck('priority')->first();
 
-    //     // dd($userPriority);
-    //     // Leave current approver
-    //     $update = $approvers->where('priority', $userPriority)->first();
-    //     // dd($update);
-    //     $update->is_passed = 1;
-    //     $update->is_active = 0;
-    //     $update->is_processing = 0;
-    //     $update->save();
+        // dd($userPriority);
+        // Leave current approver
+        $update = $approvers->where('priority', $userPriority)->first();
+        // dd($update);
+        $update->is_passed = 1;
+        $update->is_active = 0;
+        $update->is_processing = 0;
+        $update->save();
 
-    //     // Elevate to the next priority
-    //     $update = $approvers->where('priority', $userPriority + 1)->first();
-    //     $update->is_active = 1;
-    //     $update->is_processing = 1;
-    //     $update->save();
-    // } 
+        // Elevate to the next priority
+        $update = $approvers->where('priority', $userPriority + 1)->first();
+        $update->is_active = 1;
+        $update->is_processing = 1;
+        $update->save();
+    } 
     
 
 }

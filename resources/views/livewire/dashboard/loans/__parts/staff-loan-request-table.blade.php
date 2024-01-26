@@ -78,6 +78,7 @@
                             </thead>
                             
                             <tbody>
+                                {{-- @dd($requests) --}}
                                 @forelse($requests as $loan)
                                     <tr>
                                         <td>
@@ -87,7 +88,7 @@
                                         </td>
                                         <td>
                                             <a href="#" class="text-dark fw-bold text-hover-primary ">
-                                                {{ $loan->type }} Loan
+                                                {{ $loan->loan_product->name }} Loan
                                             </a>
                                         </td>
                                         <td>

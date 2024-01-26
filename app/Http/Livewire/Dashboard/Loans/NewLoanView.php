@@ -11,6 +11,8 @@ class NewLoanView extends Component
     use UserTrait, LoanTrait;
     public function render()
     {
+        // Check OTP
+        $this->VerifyOTP();
         return view('livewire.dashboard.loans.new-loan-view')
         ->layout('layouts.dashboard');
     }

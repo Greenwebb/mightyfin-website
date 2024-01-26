@@ -50,7 +50,9 @@ class User extends Authenticatable
         'employeeNo',
         'jobTitle',
         'ministry',
-        'department'
+        'department',
+        'opt_code',
+        'opt_verified'
     ];
 
     /**

@@ -28,7 +28,7 @@
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                                 <span class="path3"></span>
-                                            </i>{{ $loan->type }}
+                                            </i>{{$loan_product->name }}
                                         </a>
                                     </div>
                                 </div>
@@ -327,7 +327,7 @@
                                             <div
                                                 class="col-lg-4 border border-gray-300 border-dashed rounded py-3 px-3 mx-4 m-3">
                                                 <div class="fs-4 fw-bold text-gray-700">
-                                                    <span class="w-50px">K {{ App\Models\Application::payback($loan->amount, $loan->repayment_plan) }}</span>
+                                                    <span class="w-50px">K {{ App\Models\Application::payback($loan->amount, $loan->repayment_plan, $loan_product->id) }}</span>
                                                     <i class="ki-duotone ki-usd fs-3 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
@@ -377,7 +377,7 @@
                                         <!--begin::Badge-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Account ID</div>
-                                        <div class="text-gray-600">ID-45453423</div>
+                                        <div class="text-gray-600">ID-{{$loan->user->id}} </div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Gender</div>
@@ -386,7 +386,7 @@
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Email</div>
                                         <div class="text-gray-600">
-                                            <a href="#"
+                                            <a href="mailto:{{$loan->user->email}}"
                                                 class="text-gray-600 text-hover-primary">{{ $loan->user->email ?? 'Not set'}}</a>
                                         </div>
                                         <!--begin::Details item-->
@@ -398,11 +398,11 @@
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Phone</div>
-                                        <div class="text-gray-600">+260{{ $loan->user->phone ?? ' --' }}</div>
+                                        <div class="text-gray-600">+260{{ $loan->phone ?? ' --' }}</div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         <div class="fw-bold mt-5">Interest Rate</div>
-                                        <div class="text-gray-600">{{ App\Models\Application::interest_rate($loan->repayment_plan) }}%</div>
+                                        <div class="text-gray-600">{{ App\Models\Application::interest_rate($loan_product->id) }}</div>
                                         <!--begin::Details item-->
                                         <!--begin::Details item-->
                                         {{-- <div class="fw-bold mt-5">Tax ID</div>
@@ -959,10 +959,8 @@
                                                         <img src="{{ asset('public/mfs/admin/assets/avatars/blank.png') }}"
                                                             class="" alt="">
                                                     </div> --}}
-                                                    
                                                     <div class="flex-grow-1">
-                                                        <a href="#"
-                                                            class="text-gray-900 fw-bold text-hover-primary fs-6">{{ $loan->type }}</a>
+                                                        <a href="#"class="text-gray-900 fw-bold text-hover-primary fs-6">{{ $loan_product->name}}</a>
 
                                                         <span class="text-muted d-block fw-bold">ZMW {{ $loan->amount }}</span>
                                                     </div>

@@ -10,7 +10,7 @@ use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Collection;
-
+use SamuelMwangiW\Africastalking\Facades\Africastalking;
 
 trait UserTrait{
 
@@ -167,6 +167,29 @@ trait UserTrait{
     public function createBankDetails($data){
         BankDetails::create($data);
         return true;
+    }
+
+    public function VerifyOTP(){
+        
+        // if(auth()->user()->opt_verified == 0){
+        //     // Generate otp code
+        //     $code = 12345;
+
+        //     // Save into the database
+        //     User::where('id', auth()->user()->id)->update([
+        //         'opt_code' => $code
+        //     ]);
+
+        //     // Send SMS
+        //     $response = Africastalking::sms($code.' is your MightyFin OTP Verification code')
+        //     ->to('+260772147755')
+        //     ->send();
+            
+        //     // Then redirect the user to go and verify
+        //     return redirect()->route('otp');
+        // }else{
+        //     return true;
+        // }
     }
 }
 

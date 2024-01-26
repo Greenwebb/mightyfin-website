@@ -37,6 +37,10 @@ class LoanProduct extends Model
         'max_num_of_repayments',
     ];
 
+    public function applications(){
+        return $this->hasMany(Application::class);
+    }
+
     public function disbursed_by(){
         return $this->hasMany(LoanDisbursedBy::class);
     }

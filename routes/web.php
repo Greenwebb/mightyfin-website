@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\OTPController;
 use App\Http\Controllers\LoanApplicationController;
 use App\Http\Controllers\LoanProductController;
 use App\Http\Controllers\PostController;
@@ -199,6 +200,10 @@ Route::get('our-team', TeamPage::class)->name('about.team');
 Route::get('careers', CareerPage::class)->name('about.careers');
 Route::get('contact-us', ContactPage::class)->name('contact');
 Route::get('services', ServicePage::class)->name('services');
+
+
+Route::get('otp-verification', [OTPController::class, 'index'])->name('otp');
+
 Route::post('request-for-loan', [LoanApplicationController::class, 'store'])->name('loan-request');
 Route::post('assign-manual-approval', [LoanApplicationController::class, 'assign_manual'])->name('assign-manual-approval');
 

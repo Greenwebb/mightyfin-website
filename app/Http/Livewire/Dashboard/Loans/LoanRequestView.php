@@ -13,13 +13,14 @@ use App\Traits\EmailTrait;
 use App\Traits\WalletTrait;
 use App\Traits\LoanTrait;
 use App\Traits\SettingTrait;
+use App\Traits\UserTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class LoanRequestView extends Component
 {
-    use EmailTrait, WalletTrait, LoanTrait, SettingTrait;
+    use EmailTrait, WalletTrait, LoanTrait, SettingTrait, UserTrait;
     public $loan_requests, $loan_request, $new_loan_user, $user_basic_pay, $user_net_pay, $loan_id;
     public $type = [];
     public $status = [];
@@ -28,6 +29,8 @@ class LoanRequestView extends Component
     public $assignModal = false;
     public function render()
     {
+        // Check OTP
+        $this->VerifyOTP();
         try {
             // Retrieve users with the 'user' role, excluding their applications
             $this->users = User::role('user')->without('applications')->get();

@@ -210,7 +210,7 @@
                                             style="background-color:#792db8; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;"
                                             type="submit" class="btn btn-block text-white text-lg"
                                             type="submit">Verify</button>
-                                        <p class="form-check-label font-w400">{!! __(
+                                        {{-- <p class="form-check-label font-w400">{!! __(
                                             'By confirming your credential we are able to secure and confirm your account. Please check our Mightyfin :terms_of_service and :privacy_policy',
                                             [
                                                 'terms_of_service' =>
@@ -226,7 +226,7 @@
                                                     __('Privacy Policy') .
                                                     '</a>',
                                             ],
-                                        ) !!}</p>
+                                        ) !!}</p> --}}
                                     </div>
 
                                 </form>

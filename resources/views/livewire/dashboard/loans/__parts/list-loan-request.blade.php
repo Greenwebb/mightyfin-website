@@ -58,7 +58,7 @@
                             <br>
                             <small class="text-gray-600 text-xs">Applied on {{ $loan->created_at->toFormattedDateString() }}</small>
                         </div>
-                        <p class="text-gray-600">{{ $loan->type }} Loan</p>
+                        <p class="text-gray-600">{{  $loan->loan_product->name }} Loan</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12">

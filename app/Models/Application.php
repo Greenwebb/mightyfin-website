@@ -109,6 +109,9 @@ class Application extends Model
     public function loan(){
         return $this->hasOne(Loans::class);
     }
+    public function loan_product(){
+        return $this->belongsTo(LoanProduct::class);
+    }
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
@@ -156,7 +159,8 @@ class Application extends Model
         ->where('status', 1)->where('complete', 1)->first();
     }
 
-    public static function payback($principal, $duration){
+    // About to Deprecate
+    public static function payback($principal, $duration, $product_id = null){
         // 1 month
         if( $duration == 1){
             $interest = (($principal * 0.21) * 1) + $principal;
@@ -326,11 +330,20 @@ class Application extends Model
 
     // }
 
-    public static function interest_rate($duration){
-        if( $duration > 1 ){
-            return 1.44;
+    public static function interest_rate($product_id){
+        $loan_product = LoanProduct::where('id', $product_id)->with([
+            'disbursed_by.disbursed_by',
+            'interest_methods.interest_method', 
+            'interest_types.interest_type',
+            'loan_accounts.account_payment',
+            'loan_status.status',
+            'loan_decimal_places'
+            ])->first();
+            
+        if( $loan_product->interest_types->first()->interest_type->first()->name == 'Percentage' ){
+            return $loan_product->def_loan_interest.'%';
         }else{
-            return 0.2;
+            return 'K '.$loan_product->def_loan_interest;
         }
     }
     
