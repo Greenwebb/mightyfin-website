@@ -146,6 +146,14 @@
             #id-text {
                 font-size: 10px;
             }
+                    
+            .disabled {
+                opacity: 0.5;
+                pointer-events: none;
+                background-color: rgba(185, 161, 196, 0.379);
+                background: rgba(185, 161, 196, 0.379);
+                border-color: rgba(185, 161, 196, 0.379);
+            }
         }
     </style>
 </head>
@@ -185,24 +193,19 @@
                                     @csrf
                                     <div class="row g-3">
                                         <div class="col">
-                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
-                                                maxlength="1" required="" autocomplete="off">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2" maxlength="1" required="" autocomplete="off">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
-                                                maxlength="1" required="" autocomplete="off">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2" maxlength="1" required="" autocomplete="off">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
-                                                maxlength="1" required="" autocomplete="off">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2" maxlength="1" required="" autocomplete="off">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
-                                                maxlength="1" required="" autocomplete="off">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2" maxlength="1" required="" autocomplete="off">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2"
-                                                maxlength="1" required="" autocomplete="off">
+                                            <input type="text" class="form-control rounded-0 text-center text-6 py-2" maxlength="1" required="" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="d-grid my-4">
@@ -215,13 +218,13 @@
                                             [
                                                 'terms_of_service' =>
                                                     '<a target="_blank" href="' .
-                                                    route('terms.show') .
+                                                    route('terms') .
                                                     '" class="underline text-sm text-gray-600 hover:text-gray-900">' .
                                                     __('Terms of Service') .
                                                     '</a>',
                                                 'privacy_policy' =>
                                                     '<a target="_blank" href="' .
-                                                    route('policy.show') .
+                                                    route('pp') .
                                                     '" class="underline text-sm text-gray-600 hover:text-gray-900">' .
                                                     __('Privacy Policy') .
                                                     '</a>',
@@ -236,55 +239,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-md-6 col-sm-12 p-0 m-0">
-                    <div class="authincation-content">
-                        <div class="row no-gutters">
-                            <div id="form-card">
-                                <div class="auth-form">
-                                    <div class="w-full">
-                                        <h2 id="create-text" style="color: #792db8" class="text-center mb-2"> <b>Create an Account</b> </h2>
-                                        <p style="color: #792db8" class="text-center">Already have an account? <a class="text-warning" href="{{ route('login') }}">Sign in</a></p>
-                                    </div>
-                                    <form id="form-content" method="POST" class="text-white" action="{{ route('register') }}">
-                                        @csrf
-                                        <div style="display: flex; gap:0px; width:100%">
-                                            <div class="col-6">
-                                                <label class="text-dark mb-1"><strong>First Name</strong></label>
-                                                <input name="fname" :value="old('fname')" required type="text" class="form-control" placeholder="Your First Name">
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="text-dark mb-1"><strong>Last Name</strong></label>
-                                                <input name="lname" :value="old('lname')" required type="text" class="form-control" placeholder="Your Last Name">
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="col-12">
-                                                <label class="text-dark mb-1"><strong>Email</strong></label>
-                                                <input name="email" :value="old('email')" required type="email" class="form-control" placeholder="yourname@email.com">
-                                            </div>
-                                            <div class="col-12">
-                                                <label class="text-dark mb-1"><strong>Password</strong></label>
-                                                <input name="password" required autocomplete="new-password" type="password" class="form-control">
-                                            </div>
-                                            <div class="text-left px-3 mt-4">
-                                                <button style="background-color:#792db8; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" type="submit" class="btn btn-block text-white text-lg">Create Account</button>
-                                                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                                                <div  id="policy" class="form-check text-dark">
-                                                    <input type="checkbox" name="terms" class="form-check-input" id="termsCheckbox" checked>
-                                                    <label class="form-check-label font-w400" for="termsCheckbox">{!! __('By creating an account, you agree to Mighty Finance Solution :terms_of_service and :privacy_policy', [
-                                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                                    ]) !!}</label>
-                                                </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
 
@@ -298,6 +252,60 @@
     <script src="{{ asset('public/theme/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('public/theme/js/custom.min.js') }}"></script>
     <script src="{{ asset('public/theme/js/deznav-init.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            const inputs = $('input[type="text"]');
+            const user_id = {!! json_encode(auth()->user()->id) !!};
+            
+            inputs.on('input', function () {
+                const index = inputs.index(this);
+                if (index < inputs.length - 1 && $(this).val().trim() !== '') {
+                inputs.eq(index + 1).focus();
+                }
+            
+                if (inputs.filter((_, el) => $(el).val().trim() !== '').length === inputs.length) {
+                const otp = inputs.map((_, el) => $(el).val()).get().join('');
+            
+                // Disable input fields during the verification process
+                inputs.addClass('disabled');
+            
+                $.post('api/verify-otp', { otp: otp, user_id: user_id }, function (response) {
+                    if (response) {
+                        // Display success swal alert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Verification Successful!',
+                            text: 'Your OTP has been verified.',
+                        });
+                        // Use the route function to generate the URL based on the route name
+                        const homeRoute = "{{ route('dashboard') }}";
+
+                        // Redirect to the "home" route
+                        window.location.href = homeRoute;
+                    } else {
+                        // Display error swal alert
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Verification Failed!',
+                            text: 'Please check your OTP and try again.',
+                        });
+                    }
+            
+                    // Remove disable effect after verification
+                    inputs.removeClass('disabled');
+                });
+                }
+            });
+            
+            inputs.on('keypress', function (e) {
+                const key = e.which;
+                if (key < 48 || key > 57) {
+                e.preventDefault();
+                }
+            });
+        });
+        </script>
 
 </body>
 

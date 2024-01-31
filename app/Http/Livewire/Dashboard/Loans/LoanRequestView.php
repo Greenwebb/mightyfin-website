@@ -29,14 +29,14 @@ class LoanRequestView extends Component
     public $assignModal = false;
     public function render()
     {
-        // Check OTP
-        $this->VerifyOTP();
         try {
             // Retrieve users with the 'user' role, excluding their applications
             $this->users = User::role('user')->without('applications')->get();
     
 
             if (auth()->user()->hasRole('user')) {
+                // Check OTP
+                $this->VerifyOTP();
                 // Retrieve loan requests for the authenticated user and paginate the results (5 items per page)
                 $this->loan_requests = Application::with('loan')->where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
                 $requests = Application::with('loan')->where('user_id', auth()->user()->id)->orderBy('id', 'desc')->paginate(5);

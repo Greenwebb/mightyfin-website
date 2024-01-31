@@ -40,7 +40,8 @@ class LoanApplicationSeeder extends Seeder
             'complete' => 1,
             'nationality' => 'zambian',
             'continue' => 0,
-            'is_assigned' => 0
+            'is_assigned' => 0,
+            'loan_product_id' => 1
         ]);
     }
 }

@@ -102,6 +102,7 @@ Route::post('/share-docs', [UserController::class, 'share_doc'])->name('share.do
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
+    Route::get('otp-verification', [OTPController::class, 'index'])->name('otp');
     Route::get('/dashboard', DashboardView::class)->name('dashboard');
     Route::get('/search', SearchEngineView::class)->name('search');
     // Administrator
@@ -201,8 +202,6 @@ Route::get('careers', CareerPage::class)->name('about.careers');
 Route::get('contact-us', ContactPage::class)->name('contact');
 Route::get('services', ServicePage::class)->name('services');
 
-
-Route::get('otp-verification', [OTPController::class, 'index'])->name('otp');
 
 Route::post('request-for-loan', [LoanApplicationController::class, 'store'])->name('loan-request');
 Route::post('assign-manual-approval', [LoanApplicationController::class, 'assign_manual'])->name('assign-manual-approval');
