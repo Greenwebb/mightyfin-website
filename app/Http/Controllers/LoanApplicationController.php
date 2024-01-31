@@ -78,83 +78,88 @@ class LoanApplicationController extends Controller
     {
 
         try {
-        DB::beginTransaction();
-        $form = $request->toArray();
-
-        // Create the new user account or Not if exists
-        $register = [
-            'lname'=> $form['lname'],
-            'fname'=> $form['name'],
-            'mname'=> $form['mname'],
-            'phone2'=> $form['phone2'],
-            'email'=> $form['email'] ?? '',
-            'password' => 'mighty4you',
-            'terms' => 'accepted'
-        ];
-        $user = $this->registerUser($register);
-        
-        // If the user data exists 
-        if($user !== 0){
-            $data = [
+            DB::beginTransaction();
+            $form = $request->toArray();
+            // Create the new user account or Not if exists
+            $register = [
                 'lname'=> $form['lname'],
                 'fname'=> $form['name'],
-                'email'=> $form['email'],
-                'amount'=> $form['amount'],
-                'phone'=> $form['phone'],
-                'loan_product_id'=> $form['loan_type'],
-                'repayment_plan'=> $form['repayment_plan'],
-                'user_id' =>  $user->id,
-                'complete' => 0
+                'mname'=> $form['mname'],
+                'phone2'=> $form['phone2'],
+                'email'=> $form['email'] ?? '',
+                'password' => 'mighty4you',
+                'terms' => 'accepted'
             ];
+            $user = $this->registerUser($register);
             
-            // Apply for the loan
-            $res = $this->apply_loan($data);
+            // If the user data exists 
+            if($user !== 0){
+                $data = [
+                    'lname'=> $form['lname'],
+                    'fname'=> $form['name'],
+                    'email'=> $form['email'],
+                    'amount'=> $form['amount'],
+                    'phone'=> $form['phone'],
+                    'loan_product_id'=> $form['loan_type'],
+                    'repayment_plan'=> $form['repayment_plan'],
+                    'user_id' =>  $user->id,
+                    'complete' => 0
+                ];
+                
+                // Apply for the loan
+                $res = $this->apply_loan($data);
+                
+                if($res == 'exists'){
+                    $loan = Application::where('status', 0)->where('complete', 0)->where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
+                    return response()->json([
+                        "status" => 500, 
+                        "success" => false, 
+                        "message" => "Already have a Loan.",
+                        'fname' => $form['name'],
+                        'lname' => $form['lname'],
+                        "loan_id" => $loan->id,
+                        "amount" => $loan->amount
+                    ]); 
+                }else{
+                    
+                    $mail = [
+                        'user_id' => $user->id,
+                        'name' => $form['name'].' '.$form['lname'],
+                        'loan_type' => $form['type'].' '.$form['package_personal'],
+                        'phone' => $form['phone'],
+                        'duration' => $form['repayment_plan'],
+                        'amount' => $form['amount'],
+                        'type' => 'loan-application',
+                        'msg' => 'You have new a '.$form['type'].' loan application request, with an incomplete loan submission form and kyc update'
+                    ];  
             
-            if($res == 'exists'){
-                $loan = Application::where('status', 0)->where('complete', 0)->where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
+                    // Send information to the admin
+                    $this->send_loan_email($mail);
+                    
+                    DB::commit();
+                    return response()->json([
+                        "status" => 200, 
+                        "success" => true, 
+                        'amount' => $form['amount'],
+                        'fname' => $form['name'],
+                        'lname' => $form['lname'],
+                        "message" => "Your loan has been sent."
+                    ]); 
+                }
+        
+            }else{
+                
+                DB::rollback();
+                dd('failed');
                 return response()->json([
                     "status" => 500, 
                     "success" => false, 
-                    "message" => "Already have a Loan.",
-                    "loan_id" => $loan->id,
-                    "amount" => $loan->amount
-                ]); 
-            }else{
-                
-                $mail = [
-                    'user_id' => $user->id,
-                    'name' => $form['name'].' '.$form['lname'],
-                    'loan_type' => $form['type'].' '.$form['package_personal'],
-                    'phone' => $form['phone'],
-                    'duration' => $form['repayment_plan'],
                     'amount' => $form['amount'],
-                    'type' => 'loan-application',
-                    'msg' => 'You have new a '.$form['type'].' loan application request, with an incomplete loan submission form and kyc update'
-                ];  
-        
-                // Send information to the admin
-                $this->send_loan_email($mail);
-                
-                DB::commit();
-                return response()->json([
-                    "status" => 200, 
-                    "success" => true, 
-                    'amount' => $form['amount'],
-                    "message" => "Your loan has been sent."
+                    'fname' => $form['name'],
+                    'lname' => $form['lname'],
+                    "message" => "Failed to submit your loan request, please try again."
                 ]); 
             }
-    
-        }else{
-            
-            DB::rollback();
-            dd('failed');
-            return response()->json([
-                "status" => 500, 
-                "success" => false, 
-                'amount' => $form['amount'],
-                "message" => "Failed to submit your loan request, please try again."
-            ]); 
-        }
         } catch (\Throwable $th) {
             dd($th);
         }

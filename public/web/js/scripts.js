@@ -33,8 +33,10 @@ jQuery(document).ready(function () {
         $(this).removeClass("input-error");
     });
 
+    let countr = 0;
     // next step
     $(".f1 .btn-next").on("click", function () {
+        countr++;
         var parent_fieldset = $(this).parents("fieldset");
         var next_step = true;
         // navigation steps / progress steps
@@ -42,7 +44,29 @@ jQuery(document).ready(function () {
             .parents(".f1")
             .find(".f1-step.active");
         var progress_line = $(this).parents(".f1").find(".f1-progress-line");
+        if(countr === 2){
+            // summary
+            var loanTypeRadio = document.querySelector('input[name="loan_type"]:checked');
+            var repaymentPlanInput = document.querySelector('input[name="repayment_plan"]');
 
+            var loan_amount = document.getElementById("update_side");
+            var loanAmtLabel = document.getElementById("loan_amt_lbl");
+            var loanTypeLabel = document.getElementById("loan_type_lbl");
+            var repaymentLabel = document.getElementById("tenure_lbl");
+            var serviceLabel = document.getElementById("service_lbl");
+            // Init:
+            loanAmtLabel.textContent = '';
+            loanTypeLabel.textContent = '';
+            repaymentLabel.textContent = '';
+            serviceLabel.textContent = '';
+            // Use:
+            loanAmtLabel.textContent = 'K'+loan_amount.value;
+            loanTypeLabel.textContent = loanTypeRadio.getAttribute('data-name')
+            repaymentLabel.textContent = repaymentPlanInput.value;
+            serviceLabel.textContent = 'K4.5';
+
+        
+        }
         // fields validation
         parent_fieldset.find("input[required]").each(function () {
             var inputValue = $(this).val();

@@ -466,7 +466,7 @@
                     </div>
                 </div>
 
-                <div id="duration" style="display:block;padding: 0px 0 5px 0; class="slider">
+                <div id="duration" style="display:block;padding: 0px 0 5px 0;" class="slider">
                     <h4 class="text-white">Duration</h4>
                     <h4 id="time_frame" class="text-white"></h4>
                     <div class="range" style="margin-bottom: -60px;" id="pricipal-slide">
@@ -626,25 +626,23 @@
                                                 <h2 class="text-center">Loan <t style="color: #fabe15;">Summary</t>
                                                 </h2>
                                                 <br>
-                                                <p><strong>Loan Amount:</strong> K10,000</p>
+                                                <p><strong>Loan Amount:</strong> <span id="loan_amt_lbl"></span> </p>
                                                 <hr>
 
-                                                <p><strong>Loan type:</strong>GRZ</p>
+                                                <p><strong>Loan type:</strong> <span id="loan_type_lbl"></span> </p>
                                                 <hr>
 
-                                                <p><strong>Tenure (months):</strong> 24 months</p>
+                                                <p><strong>Tenure (months):</strong> <span id="tenure_lbl"></span> </p>
                                                 <hr>
 
-                                                <p><strong>Service Fee:</strong> K450</p>
+                                                <p><strong>Service Fee:</strong> <span id="service_lbl"></span> </p>
                                                 <hr>
-                                                <p><strong>Approved Amount:</strong> K10,800</p>
+                                                <p><strong>Approved Amount:</strong> <span id="approve_amt_lbl"></span> </p>
                                                 <hr>
-                                                <p><strong>Monthly Installment:</strong> K10,800</p>
+                                                <p><strong>Monthly Installment:</strong> <span id="monthly_inst_lbl"></span> </p>
                                                 <hr>
-                                                <p><strong>Next Payment:</strong> K10,800</p>
+                                                <p><strong>Next Payment:</strong> <span id="nxt_payment_lbl"></span> </p>
                                                 <hr>
-
-
                                             </div>
 
                                             <br>

@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         };">
                             <input ${
                                 isActiveProduct ? "enabled" : "disabled"
-                            } type="radio"
+                            } type="radio" data-name="${product.name}"
                                    name="loan_type" value="${product.id}"
                                    onclick="checker()" ${
                                        isActiveProduct ? "checked" : ""
@@ -229,6 +229,10 @@ sliderEl.forEach((sliderElement) => {
 
 // Script for updating sliders based on loan information
 window.populate = function (loan_id, slider_amount, slider_duration) {
+    const approvedAmtLbl = document.getElementById("approve_amt_lbl");
+    const monthlyInstLbl = document.getElementById('monthly_inst_lbl');
+    const nextPaymentLbl = document.getElementById('nxt_payment_lbl');
+
     const storedLoanProducts = localStorage.getItem("loanProducts");
     const parsedLoanProducts = JSON.parse(storedLoanProducts);
     const loanIdNumber = parseInt(loan_id, 10);
@@ -290,6 +294,14 @@ window.populate = function (loan_id, slider_amount, slider_duration) {
         total_repayment.textContent = totalRepayment.toFixed(2);
         monthly_repayment.textContent = monthlyPayment.toFixed(2);
         result_payment.textContent = nextRepaymentDateString;
+
+        approvedAmtLbl.textContent = '';
+        monthlyInstLbl.textContent = '';
+        nextPaymentLbl.textContent = '';
+        approvedAmtLbl.textContent = 'K'+totalRepayment.toFixed(2);
+        monthlyInstLbl.textContent = 'K'+monthlyPayment.toFixed(2);
+        nextPaymentLbl.textContent = nextRepaymentDateString;
+
     } else {
         // Handle the case when no matching product was found
         console.error("Product not found for loan ID:", loanIdNumber);

@@ -79,7 +79,7 @@
     background-repeat: no-repeat;
 }
 </style>
-<form role="form"  action="{{ route("loan-request") }}" method="POST" id="form_calculater" class="f1">
+<form role="form"  action="{{ route('loan-request') }}" method="POST" id="form_calculater" class="f1">
     @csrf
     <div id="form_one" class="lead-calculator pinside40">
         <h2 class="text-white mb20">Get a Loan Today</h2>
