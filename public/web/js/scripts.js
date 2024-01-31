@@ -1,3 +1,5 @@
+let loader, fname, lname, amount;
+
 function scroll_to_class(element_class, removed_height) {
     var scroll_to = $(element_class).offset().top - removed_height;
     if ($(window).scrollTop() != scroll_to) {
@@ -20,6 +22,8 @@ function bar_progress(progress_line_object, direction) {
 }
 
 jQuery(document).ready(function () {
+    loader = $("#loadery");
+
     /*
         Form
     */
@@ -131,7 +135,7 @@ jQuery(document).ready(function () {
         // Fields validation
         let isValid = true;
         $(this)
-            .find('input[required]')
+            .find("input[required]")
             .each(function () {
                 if ($(this).val() == "") {
                     e.preventDefault();
@@ -156,11 +160,11 @@ jQuery(document).ready(function () {
 
             // Convert the formData object to JSON
             const jsonData = JSON.stringify(formData);
-            console.log(jsonData)
+            console.log(jsonData);
 
             // Your API endpoint URL
             const apiUrl = "api/request-for-loan";
-
+            loader.show();
             // Make a POST request to the API using fetch
             fetch(apiUrl, {
                 method: "POST",
@@ -179,48 +183,71 @@ jQuery(document).ready(function () {
                     return response.json();
                 })
                 .then((data) => {
-                    
-                    console.log('Here: ' + data.status);
+
+
+                    // Accessing the value of the input with name "fname"
+
+
+                    console.log("Here: " + data.status);
+
                     // console.log(data.hasOwnProperty('amount'));
                     // Handle the success response from the API
                     if (data.status === 200) {
-            
+                        loader.hide();
+                        amount = data.amount;
+                        fname = data.fname;
+                        lname = data.lname;
+
                         // Access the 'loan_id' key in the 'data' object
-                        const amount = data.amount;
-                        
+
                         Swal.fire({
-                            icon: 'error',
-                            title: 'Oh Sorry... ',
-                            text: 'It seems that you already have an existing loan of K'+amount+'. ' +
-                            'To proceed with a new loan application, please complete the current loan process. ' +
-                            'You can check your dashboard for details on your existing loan and follow the instructions there. ' +
-                            'If you have any questions, feel free to reach out to our customer support. Call: +260950082577 Or: +260950081545.',
-                        
-                            // footer: '<a href="//login">Payback Loan</a>'
-                        })
-                    }else{
-                        Swal.fire({
-                            title: '<strong>Hello ' + fname + '</strong>',
-                            icon: 'success',
-                            html: '<b>Your loan application has been successfully submitted!</b> ' +
-                            'Please check your email for further instructions. ' +
-                            'Download the attached pre-approval and letter of introduction, sign them, and upload them back to your dashboard to complete the loan application process.',
-            
+                            title: "<strong>Hello " + fname + "</strong>",
+                            icon: "success",
+                            html:
+                                "<b>Your loan application has been successfully submitted!</b> " +
+                                "Please check your email for further instructions. " +
+                                "Download the attached pre-approval and letter of introduction, sign them, and upload them back to your dashboard to complete the loan application process.",
+
                             showCloseButton: true,
                             showCancelButton: true,
                             focusConfirm: false,
-                            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
-                            confirmButtonAriaLabel: 'Thumbs up, great!',
-                            cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
-                            cancelButtonAriaLabel: 'Thumbs down',
+                            confirmButtonText:
+                                '<i class="fa fa-thumbs-up"></i> Great!',
+                            confirmButtonAriaLabel: "Thumbs up, great!",
+                            cancelButtonText:
+                                '<i class="fa fa-thumbs-down"></i>',
+                            cancelButtonAriaLabel: "Thumbs down",
                             // footer: '<a href="/login">Sign In</a>'
-                        })
+                        });
+                    } else {
+                        loader.hide();
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oh Sorry... ",
+                            text:
+                                "It seems that you already have an existing loan of K" +
+                                amount +
+                                ". " +
+                                "To proceed with a new loan application, please complete the current loan process. " +
+                                "You can check your dashboard for details on your existing loan and follow the instructions there. " +
+                                "If you have any questions, feel free to reach out to our customer support. Call: +260950082577 Or: +260950081545.",
+
+                            // footer: '<a href="//login">Payback Loan</a>'
+                        });
                     }
                     // console.log("API Response:", data);
                 })
                 .catch((error) => {
+                    loader.hide();
                     // Handle errors
                     console.error("API Error:", error);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Network Error... ",
+                        text: "Please check your internet connection and reload your page!",
+
+                        // footer: '<a href="//login">Payback Loan</a>'
+                    });
                 });
         }
     });
