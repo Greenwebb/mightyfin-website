@@ -232,7 +232,7 @@
     function addSelect1Field() {
         // Fetch users from the Laravel controller
         $.ajax({
-            url: "{{ url('api/get-loan-statuses') }}", // Adjust the URL based on your Laravel route
+            url: "{{ url('api/get-loan-processing-statuses') }}", // Adjust the URL based on your Laravel route
             method: 'GET',
             success: function(status) {
                 // Create a wrapper for each select input and its remove button
@@ -287,7 +287,7 @@
     function addSelect2Field() {
      // Fetch users from the Laravel controller
         $.ajax({
-            url: "{{ url('api/get-loan-statuses') }}", // Adjust the URL based on your Laravel route
+            url: "{{ url('api/get-loan-open-statuses') }}", // Adjust the URL based on your Laravel route
             method: 'GET',
             success: function(status) {
                 // Create a wrapper for each select input and its remove button
@@ -342,7 +342,7 @@
     function addSelect3Field() {
      // Fetch users from the Laravel controller
         $.ajax({
-            url: "{{ url('api/get-loan-statuses') }}", // Adjust the URL based on your Laravel route
+            url: "{{ url('api/get-loan-defaulted-statuses') }}", // Adjust the URL based on your Laravel route
             method: 'GET',
             success: function(status) {
                 // Create a wrapper for each select input and its remove button
@@ -397,7 +397,7 @@
     function addSelect4Field() {
      // Fetch users from the Laravel controller
         $.ajax({
-            url: "{{ url('api/get-loan-statuses') }}", // Adjust the URL based on your Laravel route
+            url: "{{ url('api/get-loan-denied-statuses') }}", // Adjust the URL based on your Laravel route
             method: 'GET',
             success: function(status) {
                 // Create a wrapper for each select input and its remove button
@@ -452,7 +452,7 @@
     function addSelect5Field() {
      // Fetch users from the Laravel controller
         $.ajax({
-        url: "{{ url('api/get-loan-statuses') }}", // Adjust the URL based on your Laravel route
+        url: "{{ url('api/get-loan-not-taken-up-statuses') }}", // Adjust the URL based on your Laravel route
             method: 'GET',
             success: function(status) {
                 // Create a wrapper for each select input and its remove button

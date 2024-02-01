@@ -51,7 +51,12 @@ Route::get('get-total-payback-amount/{duration}/{principal}', [LoanRequestContro
 
 Route::get('/get-loan-products', [SettingController::class, '__get_loan_products']);
 Route::get('/get-loan-product-details/{loan_id}', [SettingController::class, '__get_loan_details']);
-Route::get('/get-loan-statuses', [SettingController::class, '__get_status']);
+
+Route::get('/get-loan-processing-statuses', [SettingController::class, '__get_processing_status']);
+Route::get('/get-loan-open-statuses', [SettingController::class, '__get_open_status']);
+Route::get('/get-loan-defaulted-statuses', [SettingController::class, '__get_defaulted_status']);
+Route::get('/get-loan-denied-statuses', [SettingController::class, '__get_denied_status']);
+Route::get('/get-loan-not-taken-up-statuses', [SettingController::class, '__get_not_taken_status']);
 
 
 // Deprected

@@ -50,7 +50,7 @@ trait LoanTrait{
         //     $loan_requests->whereIn('status', $this->status)->orderBy('id', 'desc');
         // }
         if(auth()->user()->hasRole('admin')){
-            return Application::with('loan_product')->where('complete', 0)->get();
+            return Application::with('loan_product')->where('complete', 1)->get();
         }else{
             switch ($type) {
                 case 'spooling':

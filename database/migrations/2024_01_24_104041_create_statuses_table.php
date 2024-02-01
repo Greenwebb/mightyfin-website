@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
+            $table->string('stage')->nullable();
             $table->timestamps();
         });
     }

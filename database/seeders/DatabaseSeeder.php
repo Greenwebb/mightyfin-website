@@ -17,11 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Storage::deleteDirectory('public/posts');
-
+        // Storage::deleteDirectory('public/posts');
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-
+        $this->call(EmployeeSeeder::class);
         $this->call(DisbursedBySeeder::class);
         $this->call(InterestMethodSeeder::class);
         $this->call(InterestTypeSeeder::class);
@@ -30,8 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CompanyAccountSeeder::class);
         $this->call(LoanApplicationSeeder::class);
         $this->call(ServiceChargeSeeder::class);
-
-        Storage::makeDirectory('public/posts');
-
+        $this->call(SettingSeeder::class);
+        $this->call(StatusesSeeder::class);
+        // Storage::makeDirectory('public/posts');
     }
 }

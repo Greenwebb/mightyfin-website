@@ -33,8 +33,28 @@ class SettingController extends Controller
         return response()->json($data);
     }
 
-    public function __get_status(){
-        $data = Status::get();
+    public function __get_processing_status(){
+        $data = Status::where('stage', 'processing')->get();
+        return response()->json($data);
+    }
+
+    public function __get_open_status(){
+        $data = Status::where('stage', 'open')->get();
+        return response()->json($data);
+    }
+
+    public function __get_denied_status(){
+        $data = Status::where('stage', 'denied')->get();
+        return response()->json($data);
+    }
+
+    public function __get_defaulted_status(){
+        $data = Status::where('stage', 'defaulted')->get();
+        return response()->json($data);
+    }
+
+    public function __get_not_taken_status(){
+        $data = Status::where('stage', 'Not Taken Up')->get();
         return response()->json($data);
     }
 

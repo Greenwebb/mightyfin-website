@@ -107,7 +107,7 @@
                                             <a target="_blank" href="{{ route('client-account', ['key'=>$loan->user->id])}}" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">
                                                 {{ $loan->user->fname.' '. $loan->user->lname }}
                                             </a>
-                                            <span class="text-muted fw-semibold text-muted d-block fs-7">0{{ $loan->user->phone.', '.$loan->user->gender }}</span>
+                                            <span class="text-muted fw-semibold text-muted d-block fs-7">{{ '260'.$loan->phone??' '. $loan->user->phone.', '.$loan->user->gender }}</span>
                                         </td>
                                         <td class="text-dark fw-bold text-hover-primary fs-6">
                                             {{ 
