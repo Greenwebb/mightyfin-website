@@ -12,6 +12,7 @@ class LoanStatus extends Model
         'status_id',
         'step',
         'stage',
+        'state',
         'loan_product_id'
     ];
 

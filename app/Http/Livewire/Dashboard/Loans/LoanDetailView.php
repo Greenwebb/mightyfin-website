@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Dashboard\Loans;
 
 use App\Models\Application;
 use App\Models\LoanManualApprover;
+use App\Models\LoanStatus;
 use App\Models\User;
 use App\Traits\EmailTrait;
 use App\Traits\LoanTrait;
@@ -17,7 +18,7 @@ class LoanDetailView extends Component
 {
     use EmailTrait, WalletTrait, LoanTrait;
     public $loan, $user, $loan_id, $msg, $due_date, $reason, $loan_product;
-
+    public $loan_stage;
     public function mount($id){
         /**
             *loan main details
@@ -31,8 +32,8 @@ class LoanDetailView extends Component
     {
         $this->loan = $this->get_loan_details($this->loan_id);
         $this->loan_product = $this->get_loan_product($this->loan->loan_product_id);
-        
-
+        $this->loan_stage = $this->get_loan_current_stage($this->loan->loan_product_id);
+    
         if (auth()->user()->hasRole('user')) {
             // return view('livewire.dashboard.loans.loan-app-hrdetail-view')
             return view('livewire.dashboard.loans.loan-detail-app-view')
@@ -75,14 +76,20 @@ class LoanDetailView extends Component
         // DB::beginTransaction();
         try {
             $application_request = Application::find($id);
-            // Make the loan
-            // $this->make_loan($x, $this->due_date);
-            // $this->isCompanyEnough($x->amount);
-            // dd($application_request);
-            // Do this - If this officer is the last approver
-            // dd($this->final_approver($id)['status']);
+
+            $this->change_stage();
+
             if($this->final_approver($id)['status']){
-                $this->approve_final($application_request);
+                // $this->approve_final($application_request);
+
+                // Make the loan when disbursed
+                // $this->make_loan($x, $this->due_date);
+                // $this->isCompanyEnough($x->amount);
+                // dd($application_request);
+                // Do this - If this officer is the last approver
+                if(strtolower($this->loan_stage) == 'disbursements'){
+                    $this->final_approver($id)['status'];
+                }
             }else{
                 $this->approve_continue($id);
             }
@@ -93,6 +100,22 @@ class LoanDetailView extends Component
         }
     }
 
+    // Only when step is accepted
+    public function change_stage(){
+        $a = LoanStatus::where('loan_product_id', $this->loan_product->id)
+                ->where('step', $this->loan_stage->step)
+                ->orderBy('id')
+                ->first()
+                ->update(['state' => 'completed']);
+            // dd($a);
+                // ->update(['state' => 'completed']);
+        $b = LoanStatus::where('loan_product_id', $this->loan_product->id)
+                ->where('step', '>', $this->loan_stage->step)
+                ->orderBy('id')
+                ->first()
+                ->update(['state' => 'current']);
+    }
+
     public function approve_continue($id){
         $this->upvote($id);
     }
@@ -100,9 +123,9 @@ class LoanDetailView extends Component
     public function approve_final($x){
         if(true){
             $this->upvote($x->id);
-            $x->status = 1;
+            $x->status = 1; //Set loan stage to OPEN
             $x->save();
-            // dd($x->email);
+            
             if($x->email != null){
                 $mail = [
                     'user_id' => $x->user_id,
@@ -118,8 +141,6 @@ class LoanDetailView extends Component
                     'msg' => 'Your '.$x->type.' loan application request has been successfully accepted'
                 ];
                 $this->send_loan_accepted_notification($mail);
-                // $this->send_loan_feedback_email($mail);
-
             }
             $this->deposit($x->amount, $x);
             DB::commit();

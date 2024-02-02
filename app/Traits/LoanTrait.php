@@ -9,6 +9,7 @@ use App\Models\LoanManualApprover;
 use App\Models\LoanPackage;
 use App\Models\LoanProduct;
 use App\Models\Loans;
+use App\Models\LoanStatus;
 use App\Models\User;
 use App\Notifications\LoanRequestNotification;
 use Carbon\Carbon;
@@ -29,6 +30,7 @@ trait LoanTrait{
             'interest_types.interest_type',
             ])->get();
     }
+
     public function get_loan_product($id){
         return LoanProduct::where('id', $id)->with([
             'disbursed_by.disbursed_by',
@@ -37,7 +39,12 @@ trait LoanTrait{
             'loan_accounts.account_payment',
             'loan_status.status',
             'loan_decimal_places'
-            ])->first();
+        ])->first();
+    }
+
+    public function get_loan_current_stage($id){
+        return LoanStatus::with('status')->where('loan_product_id', $id)
+                        ->where('state', 'current')->first();
     }
 
     public function getLoanRequests($type){
@@ -336,12 +343,9 @@ trait LoanTrait{
     }
 
     public function upvote($application_id){
-        
-        // dd($application_id);
         $approvers = LoanManualApprover::where('application_id', $application_id)->get();
         $userPriority = $approvers->where('user_id', auth()->user()->id)->pluck('priority')->first();
 
-        // dd($userPriority);
         // Leave current approver
         $update = $approvers->where('priority', $userPriority)->first();
         // dd($update);

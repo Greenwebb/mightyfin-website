@@ -24,7 +24,7 @@
                                     </svg>
                                 </span>
                                 <p class="col-10">
-                                    Are you sure you want to decline this loan application? If you have any doubts or need further assistance, feel free to ask for help.
+                                    When the loan is declined it will not continue with being processed and will be set as a Denied Loan, Are you sure you want to decline this loan application? If you have any doubts or need further assistance, feel free to ask for help.
                                 </p>
                             </div>
                             <div class="m-2">
