@@ -103,7 +103,6 @@ class UpdateSetting extends Component
             default:
             break;
         }
-
         return view('livewire.dashboard.site-settings.update-setting')
         ->layout('layouts.admin');
     }
@@ -250,7 +249,6 @@ class UpdateSetting extends Component
     }
 
     public function update_penalty(){
-
         try {
             Penalty::where('id', $this->penalty->id)->update([
                 'name' => $this->penalty_name,
@@ -353,6 +351,4 @@ class UpdateSetting extends Component
         $this->loan_charge_name = $this->loan_charge->name; 
         $this->loan_charge_amount = $this->loan_charge->value; 
     }
-    
-    
 }

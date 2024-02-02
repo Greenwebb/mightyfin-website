@@ -30,7 +30,6 @@ class SystemItemSettings extends Component
     {
         $this->settings = $_GET['settings'];
         $this->current_conf = $this->current_configs($_GET['settings']);
-        
         // Loan Products
         $this->loan_products = $this->get_all_loan_products();
         // Disbursement Methods
@@ -40,14 +39,12 @@ class SystemItemSettings extends Component
         // Repayment Cycles
         $this->penalties = $this->get_all_penalties();
         $this->loan_fees = $this->get_all_loan_fees();
-
         return view('livewire.dashboard.site-settings.system-item-settings')
         ->layout('layouts.admin');
     }
 
     // System Setting Delete Functions
     public function deleteLoanProduct($id){
-        
         try {
             LoanDisbursedBy::where('loan_product_id', $id)->delete();
             LoanInterestMethod::where('loan_product_id', $id)->delete();
@@ -60,7 +57,6 @@ class SystemItemSettings extends Component
         } catch (\Throwable $th) {
             Session::flash('success', "Loan product deleted successfully.");
         }
-        
     }
 
     public function deleteRepaymentCycle($id){

@@ -22,6 +22,7 @@ class LoanProductController extends Controller
                         'status_id' => $value,
                         'stage' => 'processing',
                         'step' => $key + 1,
+                        'state' => $key == 0 ? 'current':'pending',
                     ]
                 );
             }
