@@ -88,13 +88,13 @@ class LoanDetailView extends Component
                 // dd($application_request);
                 // Do this - If this officer is the last approver
                 if(strtolower($this->loan_stage) == 'disbursements'){
-                    $this->final_approver($id)['status'];
+                    $this->approve_final($application_request);
                 }
             }else{
                 $this->approve_continue($id);
             }
+            Redirect::route('loan-details',['id' => $this->loan_id]);
         } catch (\Throwable $th) {
-            dd($th);
             // DB::rollback();
             session()->flash('error', 'Oops something failed here, please contact the Administrator.'.$th);
         }
@@ -103,14 +103,12 @@ class LoanDetailView extends Component
     // Only when step is accepted
     public function change_stage(){
         $a = LoanStatus::where('loan_product_id', $this->loan_product->id)
-                ->where('step', $this->loan_stage->step)
+                ->where('status_id', $this->loan_stage->status_id)
                 ->orderBy('id')
                 ->first()
                 ->update(['state' => 'completed']);
-            // dd($a);
-                // ->update(['state' => 'completed']);
         $b = LoanStatus::where('loan_product_id', $this->loan_product->id)
-                ->where('step', '>', $this->loan_stage->step)
+                ->where('status_id', '>', $this->loan_stage->status_id)
                 ->orderBy('id')
                 ->first()
                 ->update(['state' => 'current']);

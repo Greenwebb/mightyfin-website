@@ -82,15 +82,39 @@
                 <div style="margin-top: -4%; padding: 0px;" class="card-body pt-5 pb-0">
                     <!--begin::Details-->
                     <div class="col-12">
-                        <div class="tabbable">
-                            <ul class="nav nav-tabss wizard">
-                                <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false"><span class="nmbr">1</span>Application Submitted</a></li>
-                                @forelse ($loan_product->loan_status->where('stage', 'processing') as $step)
-                                    <li class="{{$step->state}}" id="{{$step->stage}}"><a href="#w{{ $step->id }}" data-toggle="tab" aria-expanded="false"><span class="nmbr">{{ $step->step + 1 }}</span>{{ $step->status->name }}</a></li>
-                                @empty
-                                @endforelse    
-                            </ul>
-                        </div>
+                        @switch(strtolower($loan_stage->stage))
+                            @case('processing')
+                                <div class="tabbable">
+                                    <ul class="nav nav-tabss wizard">
+                                        <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false"><span class="nmbr">1</span>Application Submitted</a></li>
+                                        @forelse ($loan_product->loan_status->where('stage', 'processing') as $step)
+                                            <li class="{{$step->state}}" id="{{$step->stage}}"><a href="#w{{ $step->id }}" data-toggle="tab" aria-expanded="false"><span class="nmbr">{{ $step->step + 1 }}</span>{{ $step->status->name }}</a></li>
+                                        @empty
+                                        @endforelse    
+                                    </ul>
+                                </div>
+                            @break
+                            @case('open')
+                                <div class="mx-6">
+                                    <div class="px-9 py-6 mt-2">
+                                        <h1 class="text-info fw-bold font-bold">Open Loan</h1>
+                                        <p>Note: This loan is current active and is pending for repayment collection.</p>
+                                    </div>
+                                </div>
+                            @break
+                            @default
+                                <div class="tabbable">
+                                    <ul class="nav nav-tabss wizard">
+                                        <li class="active"><a href="#i9" data-toggle="tab" aria-expanded="false"><span class="nmbr">1</span>Application Submitted</a></li>
+                                        @forelse ($loan_product->loan_status->where('stage', 'processing') as $step)
+                                            <li class="{{$step->state}}" id="{{$step->stage}}"><a href="#w{{ $step->id }}" data-toggle="tab" aria-expanded="false"><span class="nmbr">{{ $step->step + 1 }}</span>{{ $step->status->name }}</a></li>
+                                        @empty
+                                        @endforelse    
+                                    </ul>
+                                </div>
+                            @break
+                                
+                        @endswitch
                         {{-- hello bremah edit the bottom styles and scripts and add in appropriate files --}}
                         <script>
                             //this will show completed steps regardless of step user is on
@@ -255,6 +279,9 @@
 
         <!--end::Post-->
     </div>
+    
+    @include('livewire.dashboard.__parts.dash-alerts')
+    {{-- @dd(strtolower($loan_stage->status->name)) --}}
     @switch(strtolower($loan_stage->stage))
         
         @case('processing')
@@ -272,11 +299,20 @@
                     @include('livewire.dashboard.loans.__stages.processing.disbursements')
                 @break
                 @default
+                    @include('livewire.dashboard.loans.__stages.processing.reviewing')
+                @break
             @endswitch
         @break
 
         @case('open')
-            
+        @switch(strtolower($loan_stage->status->name))
+            @case('current loan')
+                @include('livewire.dashboard.loans.__stages.open.current-loan')
+            @break
+            @default
+                @include('livewire.dashboard.loans.__stages.open.current-due-today')
+            @break
+        @endswitch
         @break
 
         @default
