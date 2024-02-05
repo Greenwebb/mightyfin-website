@@ -410,7 +410,7 @@
                                     <div id="slider_line" class="range-slider_line-fill"></div>
                                     </div>
                                     
-                                    <input id="slider_input" name="duration" class="range-slider_input" type="range" value="2" min="2" max="12">
+                                    <input id="slider_input" name="duration" class="range-slider_input" type="range" value="1"  max="">
                                 </div>
                             </div>  
                             <div class="row">
@@ -423,7 +423,9 @@
                                         <div class="col-lg-6">
                                             <p id="slider_value">2 Months</p>
                                             {{-- <p id="interest_value">Interest Rate: 21%</p> --}}
-                                            <p id="interest_value">Service Charge: K3.50</p>
+                                            <span id="service_charge">
+
+                                            </span>
                                         </div>
                                     </div>
                                     {{-- <p id="principal_value"></p> --}}
@@ -598,7 +600,7 @@
                         fetch(`api/get-loan-product-details/${selectedLoanProductID}`)
                             .then(response => response.json())
                             .then(data => {
-                                console.log(data); 
+                                console.log(data.max_loan_duration); 
                                 
                                 // Update the UI with the retrieved details
                                 var sliderValue = $(this).val();
@@ -606,11 +608,19 @@
                                 duration = data.def_loan_duration;
                                 var my_returns = (parseInt(principal) * data.def_loan_interest) * parseInt(data.default_loan_duration) + parseInt(principal);
 
+                                // Update a display element with the current value
                                 $('#payback_value').text( 'Payback amount of: K'+my_returns.toFixed(2));
                                 $('#principal_value').text( 'Borrowing: K'+principal);
                                 $('#interest_value').text( 'Interest Rate: '+data.def_loan_interest);
-                                // Update a display element with the current value
                                 $('#slider_value').text( 'Payback in '+data.def_loan_duration + ' Months');
+                                $('#slider_input').attr('max', data.max_loan_duration);
+
+                                
+                
+                                data.services_fees.forEach(element => {
+                                    // Create element under the service charges div
+                                    $('#service_charge').text(data.services_fees.service_charge.name+' '+data.services_fees.service_charge.value);
+                                });
 
                             })
                             .catch(error => {

@@ -61,8 +61,6 @@
                 <!--end::Card header-->
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
-                    
-
                     @include('livewire.dashboard.__parts.dash-alerts')
                     <!--begin::Table-->
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">

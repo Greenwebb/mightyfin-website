@@ -38,7 +38,8 @@ trait LoanTrait{
             'interest_types.interest_type',
             'loan_accounts.account_payment',
             'loan_status.status',
-            'loan_decimal_places'
+            'loan_decimal_places',
+            'service_fees.service_charge'
         ])->first();
     }
 
