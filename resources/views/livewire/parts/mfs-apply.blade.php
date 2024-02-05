@@ -556,7 +556,7 @@
                                                 </option>
                                                 <!-- Add more options as needed -->
                                             </select>
-                                            <input required minlength="9" maxlength="9" id="phone"
+                                            <input required minlength="10" maxlength="10" id="phone"
                                                 name="phone" placeholder="972 -- -- --">
                                         </div>
                                     </label>

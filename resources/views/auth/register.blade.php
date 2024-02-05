@@ -180,7 +180,7 @@
                                             <div class="col-12">
 
                                                 <label class="text-dark mb-1"><strong>Phone</strong></label>
-                                                <input name="phone" :value="old('phone')" required type="phone" class="form-control" placeholder="097">
+                                                <input name="phone" :value="old('phone')" required type="phone" class="form-control" minlength="10" maxlength="10" placeholder="097">
                                             </div>
                                             <div class="col-12">
                                                 <label class="text-dark mb-1"><strong>Password</strong></label>

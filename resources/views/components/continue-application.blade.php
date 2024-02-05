@@ -56,7 +56,7 @@
                                             id="phone"
                                             value="{{ intval($activeLoan->phone)  }}"
                                             type="text"
-                                            data-mask='000 000 000'
+                                            data-mask='0000 000 000'
                                             name="phone"
                                             class="form-control"
                                             placeholder="975 --- ---"
