@@ -45,17 +45,16 @@
                         </span>
                         @else
                         <span>
-                            <a href="{{ route('login') }}" class="btn btn-default btn-sm">
+                            <a href="https://app.mightyfinance.co.zm/login" class="btn btn-default btn-sm">
                                 <em style="margin-right: 6px;" class="fa fa-user"></em>Login
                             </a>
                         </span>
                         <span>
-                            <a href="{{ route('register') }}" class="btn btn-default btn-sm">
+                            <a href="https://app.mightyfinance.co.zm/register" class="btn btn-default btn-sm">
                                 <em style="margin-right: 6px;" class="fa fa-user"></em>Sign Up
                             </a>
                         </span> 
                         @endauth
-                       
                     </span> 
                 </div>
                     

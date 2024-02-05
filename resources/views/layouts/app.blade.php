@@ -1066,6 +1066,4 @@
     <script type='text/javascript' src="{{ asset("public/web/js/7496-js-slider-calculator.js") }}"></script>
     <script type="text/javascript" src="{{ asset("public/web/js/sweetalert.js") }}"></script>
     <script src="{{ asset("public/web/js/getvalue.js") }}"></script>
-
-
 </body>
