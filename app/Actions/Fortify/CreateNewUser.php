@@ -44,7 +44,6 @@ class CreateNewUser implements CreatesNewUsers
         
                 // // Get my applications & wallet
                 // Application::where('email', $input['email'])
-                                    -
                 //                 ->update(['user_id' => $user->id]);
 
                 Wallet::create([
@@ -54,7 +53,7 @@ class CreateNewUser implements CreatesNewUsers
                 ]);
                 return $user;
             } catch (\Throwable $th) {
-                // dd($th);
+                dd($th->getMessage());
             }
     }
 }

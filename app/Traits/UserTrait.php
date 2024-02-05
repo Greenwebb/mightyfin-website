@@ -170,27 +170,31 @@ trait UserTrait{
     }
 
     public function VerifyOTP(){
-        if(auth()->user()->opt_verified == 0){
-            // Generate otp code
-            $code = str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT);
-
-            // Save into the database
-            User::where('id', auth()->user()->id)->update([
-                'opt_code' => $code
-            ]);
-
-            // Send SMS 
-            $data = [
-                'message'=>$code. 'is your OTP verification code',
-                'phone'=> '26'.auth()->user()->phone,
-            ];
-
-            $this->send_with_server($data);
-            
-            // Then redirect the user to go and verify
-            return redirect()->route('otp');
-        }else{
-            return true;
+        try {
+            if(auth()->user()->opt_verified == 0){
+                // Generate otp code
+                $code = str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT);
+    
+                // Save into the database
+                User::where('id', auth()->user()->id)->update([
+                    'opt_code' => $code
+                ]);
+    
+                // Send SMS 
+                $data = [
+                    'message'=>$code.' is your OTP verification code',
+                    'phone'=> '26'.auth()->user()->phone,
+                ];
+    
+                $this->send_with_server($data);
+                
+                // Then redirect the user to go and verify
+                return redirect()->route('otp');
+            }else{
+                return true;
+            }
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
         }
     }
     public function send_with_server($data) {
