@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('wallets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->float('deposit', 9,2)->default(0);
-            $table->float('withraw', 9,2)->default(0);
+            $table->float('withdraw', 9,2)->default(0);
             $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
         });

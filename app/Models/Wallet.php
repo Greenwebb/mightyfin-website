@@ -13,7 +13,8 @@ class Wallet extends Model
         'deposit',
         'withdraw',
         'user_id',
-        'email'
+        'email',
+        'phone'
     ];
 
     public function user(){

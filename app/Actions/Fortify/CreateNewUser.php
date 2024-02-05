@@ -37,15 +37,20 @@ class CreateNewUser implements CreatesNewUsers
                     'fname' => $input['fname'],
                     'lname' => $input['lname'],
                     'email' => $input['email'],
+                    'phone' => $input['phone'],
                     'password' => Hash::make($input['password']),
                 ]);
                 $user->assignRole('user');
         
-                // Get my applications & wallet
-                Application::where('email', $input['email'])->update(['user_id' => $user->id]);
+                // // Get my applications & wallet
+                // Application::where('email', $input['email'])
+                                    -
+                //                 ->update(['user_id' => $user->id]);
+
                 Wallet::create([
                     'email' => $user->email,
-                    'user_id' => $user->id
+                    'user_id' => $user->id,
+                    'phone' => $input['phone']
                 ]);
                 return $user;
             } catch (\Throwable $th) {

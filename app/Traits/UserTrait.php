@@ -172,7 +172,7 @@ trait UserTrait{
     public function VerifyOTP(){
         if(auth()->user()->opt_verified == 0){
             // Generate otp code
-            $code = 12345;
+            $code = str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT);
 
             // Save into the database
             User::where('id', auth()->user()->id)->update([
@@ -181,8 +181,8 @@ trait UserTrait{
 
             // Send SMS 
             $data = [
-                'message'=>$code. ' is your OTP verification code at MightyFin',
-                'phone'=> '260'.auth()->user()->phone,
+                'message'=>$code. 'is your OTP verification code',
+                'phone'=> '26'.auth()->user()->phone,
             ];
 
             $this->send_with_server($data);
