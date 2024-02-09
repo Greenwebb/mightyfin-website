@@ -181,6 +181,8 @@ trait UserTrait{
                     'message' => $code.' is your OTP verification code',
                     'phone' => '26'.auth()->user()->phone,
                 ];
+
+                dd($data);
                 $this->send_with_server($data);
                 // Then redirect the user to go and verify
                 return redirect()->route('otp');
