@@ -16,7 +16,7 @@ trait UserTrait{
 
     public function registerUser($input){
         $password = 'mighty4you';
-
+        
         if($input['email'] !== null){
             $check = User::where('email', $input['email'])->exists();
 
@@ -46,14 +46,12 @@ trait UserTrait{
                 // User already exists
                 return User::where('email', $input['email'])->first();
             }
-
-
         }else{
             try {
                 $user = User::create([
                     'fname' => $input['fname'],
                     'mname' => $input['mname'],
-                    'phone2' => $input['phone2'],
+                    'phone' => $input['phone'],
                     'lname' => $input['lname'],
                     'password' => Hash::make($password),
                     'terms' => 'accepted'
@@ -180,8 +178,8 @@ trait UserTrait{
                 ]);
                 // Send SMS 
                 $data = [
-                    'message'=>$code.' is your OTP verification code',
-                    'phone'=> '26'.auth()->user()->phone,
+                    'message' => $code.' is your OTP verification code',
+                    'phone' => '26'.auth()->user()->phone,
                 ];
                 $this->send_with_server($data);
                 // Then redirect the user to go and verify
