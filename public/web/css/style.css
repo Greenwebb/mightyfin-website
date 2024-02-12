@@ -8,9 +8,9 @@
  Author : Jitu Chauhan;
  Version: 1.0.5;
 
-+ General css 
++ General css
 + Space css
-+ Background & Block color 
++ Background & Block color
 + Buttons
 + Input Form
 + Bullet
@@ -28,7 +28,7 @@
   - Personal Loan Single
   - Home Loan Single
   - Education Loan Single
-+ ABOUT US 
++ ABOUT US
   - About us
   - Team
 + BLOG
@@ -49,10 +49,10 @@
     - Shortcodes
       - Tab
       - Accordion
-      - Alert       
+      - Alert
 
 - CONTACT US
-    
+
 */
 
 /*-----------------------------------
@@ -64,7 +64,7 @@ body {
   font-family: "montserrat", sans-serif;
   line-height: 1.5;
   color: #778191;
-  background-color: #f4f6f8;
+  background-color: #eae7ec;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -533,7 +533,7 @@ Padding space
 
 /*---------------
 Section Space
-* Section space help to create top bottom space. 
+* Section space help to create top bottom space.
 *
 -----------------*/
 .section-space20 {
@@ -572,7 +572,7 @@ Section Space
 }
 
 /*-----------------------------------------
-Background & Block color 
+Background & Block color
 ------------------------------------------*/
 .bg-light {
   background-color: #fafcfd;
@@ -1742,7 +1742,7 @@ index-1
   border: transparent;
 }
 
-/* Nice Select 
+/* Nice Select
 -------------------------------------------------------------- */
 .nice-select {
   -webkit-tap-highlight-color: transparent;
@@ -2407,8 +2407,8 @@ compare Student loan table
 -----------------------------------------------------*/
 
 .bank-account-tabs.st-tabs .nav-link {
-  background-color: #f4f6f8;
-  border-color: #f4f6f8;
+  background-color: #eae7ec;
+  border-color: #eae7ec;
 }
 
 .bank-account-tabs.st-tabs .tab-content {
@@ -2680,7 +2680,7 @@ footer
 }
 
 /*--------------------------------
-Page header 
+Page header
 ---------------------------------*/
 .page-header {
   margin: 0;
@@ -2777,7 +2777,7 @@ Page header
 }
 
 /*--------------------------------
-Blog  
+Blog
 ---------------------------------*/
 .post-holder {
   border-bottom: 1px solid #e8eaec;
@@ -2860,12 +2860,12 @@ Blog
 }
 
 /*--------------------------------
-Blog-sidebar  
+Blog-sidebar
 ---------------------------------*/
 .widget {
   padding: 24px;
   margin-bottom: 30px;
-  background-color: #f4f6f8;
+  background-color: #eae7ec;
 }
 
 .widget-title {
@@ -3040,7 +3040,7 @@ Blog-sidebar
 }
 
 /*--------------------------------
-Blog-single  
+Blog-single
 ---------------------------------*/
 .name {
   font-size: 14px;
@@ -3051,7 +3051,7 @@ Blog-single
 }
 
 /*--------------------------------
-Pagination  
+Pagination
 ---------------------------------*/
 
 .st-pagination .pagination > li > a,
@@ -3145,7 +3145,7 @@ Pagination
 }
 
 /*--------------------------------
-Extra Plugin CSS - Back to top  
+Extra Plugin CSS - Back to top
 ---------------------------------*/
 .cd-top {
   display: inline-block;
@@ -3434,7 +3434,7 @@ img {
 }
 
 /*--------------------------------
-Team  
+Team
 ---------------------------------*/
 
 .designation {
@@ -3445,7 +3445,7 @@ Team
 }
 
 /*--------------------------------
-About us 
+About us
 ---------------------------------*/
 
 .cta-section-second {
@@ -3465,7 +3465,7 @@ About us
 }
 
 /*--------------------------------
-Contact us 
+Contact us
 ---------------------------------*/
 .map {
   height: 400px;
@@ -3528,7 +3528,7 @@ Product Single Sidebar
 }
 
 .product-tabs .nav > li.active a {
-  border-right: 1px solid #f4f6f8;
+  border-right: 1px solid #eae7ec;
   background: #eff3f8;
   color: #f51f8a;
 }
@@ -3976,7 +3976,7 @@ Landing Page Template
 
 .feature-icon-style .feature-icon {
   margin: 0 auto 40px auto;
-  background-color: #f4f6f8;
+  background-color: #eae7ec;
   width: 80px;
   height: 80px;
   border-radius: 100px;
@@ -3994,7 +3994,7 @@ Landing Page Template
 }
 
 .feature-circle {
-  background-color: #f4f6f8;
+  background-color: #eae7ec;
   width: 60px;
   height: 60px;
   border-radius: 100px;

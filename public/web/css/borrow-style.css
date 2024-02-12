@@ -85,8 +85,8 @@ body {
     font-size: 15px;
     font-family: 'montserrat',sans-serif;
     line-height: 1.4;
-    color: #778191;
-    background-color: #f4f6f8;
+    color: #867593;
+    background-color: #eae7ec;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -1155,7 +1155,7 @@ top bar
     position: relative;
     z-index: 99;
     -webkit-box-shadow: 0px 5px 9px 1px rgba(144, 161, 180, 0.2);
-    box-shadow: 0px 5px 9px 1px rgba(144, 161, 180, 0.2);
+    box-shadow: 0px 5px 9px 1px rgba(255, 255, 255, 0);
     -moz-box-shadow: 0px 5px 9px 1px rgba(144, 161, 180, 0.2);
 }
 
@@ -1328,7 +1328,7 @@ top bar
 #navigation ul ul li:hover>a,
 #navigation ul ul li a:hover {
     color: #fec00f;
-    background-color: #f4f6f8;
+    background-color: #eae7ec;
 }
 
 #navigation ul ul li.has-sub>a:after {
@@ -3000,8 +3000,8 @@ compare Student loan table 6-2018
 .bank-account-tabs {}
 
 .bank-account-tabs.st-tabs .nav-link {
-    background-color: #f4f6f8;
-    border-color: #f4f6f8;
+    background-color: #eae7ec;
+    border-color: #eae7ec;
 }
 
 .bank-account-tabs.st-tabs .tab-content {
@@ -3309,7 +3309,10 @@ compare Student loan table 6-2018
 
 .page-title {
     margin-bottom: 0px;
-    font-size: 36px;
+    font-size: 50px !important;
+}
+.page-title .sub-yello{
+    color: #fabe15;
 }
 
 .rate-block {
@@ -3368,7 +3371,7 @@ compare Student loan table 6-2018
 
 .page-breadcrumb .breadcrumb {
     background-color: transparent;
-    padding: 0px;
+    padding: 2rem;
     font-size: 12px;
     text-transform: uppercase;
     color: #792db8;
@@ -4332,7 +4335,7 @@ Product Single Sidebar
 }
 
 .product-tabs .nav>li.active a {
-    border-right: 1px solid #f4f6f8;
+    border-right: 1px solid #eae7ec;
     background: #eff3f8;
     color: #fec00f;
 }
@@ -4909,7 +4912,7 @@ Landing Page Template
 
 .feature-icon-style .feature-icon {
     margin: 0 auto 40px auto;
-    background-color: #f4f6f8;
+    background-color: #eae7ec;
     width: 80px;
     height: 80px;
     border-radius: 100px;
@@ -4927,7 +4930,7 @@ Landing Page Template
 }
 
 .feature-circle {
-    background-color: #f4f6f8;
+    background-color: #eae7ec;
     width: 60px;
     height: 60px;
     border-radius: 100px;
@@ -4941,14 +4944,15 @@ Landing Page Template
 /*----- updated in v 1.0.2 ----*/
 
 .feature-bg {
-    background-color: #e3edf9;
+    background-color: #EBE0F9;
     border-radius: 4px;
     padding: 60px;
     text-align: center;
+    border-radius: 2.5rem;
 }
 
 .feature-bg .feature-icon {
-    background-color: #bacadd;
+    background-color: #c7b5d5;
     color: #792db8;
     width: 120px;
     height: 120px;
@@ -6063,8 +6067,11 @@ div.forex-nav.vc_tta-shape-rounded:not(.vc_tta-o-no-fill) .vc_tta-panel.vc_activ
         padding: 40px 0px 80px;
     }
     .page-title {
-        font-size: 28px;
+        font-size: 50px !important;
         margin-bottom: 14px;
+    }
+    .page-title .sub-yello{
+        color: #fff;
     }
     .btn-action {
         text-align: center;
