@@ -147,9 +147,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                                     <img width="50px" src="data:image/svg+xml,${productIconSVG}" />
                                 </div>
                                 <h2>${product.name}</h2>
-                                <p class="skill">${product.description} ${
-                    isActiveProduct ? "(Available)" : "<br>(Coming Soon)"
-                }</p>
+                                <p class="skill">${
+                                    product.description
+                                } ${isActiveProduct ? "(Available)" : "<br>(Coming Soon)"}</p>
                                 <span class="check-icon">
                                     <span class="icon"></span>
                                 </span>
@@ -250,35 +250,43 @@ window.populate = function (loan_id, slider_amount, slider_duration) {
 
         update_side_amount.value = slider_amount.value;
 
-        // Calculate monthly interest rate
-        const monthlyInterestRate = matchingProduct.def_loan_interest / 12 / 100;
+        // Update slider backgrounds
+        updateSliderBackground(slider_amount);
+        updateSliderBackground(slider_duration);
 
-        // Calculate total number of payments (loan term in months)
-        const loanTermMonths = parseInt(slider_duration.value);
-
-        // Calculate monthly payment
         const principal = parseFloat(slider_amount.value);
+        const loanTermMonths = parseInt(slider_duration.value);
+        const serviceFee = 0;//parseFloat(document.getElementById('serviceFee').value);
+
+        const monthlyInterestRate = matchingProduct.def_loan_interest / 12 / 100;
         const numPayments = loanTermMonths;
+
+        // Calculate monthly payment without considering fees
         const monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numPayments));
 
-        // Calculate total repayment
-        const totalRepayment = monthlyPayment * loanTermMonths;
+        // Calculate total repayment, adding the service fee
+        const totalRepayment = monthlyPayment * loanTermMonths + serviceFee;
 
-        // Calculate first repayment date
+        // Determine the next repayment date based on the current date and 5th date rule
         const currentDate = new Date();
         let loanStartDate = new Date(currentDate);
+
+        // If the current date is after the 5th of the month, move to the next month
         if (currentDate.getDate() > 5) {
             loanStartDate.setMonth(loanStartDate.getMonth() + 1);
         }
-        loanStartDate.setDate(1);
-        const nextRepaymentDate = new Date(loanStartDate);
-        nextRepaymentDate.setMonth(nextRepaymentDate.getMonth() + loanTermMonths);
-        nextRepaymentDate.setDate(0);
 
-        // Format next repayment date
+        // Set the loan start date to the 1st of the month
+        loanStartDate.setDate(1);
+
+        // Calculate the next repayment date based on the loan duration
+        const nextRepaymentDate = new Date(loanStartDate);
+        nextRepaymentDate.setDate(0); // Set to the last day of the month
+
+        // Format the next repayment date as needed
         const nextRepaymentDateString = nextRepaymentDate.toISOString().split('T')[0];
 
-        // Update UI elements
+        // Update the UI elements
         total_repayment.textContent = totalRepayment.toFixed(2);
         monthly_repayment.textContent = monthlyPayment.toFixed(2);
         result_payment.textContent = nextRepaymentDateString;
@@ -286,58 +294,45 @@ window.populate = function (loan_id, slider_amount, slider_duration) {
         approvedAmtLbl.textContent = '';
         monthlyInstLbl.textContent = '';
         nextPaymentLbl.textContent = '';
-        approvedAmtLbl.textContent = 'K' + totalRepayment.toFixed(2);
-        monthlyInstLbl.textContent = 'K' + monthlyPayment.toFixed(2);
+        approvedAmtLbl.textContent = 'K'+totalRepayment.toFixed(2);
+        monthlyInstLbl.textContent = 'K'+monthlyPayment.toFixed(2);
         nextPaymentLbl.textContent = nextRepaymentDateString;
 
     } else {
+        // Handle the case when no matching product was found
         console.error("Product not found for loan ID:", loanIdNumber);
     }
 };
 
 
+
+
 //
 
-// Calculate total repayment, monthly repayment, and next repayment date
+    // Calculate total repayment, monthly repayment, and next repayment date
+
 
 // Function to calculate total repayment
 function calculateTotalRepayment(amount, duration, interestRate) {
     // Perform your calculation here based on the loan amount, duration, and interest rate
     // For example, you can use a formula like: totalRepayment = amount * (1 + interestRate) * duration;
-    return (
-        parseFloat(amount) * (1 + parseFloat(interestRate)) * parseInt(duration)
-    );
+    return parseFloat(amount) * (1 + parseFloat(interestRate)) * parseInt(duration);
 }
 
 // Function to calculate monthly repayment
 function calculateMonthlyRepayment(amount, duration, interestRate) {
     // Perform your calculation here based on the loan amount, duration, and interest rate
     // For example, you can use a formula like: monthlyRepayment = (amount * (1 + interestRate)) / duration;
-    return (
-        (parseFloat(amount) * (1 + parseFloat(interestRate))) /
-        parseInt(duration)
-    );
+    return (parseFloat(amount) * (1 + parseFloat(interestRate))) / parseInt(duration);
 }
 
-//
-
-
 // Function to calculate the next repayment date
-function calculateLoanRepayment(
-    principal,
-    annualInterestRate,
-    loanTermMonths,
-    serviceFee,
-    startDate,
-    currentDate
-) {
+function calculateLoanRepayment(principal, annualInterestRate, loanTermMonths, serviceFee, startDate, currentDate) {
     const monthlyInterestRate = annualInterestRate / 12 / 100;
     const numPayments = loanTermMonths;
 
     // Calculate monthly payment without considering fees
-    const monthlyPayment =
-        (principal * monthlyInterestRate) /
-        (1 - Math.pow(1 + monthlyInterestRate, -numPayments));
+    const monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numPayments));
 
     // Calculate total repayment, adding the service fee
     const totalRepayment = monthlyPayment * loanTermMonths + serviceFee;
@@ -360,9 +355,7 @@ function calculateLoanRepayment(
     nextRepaymentDate.setMonth(nextRepaymentDate.getMonth() + loanTermMonths);
 
     // Format the next repayment date as needed
-    const nextRepaymentDateString = nextRepaymentDate
-        .toISOString()
-        .split("T")[0];
+    const nextRepaymentDateString = nextRepaymentDate.toISOString().split('T')[0];
 
     return {
         totalRepayment: totalRepayment,
@@ -370,5 +363,7 @@ function calculateLoanRepayment(
         nextRepaymentDate: nextRepaymentDateString,
     };
 }
+
+
 
 // ... (remaining code)
