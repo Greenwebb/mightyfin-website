@@ -45,10 +45,7 @@
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper "
                         style="z-index: 2000; border-radius: 2.5rem; margin-top: -39px; background-color: #ffffff ">
-                        <div style="
-                        margin: 2rem;
-                        padding-top: 5rem;
-                    "
+                        <div style="margin: 2rem; padding-top: 5rem;"
                             class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1482486413093">
                             <div class="wpb_column vc_column_container vc_col-sm-6">
                                 <div class="vc_column-inner vc_custom_1482117949347">
