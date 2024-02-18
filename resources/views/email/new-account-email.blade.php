@@ -112,7 +112,7 @@
                 <p style="text-align: left;">
                     {{  $data['message']  }}
                 </p>
-                <a target="_blank" href="https://mightyfinance.co.zm/login" style="padding: 12px;text-align:center;font-size: 0.75em;background-color:#500d6c;color:#384049;color:white;border: 1em solid #fff;" >Sign In</a>
+                <a target="_blank" href="https://admin.mightyfinance.co.zm/login" style="padding: 12px;text-align:center;font-size: 0.75em;background-color:#500d6c;color:#384049;color:white;border: 1em solid #fff;" >Sign In</a>
                 <br>
                 <p>Best Regards</p>
               </td>
