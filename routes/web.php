@@ -81,10 +81,7 @@ use App\Http\Livewire\WithdrawRequestView;
 use App\Models\LoanWallet;
 use App\Models\WithdrawRequest;
 use Illuminate\Support\Facades\Artisan;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
-=======
->>>>>>> master
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -97,13 +94,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-<<<<<<< HEAD
 // Auth::routes(['login' => false]);
-=======
-// Route::get('/foo', function () {
-//     Artisan::call('storage:link');
-// });
->>>>>>> master
 Route::get('/', WelcomePage::class)->name('welcome');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::post('/share-docs', [UserController::class, 'share_doc'])->name('share.docs');
@@ -111,11 +102,7 @@ Route::post('/share-docs', [UserController::class, 'share_doc'])->name('share.do
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
     Route::get('otp-verification', [OTPController::class, 'index'])->name('otp');
-<<<<<<< HEAD
     // Route::get('/dashboard', DashboardView::class)->name('dashboard');
-=======
-    Route::get('/dashboard', DashboardView::class)->name('dashboard');
->>>>>>> master
     Route::get('/search', SearchEngineView::class)->name('search');
     // Administrator
     Route::get('approved-loans', ApprovedLoansView::class)->name('approved-loans');
