@@ -265,7 +265,11 @@
     }
 
 
-
+    .col-6 {
+        -ms-flex: 0 0 50%;
+        flex: 1 0 50%;
+        max-width: 81%;
+    }
 
 
 
@@ -389,9 +393,10 @@
         opacity: 0;
         cursor: pointer;
     }
+
     .terms-text {
-    flex-grow: 1;
-}
+        flex-grow: 1;
+    }
 
     .cb {
         position: absolute;
