@@ -19,7 +19,7 @@ trait UserTrait{
 
         if($input['email'] !== null){
             $check = User::where('email', $input['email'])->exists();
-
+            
             if(!$check){
                 try {
                     $user = User::create([
@@ -53,7 +53,7 @@ trait UserTrait{
                 $user = User::create([
                     'fname' => $input['fname'],
                     'mname' => $input['mname'],
-                    'phone2' => $input['phone2'],
+                    'phone' => $input['phone'],
                     'lname' => $input['lname'],
                     'password' => Hash::make($password),
                     'terms' => 'accepted'
