@@ -180,18 +180,18 @@ trait LoanTrait{
                     // Fetch the loan status with relationships
                     $status = DB::table('loan_statuses')
                         ->join('statuses', 'loan_statuses.status_id', '=', 'statuses.id')
-                        ->select('loan_statuses.*', 'statuses.status')
+                        ->select('loan_statuses.*', 'statuses.*')
                         ->where('loan_statuses.loan_product_id', 1)
                         ->orderBy('loan_statuses.id', 'asc')
                         ->first();
-
+                        
                     // Create a new application stage
                     DB::table('application_stages')->insert([
                         'application_id' => $item->id,
                         'loan_status_id' => 1,
                         'state' => 'current',
-                        'status' => $status->status, // Using the status retrieved from the query
-                        'stage' => 'processing',
+                        'status' => $status->name, // Using the status retrieved from the query
+                        'stage' => $status->stage,
                         'prev_status' => 'current',
                         'curr_status' => '',
                         'position' => 1
