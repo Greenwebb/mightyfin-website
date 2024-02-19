@@ -637,7 +637,7 @@
 
                                                 <p><strong>Service Fee:</strong> <span id="service_lbl"></span> </p>
                                                 <hr>
-                                                <p><strong>Approved Amount:</strong> <span id="approve_amt_lbl"></span> </p>
+                                                <p><strong>You will recieve:</strong> <span id="approve_amt_lbl"></span> </p>
                                                 <hr>
                                                 <p><strong>Monthly Installment:</strong> <span id="monthly_inst_lbl"></span> </p>
                                                 <hr>

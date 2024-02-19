@@ -54,6 +54,8 @@ jQuery(document).ready(function () {
             var loanTypeLabel = document.getElementById("loan_type_lbl");
             var repaymentLabel = document.getElementById("tenure_lbl");
             var serviceLabel = document.getElementById("service_lbl");
+            let approvedAmtLbl = document.getElementById("approve_amt_lbl");
+
             // Init:
             loanAmtLabel.textContent = '';
             loanTypeLabel.textContent = '';
@@ -63,9 +65,13 @@ jQuery(document).ready(function () {
             loanAmtLabel.textContent = 'K'+loan_amount.value;
             loanTypeLabel.textContent = loanTypeRadio.getAttribute('data-name')
             repaymentLabel.textContent = repaymentPlanInput.value;
-            serviceLabel.textContent = 'K4.5';
+            let formattedResult = loan_amount.value * 0.1;
 
-        
+            serviceLabel.textContent = formattedResult.toFixed(2);
+            let disbursement= loan_amount.value - formattedResult;
+            approvedAmtLbl.textContent = disbursement.toFixed(2);
+
+
         }
         // fields validation
         parent_fieldset.find("input[required]").each(function () {

@@ -294,7 +294,7 @@ window.populate = function (loan_id, slider_amount, slider_duration) {
         approvedAmtLbl.textContent = '';
         monthlyInstLbl.textContent = '';
         nextPaymentLbl.textContent = '';
-        approvedAmtLbl.textContent = 'K'+totalRepayment.toFixed(2);
+        approvedAmtLbl.textContent = 'K'+(totalRepayment-100).toFixed(2);
         monthlyInstLbl.textContent = 'K'+monthlyPayment.toFixed(2);
         nextPaymentLbl.textContent = nextRepaymentDateString;
 
