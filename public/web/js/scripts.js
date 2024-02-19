@@ -96,7 +96,7 @@ jQuery(document).ready(function () {
                 case "tel":
                     // Add your custom validation for phone input type
                     // Example: Check if it is a valid phone number
-                    isValid = /^\d{9}$/.test(inputValue);
+                    isValid = /^\d{10}$/.test(inputValue);
                     break;
 
                 case "email":
@@ -167,7 +167,7 @@ jQuery(document).ready(function () {
         $(this)
             .find("input[required]")
             .each(function () {
-                
+
                 if ($(this).val() == "") {
                     e.preventDefault();
                     $(this).addClass("input-error");
