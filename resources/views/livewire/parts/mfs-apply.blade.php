@@ -362,14 +362,132 @@
         display: block;
         padding: 0em;
         margin: 0em;
+        display: flex;
+        align-items: center;
 
-        max-width: 800px;
     }
 
     #terms_conditions {
         height: 2em;
         width: 2em;
         vertical-align: middle;
+    }
+
+    .cb-container {
+        position: relative;
+        width: 22px;
+        height: 22px;
+        margin: 24px;
+        border: 3px solid #fdbf10;
+    }
+
+    .cb-checkbox {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .terms-text {
+    flex-grow: 1;
+}
+
+    .cb {
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+    }
+
+    .cb,
+    .cb * {
+        transition: 0.25s ease-in-out;
+        -moz-transition: 0.25s ease-in-out;
+        -o-transition: 0.25s ease-in-out;
+    }
+
+    /* tick style */
+    .tick-wrapper {
+        position: relative;
+        bottom: 0;
+        width: 30%;
+        height: 75%;
+        transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+    }
+
+    .tick-wrapper span {
+        display: block;
+        background: transparent;
+        opacity: 0;
+    }
+
+    .tick-r {
+        position: absolute;
+        right: 0;
+        width: 20%;
+        height: 100%;
+    }
+
+    .tick-b {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 10%;
+    }
+
+    .cb-checkbox:checked+.cb-tick {
+        background: #fcbf12;
+    }
+
+    .cb-checkbox:checked+.cb-tick .tick-wrapper {
+        bottom: 10%;
+        width: 45%;
+        height: 90%;
+        transform: rotate(36deg);
+        -moz-transform: rotate(36deg);
+        -ms-transform: rotate(36deg);
+    }
+
+    .cb-checkbox:checked+.cb-tick .tick-wrapper span {
+        background: #fafafa;
+        opacity: 1;
+    }
+
+    /* line style */
+    .line-wrapper {
+        position: relative;
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .line-m {
+        position: relative;
+        width: 0;
+        height: 10%;
+        display: block;
+        background: transparent;
+        opacity: 0;
+    }
+
+    .cb-checkbox:checked+.cb-line {
+        background: #4caf50;
+    }
+
+    .cb-checkbox:checked+.cb-line .line-m {
+        position: relative;
+        width: 90%;
+        background: #fafafa;
+        opacity: 1;
     }
 </style>
 <form role="form" action="{{ route('loan-request') }}" method="POST" id="form_calculater" class="f1" novalidate>
@@ -637,11 +755,14 @@
 
                                                 <p><strong>Service Fee:</strong> <span id="service_lbl"></span> </p>
                                                 <hr>
-                                                <p><strong>You will recieve:</strong> <span id="approve_amt_lbl"></span> </p>
+                                                <p><strong>You will recieve:</strong> <span
+                                                        id="approve_amt_lbl"></span> </p>
                                                 <hr>
-                                                <p><strong>Monthly Installment:</strong> <span id="monthly_inst_lbl"></span> </p>
+                                                <p><strong>Monthly Installment:</strong> <span
+                                                        id="monthly_inst_lbl"></span> </p>
                                                 <hr>
-                                                <p><strong>Next Payment:</strong> <span id="nxt_payment_lbl"></span> </p>
+                                                <p><strong>Next Payment:</strong> <span id="nxt_payment_lbl"></span>
+                                                </p>
                                                 <hr>
                                             </div>
 
@@ -668,10 +789,18 @@
                     </div>
                     <br>
                     <div class="tacbox">
-                        <input id="terms_conditions" type="checkbox"> I agree to these <a href="#">Terms and
-                            Conditions</a>
-
-                    </div> <br>
+                        <label class="cb-container">
+                            <input required class="cb-checkbox" name="terms_and conditions" type="checkbox">
+                            <span class="cb cb-tick">
+                                <span class="tick-wrapper">
+                                    <span class="tick-r"></span>
+                                    <span class="tick-b"></span>
+                                </span>
+                            </span>
+                        </label>
+                        <div class="terms-text"> I agree to these <a href="#">Terms and Conditions</a></div>
+                    </div>
+                    <br>
                     <div class="f1-buttons">
                         <button type="button" class="btn btn-light text-primary btn-previous">Previous</button>
                         <button type="submit" class="btn btn-default btn-submit">Submit</button>

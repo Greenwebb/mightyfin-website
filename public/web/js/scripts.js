@@ -167,6 +167,7 @@ jQuery(document).ready(function () {
         $(this)
             .find("input[required]")
             .each(function () {
+                
                 if ($(this).val() == "") {
                     e.preventDefault();
                     $(this).addClass("input-error");
