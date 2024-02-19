@@ -265,9 +265,9 @@
     }
 
 
-    .col-6 {
+    .coll-6 {
         -ms-flex: 0 0 50%;
-        flex: 1 0 50%;
+        flex: 1 0 50% !important;
         max-width: 81%;
     }
 
@@ -538,7 +538,7 @@
                             <div class="radio-buttons">
                                 <div id="loan_products" class="row">
 
-                                    <div class="col-6">
+                                    <div class="col-6 coll-6">
                                         <label class="custom-radio" style="opacity: 0.5;">
                                             <input disabled type="radio" name="loan_type" checker() />
                                             <div class="radio-btn">

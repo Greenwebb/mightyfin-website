@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     : encodeURIComponent(product.icon);
 
                 radioGroupHtml += `
-                    <div class="col-6">
+                    <div class="col-6 coll-6">
                         <label class="custom-radio" style="opacity: ${
                             isActiveProduct ? "1" : "0.5"
                         };">
