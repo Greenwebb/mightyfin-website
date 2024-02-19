@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Mail\LoanApplication;
 use App\Models\Application;
+use App\Models\ApplicationStage;
 use App\Models\LoanInstallment;
 use App\Models\LoanManualApprover;
 use App\Models\LoanPackage;
@@ -39,30 +40,32 @@ trait LoanTrait{
             'loan_accounts.account_payment',
             'loan_status.status',
             'loan_decimal_places',
-            'service_fees.service_charge'
+            'service_fees.service_charge',
+            'loan_products.institutions'
         ])->first();
     }
 
+    public function get_loan_statuses($id){
+        return LoanStatus::with('status')->where('loan_product_id', $id)
+                        ->get();
+    }
     public function get_loan_current_stage($id){
         return LoanStatus::with('status')->where('loan_product_id', $id)
-                        ->where('state', 'current')->first();
+                        ->first();
     }
 
     public function getLoanRequests($type){
         $userId = auth()->user()->id;
-        // if ($this->type) {
-        //     $loan_requests->whereIn('type', $this->type)->orderBy('id', 'desc');
-        // }
 
-        // if ($this->status) {
-        //     $loan_requests->whereIn('status', $this->status)->orderBy('id', 'desc');
-        // }
         if(auth()->user()->hasRole('admin')){
-            return Application::with('loan_product')->where('complete', 1)->get();
+            // dd('here');
+            return Application::with('loan_product')->where('complete', 1)
+            ->where('status', 2)->orWhere('status', 0)->get();
         }else{
             switch ($type) {
                 case 'spooling':
-                    return Application::with('loan_product')->where('complete', 1)->get();
+                    return Application::with('loan_product')->where('complete', 1)
+                    ->orWhere('status', 2)->orWhere('status', 0)->get();
                     break;
                 case 'manual':
                     return Application::with('loan_product')->with(['manual_approvers' => function ($query) use ($userId) {
@@ -72,6 +75,40 @@ trait LoanTrait{
                         $query->where('user_id', $userId);
                         $query->where('is_active', 1);
                     })
+                    ->orWhere('status', 2)->orWhere('status', 0)
+                    ->where('complete', 1)
+                    ->get();
+    
+                    break;
+                case 'auto':
+                    # code...
+                    break;
+                
+                default:
+                    # code...
+                break;
+            }
+        }
+    }
+    public function getOpenLoanRequests($type){
+        $userId = auth()->user()->id;
+        if(auth()->user()->hasRole('admin')){
+            return Application::with('loan_product')->where('complete', 1)->where('status', 1)->get();
+        }else{
+            switch ($type) {
+                case 'spooling':
+                    return Application::with('loan_product')->where('complete', 1)
+                    ->where('status', 1)->get();
+                    break;
+                case 'manual':
+                    return Application::with('loan_product')->with(['manual_approvers' => function ($query) use ($userId) {
+                        $query->where('user_id', $userId);
+                        $query->where('is_active', 1);
+                    }])->whereHas('manual_approvers', function ($query) use ($userId) {
+                        $query->where('user_id', $userId);
+                        $query->where('is_active', 1);
+                    })
+                    ->where('status', 1)
                     ->where('complete', 1)
                     ->get();
     
@@ -140,6 +177,27 @@ trait LoanTrait{
                         $loan_data = new LoanApplication($mail);
                         Mail::to($data['email'])->send($loan_data);
                     }
+
+                    // Fetch the loan status with relationships
+                    $status = DB::table('loan_statuses')
+                        ->join('statuses', 'loan_statuses.status_id', '=', 'statuses.id')
+                        ->select('loan_statuses.*', 'statuses.status')
+                        ->where('loan_statuses.loan_product_id', 1)
+                        ->orderBy('loan_statuses.id', 'asc')
+                        ->first();
+
+                    // Create a new application stage
+                    DB::table('application_stages')->insert([
+                        'application_id' => $item->id,
+                        'loan_status_id' => 1,
+                        'state' => 'current',
+                        'status' => $status->status, // Using the status retrieved from the query
+                        'stage' => 'processing',
+                        'prev_status' => 'current',
+                        'curr_status' => '',
+                        'position' => 1
+                    ]);
+                    
                     return $item->id;
                 }else{
                     // redirect to you already have loan request
