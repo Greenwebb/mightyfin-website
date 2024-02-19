@@ -110,7 +110,7 @@ class LoanApplicationController extends Controller
                 $res = $this->apply_loan($data);
                 
                 if($res == 'exists'){
-                    $loan = Application::where('status', 0)->where('complete', 0)->where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
+                    $loan = Application::where('closed', 0)->where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
                     return response()->json([
                         "status" => 500, 
                         "success" => false, 

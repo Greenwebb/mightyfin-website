@@ -201,13 +201,6 @@ trait LoanTrait{
                 }else{
                     // redirect to you already have loan request
                     return 'exists';
-                    
-                    // $item = Application::create($data);
-                    // if($data['email'] != ''){
-                    //     $loan_data = new LoanApplication($mail);
-                    //     Mail::to($data['email'])->send($loan_data);
-                    // }
-                    // return $item->id;
                 }
 
             } catch (\Throwable $th) {
