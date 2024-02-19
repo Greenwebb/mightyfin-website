@@ -548,11 +548,19 @@
                                     <label class="input-group">
                                         <div style=" width: 100%;" class="mobile-input-group">
                                             <select class="prefix" aria-label="Mobile Number Prefix">
+<<<<<<< HEAD
                                                 <option value="+26">
                                                     <img width="50"
                                                         src="https://www.indexmundi.com/flags/za-lgflag.gif"
                                                         alt="">
                                                     +26
+=======
+                                                <option value="+260">
+                                                    <img width="50"
+                                                        src="https://www.indexmundi.com/flags/za-lgflag.gif"
+                                                        alt="">
+                                                    +260
+>>>>>>> master
                                                 </option>
                                                 <!-- Add more options as needed -->
                                             </select>

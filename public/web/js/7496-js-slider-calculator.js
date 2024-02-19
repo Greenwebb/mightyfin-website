@@ -267,6 +267,7 @@ window.populate = function (loan_id, slider_amount, slider_duration) {
         // Calculate total repayment, adding the service fee
         const totalRepayment = monthlyPayment * loanTermMonths + serviceFee;
 
+<<<<<<< HEAD
         // Determine the next repayment date based on the current date
         const currentDate = new Date();
         const loanStartDate = new Date(currentDate);
@@ -274,6 +275,14 @@ window.populate = function (loan_id, slider_amount, slider_duration) {
         // Check if the current date is after the 5th of the month
         if (currentDate.getDate() > 5) {
             // If yes, move to the next month
+=======
+        // Determine the next repayment date based on the current date and 5th date rule
+        const currentDate = new Date();
+        let loanStartDate = new Date(currentDate);
+
+        // If the current date is after the 5th of the month, move to the next month
+        if (currentDate.getDate() > 5) {
+>>>>>>> master
             loanStartDate.setMonth(loanStartDate.getMonth() + 1);
         }
 
@@ -282,12 +291,18 @@ window.populate = function (loan_id, slider_amount, slider_duration) {
 
         // Calculate the next repayment date based on the loan duration
         const nextRepaymentDate = new Date(loanStartDate);
+<<<<<<< HEAD
         nextRepaymentDate.setMonth(nextRepaymentDate.getMonth() + loanTermMonths);
 
         // Format the next repayment date as needed
         const lastDayOfMonth = new Date(nextRepaymentDate.getFullYear(), nextRepaymentDate.getMonth() + 1, 0).getDate();
         nextRepaymentDate.setDate(lastDayOfMonth);
 
+=======
+        nextRepaymentDate.setDate(0); // Set to the last day of the month
+
+        // Format the next repayment date as needed
+>>>>>>> master
         const nextRepaymentDateString = nextRepaymentDate.toISOString().split('T')[0];
 
         // Update the UI elements

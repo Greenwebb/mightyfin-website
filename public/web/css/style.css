@@ -8,9 +8,15 @@
  Author : Jitu Chauhan;
  Version: 1.0.5;
 
+<<<<<<< HEAD
 + General css 
 + Space css
 + Background & Block color 
+=======
++ General css
++ Space css
++ Background & Block color
+>>>>>>> master
 + Buttons
 + Input Form
 + Bullet
@@ -28,7 +34,11 @@
   - Personal Loan Single
   - Home Loan Single
   - Education Loan Single
+<<<<<<< HEAD
 + ABOUT US 
+=======
++ ABOUT US
+>>>>>>> master
   - About us
   - Team
 + BLOG
@@ -49,10 +59,17 @@
     - Shortcodes
       - Tab
       - Accordion
+<<<<<<< HEAD
       - Alert       
 
 - CONTACT US
     
+=======
+      - Alert
+
+- CONTACT US
+
+>>>>>>> master
 */
 
 /*-----------------------------------
@@ -64,7 +81,11 @@ body {
   font-family: "montserrat", sans-serif;
   line-height: 1.5;
   color: #778191;
+<<<<<<< HEAD
   background-color: #f4f6f8;
+=======
+  background-color: #eae7ec;
+>>>>>>> master
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -533,7 +554,11 @@ Padding space
 
 /*---------------
 Section Space
+<<<<<<< HEAD
 * Section space help to create top bottom space. 
+=======
+* Section space help to create top bottom space.
+>>>>>>> master
 *
 -----------------*/
 .section-space20 {
@@ -572,7 +597,11 @@ Section Space
 }
 
 /*-----------------------------------------
+<<<<<<< HEAD
 Background & Block color 
+=======
+Background & Block color
+>>>>>>> master
 ------------------------------------------*/
 .bg-light {
   background-color: #fafcfd;
@@ -1742,7 +1771,11 @@ index-1
   border: transparent;
 }
 
+<<<<<<< HEAD
 /* Nice Select 
+=======
+/* Nice Select
+>>>>>>> master
 -------------------------------------------------------------- */
 .nice-select {
   -webkit-tap-highlight-color: transparent;
@@ -2407,8 +2440,13 @@ compare Student loan table
 -----------------------------------------------------*/
 
 .bank-account-tabs.st-tabs .nav-link {
+<<<<<<< HEAD
   background-color: #f4f6f8;
   border-color: #f4f6f8;
+=======
+  background-color: #eae7ec;
+  border-color: #eae7ec;
+>>>>>>> master
 }
 
 .bank-account-tabs.st-tabs .tab-content {
@@ -2680,7 +2718,11 @@ footer
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Page header 
+=======
+Page header
+>>>>>>> master
 ---------------------------------*/
 .page-header {
   margin: 0;
@@ -2777,7 +2819,11 @@ Page header
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Blog  
+=======
+Blog
+>>>>>>> master
 ---------------------------------*/
 .post-holder {
   border-bottom: 1px solid #e8eaec;
@@ -2860,12 +2906,20 @@ Blog
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Blog-sidebar  
+=======
+Blog-sidebar
+>>>>>>> master
 ---------------------------------*/
 .widget {
   padding: 24px;
   margin-bottom: 30px;
+<<<<<<< HEAD
   background-color: #f4f6f8;
+=======
+  background-color: #eae7ec;
+>>>>>>> master
 }
 
 .widget-title {
@@ -3040,7 +3094,11 @@ Blog-sidebar
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Blog-single  
+=======
+Blog-single
+>>>>>>> master
 ---------------------------------*/
 .name {
   font-size: 14px;
@@ -3051,7 +3109,11 @@ Blog-single
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Pagination  
+=======
+Pagination
+>>>>>>> master
 ---------------------------------*/
 
 .st-pagination .pagination > li > a,
@@ -3145,7 +3207,11 @@ Pagination
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Extra Plugin CSS - Back to top  
+=======
+Extra Plugin CSS - Back to top
+>>>>>>> master
 ---------------------------------*/
 .cd-top {
   display: inline-block;
@@ -3434,7 +3500,11 @@ img {
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Team  
+=======
+Team
+>>>>>>> master
 ---------------------------------*/
 
 .designation {
@@ -3445,7 +3515,11 @@ Team
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 About us 
+=======
+About us
+>>>>>>> master
 ---------------------------------*/
 
 .cta-section-second {
@@ -3465,7 +3539,11 @@ About us
 }
 
 /*--------------------------------
+<<<<<<< HEAD
 Contact us 
+=======
+Contact us
+>>>>>>> master
 ---------------------------------*/
 .map {
   height: 400px;
@@ -3528,7 +3606,11 @@ Product Single Sidebar
 }
 
 .product-tabs .nav > li.active a {
+<<<<<<< HEAD
   border-right: 1px solid #f4f6f8;
+=======
+  border-right: 1px solid #eae7ec;
+>>>>>>> master
   background: #eff3f8;
   color: #f51f8a;
 }
@@ -3976,7 +4058,11 @@ Landing Page Template
 
 .feature-icon-style .feature-icon {
   margin: 0 auto 40px auto;
+<<<<<<< HEAD
   background-color: #f4f6f8;
+=======
+  background-color: #eae7ec;
+>>>>>>> master
   width: 80px;
   height: 80px;
   border-radius: 100px;
@@ -3994,7 +4080,11 @@ Landing Page Template
 }
 
 .feature-circle {
+<<<<<<< HEAD
   background-color: #f4f6f8;
+=======
+  background-color: #eae7ec;
+>>>>>>> master
   width: 60px;
   height: 60px;
   border-radius: 100px;

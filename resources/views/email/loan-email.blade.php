@@ -123,7 +123,11 @@
             <tr>
               <td style="border-radius:5%; padding:6%;background-color:#ffffffd4;">
                 <h1 style="text-align:center; margin-top:0;margin-bottom:1.38em;font-size:1.953em;line-height:1.3;font-weight:bold;letter-spacing:-0.02em;">
+<<<<<<< HEAD
                   {{  $data['subject']  }}
+=======
+                   {{  $data['subject']  }}
+>>>>>>> master
                 </h1>
                 
                 <p style="text-align: center; font-size:12px">
@@ -133,10 +137,18 @@
                     {{  $data['message2']  }}. 
                 </p>
                 <div style="width: 100%; text-align: center; display: flex; align-items: center; justify-content: center;">
+<<<<<<< HEAD
                     <a style="margin-left:15%; color: #fff; padding-left:6%; padding:5%;font-size:18px" target="_blank" href="https://app.mightyfinance.co.zm/dashboard" class="-btn -bg -txt">
                         Continue to Loan Submission
                     </a>
                 </div>
+=======
+                    <a style="margin-left:15%; color: #fff; padding-left:6%; padding:5%;font-size:18px" target="_blank" href="https://mightyfinance.co.zm/dashboard" class="-btn -bg -txt">
+                        Continue to Loan Submission
+                    </a>
+                </div>
+                
+>>>>>>> master
               </td>
             </tr>
             <tr>
