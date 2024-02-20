@@ -676,7 +676,6 @@
                                                         alt="">
                                                     +26
                                                 </option>
-                                                <!-- Add more options as needed -->
                                             </select>
                                             <input required minlength="10" maxlength="10" id="phone" type="tel"
                                                 name="phone" placeholder="077- -- -- -- (must have 10 digits)">

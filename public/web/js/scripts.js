@@ -78,7 +78,7 @@ jQuery(document).ready(function () {
             var inputValue = $(this).val();
             var inputType = $(this).attr("type");
             var isValid = true;
-
+            
             // Validate based on input type
             switch (inputType) {
                 case "text":
