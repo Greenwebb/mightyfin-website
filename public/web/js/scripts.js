@@ -215,10 +215,7 @@ jQuery(document).ready(function () {
                 })
                 .then((data) => {
 
-
                     // Accessing the value of the input with name "fname"
-
-
                     console.log("Here: " + data.status);
 
                     // console.log(data.hasOwnProperty('amount'));
@@ -230,7 +227,6 @@ jQuery(document).ready(function () {
                         lname = data.lname;
 
                         // Access the 'loan_id' key in the 'data' object
-
                         Swal.fire({
                             title: "<strong>Hello " + fname + "</strong>",
                             icon: "success",
@@ -262,7 +258,6 @@ jQuery(document).ready(function () {
                                 "To proceed with a new loan application, please complete the current loan process. " +
                                 "You can check your dashboard for details on your existing loan and follow the instructions there. " +
                                 "If you have any questions, feel free to reach out to our customer support. Call: +260950082577 Or: +260950081545.",
-
                             // footer: '<a href="//login">Payback Loan</a>'
                         });
                     }
