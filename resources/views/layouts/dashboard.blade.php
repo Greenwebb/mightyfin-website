@@ -61,9 +61,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: rgba(0, 0, 0, 0.105);
-            /* Dimmed background */
             backdrop-filter: blur(5px);
-            /* Blurred background */
             padding: 20px;
             z-index: 2;
         }

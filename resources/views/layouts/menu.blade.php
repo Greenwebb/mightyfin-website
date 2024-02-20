@@ -39,8 +39,8 @@
                         <span class="mr10"><a href="#location"></a></span> 
                         @auth
                         <span>
-                            <a href="{{ route('dashboard') }}" class="btn btn-default btn-sm">
-                                <em style="margin-right: 6px;" class="fa fa-user"></em>Dashboard
+                            <a href="https://app.mightyfinance.co.zm/dashboard" class="btn btn-default btn-sm">
+                                <em style="margin-right: 6px;" class="fa fa-user"></em>App
                             </a>
                         </span>
                         @else
