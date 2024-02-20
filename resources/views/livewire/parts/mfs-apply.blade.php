@@ -525,7 +525,6 @@
                     <p>Summary</p>
                 </div>
             </center>
-
         </div>
 
         <fieldset>
@@ -697,14 +696,8 @@
                                     </label>
                                 </radio> --}}
                             </div>
-
-
                         </div>
-
                     </div>
-
-
-
                 </div>
 
                 <div class="f1-buttons">
@@ -773,22 +766,9 @@
 
                                             <br>
                                         </div>
-
-
-
-
-
-
-
                                     </div>
-
-
                                 </div>
-
                             </div>
-
-
-
                         </div>
 
                     </div>
@@ -811,9 +791,6 @@
                         <button type="submit" class="btn btn-default btn-submit">Submit</button>
                     </div>
                 </div>
-
-
-
         </fieldset>
 
         <div class="col-12 mt25">

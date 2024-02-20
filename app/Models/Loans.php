@@ -27,7 +27,6 @@ class Loans extends Model
         ->where('status', 1)
         ->where('complete', 1)
         ->where('user_id', $user_id)->count();
-
     }
 
     public static function total_borrowed($user_id){
