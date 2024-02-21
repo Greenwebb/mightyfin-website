@@ -150,7 +150,6 @@ class LoanApplicationController extends Controller
             }else{
                 
                 DB::rollback();
-                dd('failed');
                 return response()->json([
                     "status" => 500, 
                     "success" => false, 

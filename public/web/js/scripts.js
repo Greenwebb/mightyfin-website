@@ -253,13 +253,14 @@ jQuery(document).ready(function () {
                             title: "Oh Sorry... ",
                             text:
                                 "It seems that you already have an existing loan of K" +
-                                amount +
-                                ". " +
-                                "To proceed with a new loan application, please complete the current loan process. " +
-                                "You can check your dashboard for details on your existing loan and follow the instructions there. " +
-                                "If you have any questions, feel free to reach out to our customer support. Call: +260950082577 Or: +260950081545.",
+                                data.amount +
+                                ".\n\n" +
+                                "To proceed with a new loan application, please complete the current loan process.\n" +
+                                "You can check your dashboard for details on your existing loan and follow the instructions there.\n" +
+                                +".\n\n" +"If you have any questions, feel free to reach out to our customer support.\nCall: +260950082577 Or: +260950081545.",
                             // footer: '<a href="//login">Payback Loan</a>'
                         });
+                        
                     }
                     // console.log("API Response:", data);
                 })
