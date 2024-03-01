@@ -155,7 +155,6 @@ trait LoanTrait{
         try {
             // that is not approved yet and not complete
             $check = Application::where('closed', 0)->where('user_id', $data['user_id'])->orderBy('created_at', 'desc')->get();
-            // dd(empty($check->toArray()));
             if($data['email'] != ''){
                 $mail = [
                     'name' => $data['fname'].' '.$data['lname'],
