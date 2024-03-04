@@ -80,6 +80,7 @@ class LoanApplicationController extends Controller
         try {
             DB::beginTransaction();
             $form = $request->toArray();
+            dd($form);
             // Create the new user account or Not if exists
             $register = [
                 'lname'=> $form['lname'],

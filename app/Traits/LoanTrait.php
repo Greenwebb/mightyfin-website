@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 
 trait LoanTrait{
-    use EmailTrait;
+    use EmailTrait, SMSTrait;
     public $application;
 
     public function get_all_loan_products(){
@@ -171,6 +171,12 @@ trait LoanTrait{
             if(empty($check->toArray())){
                 $item = Application::create($data);
                 if($data['email'] != ''){
+                    // Send SMS
+                    $sms = [
+                        'message' => 'Hello '.auth()->user()->fname.', Congratulations! Your loan application has been applied successfully. 🎉 Before logging into your dashboard to complete the remaining steps, please check your email for important details and instructions.',
+                        'phone'   =>  '26'.auth()->user()->phone
+                    ];
+                    $this->send_sms($sms);
                     $loan_data = new LoanApplication($mail);
                     Mail::to($data['email'])->send($loan_data);
                 }

@@ -536,15 +536,13 @@
                         <div class="wrapper">
                             <div class="radio-buttons">
                                 <div id="loan_products" class="row">
-
-                                    <div class="col-6 coll-6">
+                                    <div class="col-6 col-6">
                                         <label class="custom-radio" style="opacity: 0.5;">
-                                            <input disabled type="radio" name="loan_type" checker() />
+                                            <input disabled type="radio"/>
                                             <div class="radio-btn">
                                                 <div class="content">
                                                     <div class="mb-2">
-                                                        <img width="50px"
-                                                            src="{{ asset('public/web/images/1.svg') }}" />
+                                                        <img width="50px" src="{{ asset('public/web/images/1.svg') }}" />
                                                     </div>
                                                     <h2>Business Loan</h2>
                                                     <p class="skill">SME (coming soon)</p>
@@ -555,10 +553,7 @@
                                             </div>
                                         </label>
                                     </div>
-
                                 </div>
-
-
                             </div>
                         </div>
 

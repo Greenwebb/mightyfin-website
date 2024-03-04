@@ -137,11 +137,12 @@ document.addEventListener("DOMContentLoaded", async function () {
                             <input ${
                                 isActiveProduct ? "enabled" : "disabled"
                             } type="radio" data-name="${product.name}"
-                                   name="loan_type" value="${product.id}"
-                                   onclick="checker()" ${
-                                       isActiveProduct ? "checked" : ""
-                                   }>
-                            <!-- Add product details dynamically here --><div class="radio-btn">
+                                    name="loan_type" value="${product.id}"
+                                    onclick="checker()" ${
+                                        isActiveProduct ? "checked" : ""
+                                    }>
+                            <!-- Add product details dynamically here -->
+                            <div class="radio-btn">
                             <div class="content">
                                 <div class="mb-2">
                                     <img width="50px" src="data:image/svg+xml,${productIconSVG}" />

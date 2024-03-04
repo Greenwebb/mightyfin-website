@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 
 class LoanApplication extends Mailable
 {
-    use Queueable, SerializesModels, SMSTrait;
+    use Queueable, SerializesModels;
 
     public $data, $files, $sms;
 
@@ -36,10 +36,6 @@ class LoanApplication extends Mailable
                 'file_mime' => 'application/pdf',
             ],
         ];
-        $this->sms = [
-            'message' => 'Hello '.auth()->user()->fname.', Congratulations! Your loan application has been applied successfully. 🎉 Before logging into your dashboard to complete the remaining steps, please check your email for important details and instructions.',
-            'phone'   =>  '26'.auth()->user()->phone
-        ];
     }
 
     /**
@@ -49,8 +45,7 @@ class LoanApplication extends Mailable
      */
     public function build()
     {
-        // Send SMS
-        $this->send_sms($this->sms);
+
         $message = $this->view('email.loan-email');
         foreach ($this->files as $file) {
             $message->attach($file['file_path'], [
