@@ -121,51 +121,54 @@ document.addEventListener("DOMContentLoaded", async function () {
             localStorage.setItem("loanProducts", JSON.stringify(loanProducts));
 
             loanProducts.forEach((product) => {
-                const isActiveProduct = product.status === 1;
-                const isChecked = isActiveProduct && !foundActiveProduct;
+                // Get only active loan products
+                if(product.status === 1){
+                    const isActiveProduct = product.status === 1;
+                    const isChecked = isActiveProduct && !foundActiveProduct;
 
-                // Use different SVG for checked and unchecked radio buttons
-                const productIconSVG = isChecked
-                    ? encodeURIComponent(product.icon_alt)
-                    : encodeURIComponent(product.icon);
+                    // Use different SVG for checked and unchecked radio buttons
+                    const productIconSVG = isChecked
+                        ? encodeURIComponent(product.icon_alt)
+                        : encodeURIComponent(product.icon);
 
-                radioGroupHtml += `
-                    <div class="col-6 coll-6">
-                        <label class="custom-radio" style="opacity: ${
-                            isActiveProduct ? "1" : "0.5"
-                        };">
-                            <input ${
-                                isActiveProduct ? "enabled" : "disabled"
-                            } type="radio" data-name="${product.name}"
-                                    name="loan_type" value="${product.id}"
-                                    onclick="checker()" ${
-                                        isActiveProduct ? "checked" : ""
-                                    }>
-                            <!-- Add product details dynamically here -->
-                            <div class="radio-btn">
-                            <div class="content">
-                                <div class="mb-2">
-                                    <img width="50px" src="data:image/svg+xml,${productIconSVG}" />
+                    radioGroupHtml += `
+                        <div class="col-6 coll-6">
+                            <label class="custom-radio" style="opacity: ${
+                                isActiveProduct ? "1" : "0.5"
+                            };">
+                                <input ${
+                                    isActiveProduct ? "enabled" : "disabled"
+                                } type="radio" data-name="${product.name}"
+                                name="loan_type" value="${product.id}"
+                                onclick="checker()" ${
+                                    isActiveProduct ? "checked" : ""
+                                }>
+                                <!-- Add product details dynamically here --><div class="radio-btn">
+                                <div class="content">
+                                    <div class="mb-2">
+                                        <img width="50px" src="data:image/svg+xml,${productIconSVG}" />
+                                    </div>
+                                    <h2>${product.name} </h2>
+                                    <p class="skill">
+                                        ${product.description} #
+                                        ${isActiveProduct ? "(Available)" : "<br>(Coming Soon)"}
+                                    </p>
+                                    <span class="check-icon">
+                                        <span class="icon"></span>
+                                    </span>
                                 </div>
-                                <h2>${product.name}</h2>
-                                <p class="skill">${
-                                    product.description
-                                } ${isActiveProduct ? "(Available)" : "<br>(Coming Soon)"}</p>
-                                <span class="check-icon">
-                                    <span class="icon"></span>
-                                </span>
                             </div>
-                        </div>
-                        </label>
-                    </div>`;
+                            </label>
+                        </div>`;
 
-                if (isActiveProduct && !foundActiveProduct) {
-                    foundActiveProduct = true;
-                    activeLoanType = product.id;
-                    max_loan_amount = product.max_principal_amount;
-                    min_loan_amount = product.min_principal_amount;
-                    max_loan_duration = product.max_loan_duration;
-                    min_loan_duration = product.min_loan_duration;
+                    if (isActiveProduct && !foundActiveProduct) {
+                        foundActiveProduct = true;
+                        activeLoanType = product.id;
+                        max_loan_amount = product.max_principal_amount;
+                        min_loan_amount = product.min_principal_amount;
+                        max_loan_duration = product.max_loan_duration;
+                        min_loan_duration = product.min_loan_duration;
+                    }
                 }
             });
         }

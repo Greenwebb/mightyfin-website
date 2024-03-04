@@ -536,9 +536,10 @@
                         <div class="wrapper">
                             <div class="radio-buttons">
                                 <div id="loan_products" class="row">
-                                    <div class="col-6 col-6">
+
+                                    <div class="col-6 coll-6">
                                         <label class="custom-radio" style="opacity: 0.5;">
-                                            <input disabled type="radio"/>
+                                            <input disabled type="radio" name="loan_type"/>
                                             <div class="radio-btn">
                                                 <div class="content">
                                                     <div class="mb-2">
@@ -553,7 +554,10 @@
                                             </div>
                                         </label>
                                     </div>
+
                                 </div>
+
+
                             </div>
                         </div>
 

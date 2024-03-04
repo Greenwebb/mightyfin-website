@@ -21,10 +21,11 @@ class WelcomePage extends Component
     public $g2lname, $g2fname, $g2email, $g2phone, $g2_gender, $g2_relation;
     // public $nrc_file, $tpin_file, $business_file, $payslip_file, $bank_trans_file, $bill_file;
     public $step_1_title = 'Loan Details';
-
+    public $loan_products;
 
     public function render()
     {
+        $this->loan_products = $this->get_all_loan_products();
         return view('livewire.welcome-page');
     }
 
