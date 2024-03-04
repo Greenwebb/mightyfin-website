@@ -133,13 +133,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                     radioGroupHtml += `
                         <div class="col-6 coll-6">
-                            <label class="custom-radio" style="opacity: ${
+                            <label for="${product.id}" class="custom-radio" style="opacity: ${
                                 isActiveProduct ? "1" : "0.5"
                             };">
                                 <input ${
                                     isActiveProduct ? "enabled" : "disabled"
                                 } type="radio" data-name="${product.name}"
-                                name="loan_type" value="${product.id}"
+                                name="loan_type" id="${product.id}" value="${product.id}"
                                 onclick="checker()" ${
                                     isActiveProduct ? "checked" : ""
                                 }>
